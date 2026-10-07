@@ -175,7 +175,7 @@ function jb_schema_graph() {
 		'addressCountry'  => 'US',
 	);
 
-	$knows = array( 'Mortgage pre-approval', 'Home purchase financing', 'Mortgage refinancing', 'Home equity', 'Jumbo loans', 'Luxury home financing', 'Self-employed mortgages', 'Bank statement loans', 'Investment property loans', 'DSCR loans', 'New construction financing', 'FHA loans', 'VA loans', 'Conventional loans' );
+	$knows = array( 'Mortgage pre-approval', 'Home purchase financing', 'Mortgage refinancing', 'Home equity', 'Jumbo loans', 'Luxury home financing', 'Self-employed mortgages', 'Bank statement loans', 'Investment property loans', 'DSCR loans', 'New construction financing', 'FHA loans', 'VA loans', 'Conventional loans', 'Non-QM loans', 'Adjustable-rate mortgages', 'Down payment assistance', 'First-time homebuyers' );
 
 	$graph = array(
 		array(
