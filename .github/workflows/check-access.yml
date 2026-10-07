@@ -1,0 +1,57 @@
+name: Check staging access
+
+on:
+  push:
+    paths: ['.github/workflows/check-access.yml']
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Which secrets are set (values never printed)
+        env:
+          SG_SSH_HOST: ${{ secrets.SG_SSH_HOST }}
+          SG_SSH_USER: ${{ secrets.SG_SSH_USER }}
+          SG_SSH_PORT: ${{ secrets.SG_SSH_PORT }}
+          SG_SSH_KEY: ${{ secrets.SG_SSH_KEY }}
+          SG_SSH_PASSPHRASE: ${{ secrets.SG_SSH_PASSPHRASE }}
+          WP_APP_USER: ${{ secrets.WP_APP_USER }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+        run: |
+          for v in SG_SSH_HOST SG_SSH_USER SG_SSH_PORT SG_SSH_KEY SG_SSH_PASSPHRASE WP_APP_USER WP_APP_PASSWORD; do
+            if [ -n "${!v}" ]; then echo "$v: set"; else echo "$v: MISSING"; fi
+          done
+
+      - name: Test SSH login to SiteGround
+        env:
+          SG_SSH_HOST: ${{ secrets.SG_SSH_HOST }}
+          SG_SSH_USER: ${{ secrets.SG_SSH_USER }}
+          SG_SSH_PORT: ${{ secrets.SG_SSH_PORT }}
+          SG_SSH_KEY: ${{ secrets.SG_SSH_KEY }}
+          SG_SSH_PASSPHRASE: ${{ secrets.SG_SSH_PASSPHRASE }}
+        run: |
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          printf '%s\n' "$SG_SSH_KEY" > ~/.ssh/sg_key && chmod 600 ~/.ssh/sg_key
+          if head -1 ~/.ssh/sg_key | grep -q 'BEGIN .*PRIVATE KEY'; then echo "Key format: looks like a private key"; else echo "Key format: NOT a private key (did you paste the public key?)"; fi
+          if ssh-keygen -y -P "" -f ~/.ssh/sg_key >/dev/null 2>&1; then
+            echo "Key passphrase: none"
+          elif [ -n "$SG_SSH_PASSPHRASE" ] && ssh-keygen -p -P "$SG_SSH_PASSPHRASE" -N "" -f ~/.ssh/sg_key >/dev/null 2>&1; then
+            echo "Key passphrase: unlocked with SG_SSH_PASSPHRASE"
+          else
+            echo "Key passphrase: key is passphrase-protected and could not be unlocked"; exit 1
+          fi
+          ssh-keyscan -p "${SG_SSH_PORT:-18765}" "$SG_SSH_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+          ssh -i ~/.ssh/sg_key -p "${SG_SSH_PORT:-18765}" -o BatchMode=yes -o ConnectTimeout=20 "$SG_SSH_USER@$SG_SSH_HOST" \
+            'echo "SSH login: OK"; ls -d ~/www/*/public_html 2>/dev/null; ls -d ~/www/*/public_html/wp-content/themes 2>/dev/null'
+
+      - name: Test WordPress application password
+        if: always()
+        env:
+          WP_APP_USER: ${{ secrets.WP_APP_USER }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+        run: |
+          code=$(curl -sS -o resp.json -w '%{http_code}' -u "$WP_APP_USER:$WP_APP_PASSWORD" \
+            'https://joebogdanlo.yroc.host/wp-json/wp/v2/users/me?context=edit')
+          echo "HTTP $code"
+          python3 -c "import json;d=json.load(open('resp.json'));print('WP user:',d.get('slug'),'roles:',d.get('roles'),'| error:',d.get('code'))" || true
