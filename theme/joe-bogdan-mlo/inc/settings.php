@@ -43,10 +43,12 @@ function jb_settings_fields() {
 		),
 		'Profiles'   => array(
 			'linkedin'  => array( 'LinkedIn URL', 'https://www.linkedin.com/in/joebogdan-ccm/' ),
-			'facebook'  => array( 'Facebook URL', '' ),
+			'facebook'  => array( 'Facebook URL', 'https://www.facebook.com/joebogdanCCM/' ),
 			'instagram' => array( 'Instagram URL', '' ),
 			'google'    => array( 'Google Business Profile URL', '' ),
-			'ccm_url'   => array( 'CrossCountry profile URL', '' ),
+			'ccm_url'   => array( 'CrossCountry profile URL', 'https://crosscountrymortgage.com/flower-mound-tx-3345/joseph-bogdan/' ),
+			'zillow_url'     => array( 'Zillow lender profile URL', 'https://www.zillow.com/lender-profile/jhbogdan/' ),
+			'experience_url' => array( 'Experience.com reviews URL', 'https://www.experience.com/reviews/joseph-bogdan-463145' ),
 		),
 	);
 }

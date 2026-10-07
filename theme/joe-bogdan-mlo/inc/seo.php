@@ -241,6 +241,8 @@ function jb_schema_graph() {
 		jb_opt( 'instagram' ),
 		jb_opt( 'google' ),
 		jb_opt( 'ccm_url' ),
+		jb_opt( 'zillow_url' ),
+		jb_opt( 'experience_url' ),
 	) ) );
 
 	$address = array(
@@ -348,7 +350,7 @@ function jb_schema_graph() {
 			'@type'          => 'Person',
 			'@id'            => $ids['person'],
 			'name'           => jb_opt( 'name' ),
-			'alternateName'  => jb_opt( 'legal_name' ),
+			'alternateName'  => array_values( array_unique( array( jb_opt( 'legal_name' ), 'Joseph Bogdan' ) ) ),
 			'givenName'      => 'Joe',
 			'familyName'     => 'Bogdan',
 			'jobTitle'       => jb_opt( 'title' ),
@@ -551,6 +553,10 @@ add_action( 'template_redirect', function () {
 	$out[] = '';
 	$out[] = sprintf( 'Contact: call %s · text %s · %s · %s, %s, %s %s', jb_opt( 'phone' ), jb_opt( 'sms' ), jb_opt( 'email' ), jb_opt( 'street' ), jb_opt( 'city' ), jb_opt( 'region' ), jb_opt( 'postal' ) );
 	$out[] = sprintf( 'Verify license: https://www.nmlsconsumeraccess.org/EntityDetails.aspx/INDIVIDUAL/%s', jb_opt( 'nmls' ) );
+	$profiles = array_filter( array( jb_opt( 'ccm_url' ), jb_opt( 'linkedin' ), jb_opt( 'facebook' ), jb_opt( 'zillow_url' ), jb_opt( 'experience_url' ), jb_opt( 'google' ) ) );
+	if ( $profiles ) {
+		$out[] = 'Profiles and reviews: ' . implode( ' · ', $profiles );
+	}
 	$out[] = '';
 
 	$pages = get_pages( array( 'sort_column' => 'menu_order,post_title' ) );
@@ -586,4 +592,20 @@ add_action( 'template_redirect', function () {
 // Keep usernames out of the public sitemap.
 add_filter( 'wp_sitemaps_add_provider', function ( $provider, $name ) {
 	return 'users' === $name ? false : $provider;
+}, 10, 2 );
+
+/**
+ * robots.txt: explicitly welcome search and AI assistant crawlers.
+ * (WordPress serves "Disallow: /" automatically while search visibility is off.)
+ */
+add_filter( 'robots_txt', function ( $output, $public ) {
+	if ( ! $public ) {
+		return $output;
+	}
+	$bots = array( 'Googlebot', 'Bingbot', 'OAI-SearchBot', 'ChatGPT-User', 'GPTBot', 'ClaudeBot', 'Claude-SearchBot', 'Claude-User', 'PerplexityBot', 'Perplexity-User', 'Google-Extended', 'Applebot', 'Applebot-Extended', 'DuckAssistBot' );
+	$rules = '';
+	foreach ( $bots as $bot ) {
+		$rules .= "User-agent: $bot\nAllow: /\nDisallow: /wp-admin/\n\n";
+	}
+	return $rules . $output . "\n# Plain-language site summary for AI assistants: " . home_url( '/llms.txt' ) . "\n";
 }, 10, 2 );

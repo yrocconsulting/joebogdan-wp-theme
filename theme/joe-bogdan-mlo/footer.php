@@ -43,10 +43,24 @@
 				<li><a href="tel:<?php echo esc_attr( jb_tel() ); ?>"><?php echo jb_icon( 'phone' ); ?>Call <?php echo esc_html( jb_opt( 'phone' ) ); ?></a></li>
 				<li><a href="sms:<?php echo esc_attr( jb_tel( 'sms' ) ); ?>"><?php echo jb_icon( 'message' ); ?>Text <?php echo esc_html( jb_opt( 'sms' ) ); ?></a></li>
 				<li><a href="mailto:<?php echo esc_attr( jb_opt( 'email' ) ); ?>"><?php echo jb_icon( 'mail' ); ?><?php echo esc_html( jb_opt( 'email' ) ); ?></a></li>
-				<?php if ( jb_opt( 'linkedin' ) ) : ?>
-					<li><a href="<?php echo esc_url( jb_opt( 'linkedin' ) ); ?>" target="_blank" rel="noopener me"><?php echo jb_icon( 'linkedin' ); ?>Joe on LinkedIn</a></li>
-				<?php endif; ?>
 				<li><span><?php echo jb_icon( 'pin' ); ?><?php echo esc_html( jb_opt( 'street' ) ); ?><br><?php echo esc_html( jb_opt( 'city' ) . ', ' . jb_opt( 'region' ) . ' ' . jb_opt( 'postal' ) ); ?></span></li>
+			</ul>
+			<ul class="footer-profiles" aria-label="Joe's profiles and reviews">
+				<?php
+				foreach ( array(
+					'linkedin'       => 'LinkedIn',
+					'facebook'       => 'Facebook',
+					'zillow_url'     => 'Zillow reviews',
+					'experience_url' => 'Experience.com reviews',
+					'google'         => 'Google reviews',
+				) as $key => $label ) :
+					if ( jb_opt( $key ) ) :
+						?>
+						<li><a href="<?php echo esc_url( jb_opt( $key ) ); ?>" target="_blank" rel="noopener me"><?php echo esc_html( $label ); ?></a></li>
+						<?php
+					endif;
+				endforeach;
+				?>
 			</ul>
 		</div>
 	</div>
