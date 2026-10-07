@@ -27,10 +27,16 @@ add_action( 'after_setup_theme', function () {
 	add_image_size( 'jb-wide', 1600, 900, true );
 } );
 
+/** Cache-busting version that changes whenever the file is deployed. */
+function jb_asset_version( $path ) {
+	$file = JB_DIR . '/' . $path;
+	return file_exists( $file ) ? (string) filemtime( $file ) : JB_VERSION;
+}
+
 add_action( 'wp_enqueue_scripts', function () {
-	wp_enqueue_style( 'jb-fonts', JB_URI . '/assets/css/fonts.css', array(), JB_VERSION );
-	wp_enqueue_style( 'jb-main', JB_URI . '/assets/css/main.css', array( 'jb-fonts' ), JB_VERSION );
-	wp_enqueue_script( 'jb-main', JB_URI . '/assets/js/main.js', array(), JB_VERSION, array( 'strategy' => 'defer', 'in_footer' => true ) );
+	wp_enqueue_style( 'jb-fonts', JB_URI . '/assets/css/fonts.css', array(), jb_asset_version( 'assets/css/fonts.css' ) );
+	wp_enqueue_style( 'jb-main', JB_URI . '/assets/css/main.css', array( 'jb-fonts' ), jb_asset_version( 'assets/css/main.css' ) );
+	wp_enqueue_script( 'jb-main', JB_URI . '/assets/js/main.js', array(), jb_asset_version( 'assets/js/main.js' ), array( 'strategy' => 'defer', 'in_footer' => true ) );
 	wp_localize_script( 'jb-main', 'JB', array(
 		'leadEndpoint' => esc_url_raw( rest_url( 'jb/v1/lead' ) ),
 		'rate'         => (float) jb_opt( 'rate_estimate' ),
