@@ -68,6 +68,9 @@ foreach ( $manifest['categories'] as $cat ) {
 	if ( ! $term ) {
 		wp_insert_term( $cat['name'], 'category', array( 'slug' => $cat['slug'], 'description' => $cat['description'] ) );
 		jb_sync_log( "Created category {$cat['slug']}" );
+	} elseif ( $term->description !== $cat['description'] ) {
+		wp_update_term( $term->term_id, 'category', array( 'description' => $cat['description'] ) );
+		jb_sync_log( "Updated category description {$cat['slug']}" );
 	}
 }
 $default_cat = get_term_by( 'slug', $manifest['categories'][0]['slug'], 'category' );
@@ -134,6 +137,7 @@ foreach ( $manifest['pages'] as $spec ) {
 	update_post_meta( $id, '_jb_seo_title', $spec['seo_title'] );
 	update_post_meta( $id, '_jb_seo_description', $spec['seo_description'] );
 	update_post_meta( $id, '_jb_service', $spec['service'] );
+	update_post_meta( $id, '_jb_audience', $spec['audience'] ?? '' );
 }
 
 update_option( 'show_on_front', 'page' );
@@ -146,8 +150,17 @@ update_option( 'wp_page_for_privacy_policy', $ids['privacy-policy'] ?? 0 );
  * Import a theme image into the media library once and reuse it.
  */
 function jb_sync_theme_image( $file ) {
+	$alts = array(
+		'buyers.webp'          => 'Couple touring a bright, upscale home',
+		'strategy.webp'        => 'Homeowner reviewing financing plans at a desk',
+		'business-owners.webp' => 'Business owner reviewing documents with an advisor',
+		'luxury.webp'          => 'Couple viewing a luxury home interior',
+	);
 	$existing = get_posts( array( 'post_type' => 'attachment', 'meta_key' => '_jb_source_file', 'meta_value' => $file, 'numberposts' => 1, 'fields' => 'ids' ) );
 	if ( $existing ) {
+		if ( isset( $alts[ $file ] ) && ! get_post_meta( $existing[0], '_wp_attachment_image_alt', true ) ) {
+			update_post_meta( $existing[0], '_wp_attachment_image_alt', $alts[ $file ] );
+		}
 		return $existing[0];
 	}
 	$src = get_theme_root() . '/joe-bogdan-mlo/assets/images/' . $file;
@@ -167,6 +180,9 @@ function jb_sync_theme_image( $file ) {
 	), $upload['file'] );
 	wp_update_attachment_metadata( $id, wp_generate_attachment_metadata( $id, $upload['file'] ) );
 	update_post_meta( $id, '_jb_source_file', $file );
+	if ( isset( $alts[ $file ] ) ) {
+		update_post_meta( $id, '_wp_attachment_image_alt', $alts[ $file ] );
+	}
 	jb_sync_log( "Imported image $file" );
 	return $id;
 }
@@ -213,9 +229,9 @@ foreach ( $manifest['posts'] ?? array() as $spec ) {
 	update_post_meta( $id, '_jb_sync_hash', md5( get_post_field( 'post_content', $id ) ) );
 	update_post_meta( $id, '_jb_seo_title', $spec['seo_title'] );
 	update_post_meta( $id, '_jb_seo_description', $spec['seo_description'] );
-	if ( ! empty( $spec['image'] ) && ! has_post_thumbnail( $id ) ) {
+	if ( ! empty( $spec['image'] ) ) {
 		$img = jb_sync_theme_image( $spec['image'] );
-		if ( $img ) {
+		if ( $img && ! has_post_thumbnail( $id ) ) {
 			set_post_thumbnail( $id, $img );
 		}
 	}

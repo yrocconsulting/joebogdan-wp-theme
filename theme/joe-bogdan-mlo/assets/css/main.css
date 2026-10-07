@@ -419,7 +419,7 @@ a:hover .text-link .icon, .text-link:hover .icon { transform: translateX(3px); }
 	box-shadow: 0 40px 80px -36px rgba(0, 0, 0, .55);
 	border-top: 4px solid var(--gold);
 }
-.lead-form h3, .lead-form legend { color: var(--navy); }
+.lead-form h2, .lead-form h3, .lead-form legend { color: var(--navy); }
 .lead-form p { color: var(--ink-soft); }
 .lead-form a { color: var(--navy); text-decoration: underline; }
 .lead-form-head { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 18px; }
@@ -616,7 +616,7 @@ a:hover .text-link .icon, .text-link:hover .icon { transform: translateX(3px); }
 .post-card-img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
 .post-card-body { display: flex; flex-direction: column; flex: 1; padding: 24px 26px 26px; }
 .post-card-body .eyebrow { margin-bottom: .6em; font-size: .7rem; }
-.post-card-body h3 { font-size: 1.25rem; }
+.post-card-body .post-card-title { font-size: 1.25rem; }
 .post-card-body p { font-size: .94rem; }
 .post-card-body .text-link { margin-top: auto; align-self: flex-start; }
 .empty-state { text-align: center; padding: 56px 24px; border-radius: var(--radius); background: var(--white); border: 1px dashed var(--line); }

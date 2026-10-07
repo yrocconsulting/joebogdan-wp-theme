@@ -390,3 +390,25 @@ post(
         ]),
     ),
 )
+
+# Search titles/descriptions (excerpts above are the longer card summaries).
+SEO = {
+    "how-much-house-can-i-afford-north-texas": ("How Much House Can I Afford in North Texas? | Joe Bogdan",
+        "How lenders decide what you can afford, why Texas property taxes matter so much, and how to find a price that keeps your budget comfortable."),
+    "buy-a-new-home-before-selling": ("Can I Buy a Home Before Selling My Current One? | Joe Bogdan",
+        "Often, yes. Learn the four ways to buy your next home before selling, including Texas rules for using equity, and how to choose the right one."),
+    "self-employed-mortgage-how-lenders-calculate-income": ("Self-Employed Mortgages: How Lenders Count Income | Joe Bogdan",
+        "How lenders calculate self-employed income from tax returns, which deductions add back, and when bank-statement or Non-QM loans fit better."),
+    "what-makes-a-jumbo-loan-different": ("What Is a Jumbo Loan and How Do I Qualify? | Joe Bogdan",
+        "Jumbo loans exceed the conforming limit, so credit, reserves, documentation and appraisals get closer review. Here is how to prepare."),
+    "dscr-loans-explained": ("DSCR Loans Explained for Texas Investors | Joe Bogdan",
+        "How DSCR loans qualify a rental property on its own income, how the ratio is calculated, and how they compare with conventional investor loans."),
+    "texas-property-taxes-homestead-exemption-mortgage": ("Texas Property Taxes & Homestead Exemption Guide | Joe Bogdan",
+        "How Texas property taxes affect your mortgage payment, why MUD and PID taxes matter, and how the homestead exemption and protests help."),
+    "when-does-refinancing-make-sense": ("When Does Refinancing Make Sense? Break-Even Guide | Joe Bogdan",
+        "Calculate your refinance break-even point, see the common reasons to refinance, and learn how Texas cash-out rules affect your options."),
+    "what-makes-a-strong-pre-approval": ("What Makes a Mortgage Pre-Approval Strong? | Joe Bogdan",
+        "What separates a strong pre-approval from a weak one, what listing agents look for, and how buyers keep their approval solid until closing."),
+}
+for _post in POSTS:
+    _post["seo_title"], _post["seo_description"] = SEO[_post["slug"]]

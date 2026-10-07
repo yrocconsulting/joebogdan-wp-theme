@@ -19,7 +19,7 @@ function jb_seo_plugin_active() {
 
 add_action( 'init', function () {
 	foreach ( array( 'page', 'post' ) as $type ) {
-		foreach ( array( '_jb_seo_title', '_jb_seo_description', '_jb_service' ) as $key ) {
+		foreach ( array( '_jb_seo_title', '_jb_seo_description', '_jb_service', '_jb_audience' ) as $key ) {
 			register_post_meta( $type, $key, array(
 				'type'          => 'string',
 				'single'        => true,
@@ -66,20 +66,53 @@ add_action( 'save_post', function ( $post_id ) {
  * Title + description
  * ------------------------------------------------------------------------ */
 
+/** Post/page ID whose SEO fields apply to the current view (posts page included). */
+function jb_seo_object_id() {
+	if ( is_singular() ) {
+		return get_queried_object_id();
+	}
+	if ( is_home() && get_option( 'page_for_posts' ) ) {
+		return (int) get_option( 'page_for_posts' );
+	}
+	return 0;
+}
+
+/** Canonical URL of the current view, including pagination. */
+function jb_current_url() {
+	if ( is_singular() ) {
+		return get_permalink();
+	}
+	if ( is_home() && get_option( 'page_for_posts' ) ) {
+		$url = get_permalink( get_option( 'page_for_posts' ) );
+	} elseif ( is_category() ) {
+		$url = get_category_link( get_queried_object_id() );
+	} else {
+		$url = home_url( '/' );
+	}
+	$paged = (int) get_query_var( 'paged' );
+	return $paged > 1 ? trailingslashit( $url ) . 'page/' . $paged . '/' : $url;
+}
+
 add_filter( 'document_title_parts', function ( $parts ) {
 	if ( jb_seo_plugin_active() ) {
 		return $parts;
 	}
-	if ( is_singular() ) {
-		$custom = get_post_meta( get_queried_object_id(), '_jb_seo_title', true );
+	$paged = (int) get_query_var( 'paged' );
+	$suffix = $paged > 1 ? ' – Page ' . $paged : '';
+	$id = jb_seo_object_id();
+	if ( $id ) {
+		$custom = get_post_meta( $id, '_jb_seo_title', true );
 		if ( $custom ) {
-			return array( 'title' => $custom );
+			return array( 'title' => $custom . $suffix );
 		}
 	}
 	if ( is_front_page() ) {
-		return array( 'title' => sprintf( '%s | Mortgage Loan Originator in Flower Mound & North Texas', jb_opt( 'name' ) ) );
+		return array( 'title' => sprintf( '%s | Mortgage Loan Officer, Flower Mound & North Texas', jb_opt( 'name' ) ) );
 	}
-	$parts['site'] = jb_opt( 'name' ) . ', ' . jb_opt( 'title' );
+	if ( is_category() ) {
+		return array( 'title' => sprintf( '%s Mortgage Insights%s | %s', single_cat_title( '', false ), $suffix, jb_opt( 'name' ) ) );
+	}
+	$parts['site'] = jb_opt( 'name' );
 	unset( $parts['tagline'] );
 	return $parts;
 } );
@@ -89,40 +122,70 @@ add_filter( 'document_title_separator', function () {
 } );
 
 function jb_meta_description() {
-	if ( is_singular() ) {
-		$id   = get_queried_object_id();
+	$id = jb_seo_object_id();
+	if ( $id ) {
 		$desc = get_post_meta( $id, '_jb_seo_description', true );
 		if ( ! $desc && has_excerpt( $id ) ) {
 			$desc = get_the_excerpt( $id );
 		}
 		if ( ! $desc ) {
-			$desc = wp_trim_words( wp_strip_all_tags( strip_shortcodes( get_post_field( 'post_content', $id ) ) ), 30, '…' );
+			$desc = wp_trim_words( wp_strip_all_tags( strip_shortcodes( get_post_field( 'post_content', $id ) ) ), 26, '…' );
 		}
-		return $desc;
+		return trim( preg_replace( '/\s+/', ' ', $desc ) );
 	}
 	if ( is_category() && category_description() ) {
-		return wp_strip_all_tags( category_description() );
+		return trim( wp_strip_all_tags( category_description() ) );
 	}
-	return sprintf( '%s is a %s with %s (NMLS #%s) helping North Texas home buyers, business owners, investors and luxury buyers finance strategically.', jb_opt( 'name' ), jb_opt( 'title' ), jb_opt( 'company' ), jb_opt( 'nmls' ) );
+	return sprintf( '%s, %s with %s (NMLS #%s), helps North Texas buyers, business owners and investors finance strategically.', jb_opt( 'name' ), jb_opt( 'title' ), jb_opt( 'company' ), jb_opt( 'nmls' ) );
+}
+
+/** Image used for social sharing and primaryImageOfPage. */
+function jb_page_image() {
+	if ( is_singular() && has_post_thumbnail() ) {
+		$src = wp_get_attachment_image_src( get_post_thumbnail_id(), 'jb-wide' );
+		$alt = get_post_meta( get_post_thumbnail_id(), '_wp_attachment_image_alt', true );
+		if ( $src ) {
+			return array( 'url' => $src[0], 'width' => $src[1], 'height' => $src[2], 'alt' => $alt ? $alt : get_the_title() );
+		}
+	}
+	return array( 'url' => jb_img( 'joe-headshot.webp' ), 'width' => 819, 'height' => 1024, 'alt' => jb_opt( 'name' ) . ', ' . jb_opt( 'title' ) );
 }
 
 add_action( 'wp_head', function () {
 	if ( jb_seo_plugin_active() ) {
 		return;
 	}
-	$desc  = trim( preg_replace( '/\s+/', ' ', jb_meta_description() ) );
+	$desc  = jb_meta_description();
 	$title = wp_get_document_title();
-	$url   = is_singular() ? get_permalink() : home_url( add_query_arg( array(), $GLOBALS['wp']->request ?? '' ) );
-	$image = is_singular() && has_post_thumbnail() ? get_the_post_thumbnail_url( null, 'jb-wide' ) : jb_img( 'joe-headshot.webp' );
+	$url   = jb_current_url();
+	$image = jb_page_image();
 
+	// WordPress prints canonicals for single posts/pages; cover listings too.
+	if ( ! is_singular() && ( is_home() || is_category() ) ) {
+		printf( '<link rel="canonical" href="%s">' . "\n", esc_url( $url ) );
+	}
 	printf( '<meta name="description" content="%s">' . "\n", esc_attr( $desc ) );
+	printf( '<meta property="og:locale" content="en_US">' . "\n" );
 	printf( '<meta property="og:type" content="%s">' . "\n", is_singular( 'post' ) ? 'article' : 'website' );
 	printf( '<meta property="og:site_name" content="%s">' . "\n", esc_attr( jb_opt( 'name' ) . ', ' . jb_opt( 'title' ) ) );
 	printf( '<meta property="og:title" content="%s">' . "\n", esc_attr( $title ) );
 	printf( '<meta property="og:description" content="%s">' . "\n", esc_attr( $desc ) );
 	printf( '<meta property="og:url" content="%s">' . "\n", esc_url( $url ) );
-	printf( '<meta property="og:image" content="%s">' . "\n", esc_url( $image ) );
+	printf( '<meta property="og:image" content="%s">' . "\n", esc_url( $image['url'] ) );
+	printf( '<meta property="og:image:width" content="%d">' . "\n", (int) $image['width'] );
+	printf( '<meta property="og:image:height" content="%d">' . "\n", (int) $image['height'] );
+	printf( '<meta property="og:image:alt" content="%s">' . "\n", esc_attr( $image['alt'] ) );
+	if ( is_singular( 'post' ) ) {
+		printf( '<meta property="article:published_time" content="%s">' . "\n", esc_attr( get_the_date( 'c' ) ) );
+		printf( '<meta property="article:modified_time" content="%s">' . "\n", esc_attr( get_the_modified_date( 'c' ) ) );
+		foreach ( get_the_category() as $cat ) {
+			printf( '<meta property="article:section" content="%s">' . "\n", esc_attr( $cat->name ) );
+		}
+	}
 	echo '<meta name="twitter:card" content="summary_large_image">' . "\n";
+	printf( '<meta name="twitter:title" content="%s">' . "\n", esc_attr( $title ) );
+	printf( '<meta name="twitter:description" content="%s">' . "\n", esc_attr( $desc ) );
+	printf( '<meta name="twitter:image" content="%s">' . "\n", esc_url( $image['url'] ) );
 }, 2 );
 
 // Thin pages stay out of the index.
@@ -149,9 +212,23 @@ function jb_schema_ids() {
 	);
 }
 
+/** Published pages that describe a service (have a _jb_service value). */
+function jb_service_pages() {
+	return get_posts( array(
+		'post_type'   => 'page',
+		'numberposts' => 30,
+		'meta_key'    => '_jb_service',
+		'meta_compare'=> '!=',
+		'meta_value'  => '',
+		'orderby'     => 'menu_order',
+		'order'       => 'ASC',
+	) );
+}
+
 function jb_schema_graph() {
 	$ids   = jb_schema_ids();
 	$nmls  = jb_opt( 'nmls' );
+	$url   = jb_current_url();
 	$areas = array_map( function ( $city ) {
 		return array( '@type' => 'City', 'name' => trim( $city ) . ', TX' );
 	}, array_filter( explode( ',', jb_opt( 'service_area' ) ) ) );
@@ -175,7 +252,76 @@ function jb_schema_graph() {
 		'addressCountry'  => 'US',
 	);
 
-	$knows = array( 'Mortgage pre-approval', 'Home purchase financing', 'Mortgage refinancing', 'Home equity', 'Jumbo loans', 'Luxury home financing', 'Self-employed mortgages', 'Bank statement loans', 'Investment property loans', 'DSCR loans', 'New construction financing', 'FHA loans', 'VA loans', 'Conventional loans', 'Non-QM loans', 'Adjustable-rate mortgages', 'Down payment assistance', 'First-time homebuyers' );
+	$contact_points = array(
+		array(
+			'@type'             => 'ContactPoint',
+			'contactType'       => 'customer service',
+			'telephone'         => jb_opt( 'phone' ),
+			'email'             => jb_opt( 'email' ),
+			'areaServed'        => 'US-TX',
+			'availableLanguage' => 'English',
+		),
+		array(
+			'@type'             => 'ContactPoint',
+			'contactType'       => 'mobile and text messages',
+			'telephone'         => jb_opt( 'sms' ),
+			'areaServed'        => 'US-TX',
+			'availableLanguage' => 'English',
+		),
+	);
+
+	$knows = array( 'Mortgage pre-approval', 'Home purchase financing', 'Mortgage refinancing', 'Home equity', 'Jumbo loans', 'Luxury home financing', 'Self-employed mortgages', 'Bank statement loans', 'Investment property loans', 'DSCR loans', 'New construction financing', 'FHA loans', 'VA loans', 'Conventional loans', 'Non-QM loans', 'Adjustable-rate mortgages', 'Down payment assistance', 'First-time homebuyers', 'Texas property taxes' );
+
+	$catalog = array();
+	foreach ( jb_service_pages() as $svc ) {
+		$catalog[] = array(
+			'@type'       => 'Offer',
+			'itemOffered' => array( '@id' => get_permalink( $svc ) . '#service' ),
+		);
+	}
+
+	$headshot = array(
+		'@type'      => 'ImageObject',
+		'@id'        => trailingslashit( home_url() ) . '#joe-headshot',
+		'url'        => jb_img( 'joe-headshot.webp' ),
+		'width'      => 819,
+		'height'     => 1024,
+		'caption'    => jb_opt( 'name' ) . ', ' . jb_opt( 'title' ),
+	);
+
+	$practice = array(
+		'@type'                     => array( 'FinancialService', 'LocalBusiness' ),
+		'@id'                       => $ids['practice'],
+		'name'                      => jb_opt( 'name' ) . ' — ' . jb_opt( 'title' ) . ', ' . jb_opt( 'company' ),
+		'description'               => sprintf( 'Mortgage lending for home buyers, homeowners, self-employed borrowers, real estate investors and luxury buyers in North Texas, plus a lending partnership for Realtors and home builders. %s.', jb_opt( 'licensing' ) ),
+		'url'                       => home_url( '/' ),
+		'image'                     => array( '@id' => $headshot['@id'] ),
+		'telephone'                 => jb_opt( 'phone' ),
+		'email'                     => jb_opt( 'email' ),
+		'address'                   => $address,
+		'areaServed'                => $areas,
+		'contactPoint'              => $contact_points,
+		'openingHoursSpecification' => array(
+			'@type'     => 'OpeningHoursSpecification',
+			'dayOfWeek' => array( 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' ),
+			'opens'     => '08:00',
+			'closes'    => '17:00',
+		),
+		'employee'                  => array( '@id' => $ids['person'] ),
+		'parentOrganization'        => array( '@id' => $ids['lender'] ),
+		'knowsAbout'                => $knows,
+		'sameAs'                    => array_values( array_filter( array( jb_opt( 'google' ) ) ) ),
+	);
+	if ( $catalog ) {
+		$practice['hasOfferCatalog'] = array(
+			'@type'           => 'OfferCatalog',
+			'name'            => 'Mortgage services',
+			'itemListElement' => $catalog,
+		);
+	}
+	if ( ! $practice['sameAs'] ) {
+		unset( $practice['sameAs'] );
+	}
 
 	$graph = array(
 		array(
@@ -183,7 +329,9 @@ function jb_schema_graph() {
 			'@id'         => $ids['site'],
 			'url'         => home_url( '/' ),
 			'name'        => jb_opt( 'name' ) . ', ' . jb_opt( 'title' ),
+			'description' => 'Mortgage strategy and lending in North Texas from ' . jb_opt( 'name' ) . ', ' . jb_opt( 'title' ) . ' with ' . jb_opt( 'company' ) . '.',
 			'publisher'   => array( '@id' => $ids['person'] ),
+			'about'       => array( '@id' => $ids['person'] ),
 			'inLanguage'  => 'en-US',
 		),
 		array(
@@ -193,109 +341,160 @@ function jb_schema_graph() {
 			'url'         => jb_opt( 'company_url' ),
 			'description' => jb_opt( 'company_license' ) . '.',
 			'identifier'  => array( '@type' => 'PropertyValue', 'propertyID' => 'NMLS', 'value' => jb_opt( 'company_nmls' ) ),
+			'sameAs'      => array( 'https://www.nmlsconsumeraccess.org/EntityDetails.aspx/COMPANY/' . rawurlencode( jb_opt( 'company_nmls' ) ) ),
 		),
+		$headshot,
 		array(
-			'@type'            => 'Person',
-			'@id'              => $ids['person'],
-			'name'             => jb_opt( 'name' ),
-			'alternateName'    => jb_opt( 'legal_name' ),
-			'jobTitle'         => jb_opt( 'title' ),
-			'description'      => sprintf( '%s is a %s with %s (NMLS #%s). Before mortgage lending he spent more than 30 years as a business owner and CEO. He specializes in purchase, jumbo, self-employed and investment-property financing and partners with Realtors and builders across North Texas.', jb_opt( 'name' ), jb_opt( 'title' ), jb_opt( 'company' ), $nmls ),
-			'url'              => home_url( '/about-joe/' ),
-			'image'            => jb_img( 'joe-headshot.webp' ),
-			'telephone'        => jb_opt( 'phone' ),
-			'email'            => jb_opt( 'email' ),
-			'worksFor'         => array( '@id' => $ids['lender'] ),
-			'workLocation'     => array( '@id' => $ids['practice'] ),
-			'identifier'       => array( '@type' => 'PropertyValue', 'propertyID' => 'NMLS', 'value' => $nmls ),
-			'hasCredential'    => array(
+			'@type'          => 'Person',
+			'@id'            => $ids['person'],
+			'name'           => jb_opt( 'name' ),
+			'alternateName'  => jb_opt( 'legal_name' ),
+			'givenName'      => 'Joe',
+			'familyName'     => 'Bogdan',
+			'jobTitle'       => jb_opt( 'title' ),
+			'description'    => sprintf( '%s is a %s with %s (NMLS #%s), licensed as a mortgage loan originator in Texas. Before mortgage lending he spent more than 30 years as a business owner and CEO, including over two decades building medical businesses focused on outpatient diagnostic services. He helps home buyers, self-employed borrowers, investors and luxury buyers finance strategically and partners with Realtors and builders across North Texas.', jb_opt( 'name' ), jb_opt( 'title' ), jb_opt( 'company' ), $nmls ),
+			'url'            => home_url( '/about-joe/' ),
+			'image'          => array( '@id' => $headshot['@id'] ),
+			'telephone'      => jb_opt( 'phone' ),
+			'email'          => jb_opt( 'email' ),
+			'contactPoint'   => $contact_points,
+			'worksFor'       => array( '@id' => $ids['lender'] ),
+			'workLocation'   => array( '@id' => $ids['practice'] ),
+			'identifier'     => array( '@type' => 'PropertyValue', 'propertyID' => 'NMLS', 'value' => $nmls ),
+			'hasCredential'  => array(
 				'@type'              => 'EducationalOccupationalCredential',
 				'credentialCategory' => 'license',
 				'name'               => 'Texas Residential Mortgage Loan Originator License (NMLS #' . $nmls . ')',
 				'recognizedBy'       => array( '@type' => 'GovernmentOrganization', 'name' => 'Texas Department of Savings and Mortgage Lending', 'url' => 'https://www.sml.texas.gov/' ),
 			),
-			'knowsAbout'       => $knows,
-			'areaServed'       => $areas,
-			'sameAs'           => $same_as,
+			'hasOccupation'  => array(
+				'@type'                 => 'Occupation',
+				'name'                  => 'Mortgage Loan Originator',
+				'occupationLocation'    => array( '@type' => 'State', 'name' => 'Texas' ),
+				'occupationalCategory'  => '13-2072.00',
+			),
+			'knowsAbout'     => $knows,
+			'knowsLanguage'  => 'English',
+			'sameAs'         => $same_as,
 		),
-		array(
-			'@type'              => array( 'FinancialService', 'LocalBusiness' ),
-			'@id'                => $ids['practice'],
-			'name'               => jb_opt( 'name' ) . ' — ' . jb_opt( 'title' ) . ', ' . jb_opt( 'company' ),
-			'url'                => home_url( '/' ),
-			'image'              => jb_img( 'joe-headshot.webp' ),
-			'telephone'          => jb_opt( 'phone' ),
-			'email'              => jb_opt( 'email' ),
-			'address'            => $address,
-			'areaServed'         => $areas,
-			'employee'           => array( '@id' => $ids['person'] ),
-			'parentOrganization' => array( '@id' => $ids['lender'] ),
-			'knowsAbout'         => $knows,
-		),
+		$practice,
 	);
 
 	// The current page.
 	$crumbs = jb_breadcrumb_items();
-	$page   = array(
-		'@type'      => is_singular( 'post' ) ? 'WebPage' : ( is_page( array( 'about-joe' ) ) ? 'ProfilePage' : ( is_page( 'contact' ) ? 'ContactPage' : 'WebPage' ) ),
-		'@id'        => ( is_singular() ? get_permalink() : home_url( '/' ) ) . '#webpage',
-		'url'        => is_singular() ? get_permalink() : home_url( '/' ),
-		'name'       => wp_get_document_title(),
-		'description'=> jb_meta_description(),
-		'isPartOf'   => array( '@id' => $ids['site'] ),
-		'about'      => array( '@id' => is_page( 'about-joe' ) ? $ids['person'] : $ids['practice'] ),
-		'inLanguage' => 'en-US',
+	$image  = jb_page_image();
+	$type   = 'WebPage';
+	if ( is_page( 'about-joe' ) ) {
+		$type = 'ProfilePage';
+	} elseif ( is_page( 'contact' ) ) {
+		$type = 'ContactPage';
+	} elseif ( is_home() || is_category() || ( is_page() && get_pages( array( 'parent' => get_queried_object_id(), 'number' => 1 ) ) ) ) {
+		$type = 'CollectionPage';
+	}
+
+	$page = array(
+		'@type'              => $type,
+		'@id'                => $url . '#webpage',
+		'url'                => $url,
+		'name'               => wp_get_document_title(),
+		'description'        => jb_meta_description(),
+		'isPartOf'           => array( '@id' => $ids['site'] ),
+		'about'              => array( '@id' => is_page( 'about-joe' ) ? $ids['person'] : $ids['practice'] ),
+		'primaryImageOfPage' => array( '@type' => 'ImageObject', 'url' => $image['url'], 'width' => $image['width'], 'height' => $image['height'] ),
+		'inLanguage'         => 'en-US',
 	);
 	if ( is_page( 'about-joe' ) ) {
 		$page['mainEntity'] = array( '@id' => $ids['person'] );
+	} elseif ( is_page( 'contact' ) ) {
+		$page['mainEntity'] = array( '@id' => $ids['practice'] );
 	}
 	if ( is_singular() ) {
-		$page['dateModified'] = get_the_modified_date( 'c' );
+		$page['datePublished'] = get_the_date( 'c' );
+		$page['dateModified']  = get_the_modified_date( 'c' );
 	}
 	if ( count( $crumbs ) > 1 ) {
 		$page['breadcrumb'] = array(
 			'@type'           => 'BreadcrumbList',
+			'@id'             => $url . '#breadcrumb',
 			'itemListElement' => array_map( function ( $item, $i ) {
 				return array( '@type' => 'ListItem', 'position' => $i + 1, 'name' => $item['name'], 'item' => $item['url'] );
 			}, $crumbs, array_keys( $crumbs ) ),
 		);
 	}
+
+	// Listings: describe the items on the page.
+	if ( 'CollectionPage' === $type ) {
+		$items = array();
+		if ( is_page() ) {
+			foreach ( get_pages( array( 'parent' => get_queried_object_id(), 'sort_column' => 'menu_order' ) ) as $child ) {
+				$items[] = array( 'url' => get_permalink( $child ), 'name' => $child->post_title );
+			}
+		} else {
+			foreach ( $GLOBALS['wp_query']->posts as $listed ) {
+				$items[] = array( 'url' => get_permalink( $listed ), 'name' => get_the_title( $listed ) );
+			}
+		}
+		$page['mainEntity'] = array(
+			'@type'           => 'ItemList',
+			'numberOfItems'   => count( $items ),
+			'itemListElement' => array_map( function ( $item, $i ) {
+				return array( '@type' => 'ListItem', 'position' => $i + 1, 'url' => $item['url'], 'name' => $item['name'] );
+			}, $items, array_keys( $items ) ),
+		);
+	}
 	$graph[] = $page;
 
 	if ( is_singular( 'post' ) ) {
+		$content = get_post_field( 'post_content', get_the_ID() );
 		$graph[] = array(
 			'@type'            => 'Article',
-			'@id'              => get_permalink() . '#article',
+			'@id'              => $url . '#article',
 			'headline'         => get_the_title(),
 			'description'      => jb_meta_description(),
 			'datePublished'    => get_the_date( 'c' ),
 			'dateModified'     => get_the_modified_date( 'c' ),
 			'author'           => array( '@id' => $ids['person'] ),
 			'publisher'        => array( '@id' => $ids['person'] ),
-			'mainEntityOfPage' => array( '@id' => get_permalink() . '#webpage' ),
-			'image'            => has_post_thumbnail() ? get_the_post_thumbnail_url( null, 'jb-wide' ) : jb_img( 'joe-headshot.webp' ),
+			'isPartOf'         => array( '@id' => $url . '#webpage' ),
+			'mainEntityOfPage' => array( '@id' => $url . '#webpage' ),
+			'image'            => array( '@type' => 'ImageObject', 'url' => $image['url'], 'width' => $image['width'], 'height' => $image['height'] ),
 			'articleSection'   => wp_list_pluck( get_the_category(), 'name' ),
+			'about'            => array( '@id' => $ids['practice'] ),
+			'wordCount'        => str_word_count( wp_strip_all_tags( strip_shortcodes( $content ) ) ),
+			'inLanguage'       => 'en-US',
 		);
 	}
 
 	$service = is_page() ? get_post_meta( get_queried_object_id(), '_jb_service', true ) : '';
 	if ( $service ) {
-		$graph[] = array(
-			'@type'       => 'Service',
-			'@id'         => get_permalink() . '#service',
-			'name'        => $service,
-			'serviceType' => 'Mortgage lending',
-			'description' => jb_meta_description(),
-			'provider'    => array( '@id' => $ids['person'] ),
-			'areaServed'  => $areas,
-			'url'         => get_permalink(),
+		$node = array(
+			'@type'            => 'Service',
+			'@id'              => $url . '#service',
+			'name'             => $service,
+			'serviceType'      => $service,
+			'category'         => 'Mortgage lending',
+			'description'      => jb_meta_description(),
+			'provider'         => array( '@id' => $ids['person'] ),
+			'areaServed'       => $areas,
+			'url'              => $url,
+			'availableChannel' => array(
+				'@type'        => 'ServiceChannel',
+				'serviceUrl'   => $url,
+				'servicePhone' => array( '@type' => 'ContactPoint', 'telephone' => jb_opt( 'phone' ), 'contactType' => 'customer service' ),
+			),
 		);
+		$audience = get_post_meta( get_queried_object_id(), '_jb_audience', true );
+		if ( $audience ) {
+			$node['audience'] = array( '@type' => 'Audience', 'audienceType' => $audience );
+		}
+		$graph[] = $node;
 	}
 
 	if ( ! empty( $GLOBALS['jb_faq_items'] ) ) {
 		$graph[] = array(
 			'@type'      => 'FAQPage',
-			'@id'        => ( is_singular() ? get_permalink() : home_url( '/' ) ) . '#faq',
+			'@id'        => $url . '#faq',
+			'isPartOf'   => array( '@id' => $url . '#webpage' ),
 			'mainEntity' => array_map( function ( $item ) {
 				return array(
 					'@type'          => 'Question',

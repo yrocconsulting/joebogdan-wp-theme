@@ -239,7 +239,7 @@ add_shortcode( 'jb_form', function ( $atts ) {
 	<div class="lead-form" data-form="<?php echo esc_attr( $atts['type'] ); ?>">
 		<form class="lead-form-inner" method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" novalidate aria-labelledby="<?php echo esc_attr( $uid ); ?>-title">
 			<div class="lead-form-head">
-				<h3 class="lead-form-title" id="<?php echo esc_attr( $uid ); ?>-title"><?php echo esc_html( $heading ); ?></h3>
+				<h2 class="lead-form-title" id="<?php echo esc_attr( $uid ); ?>-title"><?php echo esc_html( $heading ); ?></h2>
 				<?php if ( $count > 1 ) : ?>
 					<div class="lead-progress" aria-hidden="true">
 						<?php for ( $i = 0; $i < $count; $i++ ) : ?>

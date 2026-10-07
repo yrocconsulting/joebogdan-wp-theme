@@ -233,7 +233,8 @@ function jb_cta_band( $cta, $tone = 'navy' ) {
 }
 
 /** Article card used in listings. */
-function jb_post_card() {
+function jb_post_card( $heading = 'h3' ) {
+	$heading = in_array( $heading, array( 'h2', 'h3' ), true ) ? $heading : 'h3';
 	$cats = get_the_category();
 	?>
 	<article class="post-card">
@@ -245,7 +246,7 @@ function jb_post_card() {
 				<?php if ( $cats ) : ?>
 					<span class="eyebrow"><?php echo esc_html( $cats[0]->name ); ?></span>
 				<?php endif; ?>
-				<h3><?php the_title(); ?></h3>
+				<<?php echo $heading; ?> class="post-card-title"><?php the_title(); ?></<?php echo $heading; ?>>
 				<p><?php echo esc_html( get_the_excerpt() ); ?></p>
 				<span class="text-link">Read the answer <?php echo jb_icon( 'arrow' ); ?></span>
 			</div>

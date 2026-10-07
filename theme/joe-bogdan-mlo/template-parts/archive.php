@@ -45,7 +45,7 @@ if ( is_category() ) {
 				<?php
 				while ( have_posts() ) :
 					the_post();
-					jb_post_card();
+					jb_post_card( 'h2' );
 				endwhile;
 				?>
 			</div>

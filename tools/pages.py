@@ -645,8 +645,8 @@ LANDING = "page-templates/landing.php"
 PAGES = [
     # slug, title, parent, template, body, seo title, seo description, service, order, excerpt
     ("home", "Home", None, None, home,
-     "Joe Bogdan | Mortgage Loan Originator in Flower Mound & North Texas",
-     "Joe Bogdan, Senior Loan Officer with CrossCountry Mortgage (NMLS #2795320), helps North Texas buyers, business owners, investors and luxury buyers finance strategically.",
+     "Joe Bogdan | Mortgage Loan Officer, Flower Mound & North Texas",
+     "Joe Bogdan, Senior Loan Officer with CrossCountry Mortgage (NMLS #2795320), helps North Texas buyers, business owners and investors finance strategically.",
      None, 0, None),
     ("get-pre-approved", "Discover Your Buying Power", None, LANDING, preapproval,
      "Discover Your Buying Power | Free Mortgage Pre-Approval Analysis",
@@ -669,7 +669,7 @@ PAGES = [
      "Strategic jumbo financing for high-value homes, ranches and second homes in North Texas. Request a private consultation with Joe Bogdan.",
      "Jumbo mortgage", 3, None),
     ("self-employed-business-owners", "Self-Employed & Business Owners", "loan-programs", LANDING, self_employed,
-     "Self-Employed Mortgage Options: Bank-Statement & 1099 Loans | Joe Bogdan",
+     "Self-Employed Mortgages: Bank-Statement & 1099 Loans | Joe Bogdan",
      "Can you qualify for a mortgage if you’re self-employed? Joe Bogdan, a former CEO, helps business owners choose the right documentation path.",
      "Self-employed mortgage", 4, None),
     ("investment-property", "Investment Property", "loan-programs", LANDING, investment,
@@ -677,13 +677,13 @@ PAGES = [
      "DSCR, conventional and multi-unit investment property financing. Send Joe Bogdan your deal and get financing options that fit your portfolio.",
      "Investment property mortgage", 5, None),
     ("builders-developers", "Builders & Developers", None, LANDING, builders,
-     "Preferred Lender for Builders & Developers in North Texas | Joe Bogdan",
+     "Preferred Lender for DFW Builders & Developers | Joe Bogdan",
      "Responsive pre-approvals, construction-timeline coordination and one point of contact. Become a preferred lending partner with Joe Bogdan.",
-     None, 3, None),
+     "Builder and developer lending partnership", 3, None),
     ("realtor-partners", "Realtor Partners", None, LANDING, realtors,
      "Mortgage Partner for Realtors in DFW | Joe Bogdan",
      "Prompt scenario reviews, strong pre-approvals and a lender who never competes for your client. Run a financing scenario for your buyer with Joe Bogdan.",
-     None, 4, None),
+     "Mortgage lending partnership for Realtors", 4, None),
     ("about-joe", "About Joe", None, LANDING, about,
      "About Joe Bogdan | Former CEO Turned Mortgage Loan Originator",
      "Joe Bogdan spent 30+ years as a CEO before becoming a Senior Loan Officer with CrossCountry Mortgage. Learn how he approaches mortgage strategy.",
@@ -696,12 +696,12 @@ PAGES = [
      "Contact Joe Bogdan | Call, Text or Ask About Your Scenario",
      "Call Joe Bogdan at (469) 324-4620, text (972) 672-8624, or ask about your mortgage scenario online. Based in Flower Mound, serving North Texas.",
      None, 7, None),
-    ("privacy-policy", "Privacy Policy", None, None, privacy, None, "How information submitted on this website is collected, used and protected.", None, 20, None),
-    ("terms-of-use", "Terms of Use", None, None, terms, None, "Terms governing use of this website and its estimates.", None, 21, None),
-    ("sms-terms", "Text Messaging Terms", None, None, sms, None, "Terms for text messages from Joe Bogdan and CrossCountry Mortgage.", None, 22, None),
-    ("accessibility", "Accessibility", None, None, accessibility, None, "Our commitment to an accessible website.", None, 23, None),
-    ("licensing-disclosures", "Licensing & Disclosures", None, None, licensing, None, "Licensing, NMLS and lender disclosures for Joe Bogdan and CrossCountry Mortgage.", None, 24, None),
-    ("texas-consumer-notice", "Texas Consumer Notice", None, None, texas, None, "Texas Department of Savings and Mortgage Lending consumer complaint and recovery fund notice for mortgage bankers and residential mortgage loan originators.", None, 25, None),
+    ("privacy-policy", "Privacy Policy", None, None, privacy, "Privacy Policy | Joe Bogdan, Senior Loan Officer", "How Joe Bogdan’s website collects, uses and protects the information you submit, including contact details and text-message consent.", None, 20, None),
+    ("terms-of-use", "Terms of Use", None, None, terms, "Terms of Use | Joe Bogdan, Senior Loan Officer", "Terms for using Joe Bogdan’s website, including the educational nature of its content and estimates, and lender licensing information.", None, 21, None),
+    ("sms-terms", "Text Messaging Terms", None, None, sms, "Text Messaging Terms | Joe Bogdan, Senior Loan Officer", "Terms for text messages from Joe Bogdan and CrossCountry Mortgage, LLC, including consent, message frequency, rates and how to opt out.", None, 22, None),
+    ("accessibility", "Accessibility", None, None, accessibility, "Accessibility Statement | Joe Bogdan, Senior Loan Officer", "Joe Bogdan’s commitment to an accessible website that conforms with WCAG 2.1 AA, and how to get help if any part of the site is hard to use.", None, 23, None),
+    ("licensing-disclosures", "Licensing & Disclosures", None, None, licensing, "Licensing & Disclosures | Joe Bogdan, NMLS #2795320", "Licensing and disclosures for Joe Bogdan (Texas MLO, NMLS #2795320) and CrossCountry Mortgage, LLC (NMLS #3029), Equal Housing Opportunity Lender.", None, 24, None),
+    ("texas-consumer-notice", "Texas Consumer Notice", None, None, texas, "Texas Consumer Complaint & Recovery Fund Notice | Joe Bogdan", "Texas Department of Savings and Mortgage Lending consumer complaint and recovery fund notice for mortgage bankers and residential mortgage loan originators.", None, 25, None),
 ]
 
 MENUS = {
@@ -739,10 +739,22 @@ MENUS = {
 }
 
 CATEGORIES = [
-    ("home-buying", "Home Buying", "Pre-approval, affordability, down payments and winning offers — straight answers for North Texas buyers."),
-    ("mortgage-strategy", "Mortgage Strategy", "How to structure a mortgage around your goals: rates, terms, refinancing and equity."),
+    ("home-buying", "Home Buying", "Straight answers for North Texas home buyers on affordability, pre-approval, buying before selling and making offers that sellers take seriously."),
+    ("mortgage-strategy", "Mortgage Strategy", "How to structure a mortgage around your goals: refinancing, home equity, loan terms and building a pre-approval that helps you win the home you want."),
     ("texas-housing-market", "Texas Housing & Market", "What North Texas buyers should know about property taxes, insurance, new construction and local market conditions."),
-    ("luxury-jumbo", "Luxury & Jumbo", "Financing high-value homes, ranches and second homes."),
-    ("business-owners", "Business Owners & Self-Employed", "Qualifying with business income: bank-statement, 1099 and asset-based strategies."),
-    ("real-estate-investing", "Real Estate Investing", "DSCR loans, rental property financing and portfolio strategy."),
+    ("luxury-jumbo", "Luxury & Jumbo", "How jumbo loans work and how to prepare to finance high-value homes, ranches, acreage and second homes in North Texas with confidence."),
+    ("business-owners", "Business Owners & Self-Employed", "How self-employed borrowers and business owners qualify for a mortgage, from tax-return income to bank-statement, 1099 and asset-based programs."),
+    ("real-estate-investing", "Real Estate Investing", "Financing rental and investment property in Texas: DSCR loans, conventional investor loans, cash-out strategies and growing a portfolio."),
 ]
+
+# Who each service page is for (Service.audience in structured data).
+AUDIENCE = {
+    "get-pre-approved": "Home buyers",
+    "home-purchase": "Home buyers, including first-time and move-up buyers",
+    "refinance": "Homeowners",
+    "jumbo-luxury-financing": "Luxury and high-value home buyers",
+    "self-employed-business-owners": "Self-employed borrowers and business owners",
+    "investment-property": "Real estate investors",
+    "builders-developers": "Home builders and developers",
+    "realtor-partners": "Real estate agents",
+}
