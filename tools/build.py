@@ -6,6 +6,7 @@ import json
 import pathlib
 
 import pages
+import posts
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT = ROOT / "content"
@@ -26,9 +27,16 @@ def main():
             {"title": t, "page": s, "children": [{"title": ct, "page": cs} for ct, cs in kids]}
             for t, s, kids in items
         ]
+    (OUT / "posts").mkdir(parents=True, exist_ok=True)
+    manifest["posts"] = []
+    for post in posts.POSTS:
+        (OUT / "posts" / f"{post['slug']}.html").write_text(post["content"], encoding="utf-8")
+        entry = {k: v for k, v in post.items() if k != "content"}
+        entry["file"] = f"posts/{post['slug']}.html"
+        manifest["posts"].append(entry)
     manifest["categories"] = [{"slug": s, "name": n, "description": d} for s, n, d in pages.CATEGORIES]
     (OUT / "manifest.json").write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print(f"wrote {len(pages.PAGES)} pages")
+    print(f"wrote {len(pages.PAGES)} pages, {len(posts.POSTS)} posts")
 
 
 if __name__ == "__main__":

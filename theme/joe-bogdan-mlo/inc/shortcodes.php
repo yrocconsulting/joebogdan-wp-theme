@@ -195,7 +195,11 @@ add_shortcode( 'jb_process', function ( $atts ) {
 $GLOBALS['jb_faq_items'] = array();
 
 add_shortcode( 'jb_faq', function ( $atts, $content = '' ) {
-	$a = shortcode_atts( array( 'title' => 'Straight Answers', 'eyebrow' => 'Frequently Asked Questions' ), $atts );
+	$a = shortcode_atts( array( 'title' => 'Straight Answers', 'eyebrow' => 'Frequently Asked Questions', 'inline' => '' ), $atts );
+	if ( $a['inline'] ) {
+		// Compact version for use inside an article.
+		return '<div class="faq faq-inline"><h2>' . esc_html( $a['title'] ) . '</h2><div class="faq-list">' . do_shortcode( shortcode_unautop( trim( $content ) ) ) . '</div></div>';
+	}
 	ob_start();
 	?>
 	<section class="section section-ivory faq">
@@ -261,7 +265,7 @@ add_shortcode( 'jb_video', function ( $atts ) {
 add_shortcode( 'jb_contact_options', function () {
 	$options = array(
 		array( 'phone', 'Call Joe', jb_opt( 'phone' ), 'tel:' . jb_tel() ),
-		array( 'message', 'Text Joe', 'Handy for quick questions', 'sms:' . jb_tel( 'sms' ) ),
+		array( 'message', 'Text Joe', jb_opt( 'sms' ), 'sms:' . jb_tel( 'sms' ) ),
 		array( 'mail', 'Email Joe', jb_opt( 'email' ), 'mailto:' . jb_opt( 'email' ) ),
 	);
 	if ( jb_opt( 'calendar_url' ) ) {
@@ -373,5 +377,28 @@ add_shortcode( 'jb_photo', function ( $atts ) {
 		jb_img( basename( $a['file'] ) ),
 		esc_attr( $a['alt'] ),
 		$size ? sprintf( ' width="%d" height="%d"', $size[0], $size[1] ) : ''
+	);
+} );
+
+/**
+ * [jb_inline_cta title="" text="" url="" label=""] — offer box inside an article.
+ */
+add_shortcode( 'jb_inline_cta', function ( $atts ) {
+	$a = shortcode_atts( array(
+		'title' => 'Know your number before you shop.',
+		'text'  => 'Get a free, personalized buying-power analysis from Joe. No credit pull.',
+		'url'   => '/get-pre-approved/',
+		'label' => 'Discover Your Buying Power',
+	), $atts );
+	$url = 0 === strpos( $a['url'], 'http' ) ? $a['url'] : home_url( $a['url'] );
+	return sprintf(
+		'<aside class="inline-cta"><div><p class="inline-cta-title">%s</p><p>%s</p></div><div class="inline-cta-actions"><a class="btn btn-gold" href="%s">%s %s</a><a class="inline-cta-text" href="sms:%s">%s Or text Joe</a></div></aside>',
+		esc_html( $a['title'] ),
+		esc_html( $a['text'] ),
+		esc_url( $url ),
+		esc_html( $a['label'] ),
+		jb_icon( 'arrow' ),
+		esc_attr( jb_tel( 'sms' ) ),
+		jb_icon( 'message' )
 	);
 } );

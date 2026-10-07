@@ -151,7 +151,7 @@
       "template": "page-templates/landing.php",
       "file": "pages/contact.html",
       "seo_title": "Contact Joe Bogdan | Call, Text or Ask About Your Scenario",
-      "seo_description": "Call or text Joe Bogdan at (469) 324-4620, or ask about your mortgage scenario online. Based in Flower Mound, serving North Texas.",
+      "seo_description": "Call Joe Bogdan at (469) 324-4620, text (972) 672-8624, or ask about your mortgage scenario online. Based in Flower Mound, serving North Texas.",
       "service": "",
       "menu_order": 7,
       "excerpt": ""
@@ -386,5 +386,87 @@
     }
   ],
   "front_page": "home",
-  "posts_page": "insights"
+  "posts_page": "insights",
+  "posts": [
+    {
+      "slug": "how-much-house-can-i-afford-north-texas",
+      "title": "How Much House Can I Afford in North Texas?",
+      "category": "home-buying",
+      "excerpt": "What you can afford depends on income, debts, savings, credit and Texas property taxes and insurance. Here is how lenders calculate it and how to find a number you are comfortable with.",
+      "seo_title": "How Much House Can I Afford in North Texas? | Joe Bogdan",
+      "seo_description": "What you can afford depends on income, debts, savings, credit and Texas property taxes and insurance. Here is how lenders calculate it and how to find a number you are comfortable with.",
+      "image": "buyers.webp",
+      "file": "posts/how-much-house-can-i-afford-north-texas.html"
+    },
+    {
+      "slug": "buy-a-new-home-before-selling",
+      "title": "Can I Buy a New Home Before Selling My Current One?",
+      "category": "home-buying",
+      "excerpt": "Often, yes. Depending on your income, equity and reserves you may qualify carrying both homes or use your current home’s equity. Here are the options and the trade-offs.",
+      "seo_title": "Can I Buy a Home Before Selling My Current One? | Joe Bogdan",
+      "seo_description": "Often, yes. Depending on your income, equity and reserves you may qualify carrying both homes or use your current home’s equity. Here are the options and the trade-offs.",
+      "image": "strategy.webp",
+      "file": "posts/buy-a-new-home-before-selling.html"
+    },
+    {
+      "slug": "self-employed-mortgage-how-lenders-calculate-income",
+      "title": "Can I Get a Mortgage if I’m Self-Employed? How Lenders Look at Business Income",
+      "category": "business-owners",
+      "excerpt": "Yes. Lenders usually average two years of self-employed income from tax returns, with add-backs such as depreciation. If write-offs shrink your income, bank-statement and other Non-QM programs may fit.",
+      "seo_title": "Self-Employed Mortgage: How Lenders Calculate Business Income | Joe Bogdan",
+      "seo_description": "Yes. Lenders usually average two years of self-employed income from tax returns, with add-backs such as depreciation. If write-offs shrink your income, bank-statement and other Non-QM programs may fit.",
+      "image": "business-owners.webp",
+      "file": "posts/self-employed-mortgage-how-lenders-calculate-income.html"
+    },
+    {
+      "slug": "what-makes-a-jumbo-loan-different",
+      "title": "What Makes a Jumbo Loan Different — and How to Prepare",
+      "category": "luxury-jumbo",
+      "excerpt": "Jumbo loans exceed the conforming loan limit, so lenders set their own standards for credit, reserves, documentation and appraisals. Preparation shapes your terms and flexibility.",
+      "seo_title": "What Is a Jumbo Loan and How Do I Qualify? | Joe Bogdan",
+      "seo_description": "Jumbo loans exceed the conforming loan limit, so lenders set their own standards for credit, reserves, documentation and appraisals. Preparation shapes your terms and flexibility.",
+      "image": "luxury.webp",
+      "file": "posts/what-makes-a-jumbo-loan-different.html"
+    },
+    {
+      "slug": "dscr-loans-explained",
+      "title": "DSCR Loans Explained: Qualifying for a Rental Property Based on Its Income",
+      "category": "real-estate-investing",
+      "excerpt": "A DSCR loan qualifies an investment property mainly on whether its rent covers the mortgage payment, taxes, insurance and HOA dues — not on your personal tax returns.",
+      "seo_title": "DSCR Loans Explained for Texas Real Estate Investors | Joe Bogdan",
+      "seo_description": "A DSCR loan qualifies an investment property mainly on whether its rent covers the mortgage payment, taxes, insurance and HOA dues — not on your personal tax returns.",
+      "image": "strategy.webp",
+      "file": "posts/dscr-loans-explained.html"
+    },
+    {
+      "slug": "texas-property-taxes-homestead-exemption-mortgage",
+      "title": "Texas Property Taxes, Homestead Exemptions and Your Mortgage Payment",
+      "category": "texas-housing-market",
+      "excerpt": "Property taxes are a big part of a Texas mortgage payment. Here is how escrow works, why MUD and PID taxes matter, and how the homestead exemption and protests can lower your bill.",
+      "seo_title": "Texas Property Taxes & Homestead Exemption: What Buyers Should Know | Joe Bogdan",
+      "seo_description": "Property taxes are a big part of a Texas mortgage payment. Here is how escrow works, why MUD and PID taxes matter, and how the homestead exemption and protests can lower your bill.",
+      "image": "buyers.webp",
+      "file": "posts/texas-property-taxes-homestead-exemption-mortgage.html"
+    },
+    {
+      "slug": "when-does-refinancing-make-sense",
+      "title": "When Does Refinancing Make Sense? How to Find Your Break-Even Point",
+      "category": "mortgage-strategy",
+      "excerpt": "Refinancing makes sense when the benefit outweighs the cost within the time you plan to keep the loan. Here is how to calculate your break-even point and what Texas cash-out rules mean.",
+      "seo_title": "When Does Refinancing Make Sense? Break-Even & Texas Cash-Out Rules | Joe Bogdan",
+      "seo_description": "Refinancing makes sense when the benefit outweighs the cost within the time you plan to keep the loan. Here is how to calculate your break-even point and what Texas cash-out rules mean.",
+      "image": "strategy.webp",
+      "file": "posts/when-does-refinancing-make-sense.html"
+    },
+    {
+      "slug": "what-makes-a-strong-pre-approval",
+      "title": "What Makes a Pre-Approval Letter Strong? A Guide for Buyers and Agents",
+      "category": "mortgage-strategy",
+      "excerpt": "Not all pre-approvals are equal. A strong one is based on verified income, assets and credit, matches the offer, and comes from a loan officer the listing agent can reach.",
+      "seo_title": "What Makes a Strong Mortgage Pre-Approval? | Joe Bogdan",
+      "seo_description": "Not all pre-approvals are equal. A strong one is based on verified income, assets and credit, matches the offer, and comes from a loan officer the listing agent can reach.",
+      "image": "buyers.webp",
+      "file": "posts/what-makes-a-strong-pre-approval.html"
+    }
+  ]
 }

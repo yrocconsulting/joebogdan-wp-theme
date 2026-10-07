@@ -694,7 +694,7 @@ PAGES = [
      None, 6, None),
     ("contact", "Contact", None, LANDING, contact,
      "Contact Joe Bogdan | Call, Text or Ask About Your Scenario",
-     "Call or text Joe Bogdan at (469) 324-4620, or ask about your mortgage scenario online. Based in Flower Mound, serving North Texas.",
+     "Call Joe Bogdan at (469) 324-4620, text (972) 672-8624, or ask about your mortgage scenario online. Based in Flower Mound, serving North Texas.",
      None, 7, None),
     ("privacy-policy", "Privacy Policy", None, None, privacy, None, "How information submitted on this website is collected, used and protected.", None, 20, None),
     ("terms-of-use", "Terms of Use", None, None, terms, None, "Terms governing use of this website and its estimates.", None, 21, None),

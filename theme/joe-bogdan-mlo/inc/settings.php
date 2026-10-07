@@ -24,7 +24,7 @@ function jb_settings_fields() {
 		),
 		'Contact'    => array(
 			'phone'        => array( 'Phone (calls)', '(469) 324-4620' ),
-			'sms'          => array( 'Mobile (texts)', '(469) 324-4620' ),
+			'sms'          => array( 'Mobile (texts)', '(972) 672-8624' ),
 			'email'        => array( 'Public email', 'Joe.Bogdan@ccm.com' ),
 			'street'       => array( 'Street address', '2201 Spinks Road, Suite 236' ),
 			'city'         => array( 'City', 'Flower Mound' ),

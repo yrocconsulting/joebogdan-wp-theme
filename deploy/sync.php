@@ -141,6 +141,86 @@ update_option( 'page_on_front', $ids[ $manifest['front_page'] ] );
 update_option( 'page_for_posts', $ids[ $manifest['posts_page'] ] );
 update_option( 'wp_page_for_privacy_policy', $ids['privacy-policy'] ?? 0 );
 
+/* ---------------------------------------------------------------- posts */
+/**
+ * Import a theme image into the media library once and reuse it.
+ */
+function jb_sync_theme_image( $file ) {
+	$existing = get_posts( array( 'post_type' => 'attachment', 'meta_key' => '_jb_source_file', 'meta_value' => $file, 'numberposts' => 1, 'fields' => 'ids' ) );
+	if ( $existing ) {
+		return $existing[0];
+	}
+	$src = get_theme_root() . '/joe-bogdan-mlo/assets/images/' . $file;
+	if ( ! file_exists( $src ) ) {
+		return 0;
+	}
+	$upload = wp_upload_bits( $file, null, file_get_contents( $src ) );
+	if ( ! empty( $upload['error'] ) ) {
+		jb_sync_log( "Image upload failed for $file: {$upload['error']}" );
+		return 0;
+	}
+	require_once ABSPATH . 'wp-admin/includes/image.php';
+	$id = wp_insert_attachment( array(
+		'post_mime_type' => wp_check_filetype( $upload['file'] )['type'],
+		'post_title'     => sanitize_title( pathinfo( $file, PATHINFO_FILENAME ) ),
+		'post_status'    => 'inherit',
+	), $upload['file'] );
+	wp_update_attachment_metadata( $id, wp_generate_attachment_metadata( $id, $upload['file'] ) );
+	update_post_meta( $id, '_jb_source_file', $file );
+	jb_sync_log( "Imported image $file" );
+	return $id;
+}
+
+$author = get_users( array( 'role' => 'administrator', 'number' => 1, 'fields' => 'ID' ) );
+foreach ( $manifest['posts'] ?? array() as $spec ) {
+	$slug     = $spec['slug'];
+	$content  = file_get_contents( $base . '/content/' . $spec['file'] );
+	$existing = get_page_by_path( $slug, OBJECT, 'post' );
+	$cat      = get_term_by( 'slug', $spec['category'], 'category' );
+	$postarr  = array(
+		'post_type'     => 'post',
+		'post_status'   => 'publish',
+		'post_title'    => $spec['title'],
+		'post_name'     => $slug,
+		'post_content'  => $content,
+		'post_excerpt'  => $spec['excerpt'],
+		'post_category' => $cat ? array( $cat->term_id ) : array(),
+		'post_author'   => $author ? (int) $author[0] : 1,
+	);
+
+	if ( $existing ) {
+		$stored = get_post_meta( $existing->ID, '_jb_sync_hash', true );
+		$edited = $stored && $stored !== md5( $existing->post_content );
+		if ( $edited && ! $force_all && ! in_array( $slug, $force, true ) ) {
+			jb_sync_log( "SKIP post $slug (edited in WordPress; add to JB_FORCE to overwrite)" );
+			continue;
+		}
+		if ( $stored === md5( $content ) && $existing->post_excerpt === $spec['excerpt'] ) {
+			$id = $existing->ID;
+			jb_sync_log( "ok   post $slug (unchanged)" );
+		} else {
+			$postarr['ID'] = $existing->ID;
+			unset( $postarr['post_author'] );
+			wp_update_post( wp_slash( $postarr ) );
+			$id = $existing->ID;
+			jb_sync_log( "UPD  post $slug" );
+		}
+	} else {
+		$id = wp_insert_post( wp_slash( $postarr ) );
+		jb_sync_log( "NEW  post $slug" );
+	}
+
+	update_post_meta( $id, '_jb_sync_hash', md5( get_post_field( 'post_content', $id ) ) );
+	update_post_meta( $id, '_jb_seo_title', $spec['seo_title'] );
+	update_post_meta( $id, '_jb_seo_description', $spec['seo_description'] );
+	if ( ! empty( $spec['image'] ) && ! has_post_thumbnail( $id ) ) {
+		$img = jb_sync_theme_image( $spec['image'] );
+		if ( $img ) {
+			set_post_thumbnail( $id, $img );
+		}
+	}
+}
+
 /* ---------------------------------------------------------------- menus */
 function jb_menu_signature( $menu_id ) {
 	$items = wp_get_nav_menu_items( $menu_id ) ?: array();

@@ -40,8 +40,8 @@
 		<div class="footer-col">
 			<h2 class="footer-heading">Talk to Joe</h2>
 			<ul class="footer-contact">
-				<li><a href="tel:<?php echo esc_attr( jb_tel() ); ?>"><?php echo jb_icon( 'phone' ); ?><?php echo esc_html( jb_opt( 'phone' ) ); ?></a></li>
-				<li><a href="sms:<?php echo esc_attr( jb_tel( 'sms' ) ); ?>"><?php echo jb_icon( 'message' ); ?>Text Joe</a></li>
+				<li><a href="tel:<?php echo esc_attr( jb_tel() ); ?>"><?php echo jb_icon( 'phone' ); ?>Call <?php echo esc_html( jb_opt( 'phone' ) ); ?></a></li>
+				<li><a href="sms:<?php echo esc_attr( jb_tel( 'sms' ) ); ?>"><?php echo jb_icon( 'message' ); ?>Text <?php echo esc_html( jb_opt( 'sms' ) ); ?></a></li>
 				<li><a href="mailto:<?php echo esc_attr( jb_opt( 'email' ) ); ?>"><?php echo jb_icon( 'mail' ); ?><?php echo esc_html( jb_opt( 'email' ) ); ?></a></li>
 				<?php if ( jb_opt( 'linkedin' ) ) : ?>
 					<li><a href="<?php echo esc_url( jb_opt( 'linkedin' ) ); ?>" target="_blank" rel="noopener me"><?php echo jb_icon( 'linkedin' ); ?>Joe on LinkedIn</a></li>
