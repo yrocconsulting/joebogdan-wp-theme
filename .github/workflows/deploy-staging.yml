@@ -66,11 +66,7 @@ jobs:
           ssh sg "cd ~/$SITE_DIR/public_html && JB_ENV=staging JB_LEAD_EMAIL='bradley@yrocconsulting.com' JB_FORCE='${{ github.event.inputs.force }}' wp eval-file ../jb-sync/deploy/sync.php && wp rewrite flush && (wp sg purge 2>/dev/null || wp cache flush)"
 
       - name: Smoke test
-        run: |
-          set -e
-          for path in / /get-pre-approved/ /loan-programs/home-purchase/ /realtor-partners/ /llms.txt; do
-            code=$(curl -s -o /tmp/page -w '%{http_code}' "$SITE_URL$path")
-            echo "$code $path"
-            [ "$code" = 200 ] || exit 1
-          done
-          grep -q 'joe-bogdan-mlo' <(curl -s "$SITE_URL/") && echo "Theme active"
+        # Checked on the server: SiteGround's bot protection answers GitHub's
+        # runner IPs with a challenge page (HTTP 202), so HTTP checks from CI
+        # say nothing about the site itself.
+        run: ssh sg "cd ~/$SITE_DIR/public_html && wp eval-file ../jb-sync/deploy/smoke.php"
