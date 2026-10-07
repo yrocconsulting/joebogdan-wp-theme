@@ -42,7 +42,7 @@ function jb_settings_fields() {
 			'tax_ins_pct'   => array( 'Annual tax + insurance estimate (% of price)', '2.4' ),
 		),
 		'Profiles'   => array(
-			'linkedin'  => array( 'LinkedIn URL', '' ),
+			'linkedin'  => array( 'LinkedIn URL', 'https://www.linkedin.com/in/joebogdan-ccm/' ),
 			'facebook'  => array( 'Facebook URL', '' ),
 			'instagram' => array( 'Instagram URL', '' ),
 			'google'    => array( 'Google Business Profile URL', '' ),

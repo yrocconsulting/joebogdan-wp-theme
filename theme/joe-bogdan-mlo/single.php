@@ -36,6 +36,9 @@ while ( have_posts() ) :
 						<p class="author-name"><?php echo esc_html( jb_opt( 'name' ) ); ?></p>
 						<p><?php echo esc_html( jb_opt( 'title' ) ); ?> with <?php echo esc_html( jb_opt( 'company' ) ); ?> (NMLS #<?php echo esc_html( jb_opt( 'nmls' ) ); ?>). After 30+ years building and running companies, Joe helps buyers, business owners and investors structure mortgage financing strategically.</p>
 						<a class="text-link" href="<?php echo esc_url( home_url( '/about-joe/' ) ); ?>">More about Joe <?php echo jb_icon( 'arrow' ); ?></a>
+						<?php if ( jb_opt( 'linkedin' ) ) : ?>
+							<a class="text-link" href="<?php echo esc_url( jb_opt( 'linkedin' ) ); ?>" target="_blank" rel="noopener me">LinkedIn <?php echo jb_icon( 'arrow' ); ?></a>
+						<?php endif; ?>
 					</div>
 				</aside>
 				<p class="fine-print">This article is for general education and is not a commitment to lend or an offer of credit. Program availability, rates and terms depend on your full financial picture and are subject to change.</p>
