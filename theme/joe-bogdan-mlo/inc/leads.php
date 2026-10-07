@@ -282,9 +282,9 @@ add_shortcode( 'jb_form', function ( $atts ) {
 						<div class="lead-consent">
 							<label class="check">
 								<input type="checkbox" name="sms_consent" value="yes">
-								<span>Yes, Joe may text me about my inquiry. Message and data rates may apply; reply STOP to opt out. Consent is not a condition of any loan. <a href="<?php echo esc_url( home_url( '/sms-terms/' ) ); ?>">Text terms</a></span>
+								<span>Optional: I agree to receive text messages from <?php echo esc_html( jb_opt( 'name' ) ); ?> and <?php echo esc_html( jb_opt( 'company' ) ); ?> about my inquiry at the mobile number above, which may be sent using automated technology. Message frequency varies; message and data rates may apply. Reply STOP to opt out or HELP for help. Consent is not a condition of any purchase or loan. <a href="<?php echo esc_url( home_url( '/sms-terms/' ) ); ?>">Text terms</a></span>
 							</label>
-							<p class="fine-print">By submitting, you agree Joe Bogdan of <?php echo esc_html( jb_opt( 'company' ) ); ?> may contact you about your inquiry. This is not an application or a commitment to lend and does not affect your credit. See our <a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>">Privacy Policy</a>.</p>
+							<p class="fine-print">By submitting, you agree that <?php echo esc_html( jb_opt( 'name' ) ); ?> and <?php echo esc_html( jb_opt( 'company' ) ); ?> may contact you by phone or email about your inquiry. Submitting this form is not a loan application, does not lock a rate, is not a commitment to lend and does not affect your credit. See our <a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>">Privacy Policy</a> and <a href="<?php echo esc_url( home_url( '/terms-of-use/' ) ); ?>">Terms of Use</a>. NMLS #<?php echo esc_html( jb_opt( 'nmls' ) ); ?> · <?php echo esc_html( jb_opt( 'company' ) ); ?> NMLS #<?php echo esc_html( jb_opt( 'company_nmls' ) ); ?> · Equal Housing Opportunity Lender.</p>
 						</div>
 					<?php endif; ?>
 
@@ -308,7 +308,7 @@ add_shortcode( 'jb_form', function ( $atts ) {
 			<div class="lead-success-icon"><?php echo jb_icon( 'check' ); ?></div>
 			<h3>Thanks — Joe has your details.</h3>
 			<div class="lead-result" aria-live="polite"></div>
-			<p>Joe personally reviews every request and typically responds the same business day. Need an answer sooner?</p>
+			<p>Joe personally reviews every request and will follow up with you directly. Prefer to talk now?</p>
 			<div class="btn-row">
 				<a class="btn btn-gold" href="tel:<?php echo esc_attr( jb_tel() ); ?>"><?php echo jb_icon( 'phone' ); ?> Call <?php echo esc_html( jb_opt( 'phone' ) ); ?></a>
 				<a class="btn btn-ghost" href="sms:<?php echo esc_attr( jb_tel( 'sms' ) ); ?>"><?php echo jb_icon( 'message' ); ?> Text Joe</a>

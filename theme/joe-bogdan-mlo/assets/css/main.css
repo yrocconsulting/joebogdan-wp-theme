@@ -628,6 +628,10 @@ a:hover .text-link .icon, .text-link:hover .icon { transform: translateX(3px); }
 .disclosure p { margin: 0; font-size: .78rem; line-height: 1.6; color: rgba(245, 241, 232, .6); }
 .disclosure a { text-decoration: underline; }
 .ehl { flex-shrink: 0; color: rgba(245, 241, 232, .7); }
+.texas-notice { margin-top: 22px; padding-top: 18px; border-top: 1px solid rgba(245, 241, 232, .08); }
+.texas-notice .footer-heading { font-size: .68rem; margin-bottom: 8px; }
+.texas-notice p { margin: 0 0 .6em; font-size: .74rem; line-height: 1.6; color: rgba(245, 241, 232, .55); }
+.texas-notice a { text-decoration: underline; }
 .copyright { margin: 18px 0 0; font-size: .78rem; color: rgba(245, 241, 232, .5) !important; }
 
 /* ---------- Mobile action bar ---------- */

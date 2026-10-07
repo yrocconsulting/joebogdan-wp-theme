@@ -53,21 +53,36 @@ function jb_preapproval_url() {
 	return esc_url( home_url( '/get-pre-approved/' ) );
 }
 
-/** Lender disclosure line used in footer and near forms. */
+/** Lender disclosure used in the footer, on legal pages and near forms. */
 function jb_disclosure() {
+	$company_url = jb_opt( 'company_url' );
 	return sprintf(
-		'%1$s, %2$s, NMLS #%3$s. %4$s, NMLS #%5$s. Equal Housing Opportunity. For licensing information, go to <a href="https://www.nmlsconsumeraccess.org/" rel="noopener" target="_blank">www.nmlsconsumeraccess.org</a>. This is not a commitment to lend. All loans subject to credit approval, underwriting guidelines and program availability; terms and rates subject to change without notice.',
+		'%1$s, %2$s, NMLS #%3$s. %4$s. %5$s, NMLS #%6$s, <a href="%7$s" rel="noopener" target="_blank">%8$s</a>. %9$s. Equal Housing Opportunity Lender. Verify licensing at <a href="https://www.nmlsconsumeraccess.org/" rel="noopener" target="_blank">www.nmlsconsumeraccess.org</a> and see <a href="%10$s" rel="noopener" target="_blank">CrossCountry Mortgage licensing and disclosures</a>. This is not a commitment to lend. All loans are subject to credit approval, underwriting guidelines and program availability. Programs, rates, terms and conditions are subject to change without notice. Not all applicants will qualify.',
 		esc_html( jb_opt( 'legal_name' ) ),
 		esc_html( jb_opt( 'title' ) ),
 		esc_html( jb_opt( 'nmls' ) ),
+		esc_html( jb_opt( 'licensing' ) ),
 		esc_html( jb_opt( 'company' ) ),
-		esc_html( jb_opt( 'company_nmls' ) )
+		esc_html( jb_opt( 'company_nmls' ) ),
+		esc_url( $company_url ),
+		esc_html( untrailingslashit( preg_replace( '#^https?://(www\.)?#', '', $company_url ) ) ),
+		esc_html( jb_opt( 'company_license' ) ),
+		esc_url( jb_opt( 'company_licensing_url' ) )
 	);
+}
+
+/**
+ * Texas Consumer Complaint and Recovery Fund Notice (mortgage banker version,
+ * matching CrossCountry Mortgage's published notice). Required on the site.
+ */
+function jb_texas_notice() {
+	return '<p>Consumers wishing to file a complaint against a mortgage banker or a licensed mortgage banker residential mortgage loan originator should complete and send a complaint form to the Texas Department of Savings and Mortgage Lending, 2601 N. Lamar, Suite 201, Austin, Texas 78705. Complaint forms and instructions may be obtained from the Department’s website at <a href="https://www.sml.texas.gov" rel="noopener" target="_blank">www.sml.texas.gov</a>. A toll-free consumer hotline is available at 1-877-276-5550.</p>'
+		. '<p>The Department maintains a recovery fund to make payments of certain actual out of pocket damages sustained by borrowers caused by acts of licensed mortgage banker residential mortgage loan originators. A written application for reimbursement from the recovery fund must be filed with and investigated by the Department prior to the payment of a claim. For more information about the recovery fund, please consult the Department’s website at <a href="https://www.sml.texas.gov" rel="noopener" target="_blank">www.sml.texas.gov</a>.</p>';
 }
 
 /** Equal Housing Opportunity logo (inline SVG). */
 function jb_ehl_logo() {
-	return '<svg class="ehl" viewBox="0 0 64 64" width="40" height="40" role="img" aria-label="Equal Housing Opportunity"><path fill="currentColor" d="M32 4 2 22v6h4v30h52V28h4v-6zm18 50H14V26l18-11 18 11zM20 32h24v5H20zm0 10h24v5H20z"/></svg>';
+	return '<svg class="ehl" viewBox="0 0 64 64" width="40" height="40" role="img" aria-label="Equal Housing Opportunity Lender"><path fill="currentColor" d="M32 4 2 22v6h4v30h52V28h4v-6zm18 50H14V26l18-11 18 11zM20 32h24v5H20zm0 10h24v5H20z"/></svg>';
 }
 
 /**

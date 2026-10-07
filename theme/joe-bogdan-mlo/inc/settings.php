@@ -17,7 +17,10 @@ function jb_settings_fields() {
 			'nmls'         => array( 'Individual NMLS #', '2795320' ),
 			'company'      => array( 'Company', 'CrossCountry Mortgage, LLC' ),
 			'company_nmls' => array( 'Company NMLS #', '3029' ),
-			'licensing'    => array( 'Licensing statement', 'Licensed in all 50 states' ),
+			'licensing'    => array( 'Joe’s licensing statement', 'Licensed as a mortgage loan originator in Texas' ),
+			'company_license' => array( 'Company licensing statement', 'CrossCountry Mortgage, LLC is licensed in all 50 states' ),
+			'company_url'  => array( 'Company website URL', 'https://crosscountrymortgage.com/' ),
+			'company_licensing_url' => array( 'Company licensing & disclosures URL', 'https://crosscountrymortgage.com/mortgage/licensing-and-disclosures/' ),
 		),
 		'Contact'    => array(
 			'phone'        => array( 'Phone (calls)', '(469) 324-4620' ),

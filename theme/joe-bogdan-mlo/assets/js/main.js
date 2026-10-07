@@ -121,17 +121,17 @@
 			if (high.price <= 0) {
 				return '<span class="result-label">Your next step</span><p class="result-sub">Based on what you entered, Joe will want to talk through options with you directly. He’ll reach out shortly.</p>';
 			}
-			return '<span class="result-label">Estimated buying power</span>' +
+			return '<span class="result-label">Estimated price range</span>' +
 				'<span class="result-figure">' + money(round(low.price)) + ' – ' + money(round(high.price)) + '</span>' +
-				'<p class="result-sub">Estimated payment of about ' + money(low.payment) + '–' + money(high.payment) + '/month including taxes and insurance.</p>' +
-				'<p class="result-note">Illustration only, using a ' + (cfg.rate || 6.75) + '% rate, 30-year term and estimated Texas taxes and insurance. Not a commitment to lend. Joe will refine this with your actual program options.</p>';
+				'<p class="result-sub">Joe will review your answers and follow up with the programs and options that fit your situation.</p>' +
+				'<p class="result-note">General estimate based on your answers and typical assumptions for interest rates, Texas property taxes and insurance. It is not a loan offer, pre-approval or commitment to lend; actual terms depend on credit approval, underwriting and program availability.</p>';
 		}
 		if (type === 'refinance') {
 			var equity = Math.max(0, num(data.home_value) * 0.8 - num(data.balance));
 			return '<span class="result-label">Estimated accessible equity</span>' +
 				'<span class="result-figure">Up to ' + money(Math.round(equity / 1000) * 1000) + '</span>' +
 				'<p class="result-sub">Based on borrowing up to 80% of your estimated home value.</p>' +
-				'<p class="result-note">Illustration only. Texas homestead cash-out rules, your credit and the appraised value will determine actual options. Not a commitment to lend.</p>';
+				'<p class="result-note">General estimate only. Texas homestead cash-out rules, your credit, the appraised value and program availability determine actual options. Not a loan offer or commitment to lend.</p>';
 		}
 		return null;
 	}

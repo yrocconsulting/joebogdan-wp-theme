@@ -190,7 +190,8 @@ function jb_schema_graph() {
 			'@type'       => 'Organization',
 			'@id'         => $ids['lender'],
 			'name'        => jb_opt( 'company' ),
-			'url'         => 'https://crosscountrymortgage.com/',
+			'url'         => jb_opt( 'company_url' ),
+			'description' => jb_opt( 'company_license' ) . '.',
 			'identifier'  => array( '@type' => 'PropertyValue', 'propertyID' => 'NMLS', 'value' => jb_opt( 'company_nmls' ) ),
 		),
 		array(
@@ -210,8 +211,8 @@ function jb_schema_graph() {
 			'hasCredential'    => array(
 				'@type'              => 'EducationalOccupationalCredential',
 				'credentialCategory' => 'license',
-				'name'               => 'Mortgage Loan Originator License (NMLS #' . $nmls . ')',
-				'recognizedBy'       => array( '@type' => 'Organization', 'name' => 'Nationwide Multistate Licensing System & Registry (NMLS)', 'url' => 'https://www.nmlsconsumeraccess.org/' ),
+				'name'               => 'Texas Residential Mortgage Loan Originator License (NMLS #' . $nmls . ')',
+				'recognizedBy'       => array( '@type' => 'GovernmentOrganization', 'name' => 'Texas Department of Savings and Mortgage Lending', 'url' => 'https://www.sml.texas.gov/' ),
 			),
 			'knowsAbout'       => $knows,
 			'areaServed'       => $areas,
@@ -347,7 +348,7 @@ add_action( 'template_redirect', function () {
 	$out   = array();
 	$out[] = '# ' . jb_opt( 'name' ) . ', ' . jb_opt( 'title' );
 	$out[] = '';
-	$out[] = sprintf( '> %s is a %s with %s (individual NMLS #%s; company NMLS #%s), based in %s, %s and serving North Texas. %s. He helps home buyers, self-employed borrowers and business owners, real estate investors and luxury/jumbo buyers structure mortgage financing, and partners with Realtors and home builders. He is a mortgage loan originator only and does not provide real estate brokerage services.', jb_opt( 'name' ), jb_opt( 'title' ), jb_opt( 'company' ), jb_opt( 'nmls' ), jb_opt( 'company_nmls' ), jb_opt( 'city' ), jb_opt( 'region' ), jb_opt( 'licensing' ) );
+	$out[] = sprintf( '> %s is a %s with %s (individual NMLS #%s; company NMLS #%s), based in %s, %s and serving North Texas. %s; %s. He helps home buyers, self-employed borrowers and business owners, real estate investors and luxury/jumbo buyers structure mortgage financing, and partners with Realtors and home builders. He is a mortgage loan originator only and does not provide real estate brokerage services.', jb_opt( 'name' ), jb_opt( 'title' ), jb_opt( 'company' ), jb_opt( 'nmls' ), jb_opt( 'company_nmls' ), jb_opt( 'city' ), jb_opt( 'region' ), jb_opt( 'licensing' ), jb_opt( 'company_license' ) );
 	$out[] = '';
 	$out[] = sprintf( 'Contact: %s · %s · %s, %s, %s %s', jb_opt( 'phone' ), jb_opt( 'email' ), jb_opt( 'street' ), jb_opt( 'city' ), jb_opt( 'region' ), jb_opt( 'postal' ) );
 	$out[] = sprintf( 'Verify license: https://www.nmlsconsumeraccess.org/EntityDetails.aspx/INDIVIDUAL/%s', jb_opt( 'nmls' ) );

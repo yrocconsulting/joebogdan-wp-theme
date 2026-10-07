@@ -74,7 +74,11 @@
 		?>
 		<div class="disclosure">
 			<?php echo jb_ehl_logo(); ?>
-			<p><?php echo jb_disclosure(); ?> <?php echo esc_html( jb_opt( 'licensing' ) ); ?>.</p>
+			<p><?php echo jb_disclosure(); ?></p>
+		</div>
+		<div class="texas-notice">
+			<h2 class="footer-heading">Texas Consumer Complaint &amp; Recovery Fund Notice</h2>
+			<?php echo jb_texas_notice(); ?>
 		</div>
 		<p class="copyright">&copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> <?php echo esc_html( jb_opt( 'name' ) ); ?>. All rights reserved.</p>
 	</div>

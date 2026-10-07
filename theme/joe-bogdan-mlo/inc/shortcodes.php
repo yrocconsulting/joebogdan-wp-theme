@@ -122,7 +122,7 @@ add_shortcode( 'jb_trust', function () {
 	$items = array(
 		array( '30+ Years', 'Business & executive leadership' ),
 		array( 'Former CEO', 'Built and operated multiple companies' ),
-		array( 'NMLS #' . jb_opt( 'nmls' ), 'Licensed mortgage loan originator', 'https://www.nmlsconsumeraccess.org/EntityDetails.aspx/INDIVIDUAL/' . rawurlencode( jb_opt( 'nmls' ) ) ),
+		array( 'NMLS #' . jb_opt( 'nmls' ), 'Texas-licensed mortgage loan originator', 'https://www.nmlsconsumeraccess.org/EntityDetails.aspx/INDIVIDUAL/' . rawurlencode( jb_opt( 'nmls' ) ) ),
 		array( 'CrossCountry Mortgage', 'National lender, local relationship' ),
 	);
 	ob_start();
@@ -261,7 +261,7 @@ add_shortcode( 'jb_video', function ( $atts ) {
 add_shortcode( 'jb_contact_options', function () {
 	$options = array(
 		array( 'phone', 'Call Joe', jb_opt( 'phone' ), 'tel:' . jb_tel() ),
-		array( 'message', 'Text Joe', 'Fastest for quick questions', 'sms:' . jb_tel( 'sms' ) ),
+		array( 'message', 'Text Joe', 'Handy for quick questions', 'sms:' . jb_tel( 'sms' ) ),
 		array( 'mail', 'Email Joe', jb_opt( 'email' ), 'mailto:' . jb_opt( 'email' ) ),
 	);
 	if ( jb_opt( 'calendar_url' ) ) {
@@ -340,6 +340,9 @@ add_shortcode( 'jb_opt', function ( $atts ) {
 	$a = shortcode_atts( array( 'key' => '' ), $atts );
 	return esc_html( jb_opt( $a['key'] ) );
 } );
+
+/** [jb_texas_notice] — Texas complaint / recovery fund notice. */
+add_shortcode( 'jb_texas_notice', 'jb_texas_notice' );
 
 /** [jb_disclosure] — full lender disclosure paragraph. */
 add_shortcode( 'jb_disclosure', function () {

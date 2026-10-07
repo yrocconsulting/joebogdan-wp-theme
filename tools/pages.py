@@ -18,9 +18,9 @@ CONTACT = "/contact/"
 FAQ_CREDIT = ("What credit score do I need for a mortgage?",
               "It depends on the program. FHA financing generally allows lower scores than conventional loans, while jumbo loans usually expect stronger credit. Your score is one factor alongside income, assets and debts, so the most useful next step is a quick review of your full picture.")
 FAQ_TIMELINE = ("How long does the mortgage process take?",
-                "Once documents are in, a pre-approval can often be completed within a day or two. From accepted offer to closing, most purchases take roughly 30–45 days. New construction, jumbo and self-employed files can take longer, which is why Joe maps the timeline with you up front.")
+                "It depends on the loan program, the property and how quickly documents come in. New construction, jumbo and self-employed files often involve extra steps. Joe maps out a realistic timeline with you up front so there are no surprises.")
 FAQ_NMLS = ("Is Joe Bogdan licensed?",
-            "Yes. Joe Bogdan is a Senior Loan Officer with CrossCountry Mortgage, LLC (company NMLS #3029). His individual NMLS ID is #2795320, and you can verify it at nmlsconsumeraccess.org.")
+            "Yes. Joe Bogdan is a Senior Loan Officer licensed as a mortgage loan originator in Texas (NMLS #2795320) with CrossCountry Mortgage, LLC (NMLS #3029). You can verify his license at nmlsconsumeraccess.org.")
 FAQ_REALTOR = ("Is Joe a real estate agent?",
                "No. Joe is a mortgage loan originator only. He does not represent buyers or sellers in real estate transactions, so he works alongside your Realtor — never in competition with them.")
 FAQ_CREDIT_PULL = ("Will requesting an analysis affect my credit?",
@@ -91,7 +91,7 @@ home = page(
         head("For Real Estate Professionals", "A Lending Partner Who Protects Your Deals.",
              "Joe is a mortgage loan originator only — he will never compete with you for the client. His job is to make you look good and get your buyers to the closing table."),
         cards(
-            card("Realtors", "Fast scenario answers when you are writing an offer, strong pre-approval letters and proactive updates so you are never chasing the lender.", ("Partner with Joe", "/realtor-partners/")),
+            card("Realtors", "Prompt scenario reviews when you are writing an offer, strong pre-approval letters and proactive updates so you are never chasing the lender.", ("Partner with Joe", "/realtor-partners/")),
             card("Builders & Developers", "Responsive pre-approvals for model-home traffic, an understanding of construction timelines and one point of contact from contract to close.", ("Become a preferred lender", "/builders-developers/")),
             cols=2,
         ),
@@ -118,7 +118,7 @@ home = page(
 # ---------------------------------------------------------------------------
 preapproval = page(
     sc('[jb_hero eyebrow="Free · No credit pull · About 2 minutes" title="Discover Your" accent="Buying Power." '
-       'lede="Answer a few questions and Joe will prepare a personalized analysis of what you can comfortably afford, the programs you likely fit and your fastest path to a strong pre-approval." '
+       'lede="Answer a few questions and Joe will prepare a personalized analysis of what you can comfortably afford, the programs you likely fit and your clearest path to a strong pre-approval." '
        'cta="" secondary="yes" form="buying-power"]'),
     section(
         head("What You’ll Get", "More Useful Than a Calculator — and It’s Free."),
@@ -135,7 +135,7 @@ preapproval = page(
         ("What is the difference between pre-qualification and pre-approval?",
          "A pre-qualification is an estimate based on what you tell us. A pre-approval goes further: your income, assets and credit are reviewed and verified, so sellers and their agents can trust your offer. The buying-power analysis is the first step toward a pre-approval."),
         ("How long is a pre-approval good for?",
-         "Typically 60–90 days, depending on the program and how recent your documents are. Joe can refresh it quickly if your search takes longer."),
+         "Pre-approvals are time-limited and depend on the program and how recent your documents are. If your search runs longer, Joe can update it with fresh documents."),
         FAQ_TIMELINE,
         FAQ_CREDIT,
     ]),
@@ -164,9 +164,9 @@ programs = page(
         head("Programs Joe Works With", "The Tools Behind the Strategy",
              "Products matter, but only after the plan. These are the programs Joe most often uses to solve the situations above."),
         ul([
-            "<strong>Conventional</strong> — flexible down payments, including low-down-payment options for qualified buyers",
+            "<strong>Conventional</strong> — a range of down-payment options for qualified buyers",
             "<strong>FHA</strong> — more flexible credit and down-payment guidelines",
-            "<strong>VA</strong> — for eligible veterans and service members, often with no down payment",
+            "<strong>VA</strong> — for eligible veterans, service members and surviving spouses",
             "<strong>Jumbo</strong> — loan amounts above conforming limits",
             "<strong>Bank-statement &amp; 1099</strong> — qualify using business or personal deposits instead of tax returns",
             "<strong>DSCR</strong> — investor loans that qualify on the property’s rental income",
@@ -190,8 +190,8 @@ purchase = page(
         cards(
             card("“How much can I actually afford?”", "Lenders may approve more than you want to spend. Joe shows the payment behind every price point — taxes and insurance included — so you choose your comfort zone."),
             card("“Can I buy before I sell?”", "Depending on income, equity and reserves, you may be able to carry both homes briefly or use your current equity. Joe maps the options before you write an offer."),
-            card("“How much do I need to put down?”", "Less than many people think. There are low-down-payment conventional, FHA and VA options — and trade-offs worth understanding."),
-            card("“How do I compete with other offers?”", "A fully documented pre-approval and a loan officer who answers the listing agent’s call quickly can make a real difference."),
+            card("“How much do I need to put down?”", "It may be less than you think. Conventional, FHA and VA programs each have different down-payment requirements and trade-offs worth understanding."),
+            card("“How do I compete with other offers?”", "A fully documented pre-approval and a loan officer who is responsive to the listing agent can help your offer stand out."),
             card("“We’re buying new construction.”", "Joe coordinates with your builder’s schedule so rate, appraisal and closing timelines line up."),
             card("“Is now a good time to buy?”", "Joe won’t pressure you. He will help you compare buying now with waiting, using your real numbers."),
         ),
@@ -210,7 +210,7 @@ purchase = page(
         ("What do I need for a pre-approval?",
          "Typically recent pay stubs, W-2s or tax returns, two months of bank statements and a photo ID. Self-employed buyers may use different documentation. Joe sends a simple checklist based on your situation."),
         ("Can I buy a home with less than 20% down?",
-         "Yes. Many qualified buyers use conventional loans with smaller down payments, FHA loans or — if eligible — VA loans with no down payment. Each has trade-offs such as mortgage insurance, which Joe will explain with real numbers."),
+         "Often, yes. Depending on your situation, conventional, FHA or — for eligible veterans — VA financing may allow a smaller down payment. Each option has trade-offs, such as mortgage insurance, which Joe will walk through with your actual numbers."),
         ("Can I buy before selling my current home?",
          "Often. It depends on whether you can qualify with both payments, how much equity you have and your reserves. Joe will outline the realistic options before you start touring."),
         FAQ_TIMELINE,
@@ -250,7 +250,7 @@ refinance = page(
         ("When does refinancing make sense?",
          "When the savings or benefit outweighs the cost within a time frame that fits your plans. Joe calculates your break-even point so you can decide with real numbers — and will tell you if waiting is smarter."),
         ("How much equity can I take out?",
-         "Many cash-out programs allow borrowing up to about 80% of your home’s value, minus your current balance. Texas has specific rules for cash-out on a homestead, which Joe will walk you through."),
+         "It depends on your home’s value, your current balance, your credit and the program. Texas has specific rules for cash-out refinancing on a homestead, which Joe will walk you through."),
         ("Can I remove mortgage insurance without refinancing?",
          "Sometimes. Conventional PMI can often be removed once you reach enough equity. FHA mortgage insurance usually requires a refinance. Joe will check which applies to you."),
         FAQ_CREDIT_PULL,
@@ -293,7 +293,7 @@ jumbo = page(
         ("What is a jumbo loan?",
          "A mortgage larger than the conforming loan limit set each year by the Federal Housing Finance Agency. Because these loans can’t be sold to Fannie Mae or Freddie Mac, lenders set their own credit, reserve and documentation standards."),
         ("How much do I need to put down on a jumbo loan?",
-         "It varies by lender, loan size and your profile. Some programs allow 10% down or less for strong borrowers, while larger loans often require more. Joe will show you the trade-offs between putting more down and keeping liquidity."),
+         "It varies by program, loan size and your overall financial profile. Joe will walk you through the requirements that apply to you and the trade-offs between putting more down and keeping liquidity."),
         ("Can I finance a ranch or acreage property?",
          "Often, yes — though acreage, outbuildings and agricultural use affect which programs fit. Share the property details and Joe will tell you what is realistic."),
         FAQ_TIMELINE,
@@ -320,8 +320,8 @@ self_employed = page(
     section(
         head("Options for Business Owners", "More Than One Way to Qualify."),
         cards(
-            card("Full-documentation loans", "Conventional, FHA or jumbo financing using tax returns — often the lowest cost when your returns support it."),
-            card("Bank-statement loans", "Qualify using 12–24 months of business or personal deposits instead of tax returns."),
+            card("Full-documentation loans", "Conventional, FHA or jumbo financing using tax returns — often the most straightforward path when your returns support it."),
+            card("Bank-statement loans", "Qualify using business or personal bank deposits instead of tax returns."),
             card("1099 programs", "For contractors and commission earners paid on 1099s."),
             card("Asset-based loans", "Qualify using significant liquid assets rather than monthly income."),
         ),
@@ -340,7 +340,7 @@ self_employed = page(
         ("Can I get a mortgage with less than two years self-employed?",
          "Sometimes. If you have a strong history in the same line of work, some programs will consider a shorter self-employment period. Joe will review your timeline."),
         ("What is a bank-statement loan?",
-         "A program that calculates income from 12–24 months of bank deposits instead of tax returns. It is designed for business owners whose deductions reduce taxable income. Rates and down payments are typically different from conventional loans."),
+         "A program that calculates income from bank deposits instead of tax returns. It is designed for business owners whose deductions reduce taxable income. Pricing and requirements typically differ from conventional loans, and Joe will compare them side by side."),
         ("Do I need to stop taking write-offs to qualify?",
          "Not necessarily. Talk to Joe — and your CPA — before changing your tax strategy. There may be a program that fits how you already file."),
         ("Investment property instead?", "If you are buying rentals, a DSCR loan may qualify you on the property’s rent rather than your personal income. See <a href=\"/loan-programs/investment-property/\">investment property financing</a>."),
@@ -358,7 +358,7 @@ investment = page(
         head("Investor Questions", "What Investors Ask Joe."),
         cards(
             card("“Can I qualify on the property’s rent?”", "DSCR loans qualify primarily on the property’s rental income compared with its payment — not your personal tax returns."),
-            card("“How much do I need down?”", "Investment properties generally require more down than a primary home. Joe will compare programs so you keep enough cash for reserves and the next opportunity."),
+            card("“How much do I need down?”", "Investment properties often have different down-payment and reserve requirements than a primary home. Joe will compare programs so you keep enough cash for reserves and the next opportunity."),
             card("“Can I pull equity from my rentals?”", "A cash-out refinance can fund your next purchase. Joe will check whether the numbers still cash-flow afterward."),
             card("“Should I buy in an LLC?”", "Some programs allow LLC vesting. Joe will explain the options; talk with your attorney and CPA about the legal and tax side."),
         ),
@@ -386,12 +386,12 @@ investment = page(
 # ---------------------------------------------------------------------------
 builders = page(
     sc('[jb_hero eyebrow="Builder & Developer Partnerships" title="The Lending Partner Your Buyers" accent="Deserve." '
-       'lede="Fewer fall-throughs, faster pre-approvals for model-home traffic and a loan officer who understands construction timelines. Joe protects your schedule and your reputation." '
+       'lede="Responsive pre-approvals for model-home traffic, proactive communication and a loan officer who understands construction timelines — so your schedule and your reputation are in good hands." '
        'cta="Become a Preferred Lending Partner" cta_url="#partner" image="joe-headshot.webp"]'),
     section(
         head("Why Builders Work With Joe", "Built Around Your Sales and Construction Schedule."),
         cards(
-            card("Fast, responsive pre-approvals", "Quick turnarounds for walk-in and model-home traffic so buyers stay engaged and your sales team can move."),
+            card("Responsive pre-approvals", "Prompt attention for walk-in and model-home traffic so buyers stay engaged and your sales team can keep moving."),
             card("Timeline-aware financing", "Rate locks, appraisals and closings planned around construction milestones — not the other way around."),
             card("One point of contact", "Your sales team and your buyers have Joe’s direct line, from contract to closing."),
             card("Proactive status updates", "You hear about issues early, with a plan, instead of the week of closing."),
@@ -404,7 +404,7 @@ builders = page(
         split(
             [p("How It Works", "eyebrow"),
              h("A Simple Partnership.", 2, "section-title"),
-             p("Joe meets with your sales team, learns your communities and process, and sets expectations for communication. From there, your buyers get a fast, consistent experience — and you get visibility into every file.")],
+             p("Joe meets with your sales team, learns your communities and process, and sets expectations for communication. From there, your buyers get a responsive, consistent experience — and you get visibility into every file.")],
             [ul([
                 "<strong>Kickoff</strong> — learn your communities, incentives and timelines",
                 "<strong>Buyer intake</strong> — a simple way for your team to send buyers to Joe",
@@ -435,11 +435,11 @@ realtors = page(
     section(
         head("What You Can Count On", "Built for Agents Who Can’t Afford Surprises."),
         cards(
-            card("Fast scenario answers", "Text Joe the basics while you are writing an offer and get a realistic read quickly."),
+            card("Prompt scenario reviews", "Text Joe the basics while you are writing an offer and get a realistic read on your client’s options."),
             card("Strong pre-approvals", "Documented, reviewed pre-approvals — and a call to the listing agent when it helps your offer stand out."),
             card("Proactive communication", "You hear status updates before you have to ask, from application to clear-to-close."),
             card("Difficult-borrower strategy", "Self-employed, jumbo, investor and buy-before-you-sell clients get a plan, not a quick “no.”"),
-            card("Available when offers happen", "Offers don’t wait for business hours. Joe is reachable when you are writing them."),
+            card("Honest answers early", "If a scenario has a problem, you hear about it before the offer — not the week of closing."),
             card("Your relationship stays yours", "Joe never competes for your client and always keeps you in the loop."),
         ),
         tone="ivory",
@@ -465,7 +465,7 @@ realtors = page(
     faq("Questions From Agents", [
         FAQ_REALTOR,
         ("How quickly can Joe review a scenario?",
-         "Text or submit the scenario and Joe will respond as quickly as possible, typically the same business day — sooner when you tell him an offer is being written."),
+         "Text or submit the scenario and Joe will respond as quickly as he can. Let him know when an offer is being written so he can prioritize it."),
         ("Can Joe help clients who need to sell before they buy?",
          "Often. Depending on income, equity and reserves, there may be ways to qualify carrying both homes or to use the current home’s equity. Send the scenario and Joe will outline options."),
         FAQ_NMLS,
@@ -515,6 +515,7 @@ about = page(
         ul([
             "Senior Loan Officer, CrossCountry Mortgage, LLC (company NMLS #3029)",
             "Individual NMLS #2795320 — <a href=\"https://www.nmlsconsumeraccess.org/EntityDetails.aspx/INDIVIDUAL/2795320\" target=\"_blank\" rel=\"noopener\">verify on NMLS Consumer Access</a>",
+            "Licensed as a mortgage loan originator in Texas; CrossCountry Mortgage, LLC is licensed in all 50 states",
             "Based in Flower Mound, serving the Dallas–Fort Worth Metroplex and North Texas",
             "30+ years of business ownership and executive leadership",
         ], "check-list"),
@@ -612,21 +613,24 @@ licensing = page(
     sc(REVIEW),
     h("Licensing"),
     sc("[jb_disclosure]"),
-    p("Verify licensing on NMLS Consumer Access: <a href=\"https://www.nmlsconsumeraccess.org/EntityDetails.aspx/INDIVIDUAL/2795320\" target=\"_blank\" rel=\"noopener\">[jb_opt key=\"name\"], NMLS #[jb_opt key=\"nmls\"]</a> · <a href=\"https://www.nmlsconsumeraccess.org/EntityDetails.aspx/COMPANY/3029\" target=\"_blank\" rel=\"noopener\">[jb_opt key=\"company\"], NMLS #[jb_opt key=\"company_nmls\"]</a>."),
-    h("Equal Housing Opportunity"),
-    p("We do business in accordance with the Fair Housing Act and the Equal Credit Opportunity Act."),
+    ul([
+        "[jb_opt key=\"legal_name\"] is licensed as a residential mortgage loan originator in Texas — <a href=\"https://www.nmlsconsumeraccess.org/EntityDetails.aspx/INDIVIDUAL/2795320\" target=\"_blank\" rel=\"noopener\">verify NMLS #[jb_opt key=\"nmls\"]</a>.",
+        "[jb_opt key=\"company\"] (NMLS #[jb_opt key=\"company_nmls\"]) is licensed in all 50 states — <a href=\"https://www.nmlsconsumeraccess.org/EntityDetails.aspx/COMPANY/3029\" target=\"_blank\" rel=\"noopener\">verify on NMLS Consumer Access</a> and see <a href=\"https://crosscountrymortgage.com/mortgage/licensing-and-disclosures/\" target=\"_blank\" rel=\"noopener\">CrossCountry Mortgage licensing and disclosures</a>.",
+        "Company website: <a href=\"https://crosscountrymortgage.com/\" target=\"_blank\" rel=\"noopener\">crosscountrymortgage.com</a>",
+    ]),
+    h("Equal Housing Opportunity Lender"),
+    p("[jb_opt key=\"company\"] is an Equal Housing Opportunity Lender. We do business in accordance with the Fair Housing Act and the Equal Credit Opportunity Act."),
     h("Not a commitment to lend"),
-    p("Information on this website is not a commitment to lend or an offer of credit. All loans are subject to credit approval, underwriting guidelines and program availability. Rates and terms are subject to change without notice."),
+    p("Information on this website is not a commitment to lend or an offer of credit. All loans are subject to credit approval, underwriting guidelines and program availability. Programs, rates, terms and conditions are subject to change without notice. Not all applicants will qualify. Estimates produced by tools on this site are general illustrations, not loan offers."),
     h("Mortgage loan originator only"),
     p("[jb_opt key=\"name\"] is a licensed mortgage loan originator and does not provide real estate brokerage services or represent buyers or sellers in real estate transactions."),
-    h("Texas consumers"),
-    p("See the <a href=\"/texas-consumer-notice/\">Texas Consumer Complaint and Recovery Fund Notice</a>."),
+    h("Texas Consumer Complaint and Recovery Fund Notice"),
+    sc("[jb_texas_notice]"),
 )
 
 texas = page(
-    sc("[jb_todo]Confirm the current wording against the Texas Department of Savings and Mortgage Lending (sml.texas.gov) before launch.[/jb_todo]"),
-    p("Consumers wishing to file a complaint against a company or a residential mortgage loan originator should complete and send a complaint form to the Texas Department of Savings and Mortgage Lending, 2601 North Lamar, Suite 201, Austin, Texas 78705. Complaint forms and instructions may be obtained from the Department’s website at <a href=\"https://www.sml.texas.gov\" target=\"_blank\" rel=\"noopener\">www.sml.texas.gov</a>. A toll-free consumer hotline is available at 1-877-276-5550."),
-    p("The Department maintains a recovery fund to make payments of certain actual out-of-pocket damages sustained by borrowers caused by acts of licensed residential mortgage loan originators. A written application for reimbursement from the recovery fund must be filed with and investigated by the Department prior to the payment of a claim. For more information about the recovery fund, please consult the Department’s website at <a href=\"https://www.sml.texas.gov\" target=\"_blank\" rel=\"noopener\">www.sml.texas.gov</a>."),
+    p("The following notice is provided as required for Texas mortgage bankers and residential mortgage loan originators. It matches the notice published by <a href=\"https://crosscountrymortgage.com/mortgage/licensing-and-disclosures/\" target=\"_blank\" rel=\"noopener\">CrossCountry Mortgage, LLC</a>."),
+    sc("[jb_texas_notice]"),
 )
 
 # ---------------------------------------------------------------------------
@@ -670,11 +674,11 @@ PAGES = [
      "Investment property mortgage", 5, None),
     ("builders-developers", "Builders & Developers", None, LANDING, builders,
      "Preferred Lender for Builders & Developers in North Texas | Joe Bogdan",
-     "Fast pre-approvals, construction-timeline coordination and one point of contact. Become a preferred lending partner with Joe Bogdan.",
+     "Responsive pre-approvals, construction-timeline coordination and one point of contact. Become a preferred lending partner with Joe Bogdan.",
      None, 3, None),
     ("realtor-partners", "Realtor Partners", None, LANDING, realtors,
      "Mortgage Partner for Realtors in DFW | Joe Bogdan",
-     "Fast scenario answers, strong pre-approvals and a lender who never competes for your client. Run a financing scenario for your buyer with Joe Bogdan.",
+     "Prompt scenario reviews, strong pre-approvals and a lender who never competes for your client. Run a financing scenario for your buyer with Joe Bogdan.",
      None, 4, None),
     ("about-joe", "About Joe", None, LANDING, about,
      "About Joe Bogdan | Former CEO Turned Mortgage Loan Originator",
@@ -693,7 +697,7 @@ PAGES = [
     ("sms-terms", "Text Messaging Terms", None, None, sms, None, "Terms for text messages from Joe Bogdan and CrossCountry Mortgage.", None, 22, None),
     ("accessibility", "Accessibility", None, None, accessibility, None, "Our commitment to an accessible website.", None, 23, None),
     ("licensing-disclosures", "Licensing & Disclosures", None, None, licensing, None, "Licensing, NMLS and lender disclosures for Joe Bogdan and CrossCountry Mortgage.", None, 24, None),
-    ("texas-consumer-notice", "Texas Consumer Notice", None, None, texas, None, "Texas Department of Savings and Mortgage Lending consumer complaint and recovery fund notice.", None, 25, None),
+    ("texas-consumer-notice", "Texas Consumer Notice", None, None, texas, None, "Texas Department of Savings and Mortgage Lending consumer complaint and recovery fund notice for mortgage bankers and residential mortgage loan originators.", None, 25, None),
 ]
 
 MENUS = {
