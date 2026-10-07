@@ -1,0 +1,390 @@
+{
+  "pages": [
+    {
+      "slug": "home",
+      "title": "Home",
+      "parent": null,
+      "template": "",
+      "file": "pages/home.html",
+      "seo_title": "Joe Bogdan | Mortgage Loan Originator in Flower Mound & North Texas",
+      "seo_description": "Joe Bogdan, Senior Loan Officer with CrossCountry Mortgage (NMLS #2795320), helps North Texas buyers, business owners, investors and luxury buyers finance strategically.",
+      "service": "",
+      "menu_order": 0,
+      "excerpt": ""
+    },
+    {
+      "slug": "get-pre-approved",
+      "title": "Discover Your Buying Power",
+      "parent": null,
+      "template": "page-templates/landing.php",
+      "file": "pages/get-pre-approved.html",
+      "seo_title": "Discover Your Buying Power | Free Mortgage Pre-Approval Analysis",
+      "seo_description": "How much house can you afford in North Texas? Get a free, personalized buying-power analysis from Joe Bogdan — no credit pull, about two minutes.",
+      "service": "Mortgage pre-approval",
+      "menu_order": 1,
+      "excerpt": ""
+    },
+    {
+      "slug": "loan-programs",
+      "title": "Loan Programs",
+      "parent": null,
+      "template": "page-templates/landing.php",
+      "file": "pages/loan-programs.html",
+      "seo_title": "Mortgage Loan Programs by Situation | Joe Bogdan, North Texas",
+      "seo_description": "Find the right mortgage by starting with your goal: buying, refinancing, jumbo, self-employed or investment property financing in North Texas.",
+      "service": "",
+      "menu_order": 2,
+      "excerpt": ""
+    },
+    {
+      "slug": "home-purchase",
+      "title": "Home Purchase",
+      "parent": "loan-programs",
+      "template": "page-templates/landing.php",
+      "file": "pages/home-purchase.html",
+      "seo_title": "Home Purchase Loans & Pre-Approval in North Texas | Joe Bogdan",
+      "seo_description": "How much house can you afford, and can you buy before you sell? Joe Bogdan helps North Texas buyers get a confident number and a stronger offer.",
+      "service": "Home purchase mortgage",
+      "menu_order": 1,
+      "excerpt": ""
+    },
+    {
+      "slug": "refinance",
+      "title": "Refinance & Equity",
+      "parent": "loan-programs",
+      "template": "page-templates/landing.php",
+      "file": "pages/refinance.html",
+      "seo_title": "Refinance & Home Equity Options in Texas | Joe Bogdan",
+      "seo_description": "Lower your payment, take cash out or remove mortgage insurance — Joe Bogdan shows whether refinancing makes sense with a free equity analysis.",
+      "service": "Mortgage refinance",
+      "menu_order": 2,
+      "excerpt": ""
+    },
+    {
+      "slug": "jumbo-luxury-financing",
+      "title": "Jumbo & Luxury Financing",
+      "parent": "loan-programs",
+      "template": "page-templates/landing.php",
+      "file": "pages/jumbo-luxury-financing.html",
+      "seo_title": "Jumbo & Luxury Home Financing in North Texas | Joe Bogdan",
+      "seo_description": "Strategic jumbo financing for high-value homes, ranches and second homes in North Texas. Request a private consultation with Joe Bogdan.",
+      "service": "Jumbo mortgage",
+      "menu_order": 3,
+      "excerpt": ""
+    },
+    {
+      "slug": "self-employed-business-owners",
+      "title": "Self-Employed & Business Owners",
+      "parent": "loan-programs",
+      "template": "page-templates/landing.php",
+      "file": "pages/self-employed-business-owners.html",
+      "seo_title": "Self-Employed Mortgage Options: Bank-Statement & 1099 Loans | Joe Bogdan",
+      "seo_description": "Can you qualify for a mortgage if you’re self-employed? Joe Bogdan, a former CEO, helps business owners choose the right documentation path.",
+      "service": "Self-employed mortgage",
+      "menu_order": 4,
+      "excerpt": ""
+    },
+    {
+      "slug": "investment-property",
+      "title": "Investment Property",
+      "parent": "loan-programs",
+      "template": "page-templates/landing.php",
+      "file": "pages/investment-property.html",
+      "seo_title": "Investment Property & DSCR Loans in Texas | Joe Bogdan",
+      "seo_description": "DSCR, conventional and multi-unit investment property financing. Send Joe Bogdan your deal and get financing options that fit your portfolio.",
+      "service": "Investment property mortgage",
+      "menu_order": 5,
+      "excerpt": ""
+    },
+    {
+      "slug": "builders-developers",
+      "title": "Builders & Developers",
+      "parent": null,
+      "template": "page-templates/landing.php",
+      "file": "pages/builders-developers.html",
+      "seo_title": "Preferred Lender for Builders & Developers in North Texas | Joe Bogdan",
+      "seo_description": "Fast pre-approvals, construction-timeline coordination and one point of contact. Become a preferred lending partner with Joe Bogdan.",
+      "service": "",
+      "menu_order": 3,
+      "excerpt": ""
+    },
+    {
+      "slug": "realtor-partners",
+      "title": "Realtor Partners",
+      "parent": null,
+      "template": "page-templates/landing.php",
+      "file": "pages/realtor-partners.html",
+      "seo_title": "Mortgage Partner for Realtors in DFW | Joe Bogdan",
+      "seo_description": "Fast scenario answers, strong pre-approvals and a lender who never competes for your client. Run a financing scenario for your buyer with Joe Bogdan.",
+      "service": "",
+      "menu_order": 4,
+      "excerpt": ""
+    },
+    {
+      "slug": "about-joe",
+      "title": "About Joe",
+      "parent": null,
+      "template": "page-templates/landing.php",
+      "file": "pages/about-joe.html",
+      "seo_title": "About Joe Bogdan | Former CEO Turned Mortgage Loan Originator",
+      "seo_description": "Joe Bogdan spent 30+ years as a CEO before becoming a Senior Loan Officer with CrossCountry Mortgage. Learn how he approaches mortgage strategy.",
+      "service": "",
+      "menu_order": 5,
+      "excerpt": ""
+    },
+    {
+      "slug": "insights",
+      "title": "Insights",
+      "parent": null,
+      "template": "",
+      "file": "pages/insights.html",
+      "seo_title": "Mortgage Insights & Answers | Joe Bogdan",
+      "seo_description": "Straight answers on home buying, mortgage strategy, jumbo loans, self-employed financing and investing in Texas real estate from Joe Bogdan.",
+      "service": "",
+      "menu_order": 6,
+      "excerpt": ""
+    },
+    {
+      "slug": "contact",
+      "title": "Contact",
+      "parent": null,
+      "template": "page-templates/landing.php",
+      "file": "pages/contact.html",
+      "seo_title": "Contact Joe Bogdan | Call, Text or Ask About Your Scenario",
+      "seo_description": "Call or text Joe Bogdan at (469) 324-4620, or ask about your mortgage scenario online. Based in Flower Mound, serving North Texas.",
+      "service": "",
+      "menu_order": 7,
+      "excerpt": ""
+    },
+    {
+      "slug": "privacy-policy",
+      "title": "Privacy Policy",
+      "parent": null,
+      "template": "",
+      "file": "pages/privacy-policy.html",
+      "seo_title": "",
+      "seo_description": "How information submitted on this website is collected, used and protected.",
+      "service": "",
+      "menu_order": 20,
+      "excerpt": ""
+    },
+    {
+      "slug": "terms-of-use",
+      "title": "Terms of Use",
+      "parent": null,
+      "template": "",
+      "file": "pages/terms-of-use.html",
+      "seo_title": "",
+      "seo_description": "Terms governing use of this website and its estimates.",
+      "service": "",
+      "menu_order": 21,
+      "excerpt": ""
+    },
+    {
+      "slug": "sms-terms",
+      "title": "Text Messaging Terms",
+      "parent": null,
+      "template": "",
+      "file": "pages/sms-terms.html",
+      "seo_title": "",
+      "seo_description": "Terms for text messages from Joe Bogdan and CrossCountry Mortgage.",
+      "service": "",
+      "menu_order": 22,
+      "excerpt": ""
+    },
+    {
+      "slug": "accessibility",
+      "title": "Accessibility",
+      "parent": null,
+      "template": "",
+      "file": "pages/accessibility.html",
+      "seo_title": "",
+      "seo_description": "Our commitment to an accessible website.",
+      "service": "",
+      "menu_order": 23,
+      "excerpt": ""
+    },
+    {
+      "slug": "licensing-disclosures",
+      "title": "Licensing & Disclosures",
+      "parent": null,
+      "template": "",
+      "file": "pages/licensing-disclosures.html",
+      "seo_title": "",
+      "seo_description": "Licensing, NMLS and lender disclosures for Joe Bogdan and CrossCountry Mortgage.",
+      "service": "",
+      "menu_order": 24,
+      "excerpt": ""
+    },
+    {
+      "slug": "texas-consumer-notice",
+      "title": "Texas Consumer Notice",
+      "parent": null,
+      "template": "",
+      "file": "pages/texas-consumer-notice.html",
+      "seo_title": "",
+      "seo_description": "Texas Department of Savings and Mortgage Lending consumer complaint and recovery fund notice.",
+      "service": "",
+      "menu_order": 25,
+      "excerpt": ""
+    }
+  ],
+  "menus": {
+    "primary": [
+      {
+        "title": "Loan Programs",
+        "page": "loan-programs",
+        "children": [
+          {
+            "title": "Home Purchase",
+            "page": "home-purchase"
+          },
+          {
+            "title": "Refinance & Equity",
+            "page": "refinance"
+          },
+          {
+            "title": "Jumbo & Luxury Financing",
+            "page": "jumbo-luxury-financing"
+          },
+          {
+            "title": "Self-Employed & Business Owners",
+            "page": "self-employed-business-owners"
+          },
+          {
+            "title": "Investment Property",
+            "page": "investment-property"
+          }
+        ]
+      },
+      {
+        "title": "Builders & Developers",
+        "page": "builders-developers",
+        "children": []
+      },
+      {
+        "title": "Realtor Partners",
+        "page": "realtor-partners",
+        "children": []
+      },
+      {
+        "title": "About Joe",
+        "page": "about-joe",
+        "children": []
+      },
+      {
+        "title": "Insights",
+        "page": "insights",
+        "children": []
+      },
+      {
+        "title": "Contact",
+        "page": "contact",
+        "children": []
+      }
+    ],
+    "footer": [
+      {
+        "title": "Discover Your Buying Power",
+        "page": "get-pre-approved",
+        "children": []
+      },
+      {
+        "title": "Loan Programs",
+        "page": "loan-programs",
+        "children": []
+      },
+      {
+        "title": "Builders & Developers",
+        "page": "builders-developers",
+        "children": []
+      },
+      {
+        "title": "Realtor Partners",
+        "page": "realtor-partners",
+        "children": []
+      },
+      {
+        "title": "About Joe",
+        "page": "about-joe",
+        "children": []
+      },
+      {
+        "title": "Insights",
+        "page": "insights",
+        "children": []
+      },
+      {
+        "title": "Contact",
+        "page": "contact",
+        "children": []
+      }
+    ],
+    "legal": [
+      {
+        "title": "Privacy Policy",
+        "page": "privacy-policy",
+        "children": []
+      },
+      {
+        "title": "Terms of Use",
+        "page": "terms-of-use",
+        "children": []
+      },
+      {
+        "title": "Text Messaging Terms",
+        "page": "sms-terms",
+        "children": []
+      },
+      {
+        "title": "Licensing & Disclosures",
+        "page": "licensing-disclosures",
+        "children": []
+      },
+      {
+        "title": "Texas Consumer Notice",
+        "page": "texas-consumer-notice",
+        "children": []
+      },
+      {
+        "title": "Accessibility",
+        "page": "accessibility",
+        "children": []
+      }
+    ]
+  },
+  "categories": [
+    {
+      "slug": "home-buying",
+      "name": "Home Buying",
+      "description": "Pre-approval, affordability, down payments and winning offers — straight answers for North Texas buyers."
+    },
+    {
+      "slug": "mortgage-strategy",
+      "name": "Mortgage Strategy",
+      "description": "How to structure a mortgage around your goals: rates, terms, refinancing and equity."
+    },
+    {
+      "slug": "texas-housing-market",
+      "name": "Texas Housing & Market",
+      "description": "What North Texas buyers should know about property taxes, insurance, new construction and local market conditions."
+    },
+    {
+      "slug": "luxury-jumbo",
+      "name": "Luxury & Jumbo",
+      "description": "Financing high-value homes, ranches and second homes."
+    },
+    {
+      "slug": "business-owners",
+      "name": "Business Owners & Self-Employed",
+      "description": "Qualifying with business income: bank-statement, 1099 and asset-based strategies."
+    },
+    {
+      "slug": "real-estate-investing",
+      "name": "Real Estate Investing",
+      "description": "DSCR loans, rental property financing and portfolio strategy."
+    }
+  ],
+  "front_page": "home",
+  "posts_page": "insights"
+}

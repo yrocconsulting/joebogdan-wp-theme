@@ -1,0 +1,94 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"settings": {
+		"appearanceTools": false,
+		"layout": {
+			"contentSize": "860px",
+			"wideSize": "1240px"
+		},
+		"spacing": {
+			"blockGap": false,
+			"margin": false,
+			"padding": false
+		},
+		"color": {
+			"custom": false,
+			"customGradient": false,
+			"defaultPalette": false,
+			"defaultGradients": false,
+			"defaultDuotone": false,
+			"palette": [
+				{
+					"slug": "navy",
+					"name": "Navy",
+					"color": "#132238"
+				},
+				{
+					"slug": "navy-deep",
+					"name": "Deep Navy",
+					"color": "#0a1420"
+				},
+				{
+					"slug": "gold",
+					"name": "Gold",
+					"color": "#b8955a"
+				},
+				{
+					"slug": "gold-light",
+					"name": "Light Gold",
+					"color": "#d9bc84"
+				},
+				{
+					"slug": "ivory",
+					"name": "Ivory",
+					"color": "#f5f1e8"
+				},
+				{
+					"slug": "white",
+					"name": "White",
+					"color": "#ffffff"
+				},
+				{
+					"slug": "ink",
+					"name": "Ink",
+					"color": "#1c2430"
+				}
+			]
+		},
+		"typography": {
+			"customFontSize": false,
+			"dropCap": false,
+			"defaultFontSizes": false,
+			"fontFamilies": [
+				{
+					"slug": "serif",
+					"name": "Fraunces",
+					"fontFamily": "'Fraunces', Georgia, serif"
+				},
+				{
+					"slug": "sans",
+					"name": "Inter",
+					"fontFamily": "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+				}
+			],
+			"fontSizes": [
+				{
+					"slug": "small",
+					"name": "Small",
+					"size": "0.9rem"
+				},
+				{
+					"slug": "medium",
+					"name": "Medium",
+					"size": "1.0625rem"
+				},
+				{
+					"slug": "large",
+					"name": "Large",
+					"size": "1.35rem"
+				}
+			]
+		}
+	}
+}

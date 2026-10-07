@@ -1,0 +1,76 @@
+name: Deploy to staging
+
+on:
+  push:
+    branches: [main, claude/wordpress-custom-theme-k0hq9k]
+    paths: ['theme/**', 'content/**', 'deploy/**', '.github/workflows/deploy-staging.yml']
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Overwrite pages edited in WordPress (comma-separated slugs, menu-primary, or "all")'
+        required: false
+        default: ''
+
+concurrency:
+  group: deploy-staging
+  cancel-in-progress: false
+
+env:
+  # Everything this workflow writes stays inside this one site folder.
+  SITE_DIR: www/joebogdanlo.yroc.host
+  SITE_URL: https://joebogdanlo.yroc.host
+  THEME_SLUG: joe-bogdan-mlo
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Lint PHP
+        run: find theme deploy -name '*.php' -print0 | xargs -0 -n1 php -l >/dev/null
+
+      - name: Set up SSH
+        env:
+          SG_SSH_HOST: ${{ secrets.SG_SSH_HOST }}
+          SG_SSH_PORT: ${{ secrets.SG_SSH_PORT }}
+          SG_SSH_KEY: ${{ secrets.SG_SSH_KEY }}
+          SG_SSH_PASSPHRASE: ${{ secrets.SG_SSH_PASSPHRASE }}
+        run: |
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          printf '%s\n' "$SG_SSH_KEY" > ~/.ssh/sg_key && chmod 600 ~/.ssh/sg_key
+          if [ -n "$SG_SSH_PASSPHRASE" ]; then ssh-keygen -p -P "$SG_SSH_PASSPHRASE" -N "" -f ~/.ssh/sg_key >/dev/null; fi
+          ssh-keyscan -p "$SG_SSH_PORT" "$SG_SSH_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+          cat > ~/.ssh/config <<CFG
+          Host sg
+            HostName $SG_SSH_HOST
+            Port $SG_SSH_PORT
+            User ${{ secrets.SG_SSH_USER }}
+            IdentityFile ~/.ssh/sg_key
+            BatchMode yes
+          CFG
+
+      - name: Check target
+        run: ssh sg "test -d ~/$SITE_DIR/public_html/wp-content/themes && command -v wp && wp --path=\$HOME/$SITE_DIR/public_html core version"
+
+      - name: Upload theme
+        run: |
+          rsync -az --delete -e ssh theme/$THEME_SLUG/ "sg:$SITE_DIR/public_html/wp-content/themes/$THEME_SLUG/"
+
+      - name: Upload content
+        run: |
+          rsync -az --delete -e ssh --include='content/***' --include='deploy/***' --exclude='*' ./ "sg:$SITE_DIR/jb-sync/"
+
+      - name: Sync pages, menus and settings
+        run: |
+          ssh sg "cd ~/$SITE_DIR/public_html && JB_ENV=staging JB_LEAD_EMAIL='bradley@yrocconsulting.com' JB_FORCE='${{ github.event.inputs.force }}' wp eval-file ../jb-sync/deploy/sync.php && wp rewrite flush && (wp sg purge 2>/dev/null || wp cache flush)"
+
+      - name: Smoke test
+        run: |
+          set -e
+          for path in / /get-pre-approved/ /loan-programs/home-purchase/ /realtor-partners/ /llms.txt; do
+            code=$(curl -s -o /tmp/page -w '%{http_code}' "$SITE_URL$path")
+            echo "$code $path"
+            [ "$code" = 200 ] || exit 1
+          done
+          grep -q 'joe-bogdan-mlo' <(curl -s "$SITE_URL/") && echo "Theme active"
