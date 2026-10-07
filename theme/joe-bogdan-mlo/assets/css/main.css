@@ -403,6 +403,10 @@ a:hover .text-link .icon, .text-link:hover .icon { transform: translateX(3px); }
 }
 .video-play .icon { width: 64px; height: 64px; padding: 18px; border-radius: 50%; background: var(--gold); color: var(--navy-deep); fill: currentColor; }
 
+.video-transcript { margin-top: 14px; font-size: .92rem; }
+.video-transcript summary { cursor: pointer; font-weight: 700; color: var(--navy); }
+.video-transcript p { margin: .8em 0 0; }
+
 /* ---------- Feature (specialties) ---------- */
 .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 .feature { padding: clamp(28px, 4vw, 44px); border-radius: 20px; }

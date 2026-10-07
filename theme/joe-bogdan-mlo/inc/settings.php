@@ -37,6 +37,10 @@ function jb_settings_fields() {
 			'apply_url'     => array( 'Online application URL (optional)', '' ),
 			'calendar_url'  => array( 'Booking / calendar URL (optional)', '' ),
 			'video_url'     => array( 'Intro video URL (YouTube/Vimeo, optional)', '' ),
+			'video_title'   => array( 'Video title', 'Meet Joe Bogdan, Senior Loan Officer' ),
+			'video_date'    => array( 'Video upload date (YYYY-MM-DD)', '' ),
+			'video_description' => array( 'Video description (one or two sentences)', 'Joe Bogdan explains who he helps, how he approaches mortgage decisions and why buyers, business owners and Realtors call him.' ),
+			'video_transcript'  => array( 'Video transcript (helps search and AI assistants)', '' ),
 			'review_url'    => array( 'Google review link (optional)', '' ),
 			'rate_estimate' => array( 'Rate used for buying-power estimates (%)', '6.75' ),
 			'tax_ins_pct'   => array( 'Annual tax + insurance estimate (% of price)', '2.4' ),
@@ -89,6 +93,10 @@ add_action( 'admin_init', function () {
 			foreach ( jb_settings_fields() as $fields ) {
 				foreach ( $fields as $key => $def ) {
 					$val = isset( $input[ $key ] ) ? trim( wp_unslash( $input[ $key ] ) ) : '';
+					if ( 'video_transcript' === $key ) {
+						$clean[ $key ] = sanitize_textarea_field( $val );
+						continue;
+					}
 					$clean[ $key ] = preg_match( '/_url$|^(linkedin|facebook|instagram|google)$/', $key ) ? esc_url_raw( $val ) : sanitize_text_field( $val );
 				}
 			}
@@ -111,7 +119,13 @@ function jb_render_settings_page() {
 					<?php foreach ( $fields as $key => $def ) : ?>
 						<tr>
 							<th scope="row"><label for="jb-<?php echo esc_attr( $key ); ?>"><?php echo esc_html( $def[0] ); ?></label></th>
-							<td><input class="regular-text" id="jb-<?php echo esc_attr( $key ); ?>" name="jb_settings[<?php echo esc_attr( $key ); ?>]" value="<?php echo esc_attr( $saved[ $key ] ?? '' ); ?>" placeholder="<?php echo esc_attr( $def[1] ); ?>"></td>
+							<td>
+								<?php if ( 'video_transcript' === $key ) : ?>
+									<textarea class="large-text" rows="6" id="jb-<?php echo esc_attr( $key ); ?>" name="jb_settings[<?php echo esc_attr( $key ); ?>]"><?php echo esc_textarea( $saved[ $key ] ?? '' ); ?></textarea>
+								<?php else : ?>
+									<input class="regular-text" id="jb-<?php echo esc_attr( $key ); ?>" name="jb_settings[<?php echo esc_attr( $key ); ?>]" value="<?php echo esc_attr( $saved[ $key ] ?? '' ); ?>" placeholder="<?php echo esc_attr( $def[1] ); ?>">
+								<?php endif; ?>
+							</td>
 						</tr>
 					<?php endforeach; ?>
 				</table>

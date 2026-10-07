@@ -15,4 +15,5 @@ require JB_DIR . '/inc/template-tags.php';
 require JB_DIR . '/inc/shortcodes.php';
 require JB_DIR . '/inc/leads.php';
 require JB_DIR . '/inc/seo.php';
+require JB_DIR . '/inc/indexnow.php';
 require JB_DIR . '/inc/patterns.php';

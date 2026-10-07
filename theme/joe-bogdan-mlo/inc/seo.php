@@ -492,6 +492,29 @@ function jb_schema_graph() {
 		$graph[] = $node;
 	}
 
+	// Intro video: Google requires an upload date, so the schema waits for one.
+	$video = ! empty( $GLOBALS['jb_video_on_page'] ) ? jb_video_data() : null;
+	if ( $video && preg_match( '/^\d{4}-\d{2}-\d{2}$/', $video['date'] ) ) {
+		$node = array(
+			'@type'        => 'VideoObject',
+			'@id'          => $url . '#video',
+			'name'         => $video['title'],
+			'description'  => $video['description'],
+			'thumbnailUrl' => $video['thumb'],
+			'uploadDate'   => $video['date'],
+			'embedUrl'     => $video['embed'],
+			'url'          => $video['url'],
+			'inLanguage'   => 'en-US',
+			'about'        => array( '@id' => $ids['person'] ),
+			'creator'      => array( '@id' => $ids['person'] ),
+			'isPartOf'     => array( '@id' => $url . '#webpage' ),
+		);
+		if ( $video['transcript'] ) {
+			$node['transcript'] = $video['transcript'];
+		}
+		$graph[] = $node;
+	}
+
 	if ( ! empty( $GLOBALS['jb_faq_items'] ) ) {
 		$graph[] = array(
 			'@type'      => 'FAQPage',

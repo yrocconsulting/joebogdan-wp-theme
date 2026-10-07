@@ -34,7 +34,12 @@ Block patterns are available in the editor under **Patterns → Joe Bogdan**.
 
 - JSON-LD graph: Person (with NMLS credential), FinancialService, lender Organization, WebPage + BreadcrumbList, Service (loan pages), Article (posts), FAQPage.
 - Per-page search title/description in the editor sidebar ("Search & AI Snippet").
-- `/llms.txt` generated from pages and posts.
+- `/llms.txt` generated from pages and posts, including Joe's external profiles.
+- robots.txt explicitly allows search and AI assistant crawlers (when the site is public).
+- IndexNow pings Bing and other engines when a page or post is published or updated (production only).
+- Intro video: set URL, upload date and transcript in settings to get the player, a visible transcript and VideoObject schema.
+- Profiles (LinkedIn, Facebook, Zillow, Experience.com, CrossCountry, Google) live in settings and feed schema `sameAs`.
+- Checks: `python3 tools/seo_audit.py URL…` and `python3 tools/schema_validate.py schemaorg-current-https.jsonld URL…`.
 - Staging deploys set "Discourage search engines". Production must deploy with `JB_ENV=production`.
 
 ## Before launch

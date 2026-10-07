@@ -234,30 +234,52 @@ add_shortcode( 'jb_q', function ( $atts, $content = '' ) {
  * video URL is set in Appearance → Joe Bogdan Settings.
  */
 add_shortcode( 'jb_video', function ( $atts ) {
-	$a   = shortcode_atts( array( 'title' => 'Meet Joe in 90 Seconds' ), $atts );
-	$url = jb_opt( 'video_url' );
-	if ( ! $url ) {
-		return jb_editor_note( 'Intro video slot: add a 60–90 second video URL in Appearance → Joe Bogdan Settings and it will appear here.' );
+	$a     = shortcode_atts( array( 'title' => 'Meet Joe in 90 Seconds' ), $atts );
+	$video = jb_video_data();
+	if ( ! $video ) {
+		return jb_editor_note( 'Intro video slot: add a 60-90 second video URL in Appearance → Joe Bogdan Settings and it will appear here.' );
 	}
-	$embed = '';
-	if ( preg_match( '~(?:youtu\.be/|v=|embed/|shorts/)([\w-]{11})~', $url, $m ) ) {
-		$embed = 'https://www.youtube-nocookie.com/embed/' . $m[1] . '?autoplay=1&rel=0';
-		$thumb = 'https://i.ytimg.com/vi/' . $m[1] . '/hqdefault.jpg';
-	} elseif ( preg_match( '~vimeo\.com/(\d+)~', $url, $m ) ) {
-		$embed = 'https://player.vimeo.com/video/' . $m[1] . '?autoplay=1';
-		$thumb = jb_img( 'joe-headshot.webp' );
-	}
-	if ( ! $embed ) {
-		return '';
-	}
-	return sprintf(
+	$GLOBALS['jb_video_on_page'] = true;
+	$html = sprintf(
 		'<div class="video-embed" data-embed="%1$s"><img src="%2$s" alt="" loading="lazy"><button type="button" class="video-play">%3$s<span>%4$s</span></button></div>',
-		esc_url( $embed ),
-		esc_url( $thumb ),
+		esc_url( $video['embed'] . ( false === strpos( $video['embed'], '?' ) ? '?' : '&' ) . 'autoplay=1' ),
+		esc_url( $video['thumb'] ),
 		jb_icon( 'play' ),
 		esc_html( $a['title'] )
 	);
+	if ( $video['transcript'] ) {
+		$html .= '<details class="video-transcript"><summary>Read the transcript</summary>' . wpautop( esc_html( $video['transcript'] ) ) . '</details>';
+	}
+	return $html;
 } );
+
+/**
+ * Intro video details from settings (also used for VideoObject schema).
+ */
+function jb_video_data() {
+	$url = jb_opt( 'video_url' );
+	if ( ! $url ) {
+		return null;
+	}
+	if ( preg_match( '~(?:youtu\.be/|v=|embed/|shorts/)([\w-]{11})~', $url, $m ) ) {
+		$embed = 'https://www.youtube-nocookie.com/embed/' . $m[1] . '?rel=0';
+		$thumb = 'https://i.ytimg.com/vi/' . $m[1] . '/hqdefault.jpg';
+	} elseif ( preg_match( '~vimeo\.com/(\d+)~', $url, $m ) ) {
+		$embed = 'https://player.vimeo.com/video/' . $m[1];
+		$thumb = jb_img( 'joe-headshot.webp' );
+	} else {
+		return null;
+	}
+	return array(
+		'url'         => $url,
+		'embed'       => $embed,
+		'thumb'       => $thumb,
+		'title'       => jb_opt( 'video_title' ),
+		'description' => jb_opt( 'video_description' ),
+		'date'        => jb_opt( 'video_date' ),
+		'transcript'  => jb_opt( 'video_transcript' ),
+	);
+}
 
 /**
  * [jb_contact_options] - call / text / email cards.
