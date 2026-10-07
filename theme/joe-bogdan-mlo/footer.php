@@ -8,7 +8,7 @@
 				<span class="logo-mark" aria-hidden="true">JB</span>
 				<span class="logo-text"><?php echo esc_html( jb_opt( 'name' ) ); ?><small><?php echo esc_html( jb_opt( 'title' ) ); ?></small></span>
 			</a>
-			<p>Strategic mortgage financing for home buyers, business owners, investors and luxury buyers — and a responsive lending partner for the Realtors and builders who serve them.</p>
+			<p>Strategic mortgage financing for home buyers, business owners, investors and luxury buyers - and a responsive lending partner for the Realtors and builders who serve them.</p>
 			<a class="btn btn-gold" href="<?php echo jb_preapproval_url(); ?>">Discover Your Buying Power</a>
 		</div>
 

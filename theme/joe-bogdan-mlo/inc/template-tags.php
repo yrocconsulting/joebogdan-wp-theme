@@ -177,7 +177,7 @@ function jb_pillars() {
 	return array(
 		'home-buying'            => array(
 			'name' => 'Home Buying',
-			'cta'  => array( 'Know your number before you shop.', 'Get a personalized buying-power analysis from Joe — not a generic calculator result.', '/get-pre-approved/', 'Discover Your Buying Power' ),
+			'cta'  => array( 'Know your number before you shop.', 'Get a personalized buying-power analysis from Joe - not a generic calculator result.', '/get-pre-approved/', 'Discover Your Buying Power' ),
 		),
 		'mortgage-strategy'      => array(
 			'name' => 'Mortgage Strategy',

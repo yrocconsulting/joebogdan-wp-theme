@@ -54,7 +54,7 @@ post(
     "How Much House Can I Afford in North Texas? | Joe Bogdan",
     "buyers.webp",
     body(
-        lead("How much house you can afford comes down to five things: your gross income, your monthly debts, the cash you have for a down payment and closing costs, your credit, and the full monthly cost of the home — including Texas property taxes and homeowners insurance. Lenders turn those into a maximum. The more useful question is what price keeps your monthly budget comfortable."),
+        lead("How much house you can afford comes down to five things: your gross income, your monthly debts, the cash you have for a down payment and closing costs, your credit, and the full monthly cost of the home - including Texas property taxes and homeowners insurance. Lenders turn those into a maximum. The more useful question is what price keeps your monthly budget comfortable."),
         takeaways([
             "Lenders compare your total monthly debts, including the new house payment, with your gross monthly income.",
             "In Texas, property taxes and insurance are a large share of the monthly payment, so the same price can cost very different amounts in different neighborhoods.",
@@ -71,13 +71,13 @@ post(
         BUYING_POWER_CTA,
         h("What else affects my budget?"),
         ul([
-            "<strong>Mortgage insurance</strong> — conventional loans with a smaller down payment usually include private mortgage insurance; FHA loans have their own mortgage insurance.",
-            "<strong>HOA dues</strong> — common in planned communities and counted in your DTI.",
-            "<strong>Closing costs and prepaid items</strong> — set aside cash beyond your down payment, including initial escrow deposits.",
-            "<strong>Reserves</strong> — having savings left after closing makes your file stronger and your life less stressful.",
+            "<strong>Mortgage insurance</strong> - conventional loans with a smaller down payment usually include private mortgage insurance; FHA loans have their own mortgage insurance.",
+            "<strong>HOA dues</strong> - common in planned communities and counted in your DTI.",
+            "<strong>Closing costs and prepaid items</strong> - set aside cash beyond your down payment, including initial escrow deposits.",
+            "<strong>Reserves</strong> - having savings left after closing makes your file stronger and your life less stressful.",
         ]),
         h("Approved amount vs. comfortable amount"),
-        p("Start with the monthly payment that fits your life — savings goals, childcare, travel, business swings — then work backward to a price. Joe’s buying-power analysis shows both: what you may qualify for and the range that keeps your monthly budget where you want it."),
+        p("Start with the monthly payment that fits your life - savings goals, childcare, travel, business swings - then work backward to a price. Joe’s buying-power analysis shows both: what you may qualify for and the range that keeps your monthly budget where you want it."),
         h("How do I get a reliable number?"),
         ol([
             "Gather the basics: income, monthly debts, savings and a rough credit estimate.",
@@ -181,7 +181,7 @@ post(
 # ---------------------------------------------------------------------------
 post(
     "what-makes-a-jumbo-loan-different",
-    "What Makes a Jumbo Loan Different — and How to Prepare",
+    "What Makes a Jumbo Loan Different - and How to Prepare",
     "luxury-jumbo",
     "Jumbo loans exceed the conforming loan limit, so lenders set their own standards for credit, reserves, documentation and appraisals. Preparation shapes your terms and flexibility.",
     "What Is a Jumbo Loan and How Do I Qualify? | Joe Bogdan",
@@ -198,11 +198,11 @@ post(
         p("Any loan amount above the conforming loan limit for the county is considered jumbo. The limit changes each year and is higher in some high-cost areas. You can find the current limits on the <a href=\"https://www.fhfa.gov/data/conforming-loan-limit\" target=\"_blank\" rel=\"noopener\">FHFA website</a>, or Joe can confirm whether your loan amount falls into jumbo territory."),
         h("How is qualifying for a jumbo loan different?"),
         ul([
-            "<strong>Credit</strong> — lenders typically look for strong credit histories.",
-            "<strong>Reserves</strong> — you will usually need several months of payments in savings or investments after closing.",
-            "<strong>Asset documentation</strong> — expect to document where your down payment and reserves come from, including brokerage and retirement accounts.",
-            "<strong>Income</strong> — complex income from business ownership, bonuses, commissions or investments needs careful presentation.",
-            "<strong>Appraisal</strong> — higher-value and unique homes can be harder to value, and some lenders require additional review.",
+            "<strong>Credit</strong> - lenders typically look for strong credit histories.",
+            "<strong>Reserves</strong> - you will usually need several months of payments in savings or investments after closing.",
+            "<strong>Asset documentation</strong> - expect to document where your down payment and reserves come from, including brokerage and retirement accounts.",
+            "<strong>Income</strong> - complex income from business ownership, bonuses, commissions or investments needs careful presentation.",
+            "<strong>Appraisal</strong> - higher-value and unique homes can be harder to value, and some lenders require additional review.",
         ]),
         cta("Considering a high-value purchase?", "Request a private jumbo financing consultation before you go under contract.", "/loan-programs/jumbo-luxury-financing/#consultation", "Request a Consultation"),
         h("Down payment vs. liquidity: a strategic choice"),
@@ -229,11 +229,11 @@ post(
     "dscr-loans-explained",
     "DSCR Loans Explained: Qualifying for a Rental Property Based on Its Income",
     "real-estate-investing",
-    "A DSCR loan qualifies an investment property mainly on whether its rent covers the mortgage payment, taxes, insurance and HOA dues — not on your personal tax returns.",
+    "A DSCR loan qualifies an investment property mainly on whether its rent covers the mortgage payment, taxes, insurance and HOA dues - not on your personal tax returns.",
     "DSCR Loans Explained for Texas Real Estate Investors | Joe Bogdan",
     "strategy.webp",
     body(
-        lead("A DSCR (debt-service coverage ratio) loan is an investment-property mortgage that qualifies mainly on the property’s rental income instead of your personal income. The lender divides the property’s monthly rent by its monthly housing expense — principal, interest, taxes, insurance and any HOA dues. If the rent covers the expense, the property supports the loan."),
+        lead("A DSCR (debt-service coverage ratio) loan is an investment-property mortgage that qualifies mainly on the property’s rental income instead of your personal income. The lender divides the property’s monthly rent by its monthly housing expense - principal, interest, taxes, insurance and any HOA dues. If the rent covers the expense, the property supports the loan."),
         takeaways([
             "DSCR = monthly rent ÷ monthly principal, interest, taxes, insurance and HOA.",
             "A ratio of 1.0 means rent exactly covers the payment; above 1.0 means it covers more.",
@@ -311,7 +311,7 @@ post(
     "When Does Refinancing Make Sense? Break-Even & Texas Cash-Out Rules | Joe Bogdan",
     "strategy.webp",
     body(
-        lead("Refinancing makes sense when what you gain — a lower payment, a shorter term, removing mortgage insurance or accessing equity — is worth more than what it costs, within the time you expect to keep the loan. The simplest test is your break-even point: total closing costs divided by your monthly savings tells you how many months it takes to come out ahead."),
+        lead("Refinancing makes sense when what you gain - a lower payment, a shorter term, removing mortgage insurance or accessing equity - is worth more than what it costs, within the time you expect to keep the loan. The simplest test is your break-even point: total closing costs divided by your monthly savings tells you how many months it takes to come out ahead."),
         takeaways([
             "Break-even months = closing costs ÷ monthly savings.",
             "If you will sell or refinance again before the break-even point, it may not be worth it.",
@@ -351,7 +351,7 @@ post(
     "What Makes a Strong Mortgage Pre-Approval? | Joe Bogdan",
     "buyers.webp",
     body(
-        lead("A strong pre-approval is based on documents that have actually been reviewed — income, assets and credit — not just numbers the buyer typed into a form. It is tailored to the offer, it comes from a loan officer the listing agent can reach, and it has no surprises waiting in underwriting. To sellers and their agents, that combination signals that the buyer can close."),
+        lead("A strong pre-approval is based on documents that have actually been reviewed - income, assets and credit - not just numbers the buyer typed into a form. It is tailored to the offer, it comes from a loan officer the listing agent can reach, and it has no surprises waiting in underwriting. To sellers and their agents, that combination signals that the buyer can close."),
         takeaways([
             "Pre-qualification is an estimate; pre-approval is based on verified information.",
             "Letters should match the offer price and loan type.",

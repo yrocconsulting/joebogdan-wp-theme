@@ -77,7 +77,7 @@ add_shortcode( 'jb_hero', function ( $atts ) {
 } );
 
 /**
- * [jb_intent] — "How can Joe help?" problem-first routing cards.
+ * [jb_intent] - "How can Joe help?" problem-first routing cards.
  */
 add_shortcode( 'jb_intent', function ( $atts ) {
 	$a = shortcode_atts( array(
@@ -116,7 +116,7 @@ add_shortcode( 'jb_intent', function ( $atts ) {
 } );
 
 /**
- * [jb_trust] — verifiable credibility strip (no manufactured stats).
+ * [jb_trust] - verifiable credibility strip (no manufactured stats).
  */
 add_shortcode( 'jb_trust', function () {
 	$items = array(
@@ -146,7 +146,7 @@ add_shortcode( 'jb_trust', function () {
 } );
 
 /**
- * [jb_process] — Conversation → Strategy → Approval → Closing.
+ * [jb_process] - Conversation → Strategy → Approval → Closing.
  */
 add_shortcode( 'jb_process', function ( $atts ) {
 	$a = shortcode_atts( array(
@@ -155,7 +155,7 @@ add_shortcode( 'jb_process', function ( $atts ) {
 		'url'   => '/contact/',
 	), $atts );
 	$steps = array(
-		array( 'Conversation', 'You share your goals, timing and financial picture — in plain language.' ),
+		array( 'Conversation', 'You share your goals, timing and financial picture - in plain language.' ),
 		array( 'Strategy', 'Joe compares the realistic options and builds a plan around your priorities.' ),
 		array( 'Approval', 'A strong, documented pre-approval so you can move with confidence.' ),
 		array( 'Closing', 'Proactive updates to you and your agent all the way to the closing table.' ),
@@ -230,7 +230,7 @@ add_shortcode( 'jb_q', function ( $atts, $content = '' ) {
 } );
 
 /**
- * [jb_video title=""] — Joe's intro video. Renders nothing publicly until a
+ * [jb_video title=""] - Joe's intro video. Renders nothing publicly until a
  * video URL is set in Appearance → Joe Bogdan Settings.
  */
 add_shortcode( 'jb_video', function ( $atts ) {
@@ -260,7 +260,7 @@ add_shortcode( 'jb_video', function ( $atts ) {
 } );
 
 /**
- * [jb_contact_options] — call / text / email cards.
+ * [jb_contact_options] - call / text / email cards.
  */
 add_shortcode( 'jb_contact_options', function () {
 	$options = array(
@@ -285,7 +285,7 @@ add_shortcode( 'jb_contact_options', function () {
 } );
 
 /**
- * [jb_latest count="3" category=""] — latest Insights.
+ * [jb_latest count="3" category=""] - latest Insights.
  */
 add_shortcode( 'jb_latest', function ( $atts ) {
 	$a = shortcode_atts( array( 'count' => 3, 'category' => '', 'title' => 'Straight Answers to Common Questions' ), $atts );
@@ -329,7 +329,7 @@ add_shortcode( 'jb_latest', function ( $atts ) {
 add_shortcode( 'jb_cta', function ( $atts ) {
 	$a = shortcode_atts( array(
 		'title' => 'Know your number before you shop.',
-		'text'  => 'A personalized buying-power analysis from Joe — not a generic calculator result.',
+		'text'  => 'A personalized buying-power analysis from Joe - not a generic calculator result.',
 		'url'   => '/get-pre-approved/',
 		'label' => 'Discover Your Buying Power',
 		'tone'  => 'navy',
@@ -339,21 +339,21 @@ add_shortcode( 'jb_cta', function ( $atts ) {
 	return ob_get_clean();
 } );
 
-/** [jb_opt key="nmls"] — print a setting inline (legal pages). */
+/** [jb_opt key="nmls"] - print a setting inline (legal pages). */
 add_shortcode( 'jb_opt', function ( $atts ) {
 	$a = shortcode_atts( array( 'key' => '' ), $atts );
 	return esc_html( jb_opt( $a['key'] ) );
 } );
 
-/** [jb_texas_notice] — Texas complaint / recovery fund notice. */
+/** [jb_texas_notice] - Texas complaint / recovery fund notice. */
 add_shortcode( 'jb_texas_notice', 'jb_texas_notice' );
 
-/** [jb_disclosure] — full lender disclosure paragraph. */
+/** [jb_disclosure] - full lender disclosure paragraph. */
 add_shortcode( 'jb_disclosure', function () {
 	return '<p class="fine-print">' . jb_disclosure() . '</p>';
 } );
 
-/** [jb_todo]Note[/jb_todo] — visible only to logged-in editors. */
+/** [jb_todo]Note[/jb_todo] - visible only to logged-in editors. */
 add_shortcode( 'jb_todo', function ( $atts, $content = '' ) {
 	return jb_editor_note( $content );
 } );
@@ -366,7 +366,7 @@ function jb_editor_note( $text ) {
 }
 
 
-/** [jb_photo file="strategy.webp" alt="" class=""] — theme image that survives domain changes. */
+/** [jb_photo file="strategy.webp" alt="" class=""] - theme image that survives domain changes. */
 add_shortcode( 'jb_photo', function ( $atts ) {
 	$a = shortcode_atts( array( 'file' => 'joe-headshot.webp', 'alt' => '', 'class' => '' ), $atts );
 	$path = JB_DIR . '/assets/images/' . basename( $a['file'] );
@@ -381,7 +381,7 @@ add_shortcode( 'jb_photo', function ( $atts ) {
 } );
 
 /**
- * [jb_inline_cta title="" text="" url="" label=""] — offer box inside an article.
+ * [jb_inline_cta title="" text="" url="" label=""] - offer box inside an article.
  */
 add_shortcode( 'jb_inline_cta', function ( $atts ) {
 	$a = shortcode_atts( array(

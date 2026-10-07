@@ -1,4 +1,4 @@
-# Joe Bogdan — Mortgage Loan Originator website
+# Joe Bogdan - Mortgage Loan Originator website
 
 Custom WordPress theme and content for Joe Bogdan, Senior Loan Officer with CrossCountry Mortgage (NMLS #2795320). The site is built to generate leads: every page starts from the visitor's problem and leads to a funnel.
 
@@ -21,7 +21,7 @@ Business details (phone, NMLS, lead email, video URL, rate used for estimates) l
 
 ## Lead funnels
 
-`[jb_form type="…"]` — `buying-power`, `self-employed`, `jumbo`, `refinance`, `investor`, `realtor-scenario`, `builder`, `ask-joe`.
+`[jb_form type="…"]` - `buying-power`, `self-employed`, `jumbo`, `refinance`, `investor`, `realtor-scenario`, `builder`, `ask-joe`.
 Leads are emailed to the address in settings and stored under **Leads** in wp-admin.
 
 ## Other shortcodes

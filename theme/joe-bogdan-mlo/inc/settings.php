@@ -2,8 +2,8 @@
 /**
  * Site-wide business details (Appearance → Joe Bogdan Settings).
  *
- * Everything that appears in more than one place — phone, NMLS, disclosures,
- * lead routing — lives here so it is edited once.
+ * Everything that appears in more than one place - phone, NMLS, disclosures,
+ * lead routing - lives here so it is edited once.
  */
 
 defined( 'ABSPATH' ) || exit;

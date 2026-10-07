@@ -1,5 +1,5 @@
 /**
- * Joe Bogdan MLO — front-end behavior.
+ * Joe Bogdan MLO - front-end behavior.
  * Navigation, multi-step lead forms with instant estimates, lazy video.
  */
 (function () {

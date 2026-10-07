@@ -44,7 +44,7 @@ function jb_forms() {
 					'fields' => array(
 						array( 'goal', 'What are you planning?', 'cards', array( 'Buy my first home', 'Buy my next home', 'Buy a second home', 'Buy an investment property' ), true ),
 						array( 'timeline', 'When would you like to buy?', 'chips', array( '0–3 months', '3–6 months', '6–12 months', 'Just exploring' ), true ),
-						array( 'own_home', 'Do you currently own a home?', 'chips', array( 'No', 'Yes — I need to sell it', 'Yes — I’m keeping it' ), true ),
+						array( 'own_home', 'Do you currently own a home?', 'chips', array( 'No', 'Yes - I need to sell it', 'Yes - I’m keeping it' ), true ),
 						array( 'area', 'Where are you looking?', 'text', null, false, 'half', 'address-level2', 'City or area, e.g. Flower Mound' ),
 						array( 'price_target', 'Price range in mind (optional)', 'currency', null, false, 'half' ),
 					),
@@ -306,7 +306,7 @@ add_shortcode( 'jb_form', function ( $atts ) {
 
 		<div class="lead-success" hidden tabindex="-1">
 			<div class="lead-success-icon"><?php echo jb_icon( 'check' ); ?></div>
-			<h3>Thanks — Joe has your details.</h3>
+			<h3>Thanks - Joe has your details.</h3>
 			<div class="lead-result" aria-live="polite"></div>
 			<p>Joe personally reviews every request and will follow up with you directly. Prefer to talk now?</p>
 			<div class="btn-row">
@@ -540,7 +540,7 @@ function jb_process_lead( $raw ) {
 	$post_id = wp_insert_post( array(
 		'post_type'   => 'jb_lead',
 		'post_status' => 'private',
-		'post_title'  => sprintf( '%s — %s', $form['label'], $name ? $name : 'Unknown' ),
+		'post_title'  => sprintf( '%s - %s', $form['label'], $name ? $name : 'Unknown' ),
 	) );
 	if ( $post_id && ! is_wp_error( $post_id ) ) {
 		update_post_meta( $post_id, '_jb_lead', $data );
@@ -557,7 +557,7 @@ function jb_process_lead( $raw ) {
 		}
 		$body  = '<p style="font-family:Arial,sans-serif;font-size:15px"><strong>New ' . esc_html( $form['label'] ) . ' request</strong></p>' . $html;
 		$body .= '<p style="font-family:Arial,sans-serif;font-size:12px;color:#888">Stored in WordPress → Leads.</p>';
-		wp_mail( $to, sprintf( 'New lead: %s — %s', $form['label'], $name ), $body, $headers );
+		wp_mail( $to, sprintf( 'New lead: %s - %s', $form['label'], $name ), $body, $headers );
 	}
 
 	return $result;

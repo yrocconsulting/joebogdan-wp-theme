@@ -292,7 +292,7 @@ function jb_schema_graph() {
 	$practice = array(
 		'@type'                     => array( 'FinancialService', 'LocalBusiness' ),
 		'@id'                       => $ids['practice'],
-		'name'                      => jb_opt( 'name' ) . ' — ' . jb_opt( 'title' ) . ', ' . jb_opt( 'company' ),
+		'name'                      => jb_opt( 'name' ) . ' - ' . jb_opt( 'title' ) . ', ' . jb_opt( 'company' ),
 		'description'               => sprintf( 'Mortgage lending for home buyers, homeowners, self-employed borrowers, real estate investors and luxury buyers in North Texas, plus a lending partnership for Realtors and home builders. %s.', jb_opt( 'licensing' ) ),
 		'url'                       => home_url( '/' ),
 		'image'                     => array( '@id' => $headshot['@id'] ),
@@ -516,7 +516,7 @@ add_action( 'wp_footer', function () {
 }, 5 );
 
 /* ---------------------------------------------------------------------------
- * /llms.txt — a plain-language map of the site for AI assistants.
+ * /llms.txt - a plain-language map of the site for AI assistants.
  * ------------------------------------------------------------------------ */
 
 add_action( 'init', function () {
