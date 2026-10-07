@@ -50,8 +50,8 @@
 				foreach ( array(
 					'linkedin'       => 'LinkedIn',
 					'facebook'       => 'Facebook',
-					'zillow_url'     => 'Zillow reviews',
-					'experience_url' => 'Experience.com reviews',
+					// Zillow and Experience.com stay in schema (sameAs) but are left out
+					// of the footer until they have reviews worth sending visitors to.
 					'google'         => 'Google reviews',
 				) as $key => $label ) :
 					if ( jb_opt( $key ) ) :
