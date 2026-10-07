@@ -69,3 +69,36 @@ add_filter( 'body_class', function ( $classes ) {
 	}
 	return $classes;
 } );
+
+/**
+ * Favicons. A Site Icon chosen in Appearance → Customize → Site Identity
+ * takes over automatically; until then the theme's JB icons are used.
+ */
+function jb_icon_url( $file ) {
+	return esc_url( JB_URI . '/assets/icons/' . $file );
+}
+
+add_action( 'wp_head', function () {
+	if ( has_site_icon() ) {
+		return;
+	}
+	printf( '<link rel="icon" href="%s" sizes="48x48">' . "\n", jb_icon_url( 'favicon.ico' ) );
+	printf( '<link rel="icon" type="image/png" sizes="32x32" href="%s">' . "\n", jb_icon_url( 'favicon-32.png' ) );
+	printf( '<link rel="icon" type="image/png" sizes="192x192" href="%s">' . "\n", jb_icon_url( 'icon-192.png' ) );
+	printf( '<link rel="apple-touch-icon" href="%s">' . "\n", jb_icon_url( 'apple-touch-icon.png' ) );
+	printf( '<link rel="manifest" href="%s">' . "\n", jb_icon_url( 'site.webmanifest' ) );
+}, 3 );
+add_action( 'admin_head', function () {
+	if ( ! has_site_icon() ) {
+		printf( '<link rel="icon" href="%s">' . "\n", jb_icon_url( 'favicon.ico' ) );
+	}
+} );
+
+// Browsers request /favicon.ico directly; serve the JB icon instead of WordPress's default.
+add_action( 'do_faviconico', function () {
+	if ( has_site_icon() ) {
+		return;
+	}
+	wp_safe_redirect( JB_URI . '/assets/icons/favicon.ico', 301 );
+	exit;
+}, 5 );
