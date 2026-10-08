@@ -1,5 +1,5 @@
 /* =========================================================================
-   Joe Bogdan MLO - main stylesheet
+   Joseph Bogdan MLO - main stylesheet
    Premium navy/gold/ivory system carried over from the original design,
    rebuilt around conversion components.
    ========================================================================= */
@@ -162,7 +162,7 @@ a:hover .text-link .icon, .text-link:hover .icon { transform: translateX(3px); }
 .utility-inner p { margin: 0; color: inherit; }
 .utility-tagline { letter-spacing: .08em; text-transform: uppercase; font-weight: 600; opacity: .85; }
 .utility-contact { display: flex; gap: 20px; }
-.utility-contact a { display: inline-flex; align-items: center; gap: 6px; color: var(--gold-light); font-weight: 600; }
+.utility-contact a { display: inline-flex; align-items: center; gap: 6px; color: var(--gold-light); font-weight: 600; white-space: nowrap; }
 .utility-contact a:hover { color: var(--white); }
 
 .site-header {
@@ -187,6 +187,7 @@ a:hover .text-link .icon, .text-link:hover .icon { transform: translateX(3px); }
 .logo-text {
 	display: flex; flex-direction: column;
 	font-family: var(--serif); font-weight: 600; font-size: 1.2rem; line-height: 1.1; color: var(--ivory); letter-spacing: .01em;
+	white-space: nowrap;
 }
 .logo-text small {
 	font-family: var(--sans); font-size: .62rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
@@ -298,6 +299,15 @@ a:hover .text-link .icon, .text-link:hover .icon { transform: translateX(3px); }
 .hero-card span { font-size: .75rem; color: var(--gold-light); letter-spacing: .04em; }
 .hero-form { position: relative; }
 
+a.hero-builder {
+	display: inline-flex; align-items: center; gap: 12px; margin-top: 26px; padding: 12px 18px;
+	border: 1px solid rgba(217, 188, 132, .45); border-radius: 14px; background: rgba(217, 188, 132, .08);
+	color: var(--ivory); font-size: .92rem; transition: background .2s ease, border-color .2s ease;
+}
+a.hero-builder:hover { background: rgba(217, 188, 132, .16); border-color: var(--gold-light); }
+.hero-builder strong { color: var(--gold-light); margin-right: 4px; }
+.hero-builder .icon { color: var(--gold-light); }
+
 /* ---------- Trust bar ---------- */
 .trust-bar { background: var(--paper); border-bottom: 1px solid var(--line); }
 .trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
@@ -360,6 +370,9 @@ a:hover .text-link .icon, .text-link:hover .icon { transform: translateX(3px); }
 	border-top: 3px solid var(--gold);
 }
 .section-white .card { background: var(--paper); box-shadow: none; }
+.card.card-dark { background: rgba(245, 241, 232, .05); border: 1px solid var(--navy-line); border-top: 3px solid var(--gold); box-shadow: none; }
+.card.card-dark h3 { color: var(--ivory); font-size: 1.15rem; }
+.card.card-dark p { color: rgba(245, 241, 232, .78); font-size: .95rem; }
 .card h3 { margin-bottom: .45em; }
 .card p:last-child { margin-bottom: 0; }
 .card-link { margin-top: 1.2em; }
@@ -683,6 +696,18 @@ a:hover .text-link .icon, .text-link:hover .icon { transform: translateX(3px); }
 	.card-grid-4 { grid-template-columns: repeat(2, 1fr); }
 }
 
+@media (min-width: 1041px) and (max-width: 1240px) {
+	.header-inner { gap: 12px; }
+	.logo { gap: 10px; }
+	.logo-text { font-size: 1.05rem; }
+	.logo-mark { width: 40px; height: 40px; }
+	.primary-nav .menu > li > a { padding: 10px 6px; font-size: .82rem; }
+	.submenu-toggle { width: 20px; margin-left: -6px; }
+	.header-cta { padding: 11px 16px; font-size: .82rem; }
+	.utility-tagline { font-size: .66rem; letter-spacing: .04em; }
+	.utility-contact { gap: 14px; }
+}
+
 @media (max-width: 1040px) {
 	:root { --bar-h: 64px; }
 	body { padding-bottom: var(--bar-h); }
@@ -753,7 +778,9 @@ a:hover .text-link .icon, .text-link:hover .icon { transform: translateX(3px); }
 
 @media (max-width: 720px) {
 	body { font-size: 1rem; }
-	.utility-contact { gap: 16px; }
+	.utility-contact { gap: 12px; font-size: .72rem; }
+	.utility-contact .icon { width: 1em; height: 1em; }
+	.mobile-action-bar .is-primary { white-space: nowrap; font-size: .8rem; gap: 6px; }
 	.logo-text { font-size: 1.05rem; }
 	.logo-mark { width: 40px; height: 40px; }
 	.hero-actions { flex-direction: column; align-items: stretch; }

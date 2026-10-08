@@ -1,6 +1,6 @@
 <?php
 /**
- * Site-wide business details (Appearance → Joe Bogdan Settings).
+ * Site-wide business details (Appearance → Joseph Bogdan Settings).
  *
  * Everything that appears in more than one place - phone, NMLS, disclosures,
  * lead routing - lives here so it is edited once.
@@ -11,13 +11,14 @@ defined( 'ABSPATH' ) || exit;
 function jb_settings_fields() {
 	return array(
 		'Identity'   => array(
-			'name'         => array( 'Display name', 'Joe Bogdan' ),
+			'name'         => array( 'Display name', 'Joseph Bogdan' ),
 			'legal_name'   => array( 'Legal name (disclosures)', 'Joseph Henry Bogdan' ),
 			'title'        => array( 'Title', 'Senior Loan Officer' ),
 			'nmls'         => array( 'Individual NMLS #', '2795320' ),
 			'company'      => array( 'Company', 'CrossCountry Mortgage, LLC' ),
 			'company_nmls' => array( 'Company NMLS #', '3029' ),
-			'licensing'    => array( 'Joe’s licensing statement', 'Licensed as a mortgage loan originator in Texas' ),
+			'branch_nmls'  => array( 'Branch NMLS #', '2083600' ),
+			'licensing'    => array( 'Joseph’s licensing statement', 'Licensed as a mortgage loan originator in Texas' ),
 			'company_license' => array( 'Company licensing statement', 'CrossCountry Mortgage, LLC is licensed in all 50 states' ),
 			'company_url'  => array( 'Company website URL', 'https://crosscountrymortgage.com/' ),
 			'company_licensing_url' => array( 'Company licensing & disclosures URL', 'https://crosscountrymortgage.com/mortgage/licensing-and-disclosures/' ),
@@ -34,12 +35,12 @@ function jb_settings_fields() {
 		),
 		'Conversion' => array(
 			'lead_email'    => array( 'Send leads to (comma separated)', 'bradley@yrocconsulting.com' ),
-			'apply_url'     => array( 'Online application URL (optional)', '' ),
+			'apply_url'     => array( 'CrossCountry online application URL', 'https://app.crosscountrymortgage.com/#/signup?referrerId=joseph.bogdan%40ccm.com' ),
 			'calendar_url'  => array( 'Booking / calendar URL (optional)', '' ),
 			'video_url'     => array( 'Intro video URL (YouTube/Vimeo, optional)', '' ),
-			'video_title'   => array( 'Video title', 'Meet Joe Bogdan, Senior Loan Officer' ),
+			'video_title'   => array( 'Video title', 'Meet Joseph Bogdan, Senior Loan Officer' ),
 			'video_date'    => array( 'Video upload date (YYYY-MM-DD)', '' ),
-			'video_description' => array( 'Video description (one or two sentences)', 'Joe Bogdan explains who he helps, how he approaches mortgage decisions and why buyers, business owners and Realtors call him.' ),
+			'video_description' => array( 'Video description (one or two sentences)', 'Joseph Bogdan explains who he helps, how he approaches mortgage decisions and why buyers, business owners and Realtors call him.' ),
 			'video_transcript'  => array( 'Video transcript (helps search and AI assistants)', '' ),
 			'review_url'    => array( 'Google review link (optional)', '' ),
 			'rate_estimate' => array( 'Rate used for buying-power estimates (%)', '6.75' ),
@@ -77,12 +78,17 @@ function jb_opt( $key ) {
 }
 
 /** Digits-only phone for tel:/sms: links. */
+/** E.164 phone number (+1XXXXXXXXXX) for tel:/sms: links. */
 function jb_tel( $key = 'phone' ) {
-	return preg_replace( '/[^0-9+]/', '', jb_opt( $key ) );
+	$digits = preg_replace( '/\D/', '', jb_opt( $key ) );
+	if ( 10 === strlen( $digits ) ) {
+		$digits = '1' . $digits;
+	}
+	return '+' . $digits;
 }
 
 add_action( 'admin_menu', function () {
-	add_theme_page( 'Joe Bogdan Settings', 'Joe Bogdan Settings', 'manage_options', 'jb-settings', 'jb_render_settings_page' );
+	add_theme_page( 'Joseph Bogdan Settings', 'Joseph Bogdan Settings', 'manage_options', 'jb-settings', 'jb_render_settings_page' );
 } );
 
 add_action( 'admin_init', function () {
@@ -109,7 +115,7 @@ function jb_render_settings_page() {
 	$saved = (array) get_option( 'jb_settings', array() );
 	?>
 	<div class="wrap">
-		<h1>Joe Bogdan Settings</h1>
+		<h1>Joseph Bogdan Settings</h1>
 		<p>These details feed the header, footer, disclosures, structured data and lead forms. Leave a field blank to use the default shown.</p>
 		<form method="post" action="options.php">
 			<?php settings_fields( 'jb_settings' ); ?>

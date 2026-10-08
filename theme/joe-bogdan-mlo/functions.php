@@ -1,6 +1,6 @@
 <?php
 /**
- * Joe Bogdan MLO theme bootstrap.
+ * Joseph Bogdan MLO theme bootstrap.
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -16,4 +16,5 @@ require JB_DIR . '/inc/shortcodes.php';
 require JB_DIR . '/inc/leads.php';
 require JB_DIR . '/inc/seo.php';
 require JB_DIR . '/inc/indexnow.php';
+require JB_DIR . '/inc/privacy.php';
 require JB_DIR . '/inc/patterns.php';

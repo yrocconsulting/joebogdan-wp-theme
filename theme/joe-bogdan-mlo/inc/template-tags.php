@@ -58,7 +58,7 @@ function jb_preapproval_url() {
 function jb_disclosure() {
 	$company_url = jb_opt( 'company_url' );
 	return sprintf(
-		'%1$s, %2$s, NMLS #%3$s. %4$s. %5$s, NMLS #%6$s, <a href="%7$s" rel="noopener" target="_blank">%8$s</a>. %9$s. Equal Housing Opportunity Lender. Verify licensing at <a href="https://www.nmlsconsumeraccess.org/" rel="noopener" target="_blank">www.nmlsconsumeraccess.org</a> and see <a href="%10$s" rel="noopener" target="_blank">CrossCountry Mortgage licensing and disclosures</a>. This is not a commitment to lend. All loans are subject to credit approval, underwriting guidelines and program availability. Programs, rates, terms and conditions are subject to change without notice. Not all applicants will qualify.',
+		'%1$s, %2$s, NMLS #%3$s. %4$s. %5$s, Company NMLS #%6$s, Branch NMLS #%11$s, <a href="%7$s" rel="noopener" target="_blank">%8$s</a>. %9$s. Equal Housing Opportunity Lender. Verify licensing at <a href="https://www.nmlsconsumeraccess.org/" rel="noopener" target="_blank">www.nmlsconsumeraccess.org</a> and see <a href="%10$s" rel="noopener" target="_blank">CrossCountry Mortgage licensing and disclosures</a>. This is not a commitment to lend. All loans are subject to credit approval, underwriting guidelines and program availability. Programs, rates, terms and conditions are subject to change without notice. Not all applicants will qualify.',
 		esc_html( jb_opt( 'legal_name' ) ),
 		esc_html( jb_opt( 'title' ) ),
 		esc_html( jb_opt( 'nmls' ) ),
@@ -68,7 +68,8 @@ function jb_disclosure() {
 		esc_url( $company_url ),
 		esc_html( untrailingslashit( preg_replace( '#^https?://(www\.)?#', '', $company_url ) ) ),
 		esc_html( jb_opt( 'company_license' ) ),
-		esc_url( jb_opt( 'company_licensing_url' ) )
+		esc_url( jb_opt( 'company_licensing_url' ) ),
+		esc_html( jb_opt( 'branch_nmls' ) )
 	);
 }
 
@@ -140,6 +141,7 @@ function jb_breadcrumb_items() {
  */
 function jb_fallback_menu() {
 	$links = array(
+		array( 'Builders & Developers', '/builders-developers/' ),
 		array( 'Loan Programs', '/loan-programs/', array(
 			array( 'Home Purchase', '/loan-programs/home-purchase/' ),
 			array( 'Refinance & Equity', '/loan-programs/refinance/' ),
@@ -147,9 +149,8 @@ function jb_fallback_menu() {
 			array( 'Self-Employed & Business Owners', '/loan-programs/self-employed-business-owners/' ),
 			array( 'Investment Property', '/loan-programs/investment-property/' ),
 		) ),
-		array( 'Builders & Developers', '/builders-developers/' ),
 		array( 'Realtor Partners', '/realtor-partners/' ),
-		array( 'About Joe', '/about-joe/' ),
+		array( 'About Joseph', '/about-joseph/' ),
 		array( 'Insights', '/insights/' ),
 		array( 'Contact', '/contact/' ),
 	);
@@ -177,11 +178,11 @@ function jb_pillars() {
 	return array(
 		'home-buying'            => array(
 			'name' => 'Home Buying',
-			'cta'  => array( 'Know your number before you shop.', 'Get a personalized buying-power analysis from Joe - not a generic calculator result.', '/get-pre-approved/', 'Discover Your Buying Power' ),
+			'cta'  => array( 'Know your number before you shop.', 'Get a personalized buying-power analysis from Joseph - not a generic calculator result.', '/get-pre-approved/', 'Discover Your Buying Power' ),
 		),
 		'mortgage-strategy'      => array(
 			'name' => 'Mortgage Strategy',
-			'cta'  => array( 'Want a second set of eyes on your plan?', 'Tell Joe what you are weighing and he will map the options with you.', '/contact/', 'Ask Joe About Your Scenario' ),
+			'cta'  => array( 'Want a second set of eyes on your plan?', 'Tell Joseph what you are weighing and he will map the options with you.', '/contact/', 'Ask Joseph About Your Scenario' ),
 		),
 		'texas-housing-market'   => array(
 			'name' => 'Texas Housing & Market',
@@ -189,7 +190,7 @@ function jb_pillars() {
 		),
 		'luxury-jumbo'           => array(
 			'name' => 'Luxury & Jumbo',
-			'cta'  => array( 'Financing a high-value home?', 'Book a private jumbo financing consultation with Joe.', '/loan-programs/jumbo-luxury-financing/#consultation', 'Request a Jumbo Consultation' ),
+			'cta'  => array( 'Financing a high-value home?', 'Book a private jumbo financing consultation with Joseph.', '/loan-programs/jumbo-luxury-financing/#consultation', 'Request a Jumbo Consultation' ),
 		),
 		'business-owners'        => array(
 			'name' => 'Business Owners & Self-Employed',
@@ -197,7 +198,7 @@ function jb_pillars() {
 		),
 		'real-estate-investing'  => array(
 			'name' => 'Real Estate Investing',
-			'cta'  => array( 'Running numbers on a property?', 'Send Joe the scenario and get your financing options.', '/loan-programs/investment-property/#investor-scenario', 'Run an Investor Scenario' ),
+			'cta'  => array( 'Running numbers on a property?', 'Send Joseph the scenario and get your financing options.', '/loan-programs/investment-property/#investor-scenario', 'Run an Investor Scenario' ),
 		),
 	);
 }
@@ -225,7 +226,7 @@ function jb_cta_band( $cta, $tone = 'navy' ) {
 			</div>
 			<div class="btn-row">
 				<a class="btn btn-gold" href="<?php echo esc_url( home_url( $path ) ); ?>"><?php echo esc_html( $label ); ?></a>
-				<a class="btn btn-outline" href="sms:<?php echo esc_attr( jb_tel( 'sms' ) ); ?>"><?php echo jb_icon( 'message' ); ?> Text Joe</a>
+				<a class="btn btn-outline" href="sms:<?php echo esc_attr( jb_tel( 'sms' ) ); ?>"><?php echo jb_icon( 'message' ); ?> Text Joseph</a>
 			</div>
 		</div>
 	</section>

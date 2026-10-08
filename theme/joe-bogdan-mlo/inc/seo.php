@@ -47,7 +47,7 @@ function jb_seo_metabox( $post ) {
 	<input type="text" id="jb-seo-title" name="jb_seo_title" value="<?php echo esc_attr( $title ); ?>" style="width:100%" placeholder="Defaults to the page title"></p>
 	<p><label for="jb-seo-desc"><strong>Meta description</strong></label><br>
 	<textarea id="jb-seo-desc" name="jb_seo_description" rows="4" style="width:100%" placeholder="One or two sentences that directly answer what this page helps with."><?php echo esc_textarea( $desc ); ?></textarea></p>
-	<p class="description">Aim for 140–160 characters. Lead with the visitor’s problem.</p>
+	<p class="description">Aim for 140-160 characters. Lead with the visitor’s problem.</p>
 	<?php
 }
 
@@ -98,7 +98,7 @@ add_filter( 'document_title_parts', function ( $parts ) {
 		return $parts;
 	}
 	$paged = (int) get_query_var( 'paged' );
-	$suffix = $paged > 1 ? ' – Page ' . $paged : '';
+	$suffix = $paged > 1 ? ' - Page ' . $paged : '';
 	$id = jb_seo_object_id();
 	if ( $id ) {
 		$custom = get_post_meta( $id, '_jb_seo_title', true );
@@ -311,6 +311,7 @@ function jb_schema_graph() {
 		),
 		'employee'                  => array( '@id' => $ids['person'] ),
 		'parentOrganization'        => array( '@id' => $ids['lender'] ),
+		'identifier'                => array( '@type' => 'PropertyValue', 'propertyID' => 'Branch NMLS', 'value' => jb_opt( 'branch_nmls' ) ),
 		'knowsAbout'                => $knows,
 		'sameAs'                    => array_values( array_filter( array( jb_opt( 'google' ) ) ) ),
 	);
@@ -350,12 +351,12 @@ function jb_schema_graph() {
 			'@type'          => 'Person',
 			'@id'            => $ids['person'],
 			'name'           => jb_opt( 'name' ),
-			'alternateName'  => array_values( array_unique( array( jb_opt( 'legal_name' ), 'Joseph Bogdan' ) ) ),
-			'givenName'      => 'Joe',
+			'alternateName'  => array_values( array_unique( array( jb_opt( 'legal_name' ), 'Joe Bogdan' ) ) ),
+			'givenName'      => 'Joseph',
 			'familyName'     => 'Bogdan',
 			'jobTitle'       => jb_opt( 'title' ),
 			'description'    => sprintf( '%s is a %s with %s (NMLS #%s), licensed as a mortgage loan originator in Texas. Before mortgage lending he spent more than 30 years as a business owner and CEO, including over two decades building medical businesses focused on outpatient diagnostic services. He helps home buyers, self-employed borrowers, investors and luxury buyers finance strategically and partners with Realtors and builders across North Texas.', jb_opt( 'name' ), jb_opt( 'title' ), jb_opt( 'company' ), $nmls ),
-			'url'            => home_url( '/about-joe/' ),
+			'url'            => home_url( '/about-joseph/' ),
 			'image'          => array( '@id' => $headshot['@id'] ),
 			'telephone'      => jb_opt( 'phone' ),
 			'email'          => jb_opt( 'email' ),
@@ -386,7 +387,7 @@ function jb_schema_graph() {
 	$crumbs = jb_breadcrumb_items();
 	$image  = jb_page_image();
 	$type   = 'WebPage';
-	if ( is_page( 'about-joe' ) ) {
+	if ( is_page( 'about-joseph' ) ) {
 		$type = 'ProfilePage';
 	} elseif ( is_page( 'contact' ) ) {
 		$type = 'ContactPage';
@@ -401,11 +402,11 @@ function jb_schema_graph() {
 		'name'               => wp_get_document_title(),
 		'description'        => jb_meta_description(),
 		'isPartOf'           => array( '@id' => $ids['site'] ),
-		'about'              => array( '@id' => is_page( 'about-joe' ) ? $ids['person'] : $ids['practice'] ),
+		'about'              => array( '@id' => is_page( 'about-joseph' ) ? $ids['person'] : $ids['practice'] ),
 		'primaryImageOfPage' => array( '@type' => 'ImageObject', 'url' => $image['url'], 'width' => $image['width'], 'height' => $image['height'] ),
 		'inLanguage'         => 'en-US',
 	);
-	if ( is_page( 'about-joe' ) ) {
+	if ( is_page( 'about-joseph' ) ) {
 		$page['mainEntity'] = array( '@id' => $ids['person'] );
 	} elseif ( is_page( 'contact' ) ) {
 		$page['mainEntity'] = array( '@id' => $ids['practice'] );

@@ -74,12 +74,12 @@ def audit(url):
     if not t:
         issues.append("missing <title>")
     elif not 30 <= len(t) <= 65:
-        issues.append(f"title length {len(t)} (aim 30–65): {t}")
+        issues.append(f"title length {len(t)} (aim 30-65): {t}")
     d = pg.meta.get("description", "")
     if not d:
         issues.append("missing meta description")
     elif not 110 <= len(d) <= 165:
-        issues.append(f"description length {len(d)} (aim 110–165)")
+        issues.append(f"description length {len(d)} (aim 110-165)")
     canon = [l.get("href") for l in pg.links if l.get("rel") == "canonical"]
     if len(canon) != 1:
         issues.append(f"canonical tags: {len(canon)}")

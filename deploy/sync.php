@@ -37,7 +37,7 @@ if ( 'joe-bogdan-mlo' !== get_stylesheet() ) {
 
 /* -------------------------------------------------------------- options */
 update_option( 'permalink_structure', '/%postname%/' );
-update_option( 'blogname', 'Joe Bogdan' );
+update_option( 'blogname', 'Joseph Bogdan' );
 update_option( 'blogdescription', 'Senior Loan Officer · NMLS #2795320' );
 update_option( 'timezone_string', 'America/Chicago' );
 update_option( 'default_comment_status', 'closed' );
@@ -91,6 +91,16 @@ foreach ( $manifest['pages'] as $spec ) {
 	$path    = $spec['parent'] ? $spec['parent'] . '/' . $slug : $slug;
 
 	$existing = get_page_by_path( $path, OBJECT, 'page' );
+	$renamed  = false;
+	foreach ( (array) ( $spec['old_slugs'] ?? array() ) as $old_slug ) {
+		if ( ! $existing ) {
+			$existing = get_page_by_path( $old_slug, OBJECT, 'page' );
+			if ( $existing ) {
+				jb_sync_log( "Renaming $old_slug -> $slug" );
+				$renamed = true;
+			}
+		}
+	}
 	if ( ! $existing ) {
 		$q = get_posts( array( 'post_type' => 'page', 'name' => $slug, 'post_status' => array( 'publish', 'draft', 'private', 'pending' ), 'numberposts' => 1 ) );
 		$existing = $q ? $q[0] : null;
@@ -112,11 +122,15 @@ foreach ( $manifest['pages'] as $spec ) {
 		$current = md5( $existing->post_content );
 		$edited  = $stored ? $stored !== $current : ( '' !== trim( $existing->post_content ) && 'publish' === $existing->post_status );
 		if ( $edited && ! $force_all && ! in_array( $slug, $force, true ) ) {
+			if ( $renamed ) {
+				// Keep their edits but still move the page to its new address.
+				wp_update_post( array( 'ID' => $existing->ID, 'post_name' => $slug ) );
+			}
 			jb_sync_log( "SKIP $path (edited in WordPress; add to JB_FORCE to overwrite)" );
 			$ids[ $slug ] = $existing->ID;
 			continue;
 		}
-		if ( $stored === md5( $content ) && $existing->post_status === 'publish' && (int) $existing->post_parent === $parent ) {
+		if ( ! $renamed && $stored === md5( $content ) && $existing->post_status === 'publish' && (int) $existing->post_parent === $parent ) {
 			$ids[ $slug ] = $existing->ID;
 			jb_sync_log( "ok   $path (unchanged)" );
 		} else {
@@ -150,17 +164,12 @@ update_option( 'wp_page_for_privacy_policy', $ids['privacy-policy'] ?? 0 );
  * Import a theme image into the media library once and reuse it.
  */
 function jb_sync_theme_image( $file ) {
-	$alts = array(
-		'buyers.webp'          => 'Couple touring a bright, upscale home',
-		'strategy.webp'        => 'Homeowner reviewing financing plans at a desk',
-		'business-owners.webp' => 'Business owner reviewing documents with an advisor',
-		'luxury.webp'          => 'Couple viewing a luxury home interior',
-	);
+	// Stock photos are shared across articles, so they are marked decorative
+	// (empty alt) until article-specific photography replaces them.
+	$alts = array();
 	$existing = get_posts( array( 'post_type' => 'attachment', 'meta_key' => '_jb_source_file', 'meta_value' => $file, 'numberposts' => 1, 'fields' => 'ids' ) );
 	if ( $existing ) {
-		if ( isset( $alts[ $file ] ) && ! get_post_meta( $existing[0], '_wp_attachment_image_alt', true ) ) {
-			update_post_meta( $existing[0], '_wp_attachment_image_alt', $alts[ $file ] );
-		}
+		update_post_meta( $existing[0], '_wp_attachment_image_alt', $alts[ $file ] ?? '' );
 		return $existing[0];
 	}
 	$src = get_theme_root() . '/joe-bogdan-mlo/assets/images/' . $file;
@@ -180,14 +189,28 @@ function jb_sync_theme_image( $file ) {
 	), $upload['file'] );
 	wp_update_attachment_metadata( $id, wp_generate_attachment_metadata( $id, $upload['file'] ) );
 	update_post_meta( $id, '_jb_source_file', $file );
-	if ( isset( $alts[ $file ] ) ) {
-		update_post_meta( $id, '_wp_attachment_image_alt', $alts[ $file ] );
-	}
+	update_post_meta( $id, '_wp_attachment_image_alt', $alts[ $file ] ?? '' );
 	jb_sync_log( "Imported image $file" );
 	return $id;
 }
 
-$author = get_users( array( 'role' => 'administrator', 'number' => 1, 'fields' => 'ID' ) );
+// Articles are authored by a "Joseph Bogdan" account (never the admin login).
+$joseph = get_user_by( 'login', 'joseph-bogdan' );
+if ( ! $joseph ) {
+	$uid = wp_insert_user( array(
+		'user_login'   => 'joseph-bogdan',
+		'user_pass'    => wp_generate_password( 32, true, true ),
+		'user_email'   => '',
+		'display_name' => 'Joseph Bogdan',
+		'nickname'     => 'Joseph Bogdan',
+		'first_name'   => 'Joseph',
+		'last_name'    => 'Bogdan',
+		'role'         => 'author',
+	) );
+	$joseph = is_wp_error( $uid ) ? null : get_user_by( 'id', $uid );
+	jb_sync_log( $joseph ? 'Created author account Joseph Bogdan' : 'Could not create author account: ' . $uid->get_error_message() );
+}
+$author = $joseph ? array( $joseph->ID ) : get_users( array( 'role' => 'administrator', 'number' => 1, 'fields' => 'ID' ) );
 foreach ( $manifest['posts'] ?? array() as $spec ) {
 	$slug     = $spec['slug'];
 	$content  = file_get_contents( $base . '/content/' . $spec['file'] );
@@ -226,6 +249,10 @@ foreach ( $manifest['posts'] ?? array() as $spec ) {
 		jb_sync_log( "NEW  post $slug" );
 	}
 
+	if ( $joseph && (int) get_post_field( 'post_author', $id ) !== (int) $joseph->ID ) {
+		wp_update_post( array( 'ID' => $id, 'post_author' => $joseph->ID ) );
+		jb_sync_log( "     post $slug now authored by Joseph Bogdan" );
+	}
 	update_post_meta( $id, '_jb_sync_hash', md5( get_post_field( 'post_content', $id ) ) );
 	update_post_meta( $id, '_jb_seo_title', $spec['seo_title'] );
 	update_post_meta( $id, '_jb_seo_description', $spec['seo_description'] );
@@ -241,7 +268,9 @@ foreach ( $manifest['posts'] ?? array() as $spec ) {
 function jb_menu_signature( $menu_id ) {
 	$items = wp_get_nav_menu_items( $menu_id ) ?: array();
 	return md5( wp_json_encode( array_map( function ( $i ) {
-		return array( $i->title, (int) $i->object_id, (int) $i->menu_item_parent ? 1 : 0, (int) $i->menu_order );
+		// post_title is the stored label (empty when it follows the page title),
+		// so renaming a page doesn't look like a hand edit to the menu.
+		return array( $i->post_title, (int) $i->object_id, (int) $i->menu_item_parent ? 1 : 0, (int) $i->menu_order );
 	}, $items ) ) );
 }
 
@@ -257,6 +286,13 @@ foreach ( $manifest['menus'] as $location => $items ) {
 	if ( $menu ) {
 		$known = $state[ $location ] ?? array();
 		$human = empty( $known['sig'] ) || jb_menu_signature( $menu->term_id ) !== $known['sig'];
+		if ( $human && ! empty( $known['sig'] ) ) {
+			// Signatures saved by an earlier version used display titles.
+			$legacy = md5( wp_json_encode( array_map( function ( $i ) {
+				return array( $i->title, (int) $i->object_id, (int) $i->menu_item_parent ? 1 : 0, (int) $i->menu_order );
+			}, wp_get_nav_menu_items( $menu->term_id ) ?: array() ) ) );
+			$human = $legacy !== $known['sig'];
+		}
 		if ( $human && ! $force_all && ! in_array( 'menu-' . $location, $force, true ) ) {
 			jb_sync_log( "SKIP menu $location (edited in WordPress; add menu-$location to JB_FORCE to rebuild)" );
 			continue;

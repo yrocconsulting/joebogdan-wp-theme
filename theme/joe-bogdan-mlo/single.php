@@ -17,7 +17,7 @@ while ( have_posts() ) :
 					<p class="page-hero-lede"><?php echo esc_html( get_the_excerpt() ); ?></p>
 				<?php endif; ?>
 				<p class="article-meta">
-					By <a href="<?php echo esc_url( home_url( '/about-joe/' ) ); ?>"><?php echo esc_html( jb_opt( 'name' ) ); ?></a>, <?php echo esc_html( jb_opt( 'title' ) ); ?>, NMLS #<?php echo esc_html( jb_opt( 'nmls' ) ); ?>
+					By <a href="<?php echo esc_url( home_url( '/about-joseph/' ) ); ?>"><?php echo esc_html( jb_opt( 'name' ) ); ?></a>, <?php echo esc_html( jb_opt( 'title' ) ); ?>, NMLS #<?php echo esc_html( jb_opt( 'nmls' ) ); ?>
 					· Updated <time datetime="<?php echo esc_attr( get_the_modified_date( 'c' ) ); ?>"><?php echo esc_html( get_the_modified_date() ); ?></time>
 				</p>
 			</div>
@@ -34,8 +34,8 @@ while ( have_posts() ) :
 					<img src="<?php echo jb_img( 'joe-headshot-sm.webp' ); ?>" alt="<?php echo esc_attr( jb_opt( 'name' ) ); ?>" width="96" height="120" loading="lazy">
 					<div>
 						<p class="author-name"><?php echo esc_html( jb_opt( 'name' ) ); ?></p>
-						<p><?php echo esc_html( jb_opt( 'title' ) ); ?> with <?php echo esc_html( jb_opt( 'company' ) ); ?> (NMLS #<?php echo esc_html( jb_opt( 'nmls' ) ); ?>). After 30+ years building and running companies, Joe helps buyers, business owners and investors structure mortgage financing strategically.</p>
-						<a class="text-link" href="<?php echo esc_url( home_url( '/about-joe/' ) ); ?>">More about Joe <?php echo jb_icon( 'arrow' ); ?></a>
+						<p><?php echo esc_html( jb_opt( 'title' ) ); ?> with <?php echo esc_html( jb_opt( 'company' ) ); ?> (NMLS #<?php echo esc_html( jb_opt( 'nmls' ) ); ?>). After 30+ years building and running companies, Joseph helps buyers, business owners and investors structure mortgage financing strategically.</p>
+						<a class="text-link" href="<?php echo esc_url( home_url( '/about-joseph/' ) ); ?>">More about Joseph <?php echo jb_icon( 'arrow' ); ?></a>
 						<?php if ( jb_opt( 'linkedin' ) ) : ?>
 							<a class="text-link" href="<?php echo esc_url( jb_opt( 'linkedin' ) ); ?>" target="_blank" rel="noopener me">LinkedIn <?php echo jb_icon( 'arrow' ); ?></a>
 						<?php endif; ?>

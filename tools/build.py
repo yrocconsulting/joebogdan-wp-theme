@@ -20,7 +20,7 @@ def main():
         manifest["pages"].append({
             "slug": slug, "title": title, "parent": parent, "template": template or "",
             "file": f"pages/{slug}.html", "seo_title": seo_title or "", "seo_description": seo_desc or "",
-            "service": service or "", "audience": pages.AUDIENCE.get(slug, ""), "menu_order": order, "excerpt": excerpt or "",
+            "service": service or "", "audience": pages.AUDIENCE.get(slug, ""), "old_slugs": pages.OLD_SLUGS.get(slug, []), "menu_order": order, "excerpt": excerpt or "",
         })
     for location, items in pages.MENUS.items():
         manifest["menus"][location] = [

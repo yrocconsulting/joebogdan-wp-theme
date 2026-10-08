@@ -9,13 +9,13 @@ $pillars = jb_pillars();
 $current = is_category() ? get_queried_object()->slug : '';
 if ( is_category() ) {
 	$title = single_cat_title( '', false );
-	$lede  = category_description() ? wp_strip_all_tags( category_description() ) : 'Straight answers on ' . $title . ', written by Joe.';
+	$lede  = category_description() ? wp_strip_all_tags( category_description() ) : 'Straight answers on ' . $title . ', written by Joseph.';
 } elseif ( is_search() ) {
 	$title = 'Search: ' . get_search_query();
 	$lede  = 'Articles matching your question.';
 } else {
 	$title = 'Mortgage Insights';
-	$lede  = 'Straight answers to the questions buyers, business owners, investors and agents ask Joe every week.';
+	$lede  = 'Straight answers to the questions buyers, business owners, investors and agents ask Joseph every week.';
 }
 ?>
 <header class="page-hero">
@@ -53,8 +53,8 @@ if ( is_category() ) {
 		<?php else : ?>
 			<div class="empty-state">
 				<h2>New articles are on the way.</h2>
-				<p>In the meantime, the fastest answer to your question is a quick conversation with Joe.</p>
-				<a class="btn btn-gold" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Ask Joe About Your Scenario</a>
+				<p>In the meantime, the fastest answer to your question is a quick conversation with Joseph.</p>
+				<a class="btn btn-gold" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Ask Joseph About Your Scenario</a>
 			</div>
 		<?php endif; ?>
 	</div>

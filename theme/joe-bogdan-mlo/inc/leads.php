@@ -13,10 +13,10 @@ defined( 'ABSPATH' ) || exit;
  * ------------------------------------------------------------------------ */
 
 function jb_credit_options() {
-	return array( 'Excellent (740+)', 'Good (680–739)', 'Fair (620–679)', 'Below 620', 'Not sure' );
+	return array( 'Excellent (740+)', 'Good (680-739)', 'Fair (620-679)', 'Below 620', 'Not sure' );
 }
 
-function jb_contact_step( $title = 'Where should Joe send it?' ) {
+function jb_contact_step( $title = 'Where should Joseph send it?' ) {
 	return array(
 		'title'  => $title,
 		'fields' => array(
@@ -40,10 +40,10 @@ function jb_forms() {
 			'submit'  => 'Get My Buying-Power Analysis',
 			'steps'   => array(
 				array(
-					'title'  => 'Tell Joe about your move',
+					'title'  => 'Tell Joseph about your move',
 					'fields' => array(
 						array( 'goal', 'What are you planning?', 'cards', array( 'Buy my first home', 'Buy my next home', 'Buy a second home', 'Buy an investment property' ), true ),
-						array( 'timeline', 'When would you like to buy?', 'chips', array( '0–3 months', '3–6 months', '6–12 months', 'Just exploring' ), true ),
+						array( 'timeline', 'When would you like to buy?', 'chips', array( '0-3 months', '3-6 months', '6-12 months', 'Just exploring' ), true ),
 						array( 'own_home', 'Do you currently own a home?', 'chips', array( 'No', 'Yes - I need to sell it', 'Yes - I’m keeping it' ), true ),
 						array( 'area', 'Where are you looking?', 'text', null, false, 'half', 'address-level2', 'City or area, e.g. Flower Mound' ),
 						array( 'price_target', 'Price range in mind (optional)', 'currency', null, false, 'half' ),
@@ -61,7 +61,7 @@ function jb_forms() {
 						array( 'veteran', 'Have you served in the military?', 'chips', array( 'No', 'Yes' ), false ),
 					),
 				),
-				jb_contact_step( 'Where should Joe send your analysis?' ),
+				jb_contact_step( 'Where should Joseph send your analysis?' ),
 			),
 		),
 		'self-employed'     => array(
@@ -73,14 +73,14 @@ function jb_forms() {
 					'title'  => 'Your business',
 					'fields' => array(
 						array( 'business_type', 'How is your income structured?', 'chips', array( 'Sole proprietor', 'LLC', 'S-Corp', 'Partnership', '1099 contractor', 'Not sure' ), true ),
-						array( 'years', 'Years self-employed', 'chips', array( 'Less than 2', '2–5', '5–10', '10+' ), true ),
+						array( 'years', 'Years self-employed', 'chips', array( 'Less than 2', '2-5', '5-10', '10+' ), true ),
 						array( 'goal', 'What are you trying to do?', 'chips', array( 'Buy a home', 'Refinance', 'Buy an investment property' ), true ),
 						array( 'price_target', 'Approximate price or loan amount', 'currency', null, false, 'half' ),
 						array( 'credit', 'Credit estimate', 'select', jb_credit_options(), false, 'half' ),
 						array( 'concern', 'What worries you most about qualifying?', 'textarea', null, false, null, null, 'e.g. write-offs lower my taxable income, income varies year to year' ),
 					),
 				),
-				jb_contact_step( 'Where should Joe reach you?' ),
+				jb_contact_step( 'Where should Joseph reach you?' ),
 			),
 		),
 		'jumbo'             => array(
@@ -92,13 +92,13 @@ function jb_forms() {
 					'title'  => 'The property',
 					'fields' => array(
 						array( 'goal', 'Purchase or refinance?', 'chips', array( 'Purchase', 'Refinance', 'Cash-out refinance' ), true ),
-						array( 'price_band', 'Price range', 'chips', array( '$800K–$1.5M', '$1.5M–$3M', '$3M+' ), true ),
+						array( 'price_band', 'Price range', 'chips', array( '$800K-$1.5M', '$1.5M-$3M', '$3M+' ), true ),
 						array( 'property_type', 'Property type', 'chips', array( 'Primary residence', 'Second home', 'Ranch / acreage', 'New construction' ), true ),
-						array( 'timeline', 'Timeline', 'chips', array( 'Under contract', '0–3 months', '3–12 months', 'Planning ahead' ), true ),
-						array( 'notes', 'Anything Joe should know?', 'textarea', null, false, null, null, 'e.g. complex income, assets in a trust, buying before selling' ),
+						array( 'timeline', 'Timeline', 'chips', array( 'Under contract', '0-3 months', '3-12 months', 'Planning ahead' ), true ),
+						array( 'notes', 'Anything Joseph should know?', 'textarea', null, false, null, null, 'e.g. complex income, assets in a trust, buying before selling' ),
 					),
 				),
-				jb_contact_step( 'Where should Joe reach you?' ),
+				jb_contact_step( 'Where should Joseph reach you?' ),
 			),
 		),
 		'refinance'         => array(
@@ -116,7 +116,7 @@ function jb_forms() {
 						array( 'credit', 'Credit estimate', 'select', jb_credit_options(), false, 'half' ),
 					),
 				),
-				jb_contact_step( 'Where should Joe send your analysis?' ),
+				jb_contact_step( 'Where should Joseph send your analysis?' ),
 			),
 		),
 		'investor'          => array(
@@ -127,26 +127,26 @@ function jb_forms() {
 				array(
 					'title'  => 'The deal',
 					'fields' => array(
-						array( 'property_type', 'Property type', 'chips', array( 'Single-family rental', '2–4 units', 'Short-term rental', 'Fix & hold', 'Portfolio / multiple' ), true ),
+						array( 'property_type', 'Property type', 'chips', array( 'Single-family rental', '2-4 units', 'Short-term rental', 'Fix & hold', 'Portfolio / multiple' ), true ),
 						array( 'goal', 'Purchase or refinance?', 'chips', array( 'Purchase', 'Rate/term refinance', 'Cash-out refinance' ), true ),
 						array( 'price_target', 'Price or value', 'currency', null, true, 'half' ),
 						array( 'rent', 'Expected monthly rent', 'currency', null, false, 'half' ),
 						array( 'down_payment', 'Cash available', 'currency', null, false, 'half' ),
-						array( 'experience', 'Properties you own today', 'select', array( 'None yet', '1–2', '3–9', '10+' ), false, 'half' ),
+						array( 'experience', 'Properties you own today', 'select', array( 'None yet', '1-2', '3-9', '10+' ), false, 'half' ),
 						array( 'notes', 'Anything else?', 'textarea', null, false ),
 					),
 				),
-				jb_contact_step( 'Where should Joe send your options?' ),
+				jb_contact_step( 'Where should Joseph send your options?' ),
 			),
 		),
 		'realtor-scenario'  => array(
 			'label'   => 'Realtor Client Scenario',
 			'heading' => 'Run a Financing Scenario for My Client',
-			'submit'  => 'Send the Scenario to Joe',
+			'submit'  => 'Send the Scenario to Joseph',
 			'steps'   => array(
 				array(
 					'title'  => 'Your client’s scenario',
-					'note'   => 'No client names needed. Joe will reach out to you first.',
+					'note'   => 'No client names needed. Joseph will reach out to you first.',
 					'fields' => array(
 						array( 'urgency', 'How soon do you need an answer?', 'chips', array( 'Writing an offer today', 'This week', 'Planning ahead' ), true ),
 						array( 'price_target', 'Target price', 'currency', null, true, 'half' ),
@@ -180,8 +180,8 @@ function jb_forms() {
 					'fields' => array(
 						array( 'company', 'Company', 'text', null, true, 'half', 'organization' ),
 						array( 'role', 'Your role', 'text', null, false, 'half', 'organization-title' ),
-						array( 'volume', 'Homes closed per year', 'chips', array( 'Under 10', '10–50', '50–150', '150+' ), false ),
-						array( 'price_band', 'Typical price range', 'chips', array( 'Under $400K', '$400K–$750K', '$750K–$1.5M', '$1.5M+' ), false ),
+						array( 'volume', 'Homes closed per year', 'chips', array( 'Under 10', '10-50', '50-150', '150+' ), false ),
+						array( 'price_band', 'Typical price range', 'chips', array( 'Under $400K', '$400K-$750K', '$750K-$1.5M', '$1.5M+' ), false ),
 						array( 'notes', 'Communities and what you need from a lender', 'textarea', null, false, null, null, 'e.g. faster pre-approvals for model-home traffic, fewer fall-throughs, better buyer communication' ),
 					),
 				),
@@ -197,9 +197,9 @@ function jb_forms() {
 			),
 		),
 		'ask-joe'           => array(
-			'label'   => 'Ask Joe',
-			'heading' => 'Ask Joe About Your Scenario',
-			'submit'  => 'Send to Joe',
+			'label'   => 'Ask Joseph',
+			'heading' => 'Ask Joseph About Your Scenario',
+			'submit'  => 'Send to Joseph',
 			'steps'   => array(
 				array(
 					'title'  => 'Your question',
@@ -284,7 +284,7 @@ add_shortcode( 'jb_form', function ( $atts ) {
 								<input type="checkbox" name="sms_consent" value="yes">
 								<span>Optional: I agree to receive text messages from <?php echo esc_html( jb_opt( 'name' ) ); ?> and <?php echo esc_html( jb_opt( 'company' ) ); ?> about my inquiry at the mobile number above, which may be sent using automated technology. Message frequency varies; message and data rates may apply. Reply STOP to opt out or HELP for help. Consent is not a condition of any purchase or loan. <a href="<?php echo esc_url( home_url( '/sms-terms/' ) ); ?>">Text terms</a></span>
 							</label>
-							<p class="fine-print">By submitting, you agree that <?php echo esc_html( jb_opt( 'name' ) ); ?> and <?php echo esc_html( jb_opt( 'company' ) ); ?> may contact you by phone or email about your inquiry. Submitting this form is not a loan application, does not lock a rate, is not a commitment to lend and does not affect your credit. See our <a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>">Privacy Policy</a> and <a href="<?php echo esc_url( home_url( '/terms-of-use/' ) ); ?>">Terms of Use</a>. NMLS #<?php echo esc_html( jb_opt( 'nmls' ) ); ?> · <?php echo esc_html( jb_opt( 'company' ) ); ?> NMLS #<?php echo esc_html( jb_opt( 'company_nmls' ) ); ?> · Equal Housing Opportunity Lender.</p>
+							<p class="fine-print">By submitting, you agree that <?php echo esc_html( jb_opt( 'name' ) ); ?> and <?php echo esc_html( jb_opt( 'company' ) ); ?> may contact you by phone or email about your inquiry. Submitting this form is not a loan application, does not lock a rate, is not a commitment to lend and does not affect your credit. See our <a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>">Privacy Policy</a> and <a href="<?php echo esc_url( home_url( '/terms-of-use/' ) ); ?>">Terms of Use</a>. <?php echo esc_html( jb_opt( 'name' ) ); ?>, NMLS #<?php echo esc_html( jb_opt( 'nmls' ) ); ?> · <?php echo esc_html( jb_opt( 'company' ) ); ?>, NMLS #<?php echo esc_html( jb_opt( 'company_nmls' ) ); ?> · Equal Housing Opportunity Lender.</p>
 						</div>
 					<?php endif; ?>
 
@@ -306,12 +306,12 @@ add_shortcode( 'jb_form', function ( $atts ) {
 
 		<div class="lead-success" hidden tabindex="-1">
 			<div class="lead-success-icon"><?php echo jb_icon( 'check' ); ?></div>
-			<h3>Thanks - Joe has your details.</h3>
+			<h3>Thanks - Joseph has your details.</h3>
 			<div class="lead-result" aria-live="polite"></div>
-			<p>Joe personally reviews every request and will follow up with you directly. Prefer to talk now?</p>
+			<p>Joseph personally reviews every request and will follow up with you directly. Prefer to talk now?</p>
 			<div class="btn-row">
 				<a class="btn btn-gold" href="tel:<?php echo esc_attr( jb_tel() ); ?>"><?php echo jb_icon( 'phone' ); ?> Call <?php echo esc_html( jb_opt( 'phone' ) ); ?></a>
-				<a class="btn btn-ghost" href="sms:<?php echo esc_attr( jb_tel( 'sms' ) ); ?>"><?php echo jb_icon( 'message' ); ?> Text Joe</a>
+				<a class="btn btn-ghost" href="sms:<?php echo esc_attr( jb_tel( 'sms' ) ); ?>"><?php echo jb_icon( 'message' ); ?> Text Joseph</a>
 			</div>
 		</div>
 	</div>
@@ -476,7 +476,7 @@ function jb_process_lead( $raw ) {
 	$ip_key = 'jb_rl_' . md5( $_SERVER['REMOTE_ADDR'] ?? '' );
 	$hits   = (int) get_transient( $ip_key );
 	if ( $hits >= 8 ) {
-		return new WP_Error( 'jb_rate', 'We received several requests from you already. Please call or text Joe directly.' );
+		return new WP_Error( 'jb_rate', 'We received several requests from you already. Please call or text Joseph directly.' );
 	}
 	set_transient( $ip_key, $hits + 1, 15 * MINUTE_IN_SECONDS );
 
@@ -593,7 +593,7 @@ function jb_lead_estimate( $type, $data ) {
 		return array(
 			'low'     => $low,
 			'high'    => $high,
-			'summary' => sprintf( '$%s – $%s', number_format( $low ), number_format( $high ) ),
+			'summary' => sprintf( '$%s - $%s', number_format( $low ), number_format( $high ) ),
 		);
 	}
 	if ( 'refinance' === $type ) {

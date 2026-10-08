@@ -13,10 +13,11 @@
 
 <div class="utility-bar">
 	<div class="wrap utility-inner">
-		<p class="utility-tagline"><?php echo esc_html( jb_opt( 'title' ) ); ?> · <?php echo esc_html( jb_opt( 'company' ) ); ?> · NMLS #<?php echo esc_html( jb_opt( 'nmls' ) ); ?></p>
+		<p class="utility-tagline"><?php echo esc_html( jb_opt( 'name' ) ); ?>, NMLS #<?php echo esc_html( jb_opt( 'nmls' ) ); ?> <span aria-hidden="true">|</span> <?php echo esc_html( jb_opt( 'company' ) ); ?>, NMLS #<?php echo esc_html( jb_opt( 'company_nmls' ) ); ?></p>
 		<p class="utility-contact">
 			<a href="tel:<?php echo esc_attr( jb_tel() ); ?>"><?php echo jb_icon( 'phone' ); ?><span>Call <?php echo esc_html( jb_opt( 'phone' ) ); ?></span></a>
-			<a href="sms:<?php echo esc_attr( jb_tel( 'sms' ) ); ?>"><?php echo jb_icon( 'message' ); ?><span>Text Joe</span></a>
+			<a href="sms:<?php echo esc_attr( jb_tel( 'sms' ) ); ?>"><?php echo jb_icon( 'message' ); ?><span>Text Joseph</span></a>
+			<a href="<?php echo esc_url( home_url( '/apply/' ) ); ?>"><?php echo jb_icon( 'check' ); ?><span>Apply Online</span></a>
 		</p>
 	</div>
 </div>
@@ -29,7 +30,7 @@
 			<?php else : ?>
 				<span class="logo-mark" aria-hidden="true">JB</span>
 			<?php endif; ?>
-			<span class="logo-text"><?php echo esc_html( jb_opt( 'name' ) ); ?><small>Mortgage Loan Originator</small></span>
+			<span class="logo-text"><?php echo esc_html( jb_opt( 'name' ) ); ?><small><?php echo esc_html( jb_opt( 'title' ) ); ?></small></span>
 		</a>
 
 		<nav class="primary-nav" id="primary-nav" aria-label="Primary">
@@ -44,6 +45,7 @@
 			?>
 			<div class="nav-mobile-actions">
 				<a class="btn btn-gold btn-block" href="<?php echo jb_preapproval_url(); ?>">Get Pre-Approved</a>
+				<a class="btn btn-outline btn-block" href="<?php echo esc_url( home_url( '/apply/' ) ); ?>">Apply Online</a>
 				<a class="btn btn-outline btn-block" href="tel:<?php echo esc_attr( jb_tel() ); ?>"><?php echo jb_icon( 'phone' ); ?> Call <?php echo esc_html( jb_opt( 'phone' ) ); ?></a>
 			</div>
 		</nav>

@@ -23,8 +23,10 @@ add_shortcode( 'jb_hero', function ( $atts ) {
 		'secondary' => 'yes',
 		'image'     => '',
 		'variant'   => 'page',
-		'form'      => '',
-		'note'      => '',
+		'form'         => '',
+		'form_heading' => '',
+		'note'         => '',
+		'builder'      => '',
 	), $atts );
 
 	$url = 0 === strpos( $a['cta_url'], 'http' ) || 0 === strpos( $a['cta_url'], '#' ) ? $a['cta_url'] : home_url( $a['cta_url'] );
@@ -51,16 +53,19 @@ add_shortcode( 'jb_hero', function ( $atts ) {
 						<div class="hero-talk">
 							<span>Prefer to talk?</span>
 							<a href="tel:<?php echo esc_attr( jb_tel() ); ?>"><?php echo jb_icon( 'phone' ); ?> Call</a>
-							<a href="sms:<?php echo esc_attr( jb_tel( 'sms' ) ); ?>"><?php echo jb_icon( 'message' ); ?> Text Joe</a>
+							<a href="sms:<?php echo esc_attr( jb_tel( 'sms' ) ); ?>"><?php echo jb_icon( 'message' ); ?> Text Joseph</a>
 						</div>
 					<?php endif; ?>
 				</div>
 				<?php if ( $a['note'] ) : ?>
 					<p class="hero-note"><?php echo esc_html( $a['note'] ); ?></p>
 				<?php endif; ?>
+				<?php if ( $a['builder'] ) : ?>
+					<a class="hero-builder" href="<?php echo esc_url( home_url( '/builders-developers/' ) ); ?>"><?php echo jb_icon( 'building' ); ?><span><strong>Builder or developer?</strong> Become a preferred lending partner</span><?php echo jb_icon( 'arrow' ); ?></a>
+				<?php endif; ?>
 			</div>
 			<?php if ( $a['form'] ) : ?>
-				<div class="hero-form" id="start"><?php echo do_shortcode( '[jb_form type="' . esc_attr( $a['form'] ) . '"]' ); ?></div>
+				<div class="hero-form" id="start"><?php echo do_shortcode( '[jb_form type="' . esc_attr( $a['form'] ) . '" heading="' . esc_attr( $a['form_heading'] ) . '"]' ); ?></div>
 			<?php elseif ( $a['image'] ) : ?>
 				<div class="hero-media">
 					<img src="<?php echo jb_img( $a['image'] ); ?>" alt="<?php echo esc_attr( jb_opt( 'name' ) . ', ' . jb_opt( 'title' ) ); ?>" width="819" height="1024" fetchpriority="high">
@@ -77,11 +82,11 @@ add_shortcode( 'jb_hero', function ( $atts ) {
 } );
 
 /**
- * [jb_intent] - "How can Joe help?" problem-first routing cards.
+ * [jb_intent] - "How can Joseph help?" problem-first routing cards.
  */
 add_shortcode( 'jb_intent', function ( $atts ) {
 	$a = shortcode_atts( array(
-		'eyebrow' => 'How Can Joe Help?',
+		'eyebrow' => 'How Can Joseph Help?',
 		'title'   => 'Start With Your Situation, Not a Loan Program.',
 	), $atts );
 	$cards = array(
@@ -156,7 +161,7 @@ add_shortcode( 'jb_process', function ( $atts ) {
 	), $atts );
 	$steps = array(
 		array( 'Conversation', 'You share your goals, timing and financial picture - in plain language.' ),
-		array( 'Strategy', 'Joe compares the realistic options and builds a plan around your priorities.' ),
+		array( 'Strategy', 'Joseph compares the realistic options and builds a plan around your priorities.' ),
 		array( 'Approval', 'A strong, documented pre-approval so you can move with confidence.' ),
 		array( 'Closing', 'Proactive updates to you and your agent all the way to the closing table.' ),
 	);
@@ -230,14 +235,14 @@ add_shortcode( 'jb_q', function ( $atts, $content = '' ) {
 } );
 
 /**
- * [jb_video title=""] - Joe's intro video. Renders nothing publicly until a
- * video URL is set in Appearance → Joe Bogdan Settings.
+ * [jb_video title=""] - Joseph's intro video. Renders nothing publicly until a
+ * video URL is set in Appearance → Joseph Bogdan Settings.
  */
 add_shortcode( 'jb_video', function ( $atts ) {
-	$a     = shortcode_atts( array( 'title' => 'Meet Joe in 90 Seconds' ), $atts );
+	$a     = shortcode_atts( array( 'title' => 'Meet Joseph in 90 Seconds' ), $atts );
 	$video = jb_video_data();
 	if ( ! $video ) {
-		return jb_editor_note( 'Intro video slot: add a 60-90 second video URL in Appearance → Joe Bogdan Settings and it will appear here.' );
+		return jb_editor_note( 'Intro video slot: add a 60-90 second video URL in Appearance → Joseph Bogdan Settings and it will appear here.' );
 	}
 	$GLOBALS['jb_video_on_page'] = true;
 	$html = sprintf(
@@ -286,9 +291,9 @@ function jb_video_data() {
  */
 add_shortcode( 'jb_contact_options', function () {
 	$options = array(
-		array( 'phone', 'Call Joe', jb_opt( 'phone' ), 'tel:' . jb_tel() ),
-		array( 'message', 'Text Joe', jb_opt( 'sms' ), 'sms:' . jb_tel( 'sms' ) ),
-		array( 'mail', 'Email Joe', jb_opt( 'email' ), 'mailto:' . jb_opt( 'email' ) ),
+		array( 'phone', 'Call Joseph', jb_opt( 'phone' ), 'tel:' . jb_tel() ),
+		array( 'message', 'Text Joseph', jb_opt( 'sms' ), 'sms:' . jb_tel( 'sms' ) ),
+		array( 'mail', 'Email Joseph', jb_opt( 'email' ), 'mailto:' . jb_opt( 'email' ) ),
 	);
 	if ( jb_opt( 'calendar_url' ) ) {
 		$options[] = array( 'clock', 'Book a Time', 'Pick a time that works for you', jb_opt( 'calendar_url' ) );
@@ -351,7 +356,7 @@ add_shortcode( 'jb_latest', function ( $atts ) {
 add_shortcode( 'jb_cta', function ( $atts ) {
 	$a = shortcode_atts( array(
 		'title' => 'Know your number before you shop.',
-		'text'  => 'A personalized buying-power analysis from Joe - not a generic calculator result.',
+		'text'  => 'A personalized buying-power analysis from Joseph - not a generic calculator result.',
 		'url'   => '/get-pre-approved/',
 		'label' => 'Discover Your Buying Power',
 		'tone'  => 'navy',
@@ -408,13 +413,13 @@ add_shortcode( 'jb_photo', function ( $atts ) {
 add_shortcode( 'jb_inline_cta', function ( $atts ) {
 	$a = shortcode_atts( array(
 		'title' => 'Know your number before you shop.',
-		'text'  => 'Get a free, personalized buying-power analysis from Joe. No credit pull.',
+		'text'  => 'Get a free, personalized buying-power analysis from Joseph. No credit pull.',
 		'url'   => '/get-pre-approved/',
 		'label' => 'Discover Your Buying Power',
 	), $atts );
 	$url = 0 === strpos( $a['url'], 'http' ) ? $a['url'] : home_url( $a['url'] );
 	return sprintf(
-		'<aside class="inline-cta"><div><p class="inline-cta-title">%s</p><p>%s</p></div><div class="inline-cta-actions"><a class="btn btn-gold" href="%s">%s %s</a><a class="inline-cta-text" href="sms:%s">%s Or text Joe</a></div></aside>',
+		'<aside class="inline-cta"><div><p class="inline-cta-title">%s</p><p>%s</p></div><div class="inline-cta-actions"><a class="btn btn-gold" href="%s">%s %s</a><a class="inline-cta-text" href="sms:%s">%s Or text Joseph</a></div></aside>',
 		esc_html( $a['title'] ),
 		esc_html( $a['text'] ),
 		esc_url( $url ),

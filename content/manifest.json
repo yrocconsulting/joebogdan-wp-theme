@@ -6,23 +6,25 @@
       "parent": null,
       "template": "",
       "file": "pages/home.html",
-      "seo_title": "Joe Bogdan | Mortgage Loan Officer, Flower Mound & North Texas",
-      "seo_description": "Joe Bogdan, Senior Loan Officer with CrossCountry Mortgage (NMLS #2795320), helps North Texas buyers, business owners and investors finance strategically.",
+      "seo_title": "Joseph Bogdan | Mortgage Loan Officer, Flower Mound & North Texas",
+      "seo_description": "Joseph Bogdan, Senior Loan Officer with CrossCountry Mortgage (NMLS #2795320), helps North Texas buyers, business owners and investors finance strategically.",
       "service": "",
       "audience": "",
+      "old_slugs": [],
       "menu_order": 0,
       "excerpt": ""
     },
     {
       "slug": "get-pre-approved",
-      "title": "Discover Your Buying Power",
+      "title": "Get Pre-Approved",
       "parent": null,
       "template": "page-templates/landing.php",
       "file": "pages/get-pre-approved.html",
-      "seo_title": "Discover Your Buying Power | Free Mortgage Pre-Approval Analysis",
-      "seo_description": "How much house can you afford in North Texas? Get a free, personalized buying-power analysis from Joe Bogdan - no credit pull, about two minutes.",
+      "seo_title": "Get Pre-Approved: Apply Online or Check Your Buying Power",
+      "seo_description": "Apply online with CrossCountry Mortgage to get pre-approved, or start with a free buying-power analysis from Joseph Bogdan. No credit pull to start.",
       "service": "Mortgage pre-approval",
       "audience": "Home buyers",
+      "old_slugs": [],
       "menu_order": 1,
       "excerpt": ""
     },
@@ -32,10 +34,11 @@
       "parent": null,
       "template": "page-templates/landing.php",
       "file": "pages/loan-programs.html",
-      "seo_title": "Mortgage Loan Programs by Situation | Joe Bogdan, North Texas",
+      "seo_title": "Mortgage Loan Programs by Situation | Joseph Bogdan, North Texas",
       "seo_description": "Find the right mortgage by starting with your goal: buying, refinancing, jumbo, self-employed or investment property financing in North Texas.",
       "service": "",
       "audience": "",
+      "old_slugs": [],
       "menu_order": 2,
       "excerpt": ""
     },
@@ -45,10 +48,11 @@
       "parent": "loan-programs",
       "template": "page-templates/landing.php",
       "file": "pages/home-purchase.html",
-      "seo_title": "Home Purchase Loans & Pre-Approval in North Texas | Joe Bogdan",
-      "seo_description": "How much house can you afford, and can you buy before you sell? Joe Bogdan helps North Texas buyers get a confident number and a stronger offer.",
+      "seo_title": "Home Purchase Loans & Pre-Approval in North Texas | Joseph Bogdan",
+      "seo_description": "How much house can you afford, and can you buy before you sell? Joseph Bogdan helps North Texas buyers get a confident number and a stronger offer.",
       "service": "Home purchase mortgage",
       "audience": "Home buyers, including first-time and move-up buyers",
+      "old_slugs": [],
       "menu_order": 1,
       "excerpt": ""
     },
@@ -58,10 +62,11 @@
       "parent": "loan-programs",
       "template": "page-templates/landing.php",
       "file": "pages/refinance.html",
-      "seo_title": "Refinance & Home Equity Options in Texas | Joe Bogdan",
-      "seo_description": "Lower your payment, take cash out or remove mortgage insurance - Joe Bogdan shows whether refinancing makes sense with a free equity analysis.",
+      "seo_title": "Refinance & Home Equity Options in Texas | Joseph Bogdan",
+      "seo_description": "Lower your payment, take cash out or remove mortgage insurance - Joseph Bogdan shows whether refinancing makes sense with a free equity analysis.",
       "service": "Mortgage refinance",
       "audience": "Homeowners",
+      "old_slugs": [],
       "menu_order": 2,
       "excerpt": ""
     },
@@ -71,10 +76,11 @@
       "parent": "loan-programs",
       "template": "page-templates/landing.php",
       "file": "pages/jumbo-luxury-financing.html",
-      "seo_title": "Jumbo & Luxury Home Financing in North Texas | Joe Bogdan",
-      "seo_description": "Strategic jumbo financing for high-value homes, ranches and second homes in North Texas. Request a private consultation with Joe Bogdan.",
+      "seo_title": "Jumbo & Luxury Home Financing in North Texas | Joseph Bogdan",
+      "seo_description": "Strategic jumbo financing for high-value homes, ranches and second homes in North Texas. Request a private consultation with Joseph Bogdan.",
       "service": "Jumbo mortgage",
       "audience": "Luxury and high-value home buyers",
+      "old_slugs": [],
       "menu_order": 3,
       "excerpt": ""
     },
@@ -84,10 +90,11 @@
       "parent": "loan-programs",
       "template": "page-templates/landing.php",
       "file": "pages/self-employed-business-owners.html",
-      "seo_title": "Self-Employed Mortgages: Bank-Statement & 1099 Loans | Joe Bogdan",
-      "seo_description": "Can you qualify for a mortgage if you’re self-employed? Joe Bogdan, a former CEO, helps business owners choose the right documentation path.",
+      "seo_title": "Self-Employed Mortgages: Bank-Statement & 1099 | Joseph Bogdan",
+      "seo_description": "Can you qualify for a mortgage if you’re self-employed? Joseph Bogdan, a former CEO, helps business owners choose the right documentation path.",
       "service": "Self-employed mortgage",
       "audience": "Self-employed borrowers and business owners",
+      "old_slugs": [],
       "menu_order": 4,
       "excerpt": ""
     },
@@ -97,10 +104,11 @@
       "parent": "loan-programs",
       "template": "page-templates/landing.php",
       "file": "pages/investment-property.html",
-      "seo_title": "Investment Property & DSCR Loans in Texas | Joe Bogdan",
-      "seo_description": "DSCR, conventional and multi-unit investment property financing. Send Joe Bogdan your deal and get financing options that fit your portfolio.",
+      "seo_title": "Investment Property & DSCR Loans in Texas | Joseph Bogdan",
+      "seo_description": "DSCR, conventional and multi-unit investment property financing. Send Joseph Bogdan your deal and get financing options that fit your portfolio.",
       "service": "Investment property mortgage",
       "audience": "Real estate investors",
+      "old_slugs": [],
       "menu_order": 5,
       "excerpt": ""
     },
@@ -110,10 +118,11 @@
       "parent": null,
       "template": "page-templates/landing.php",
       "file": "pages/builders-developers.html",
-      "seo_title": "Preferred Lender for DFW Builders & Developers | Joe Bogdan",
-      "seo_description": "Responsive pre-approvals, construction-timeline coordination and one point of contact. Become a preferred lending partner with Joe Bogdan.",
+      "seo_title": "Preferred Lender for DFW Builders & Developers | Joseph Bogdan",
+      "seo_description": "Responsive pre-approvals, construction-timeline coordination and one point of contact. Become a preferred lending partner with Joseph Bogdan.",
       "service": "Builder and developer lending partnership",
       "audience": "Home builders and developers",
+      "old_slugs": [],
       "menu_order": 3,
       "excerpt": ""
     },
@@ -123,23 +132,27 @@
       "parent": null,
       "template": "page-templates/landing.php",
       "file": "pages/realtor-partners.html",
-      "seo_title": "Mortgage Partner for Realtors in DFW | Joe Bogdan",
-      "seo_description": "Prompt scenario reviews, strong pre-approvals and a lender who never competes for your client. Run a financing scenario for your buyer with Joe Bogdan.",
+      "seo_title": "Mortgage Partner for Realtors in DFW | Joseph Bogdan",
+      "seo_description": "Prompt scenario reviews, strong pre-approvals and a lender who never competes for your client. Run a financing scenario for your buyer with Joseph Bogdan.",
       "service": "Mortgage lending partnership for Realtors",
       "audience": "Real estate agents",
+      "old_slugs": [],
       "menu_order": 4,
       "excerpt": ""
     },
     {
-      "slug": "about-joe",
-      "title": "About Joe",
+      "slug": "about-joseph",
+      "title": "About Joseph",
       "parent": null,
       "template": "page-templates/landing.php",
-      "file": "pages/about-joe.html",
-      "seo_title": "About Joe Bogdan | Former CEO Turned Mortgage Loan Originator",
-      "seo_description": "Joe Bogdan spent 30+ years as a CEO before becoming a Senior Loan Officer with CrossCountry Mortgage. Learn how he approaches mortgage strategy.",
+      "file": "pages/about-joseph.html",
+      "seo_title": "About Joseph Bogdan | Former CEO Turned Mortgage Loan Originator",
+      "seo_description": "Joseph Bogdan spent 30+ years building and running companies before becoming a Senior Loan Officer with CrossCountry Mortgage. See how he works.",
       "service": "",
       "audience": "",
+      "old_slugs": [
+        "about-joe"
+      ],
       "menu_order": 5,
       "excerpt": ""
     },
@@ -149,10 +162,11 @@
       "parent": null,
       "template": "",
       "file": "pages/insights.html",
-      "seo_title": "Mortgage Insights & Answers | Joe Bogdan",
-      "seo_description": "Straight answers on home buying, mortgage strategy, jumbo loans, self-employed financing and investing in Texas real estate from Joe Bogdan.",
+      "seo_title": "Mortgage Insights & Answers | Joseph Bogdan",
+      "seo_description": "Straight answers on home buying, mortgage strategy, jumbo loans, self-employed financing and investing in Texas real estate from Joseph Bogdan.",
       "service": "",
       "audience": "",
+      "old_slugs": [],
       "menu_order": 6,
       "excerpt": ""
     },
@@ -162,10 +176,11 @@
       "parent": null,
       "template": "page-templates/landing.php",
       "file": "pages/contact.html",
-      "seo_title": "Contact Joe Bogdan | Call, Text or Ask About Your Scenario",
-      "seo_description": "Call Joe Bogdan at (469) 324-4620, text (972) 672-8624, or ask about your mortgage scenario online. Based in Flower Mound, serving North Texas.",
+      "seo_title": "Contact Joseph Bogdan | Call, Text or Ask About Your Scenario",
+      "seo_description": "Call Joseph Bogdan at (469) 324-4620, text (972) 672-8624, or ask about your mortgage scenario online. Based in Flower Mound, serving North Texas.",
       "service": "",
       "audience": "",
+      "old_slugs": [],
       "menu_order": 7,
       "excerpt": ""
     },
@@ -175,10 +190,11 @@
       "parent": null,
       "template": "",
       "file": "pages/privacy-policy.html",
-      "seo_title": "Privacy Policy | Joe Bogdan, Senior Loan Officer",
-      "seo_description": "How Joe Bogdan’s website collects, uses and protects the information you submit, including contact details and text-message consent.",
+      "seo_title": "Privacy Policy | Joseph Bogdan, Senior Loan Officer",
+      "seo_description": "How Joseph Bogdan’s website collects, uses and protects the information you submit, including contact details and text-message consent.",
       "service": "",
       "audience": "",
+      "old_slugs": [],
       "menu_order": 20,
       "excerpt": ""
     },
@@ -188,10 +204,11 @@
       "parent": null,
       "template": "",
       "file": "pages/terms-of-use.html",
-      "seo_title": "Terms of Use | Joe Bogdan, Senior Loan Officer",
-      "seo_description": "Terms for using Joe Bogdan’s website, including the educational nature of its content and estimates, and lender licensing information.",
+      "seo_title": "Terms of Use | Joseph Bogdan, Senior Loan Officer",
+      "seo_description": "Terms for using Joseph Bogdan’s website, including the educational nature of its content and estimates, and lender licensing information.",
       "service": "",
       "audience": "",
+      "old_slugs": [],
       "menu_order": 21,
       "excerpt": ""
     },
@@ -201,10 +218,11 @@
       "parent": null,
       "template": "",
       "file": "pages/sms-terms.html",
-      "seo_title": "Text Messaging Terms | Joe Bogdan, Senior Loan Officer",
-      "seo_description": "Terms for text messages from Joe Bogdan and CrossCountry Mortgage, LLC, including consent, message frequency, rates and how to opt out.",
+      "seo_title": "Text Messaging Terms | Joseph Bogdan, Senior Loan Officer",
+      "seo_description": "Terms for text messages from Joseph Bogdan and CrossCountry Mortgage, LLC, including consent, message frequency, rates and how to opt out.",
       "service": "",
       "audience": "",
+      "old_slugs": [],
       "menu_order": 22,
       "excerpt": ""
     },
@@ -214,10 +232,11 @@
       "parent": null,
       "template": "",
       "file": "pages/accessibility.html",
-      "seo_title": "Accessibility Statement | Joe Bogdan, Senior Loan Officer",
-      "seo_description": "Joe Bogdan’s commitment to an accessible website that conforms with WCAG 2.1 AA, and how to get help if any part of the site is hard to use.",
+      "seo_title": "Accessibility Statement | Joseph Bogdan, Senior Loan Officer",
+      "seo_description": "Joseph Bogdan’s commitment to an accessible website that conforms with WCAG 2.1 AA, and how to get help if any part of the site is hard to use.",
       "service": "",
       "audience": "",
+      "old_slugs": [],
       "menu_order": 23,
       "excerpt": ""
     },
@@ -227,10 +246,11 @@
       "parent": null,
       "template": "",
       "file": "pages/licensing-disclosures.html",
-      "seo_title": "Licensing & Disclosures | Joe Bogdan, NMLS #2795320",
-      "seo_description": "Licensing and disclosures for Joe Bogdan (Texas MLO, NMLS #2795320) and CrossCountry Mortgage, LLC (NMLS #3029), Equal Housing Opportunity Lender.",
+      "seo_title": "Licensing & Disclosures | Joseph Bogdan, NMLS #2795320",
+      "seo_description": "Licensing and disclosures for Joseph Bogdan (Texas MLO, NMLS #2795320) and CrossCountry Mortgage, LLC (NMLS #3029), Equal Housing Opportunity Lender.",
       "service": "",
       "audience": "",
+      "old_slugs": [],
       "menu_order": 24,
       "excerpt": ""
     },
@@ -240,16 +260,22 @@
       "parent": null,
       "template": "",
       "file": "pages/texas-consumer-notice.html",
-      "seo_title": "Texas Consumer Complaint & Recovery Fund Notice | Joe Bogdan",
+      "seo_title": "Texas Consumer Complaint & Recovery Fund Notice | Joseph Bogdan",
       "seo_description": "Texas Department of Savings and Mortgage Lending consumer complaint and recovery fund notice for mortgage bankers and residential mortgage loan originators.",
       "service": "",
       "audience": "",
+      "old_slugs": [],
       "menu_order": 25,
       "excerpt": ""
     }
   ],
   "menus": {
     "primary": [
+      {
+        "title": "Builders & Developers",
+        "page": "builders-developers",
+        "children": []
+      },
       {
         "title": "Loan Programs",
         "page": "loan-programs",
@@ -277,18 +303,13 @@
         ]
       },
       {
-        "title": "Builders & Developers",
-        "page": "builders-developers",
-        "children": []
-      },
-      {
         "title": "Realtor Partners",
         "page": "realtor-partners",
         "children": []
       },
       {
-        "title": "About Joe",
-        "page": "about-joe",
+        "title": "About Joseph",
+        "page": "about-joseph",
         "children": []
       },
       {
@@ -304,7 +325,7 @@
     ],
     "footer": [
       {
-        "title": "Discover Your Buying Power",
+        "title": "Get Pre-Approved",
         "page": "get-pre-approved",
         "children": []
       },
@@ -324,8 +345,8 @@
         "children": []
       },
       {
-        "title": "About Joe",
-        "page": "about-joe",
+        "title": "About Joseph",
+        "page": "about-joseph",
         "children": []
       },
       {
@@ -412,7 +433,7 @@
       "title": "How Much House Can I Afford in North Texas?",
       "category": "home-buying",
       "excerpt": "What you can afford depends on income, debts, savings, credit and Texas property taxes and insurance. Here is how lenders calculate it and how to find a number you are comfortable with.",
-      "seo_title": "How Much House Can I Afford in North Texas? | Joe Bogdan",
+      "seo_title": "How Much House Can I Afford in North Texas? | Joseph Bogdan",
       "seo_description": "How lenders decide what you can afford, why Texas property taxes matter so much, and how to find a price that keeps your budget comfortable.",
       "image": "buyers.webp",
       "file": "posts/how-much-house-can-i-afford-north-texas.html"
@@ -422,7 +443,7 @@
       "title": "Can I Buy a New Home Before Selling My Current One?",
       "category": "home-buying",
       "excerpt": "Often, yes. Depending on your income, equity and reserves you may qualify carrying both homes or use your current home’s equity. Here are the options and the trade-offs.",
-      "seo_title": "Can I Buy a Home Before Selling My Current One? | Joe Bogdan",
+      "seo_title": "Can I Buy a Home Before Selling My Current One? | Joseph Bogdan",
       "seo_description": "Often, yes. Learn the four ways to buy your next home before selling, including Texas rules for using equity, and how to choose the right one.",
       "image": "strategy.webp",
       "file": "posts/buy-a-new-home-before-selling.html"
@@ -432,7 +453,7 @@
       "title": "Can I Get a Mortgage if I’m Self-Employed? How Lenders Look at Business Income",
       "category": "business-owners",
       "excerpt": "Yes. Lenders usually average two years of self-employed income from tax returns, with add-backs such as depreciation. If write-offs shrink your income, bank-statement and other Non-QM programs may fit.",
-      "seo_title": "Self-Employed Mortgages: How Lenders Count Income | Joe Bogdan",
+      "seo_title": "Self-Employed Mortgages: How Lenders Count Income | Joseph Bogdan",
       "seo_description": "How lenders calculate self-employed income from tax returns, which deductions add back, and when bank-statement or Non-QM loans fit better.",
       "image": "business-owners.webp",
       "file": "posts/self-employed-mortgage-how-lenders-calculate-income.html"
@@ -442,7 +463,7 @@
       "title": "What Makes a Jumbo Loan Different - and How to Prepare",
       "category": "luxury-jumbo",
       "excerpt": "Jumbo loans exceed the conforming loan limit, so lenders set their own standards for credit, reserves, documentation and appraisals. Preparation shapes your terms and flexibility.",
-      "seo_title": "What Is a Jumbo Loan and How Do I Qualify? | Joe Bogdan",
+      "seo_title": "What Is a Jumbo Loan and How Do I Qualify? | Joseph Bogdan",
       "seo_description": "Jumbo loans exceed the conforming limit, so credit, reserves, documentation and appraisals get closer review. Here is how to prepare.",
       "image": "luxury.webp",
       "file": "posts/what-makes-a-jumbo-loan-different.html"
@@ -452,7 +473,7 @@
       "title": "DSCR Loans Explained: Qualifying for a Rental Property Based on Its Income",
       "category": "real-estate-investing",
       "excerpt": "A DSCR loan qualifies an investment property mainly on whether its rent covers the mortgage payment, taxes, insurance and HOA dues - not on your personal tax returns.",
-      "seo_title": "DSCR Loans Explained for Texas Investors | Joe Bogdan",
+      "seo_title": "DSCR Loans Explained for Texas Investors | Joseph Bogdan",
       "seo_description": "How DSCR loans qualify a rental property on its own income, how the ratio is calculated, and how they compare with conventional investor loans.",
       "image": "strategy.webp",
       "file": "posts/dscr-loans-explained.html"
@@ -462,7 +483,7 @@
       "title": "Texas Property Taxes, Homestead Exemptions and Your Mortgage Payment",
       "category": "texas-housing-market",
       "excerpt": "Property taxes are a big part of a Texas mortgage payment. Here is how escrow works, why MUD and PID taxes matter, and how the homestead exemption and protests can lower your bill.",
-      "seo_title": "Texas Property Taxes & Homestead Exemption Guide | Joe Bogdan",
+      "seo_title": "Texas Property Taxes & Homestead Exemption Guide | Joseph Bogdan",
       "seo_description": "How Texas property taxes affect your mortgage payment, why MUD and PID taxes matter, and how the homestead exemption and protests help.",
       "image": "buyers.webp",
       "file": "posts/texas-property-taxes-homestead-exemption-mortgage.html"
@@ -472,7 +493,7 @@
       "title": "When Does Refinancing Make Sense? How to Find Your Break-Even Point",
       "category": "mortgage-strategy",
       "excerpt": "Refinancing makes sense when the benefit outweighs the cost within the time you plan to keep the loan. Here is how to calculate your break-even point and what Texas cash-out rules mean.",
-      "seo_title": "When Does Refinancing Make Sense? Break-Even Guide | Joe Bogdan",
+      "seo_title": "When Does Refinancing Make Sense? Break-Even Guide",
       "seo_description": "Calculate your refinance break-even point, see the common reasons to refinance, and learn how Texas cash-out rules affect your options.",
       "image": "strategy.webp",
       "file": "posts/when-does-refinancing-make-sense.html"
@@ -482,7 +503,7 @@
       "title": "What Makes a Pre-Approval Letter Strong? A Guide for Buyers and Agents",
       "category": "mortgage-strategy",
       "excerpt": "Not all pre-approvals are equal. A strong one is based on verified income, assets and credit, matches the offer, and comes from a loan officer the listing agent can reach.",
-      "seo_title": "What Makes a Mortgage Pre-Approval Strong? | Joe Bogdan",
+      "seo_title": "What Makes a Mortgage Pre-Approval Strong? | Joseph Bogdan",
       "seo_description": "What separates a strong pre-approval from a weak one, what listing agents look for, and how buyers keep their approval solid until closing.",
       "image": "buyers.webp",
       "file": "posts/what-makes-a-strong-pre-approval.html"

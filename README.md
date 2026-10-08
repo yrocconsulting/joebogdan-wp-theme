@@ -1,6 +1,6 @@
-# Joe Bogdan - Mortgage Loan Originator website
+# Joseph Bogdan - Mortgage Loan Originator website
 
-Custom WordPress theme and content for Joe Bogdan, Senior Loan Officer with CrossCountry Mortgage (NMLS #2795320). The site is built to generate leads: every page starts from the visitor's problem and leads to a funnel.
+Custom WordPress theme and content for Joseph Bogdan, Senior Loan Officer with CrossCountry Mortgage (NMLS #2795320). The site is built to generate leads: every page starts from the visitor's problem and leads to a funnel.
 
 ## Layout
 
@@ -17,7 +17,7 @@ Custom WordPress theme and content for Joe Bogdan, Senior Loan Officer with Cros
 - **In WordPress** (recommended for day-to-day): edit pages, add pages, images, posts and menu items as usual. The sync never overwrites a page or menu edited in WordPress unless you run the deploy workflow manually with that slug in **force**.
 - **In the repo**: edit `tools/pages.py`, run `python3 tools/build.py`, commit and push.
 
-Business details (phone, NMLS, lead email, video URL, rate used for estimates) live in **Appearance → Joe Bogdan Settings**.
+Business details (phone, NMLS, lead email, video URL, rate used for estimates) live in **Appearance → Joseph Bogdan Settings**.
 
 ## Lead funnels
 
@@ -28,13 +28,13 @@ Leads are emailed to the address in settings and stored under **Leads** in wp-ad
 
 `[jb_hero]`, `[jb_intent]`, `[jb_trust]`, `[jb_process]`, `[jb_faq][jb_q q="…"]…[/jb_q][/jb_faq]` (emits FAQPage schema), `[jb_video]`, `[jb_contact_options]`, `[jb_latest]`, `[jb_cta]`, `[jb_photo]`, `[jb_disclosure]`, `[jb_opt key="…"]`, `[jb_todo]` (visible to editors only).
 
-Block patterns are available in the editor under **Patterns → Joe Bogdan**.
+Block patterns are available in the editor under **Patterns → Joseph Bogdan**.
 
 ## SEO / AI search
 
 - JSON-LD graph: Person (with NMLS credential), FinancialService, lender Organization, WebPage + BreadcrumbList, Service (loan pages), Article (posts), FAQPage.
 - Per-page search title/description in the editor sidebar ("Search & AI Snippet").
-- `/llms.txt` generated from pages and posts, including Joe's external profiles.
+- `/llms.txt` generated from pages and posts, including Joseph's external profiles.
 - robots.txt explicitly allows search and AI assistant crawlers (when the site is public).
 - IndexNow pings Bing and other engines when a page or post is published or updated (production only).
 - Intro video: set URL, upload date and transcript in settings to get the player, a visible transcript and VideoObject schema.
@@ -45,8 +45,8 @@ Block patterns are available in the editor under **Patterns → Joe Bogdan**.
 ## Before launch
 
 - [ ] Compliance review of legal pages and disclosures (marked with editor notes)
-- [ ] Joe confirms About-page story and Realtor availability wording
+- [ ] Joseph confirms About-page story and Realtor availability wording
 - [ ] Replace stock imagery with real photography; add intro video URL
 - [ ] Confirm licensing statement against NMLS Consumer Access
-- [ ] Switch lead email to Joe; set up SMTP for reliable delivery
+- [ ] Switch lead email to Joseph; set up SMTP for reliable delivery
 - [ ] Deploy with `JB_ENV=production` so search engines can index

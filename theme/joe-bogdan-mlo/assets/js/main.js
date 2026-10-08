@@ -1,5 +1,5 @@
 /**
- * Joe Bogdan MLO - front-end behavior.
+ * Joseph Bogdan MLO - front-end behavior.
  * Navigation, multi-step lead forms with instant estimates, lazy video.
  */
 (function () {
@@ -119,11 +119,11 @@
 			var low = price(0.36), high = price(0.45);
 			var round = function (n) { return Math.round(n / 5000) * 5000; };
 			if (high.price <= 0) {
-				return '<span class="result-label">Your next step</span><p class="result-sub">Based on what you entered, Joe will want to talk through options with you directly. He’ll reach out shortly.</p>';
+				return '<span class="result-label">Your next step</span><p class="result-sub">Based on what you entered, Joseph will want to talk through options with you directly. He’ll reach out shortly.</p>';
 			}
 			return '<span class="result-label">Estimated price range</span>' +
-				'<span class="result-figure">' + money(round(low.price)) + ' – ' + money(round(high.price)) + '</span>' +
-				'<p class="result-sub">Joe will review your answers and follow up with the programs and options that fit your situation.</p>' +
+				'<span class="result-figure">' + money(round(low.price)) + ' - ' + money(round(high.price)) + '</span>' +
+				'<p class="result-sub">Joseph will review your answers and follow up with the programs and options that fit your situation.</p>' +
 				'<p class="result-note">General estimate based on your answers and typical assumptions for interest rates, Texas property taxes and insurance. It is not a loan offer, pre-approval or commitment to lend; actual terms depend on credit approval, underwriting and program availability.</p>';
 		}
 		if (type === 'refinance') {
@@ -271,7 +271,7 @@
 				})
 				.then(function (r) {
 					if (!r.ok || !r.body || !r.body.ok) {
-						throw new Error((r.body && r.body.message) || 'Something went wrong. Please call or text Joe directly.');
+						throw new Error((r.body && r.body.message) || 'Something went wrong. Please call or text Joseph directly.');
 					}
 					var result = estimate(type, plain);
 					if (result) success.querySelector('.lead-result').innerHTML = result;
