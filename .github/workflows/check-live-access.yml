@@ -1,0 +1,43 @@
+name: Check live access
+
+on:
+  workflow_dispatch:
+  push:
+    paths: ['.github/workflows/check-live-access.yml']
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Which secrets are set (values never printed)
+        env:
+          LIVE_SSH_HOST: ${{ secrets.LIVE_SSH_HOST }}
+          LIVE_SSH_USER: ${{ secrets.LIVE_SSH_USER }}
+          LIVE_SSH_PORT: ${{ secrets.LIVE_SSH_PORT }}
+          LIVE_SSH_KEY: ${{ secrets.LIVE_SSH_KEY }}
+          LIVE_SSH_PASSPHRASE: ${{ secrets.LIVE_SSH_PASSPHRASE }}
+        run: |
+          for v in LIVE_SSH_HOST LIVE_SSH_USER LIVE_SSH_PORT LIVE_SSH_KEY LIVE_SSH_PASSPHRASE; do
+            if [ -n "${!v}" ]; then echo "$v: set"; else echo "$v: MISSING"; fi
+          done
+
+      - name: Test SSH login and find the site
+        env:
+          LIVE_SSH_HOST: ${{ secrets.LIVE_SSH_HOST }}
+          LIVE_SSH_USER: ${{ secrets.LIVE_SSH_USER }}
+          LIVE_SSH_PORT: ${{ secrets.LIVE_SSH_PORT }}
+          LIVE_SSH_KEY: ${{ secrets.LIVE_SSH_KEY }}
+          LIVE_SSH_PASSPHRASE: ${{ secrets.LIVE_SSH_PASSPHRASE }}
+        run: |
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          printf '%s\n' "$LIVE_SSH_KEY" > ~/.ssh/key && chmod 600 ~/.ssh/key
+          head -1 ~/.ssh/key | grep -q 'BEGIN .*PRIVATE KEY' && echo "Key format: private key" || echo "Key format: NOT a private key"
+          if ssh-keygen -y -P "" -f ~/.ssh/key >/dev/null 2>&1; then echo "Passphrase: none"
+          elif [ -n "$LIVE_SSH_PASSPHRASE" ] && ssh-keygen -p -P "$LIVE_SSH_PASSPHRASE" -N "" -f ~/.ssh/key >/dev/null 2>&1; then echo "Passphrase: unlocked"
+          else echo "Passphrase: could not unlock"; exit 1; fi
+          ssh-keyscan -p "$LIVE_SSH_PORT" "$LIVE_SSH_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+          ssh -i ~/.ssh/key -p "$LIVE_SSH_PORT" -o BatchMode=yes -o ConnectTimeout=20 "$LIVE_SSH_USER@$LIVE_SSH_HOST" '
+            echo "SSH login: OK"
+            ls -d ~/www/*/public_html 2>/dev/null
+            for d in ~/www/*/public_html; do [ -f "$d/wp-config.php" ] && echo "WordPress: $d ($(wp --path="$d" core version 2>/dev/null), siteurl $(wp --path="$d" option get siteurl 2>/dev/null))"; done
+            command -v wp rsync'
