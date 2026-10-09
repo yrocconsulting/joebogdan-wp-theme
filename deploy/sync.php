@@ -60,6 +60,9 @@ foreach ( array( 'lead_email' => 'JB_LEAD_EMAIL', 'lead_bcc' => 'JB_LEAD_BCC' ) 
 	$ours    = '' === $current || ( isset( $managed[ $key ] ) && $managed[ $key ] === $current )
 		// Earlier deploys wrote this address before routing was tracked.
 		|| ( ! isset( $managed[ $key ] ) && 'bradley@yrocconsulting.com' === $current );
+	if ( $force_all || in_array( 'settings', $force, true ) ) {
+		$ours = true; // JB_FORCE=settings: the workflow's values win.
+	}
 	if ( $ours && $current !== $want ) {
 		$settings[ $key ] = $want;
 		$managed[ $key ]  = $want;

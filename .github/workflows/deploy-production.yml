@@ -10,7 +10,7 @@ on:
         options: ['on', 'off']
         default: 'on'
       force:
-        description: 'Overwrite pages edited in WordPress (comma-separated slugs, menu-primary, or "all")'
+        description: 'Overwrite things edited in WordPress (comma-separated: page slugs, menu-primary, settings, or "all")'
         required: false
         default: ''
 
