@@ -1,0 +1,70 @@
+name: Deploy to production (josephbogdan.com)
+
+# Manual only: Actions → "Deploy to production" → Run workflow.
+on:
+  workflow_dispatch:
+    inputs:
+      search_visibility:
+        description: 'Let search engines and AI crawlers index the site'
+        type: choice
+        options: ['on', 'off']
+        default: 'on'
+      force:
+        description: 'Overwrite pages edited in WordPress (comma-separated slugs, menu-primary, or "all")'
+        required: false
+        default: ''
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+env:
+  # Everything this workflow writes stays inside this one site folder.
+  SITE_DIR: www/josephbogdan.com
+  THEME_SLUG: joe-bogdan-mlo
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Lint PHP
+        run: find theme deploy -name '*.php' -print0 | xargs -0 -n1 php -l >/dev/null
+
+      - name: Set up SSH
+        env:
+          SSH_HOST: ${{ secrets.LIVE_SSH_HOST }}
+          SSH_PORT: ${{ secrets.LIVE_SSH_PORT }}
+          SSH_KEY: ${{ secrets.LIVE_SSH_KEY }}
+          SSH_PASSPHRASE: ${{ secrets.LIVE_SSH_PASSPHRASE }}
+        run: |
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/live_key && chmod 600 ~/.ssh/live_key
+          if [ -n "$SSH_PASSPHRASE" ]; then ssh-keygen -p -P "$SSH_PASSPHRASE" -N "" -f ~/.ssh/live_key >/dev/null; fi
+          ssh-keyscan -p "$SSH_PORT" "$SSH_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+          cat > ~/.ssh/config <<CFG
+          Host live
+            HostName $SSH_HOST
+            Port $SSH_PORT
+            User ${{ secrets.LIVE_SSH_USER }}
+            IdentityFile ~/.ssh/live_key
+            BatchMode yes
+          CFG
+
+      - name: Check target
+        run: ssh live "test -d ~/$SITE_DIR/public_html/wp-content/themes && wp --path=\$HOME/$SITE_DIR/public_html core version"
+
+      - name: Upload theme
+        run: rsync -az --delete -e ssh theme/$THEME_SLUG/ "live:$SITE_DIR/public_html/wp-content/themes/$THEME_SLUG/"
+
+      - name: Upload content
+        run: rsync -az --delete -e ssh --include='content/***' --include='deploy/***' --exclude='*' ./ "live:$SITE_DIR/jb-sync/"
+
+      - name: Sync pages, menus and settings
+        run: |
+          INDEX=$([ "${{ github.event.inputs.search_visibility }}" = "off" ] && echo 0 || echo 1)
+          ssh live "cd ~/$SITE_DIR/public_html && JB_ENV=production JB_INDEX=$INDEX JB_LEAD_EMAIL='bradley@yrocconsulting.com' JB_FORCE='${{ github.event.inputs.force }}' wp eval-file ../jb-sync/deploy/sync.php && wp rewrite flush && (wp sg purge 2>/dev/null || wp cache flush)"
+
+      - name: Smoke test
+        run: ssh live "cd ~/$SITE_DIR/public_html && wp eval-file ../jb-sync/deploy/smoke.php"

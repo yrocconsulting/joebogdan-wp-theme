@@ -42,8 +42,10 @@ update_option( 'blogdescription', 'Senior Loan Officer · NMLS #2795320' );
 update_option( 'timezone_string', 'America/Chicago' );
 update_option( 'default_comment_status', 'closed' );
 update_option( 'default_ping_status', 'closed' );
-update_option( 'blog_public', 'production' === $env ? '1' : '0' );
-jb_sync_log( 'Search engine visibility: ' . ( 'production' === $env ? 'ON' : 'OFF (staging)' ) );
+// Production is indexable unless JB_INDEX=0 (e.g. a soft launch before compliance sign-off).
+$indexable = 'production' === $env && '0' !== getenv( 'JB_INDEX' );
+update_option( 'blog_public', $indexable ? '1' : '0' );
+jb_sync_log( 'Search engine visibility: ' . ( $indexable ? 'ON' : 'OFF' ) );
 
 $settings = (array) get_option( 'jb_settings', array() );
 $lead     = getenv( 'JB_LEAD_EMAIL' );
