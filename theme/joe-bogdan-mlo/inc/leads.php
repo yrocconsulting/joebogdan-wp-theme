@@ -555,6 +555,9 @@ function jb_process_lead( $raw ) {
 		if ( ! empty( $data['email'] ) ) {
 			$headers[] = sprintf( 'Reply-To: %s <%s>', $name, $data['email'] );
 		}
+		foreach ( array_filter( array_map( 'trim', explode( ',', jb_opt( 'lead_bcc' ) ) ), 'is_email' ) as $bcc ) {
+			$headers[] = 'Bcc: ' . $bcc;
+		}
 		$body  = '<p style="font-family:Arial,sans-serif;font-size:15px"><strong>New ' . esc_html( $form['label'] ) . ' request</strong></p>' . $html;
 		$body .= '<p style="font-family:Arial,sans-serif;font-size:12px;color:#888">Stored in WordPress → Leads.</p>';
 		wp_mail( $to, sprintf( 'New lead: %s - %s', $form['label'], $name ), $body, $headers );

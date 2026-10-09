@@ -47,13 +47,31 @@ $indexable = 'production' === $env && '0' !== getenv( 'JB_INDEX' );
 update_option( 'blog_public', $indexable ? '1' : '0' );
 jb_sync_log( 'Search engine visibility: ' . ( $indexable ? 'ON' : 'OFF' ) );
 
+// Lead routing from the workflow. A value the deploy wrote earlier is updated;
+// a value someone changed in Appearance → Joseph Bogdan Settings is kept.
 $settings = (array) get_option( 'jb_settings', array() );
-$lead     = getenv( 'JB_LEAD_EMAIL' );
-if ( $lead && empty( $settings['lead_email'] ) ) {
-	$settings['lead_email'] = $lead;
-	update_option( 'jb_settings', $settings );
-	jb_sync_log( "Lead email set to $lead" );
+$managed  = (array) get_option( 'jb_settings_managed', array() );
+foreach ( array( 'lead_email' => 'JB_LEAD_EMAIL', 'lead_bcc' => 'JB_LEAD_BCC' ) as $key => $var ) {
+	$want = getenv( $var );
+	if ( false === $want ) {
+		continue;
+	}
+	$current = $settings[ $key ] ?? '';
+	$ours    = '' === $current || ( isset( $managed[ $key ] ) && $managed[ $key ] === $current )
+		// Earlier deploys wrote this address before routing was tracked.
+		|| ( ! isset( $managed[ $key ] ) && 'bradley@yrocconsulting.com' === $current );
+	if ( $ours && $current !== $want ) {
+		$settings[ $key ] = $want;
+		$managed[ $key ]  = $want;
+		jb_sync_log( "Setting $key: " . ( '' === $want ? '(cleared)' : $want ) );
+	} elseif ( ! $ours ) {
+		jb_sync_log( "Keeping $key set in WordPress: $current" );
+	} else {
+		$managed[ $key ] = $want;
+	}
 }
+update_option( 'jb_settings', $settings );
+update_option( 'jb_settings_managed', $managed );
 
 /* -------------------------------------------------- default WP content */
 foreach ( array( array( 'hello-world', 'post' ), array( 'sample-page', 'page' ) ) as $default ) {
@@ -340,5 +358,22 @@ foreach ( $manifest['menus'] as $location => $items ) {
 }
 set_theme_mod( 'nav_menu_locations', $locations );
 update_option( 'jb_menu_state', $state );
+
+/* ------------------------------------------------ launch: IndexNow */
+if ( '1' === (string) get_option( 'blog_public' ) && function_exists( 'jb_indexnow_submit' ) && ! get_option( 'jb_indexnow_launch' ) ) {
+	$urls = array( home_url( '/' ) );
+	foreach ( get_posts( array( 'post_type' => array( 'page', 'post' ), 'post_status' => 'publish', 'numberposts' => 200 ) ) as $item ) {
+		$urls[] = get_permalink( $item );
+	}
+	foreach ( get_categories( array( 'hide_empty' => true ) ) as $cat ) {
+		$urls[] = get_category_link( $cat );
+	}
+	$res = jb_indexnow_submit( array_values( array_unique( $urls ) ), true );
+	$code = is_wp_error( $res ) ? $res->get_error_message() : wp_remote_retrieve_response_code( $res );
+	jb_sync_log( sprintf( 'IndexNow launch submission: %d URLs, response %s', count( $urls ), $code ) );
+	if ( ! is_wp_error( $res ) && in_array( (int) $code, array( 200, 202 ), true ) ) {
+		update_option( 'jb_indexnow_launch', gmdate( 'c' ) );
+	}
+}
 
 jb_sync_log( 'Sync complete.' );

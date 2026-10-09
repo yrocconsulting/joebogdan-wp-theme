@@ -482,7 +482,6 @@ realtors = page(
         ),
         tone="ivory",
     ),
-    sc("[jb_todo]Confirm with Joseph: evenings/weekends availability wording, and whether he will call listing agents on offers.[/jb_todo]"),
     form_section(
         "Run a Financing Scenario for My Client",
         "Get a Read on Your Client - Before You Write the Offer.",
@@ -532,7 +531,6 @@ about = page(
     section(
         p("Why Mortgage Lending", "eyebrow"),
         h("Why Joseph Became a Loan Officer.", 2, "section-title"),
-        sc("[jb_todo]Drawn from Joseph’s CrossCountry bio. A short personal story in his own words would make this section stronger.[/jb_todo]"),
         p("Joseph joined the mortgage industry to serve his community by providing innovative mortgage solutions that make homeownership more accessible and affordable. After years of leading client-focused businesses, he moved into lending to put that leadership and service experience to work for buyers and homeowners."), p("He saw how often buyers - especially business owners and families making big moves - got generic answers to situations that deserved real strategy. Joseph’s goal is to give every client the kind of advice he always wanted: direct, informed and focused on the long term."),
         tone="ivory",
         narrow=True,
@@ -589,10 +587,8 @@ contact = page(
 # ---------------------------------------------------------------------------
 # Legal
 # ---------------------------------------------------------------------------
-REVIEW = "[jb_todo]Compliance review required before launch: confirm this page against CrossCountry Mortgage’s approved disclosures.[/jb_todo]"
 
 privacy = page(
-    sc(REVIEW),
     p("<em>Last updated: October 2026</em>"),
     p("This Privacy Policy explains how information is collected and used when you visit this website, operated by [jb_opt key=\"name\"], [jb_opt key=\"title\"] (NMLS #[jb_opt key=\"nmls\"]), with [jb_opt key=\"company\"] (Company NMLS #[jb_opt key=\"company_nmls\"])."),
     h("Information we collect"),
@@ -618,7 +614,6 @@ privacy = page(
 )
 
 terms = page(
-    sc(REVIEW),
     p("<em>Last updated: October 2026</em>"),
     p("By using this website you agree to these terms. If you do not agree, please do not use the site."),
     h("Educational information only"),
@@ -642,7 +637,6 @@ terms = page(
 )
 
 sms = page(
-    sc(REVIEW),
     p("<em>Last updated: October 2026</em>"),
     p("By checking the text-message consent box on this site, you agree to receive text messages from [jb_opt key=\"name\"] and/or [jb_opt key=\"company\"] about your inquiry, which may be sent using automated technology. Consent is not required as a condition of obtaining any loan, product or service."),
     ul([
@@ -660,7 +654,6 @@ accessibility = page(
 )
 
 licensing = page(
-    sc(REVIEW),
     h("Licensing"),
     sc("[jb_disclosure]"),
     ul([

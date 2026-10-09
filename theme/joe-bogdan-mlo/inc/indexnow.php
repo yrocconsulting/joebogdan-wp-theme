@@ -49,7 +49,7 @@ add_filter( 'redirect_canonical', function ( $redirect ) {
  * Submit URLs (non-blocking). Repeat pings for the same URL within ten
  * minutes are skipped.
  */
-function jb_indexnow_submit( array $urls ) {
+function jb_indexnow_submit( array $urls, $blocking = false ) {
 	if ( '1' !== (string) get_option( 'blog_public' ) || wp_installing() ) {
 		return;
 	}
@@ -65,9 +65,9 @@ function jb_indexnow_submit( array $urls ) {
 		return;
 	}
 	$key = jb_indexnow_key();
-	wp_remote_post( 'https://api.indexnow.org/indexnow', array(
-		'blocking' => false,
-		'timeout'  => 3,
+	return wp_remote_post( 'https://api.indexnow.org/indexnow', array(
+		'blocking' => $blocking,
+		'timeout'  => $blocking ? 15 : 3,
 		'headers'  => array( 'Content-Type' => 'application/json; charset=utf-8' ),
 		'body'     => wp_json_encode( array(
 			'host'        => wp_parse_url( home_url(), PHP_URL_HOST ),

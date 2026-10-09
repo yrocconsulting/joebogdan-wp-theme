@@ -42,11 +42,16 @@ Block patterns are available in the editor under **Patterns → Joseph Bogdan**.
 - Checks: `python3 tools/seo_audit.py URL…` and `python3 tools/schema_validate.py schemaorg-current-https.jsonld URL…`.
 - Staging deploys set "Discourage search engines". Production must deploy with `JB_ENV=production`.
 
-## Before launch
+## Deploys
 
-- [ ] Compliance review of legal pages and disclosures (marked with editor notes)
-- [ ] Joseph confirms About-page story and Realtor availability wording
-- [ ] Replace stock imagery with real photography; add intro video URL
-- [ ] Confirm licensing statement against NMLS Consumer Access
-- [ ] Switch lead email to Joseph; set up SMTP for reliable delivery
-- [ ] Deploy with `JB_ENV=production` so search engines can index
+- **Staging** (joebogdanlo.yroc.host) deploys automatically on every push.
+- **Production** (josephbogdan.com) deploys only when run manually: Actions → "Deploy to production" → Run workflow. Options: search visibility on/off, and force-overwrite slugs.
+- Lead routing for production is set in the workflow (to Joe.Bogdan@ccm.com, BCC skyrunnerconsulting@gmail.com). Changing it in Appearance → Joseph Bogdan Settings takes precedence over the workflow.
+
+## After launch
+
+- [ ] Submit https://josephbogdan.com/wp-sitemap.xml in Google Search Console and Bing Webmaster Tools
+- [ ] Confirm SiteGround bot protection doesn't block Google, Bing or AI crawlers
+- [ ] Set up SMTP so lead emails reach the inbox
+- [ ] Add Google Business Profile URL in settings once live; start the review process
+- [ ] Replace stock imagery with real photography; add intro video

@@ -34,7 +34,8 @@ function jb_settings_fields() {
 			'service_area' => array( 'Service area (comma separated)', 'Dallas, Fort Worth, Flower Mound, Southlake, Plano, Frisco, McKinney, Denton, Argyle, Granbury' ),
 		),
 		'Conversion' => array(
-			'lead_email'    => array( 'Send leads to (comma separated)', 'bradley@yrocconsulting.com' ),
+			'lead_email'    => array( 'Send leads to (comma separated)', 'Joe.Bogdan@ccm.com' ),
+			'lead_bcc'      => array( 'BCC leads to (comma separated, optional)', '' ),
 			'apply_url'     => array( 'CrossCountry online application URL', 'https://app.crosscountrymortgage.com/#/signup?referrerId=joseph.bogdan%40ccm.com' ),
 			'calendar_url'  => array( 'Booking / calendar URL (optional)', '' ),
 			'video_url'     => array( 'Intro video URL (YouTube/Vimeo, optional)', '' ),

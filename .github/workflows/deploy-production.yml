@@ -64,7 +64,7 @@ jobs:
       - name: Sync pages, menus and settings
         run: |
           INDEX=$([ "${{ github.event.inputs.search_visibility }}" = "off" ] && echo 0 || echo 1)
-          ssh live "cd ~/$SITE_DIR/public_html && JB_ENV=production JB_INDEX=$INDEX JB_LEAD_EMAIL='bradley@yrocconsulting.com' JB_FORCE='${{ github.event.inputs.force }}' wp eval-file ../jb-sync/deploy/sync.php && wp rewrite flush && (wp sg purge 2>/dev/null || wp cache flush)"
+          ssh live "cd ~/$SITE_DIR/public_html && JB_ENV=production JB_INDEX=$INDEX JB_LEAD_EMAIL='Joe.Bogdan@ccm.com' JB_LEAD_BCC='skyrunnerconsulting@gmail.com' JB_FORCE='${{ github.event.inputs.force }}' wp eval-file ../jb-sync/deploy/sync.php && wp rewrite flush && (wp sg purge 2>/dev/null || wp cache flush)"
 
       - name: Smoke test
         run: ssh live "cd ~/$SITE_DIR/public_html && wp eval-file ../jb-sync/deploy/smoke.php"
