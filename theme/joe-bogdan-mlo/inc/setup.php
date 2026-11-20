@@ -108,3 +108,36 @@ add_action( 'do_faviconico', function () {
 	wp_safe_redirect( JB_URI . '/assets/icons/favicon.ico', 301 );
 	exit;
 }, 5 );
+
+/**
+ * Google Tag Manager (Appearance → Joseph Bogdan Settings). Only runs when the
+ * site is visible to search engines, so staging visits stay out of the stats.
+ * Lead forms push a `generate_lead` event (with form_type) to the dataLayer.
+ */
+function jb_gtm_id() {
+	$id = jb_opt( 'gtm_id' );
+	return ( preg_match( '/^GTM-[A-Z0-9]+$/', $id ) && '1' === (string) get_option( 'blog_public' ) ) ? $id : '';
+}
+
+add_action( 'wp_head', function () {
+	$id = jb_gtm_id();
+	if ( ! $id ) {
+		return;
+	}
+	?>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','<?php echo esc_js( $id ); ?>');</script>
+<!-- End Google Tag Manager -->
+	<?php
+}, 1 );
+
+add_action( 'wp_body_open', function () {
+	$id = jb_gtm_id();
+	if ( $id ) {
+		printf( '<!-- Google Tag Manager (noscript) --><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=%s" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>' . "\n", esc_attr( $id ) );
+	}
+}, 1 );

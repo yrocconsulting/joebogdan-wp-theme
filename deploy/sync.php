@@ -51,7 +51,7 @@ jb_sync_log( 'Search engine visibility: ' . ( $indexable ? 'ON' : 'OFF' ) );
 // a value someone changed in Appearance → Joseph Bogdan Settings is kept.
 $settings = (array) get_option( 'jb_settings', array() );
 $managed  = (array) get_option( 'jb_settings_managed', array() );
-foreach ( array( 'lead_email' => 'JB_LEAD_EMAIL', 'lead_bcc' => 'JB_LEAD_BCC' ) as $key => $var ) {
+foreach ( array( 'lead_email' => 'JB_LEAD_EMAIL', 'lead_bcc' => 'JB_LEAD_BCC', 'gtm_id' => 'JB_GTM_ID' ) as $key => $var ) {
 	$want = getenv( $var );
 	if ( false === $want ) {
 		continue;
