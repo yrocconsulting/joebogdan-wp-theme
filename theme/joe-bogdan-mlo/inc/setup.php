@@ -141,3 +141,11 @@ add_action( 'wp_body_open', function () {
 		printf( '<!-- Google Tag Manager (noscript) --><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=%s" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>' . "\n", esc_attr( $id ) );
 	}
 }, 1 );
+
+// Google Search Console ownership verification.
+add_action( 'wp_head', function () {
+	$code = preg_replace( '/[^A-Za-z0-9_-]/', '', jb_opt( 'gsc_verification' ) );
+	if ( $code ) {
+		printf( '<meta name="google-site-verification" content="%s" />' . "\n", esc_attr( $code ) );
+	}
+}, 1 );

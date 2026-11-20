@@ -44,6 +44,7 @@ function jb_settings_fields() {
 			'video_description' => array( 'Video description (one or two sentences)', 'Joseph Bogdan explains who he helps, how he approaches mortgage decisions and why buyers, business owners and Realtors call him.' ),
 			'video_transcript'  => array( 'Video transcript (helps search and AI assistants)', '' ),
 			'review_url'    => array( 'Google review link (optional)', '' ),
+			'gsc_verification' => array( 'Google Search Console verification code', '' ),
 			'gtm_id'        => array( 'Google Tag Manager container ID (live site only)', '' ),
 			'rate_estimate' => array( 'Rate used for buying-power estimates (%)', '6.75' ),
 			'tax_ins_pct'   => array( 'Annual tax + insurance estimate (% of price)', '2.4' ),
@@ -103,6 +104,10 @@ add_action( 'admin_init', function () {
 					$val = isset( $input[ $key ] ) ? trim( wp_unslash( $input[ $key ] ) ) : '';
 					if ( 'video_transcript' === $key ) {
 						$clean[ $key ] = sanitize_textarea_field( $val );
+						continue;
+					}
+					if ( 'gsc_verification' === $key ) {
+						$clean[ $key ] = preg_replace( '/[^A-Za-z0-9_-]/', '', $val );
 						continue;
 					}
 					if ( 'gtm_id' === $key ) {
