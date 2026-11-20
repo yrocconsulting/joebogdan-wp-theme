@@ -576,6 +576,7 @@ add_action( 'template_redirect', function () {
 	$out[] = sprintf( '> %s is a %s with %s (individual NMLS #%s; company NMLS #%s), based in %s, %s and serving North Texas. %s; %s. He helps home buyers, self-employed borrowers and business owners, real estate investors and luxury/jumbo buyers structure mortgage financing, and partners with Realtors and home builders. He is a mortgage loan originator only and does not provide real estate brokerage services.', jb_opt( 'name' ), jb_opt( 'title' ), jb_opt( 'company' ), jb_opt( 'nmls' ), jb_opt( 'company_nmls' ), jb_opt( 'city' ), jb_opt( 'region' ), jb_opt( 'licensing' ), jb_opt( 'company_license' ) );
 	$out[] = '';
 	$out[] = sprintf( 'Contact: call %s · text %s · %s · %s, %s, %s %s', jb_opt( 'phone' ), jb_opt( 'sms' ), jb_opt( 'email' ), jb_opt( 'street' ), jb_opt( 'city' ), jb_opt( 'region' ), jb_opt( 'postal' ) );
+	$out[] = sprintf( 'Official website: %s (the official website of %s, NMLS #%s, sometimes known as Joe Bogdan).', home_url( '/' ), jb_opt( 'name' ), jb_opt( 'nmls' ) );
 	$out[] = sprintf( 'Verify license: https://www.nmlsconsumeraccess.org/EntityDetails.aspx/INDIVIDUAL/%s', jb_opt( 'nmls' ) );
 	$profiles = array_filter( array( jb_opt( 'ccm_url' ), jb_opt( 'linkedin' ), jb_opt( 'facebook' ), jb_opt( 'zillow_url' ), jb_opt( 'experience_url' ), jb_opt( 'google' ) ) );
 	if ( $profiles ) {

@@ -6,7 +6,7 @@ Copy rules (from the conversion brief):
 - Joseph is a Mortgage Loan Originator only: no real-estate representation language.
 - No manufactured social proof, no rate promises, no "guaranteed" approvals.
 """
-from blocks import (button, buttons, card, cards, faq, form_section, group, h, head, p, page, sc,
+from blocks import (button, buttons, card, cards, faq, form_section, group, h, head, ol, p, page, sc,
                     section, split, ul)
 
 PREAPPROVE = "/get-pre-approved/"
@@ -450,6 +450,17 @@ builders = page(
         "builder",
         id="partner",
     ),
+    section(
+        head("Builder Resources", "Free Guides for Builders and Sales Teams",
+             "Practical tools your team can use with every buyer, written by Joseph."),
+        cards(
+            card("Builder Financing FAQ", "Straight answers to the questions builders and sales teams ask most: incentives, concessions, rate locks, appraisals and closing on time.", ("Read the FAQ", "/builders-developers/builder-financing-faq/")),
+            card("Buyer Pre-Approval Checklist", "What to verify before you take a home off the market, plus the red flags that predict a contract that won't close.", ("Use the checklist", "/builders-developers/buyer-pre-approval-checklist/")),
+            card("Contract-to-Close Timeline", "Every financing milestone from contract to keys, mapped to the construction schedule, so nothing surprises your team.", ("See the timeline", "/builders-developers/contract-to-close-timeline/")),
+        ),
+        tone="ivory",
+    ),
+    sc('[jb_latest count="3" category="builders-new-construction" title="Insights for Builders"]'),
     faq("Questions From Builders", [
         ("Do our buyers have to use Joseph as their lender?",
          "No. Buyers are always free to choose their own lender. Joseph’s goal is to be the lender your buyers want to use, because the process is responsive and predictable."),
@@ -678,6 +689,107 @@ texas = page(
 )
 
 # ---------------------------------------------------------------------------
+# Builder resources (children of Builders & Developers)
+# ---------------------------------------------------------------------------
+BUILDER_PARTNER_CTA = sc('[jb_cta title="Make Joseph Your Preferred Lender" text="A short kickoff with your sales team, then responsive buyer follow-up and proactive updates through closing." url="/builders-developers/#partner" label="Become a Preferred Lending Partner"]')
+
+builder_faq = page(
+    sc('[jb_hero eyebrow="Builder Resources" title="Builder Financing" accent="FAQ." '
+       'lede="Straight answers to the questions North Texas builders and their sales teams ask Joseph most about buyer financing, incentives and closing on time." '
+       'cta="Become a Preferred Lending Partner" cta_url="/builders-developers/#partner" image="joe-headshot.webp"]'),
+    faq("Buyers and Pre-Approvals", [
+        ("What should a builder verify before accepting a buyer's pre-approval?", "Confirm that the buyer's income, assets and credit were actually reviewed, which loan program they are approved for, whether the approval covers your price and incentives, and whether they need to sell another home. Joseph's <a href=\"/builders-developers/buyer-pre-approval-checklist/\">Buyer Pre-Approval Checklist</a> walks through each item."),
+        ("Can a builder require buyers to use a preferred lender?", "No. Buyers are always free to choose their lender. Builders can offer a preferred lender and incentives within program limits, and arrangements must comply with RESPA."),
+        ("How should we handle buyers who need to sell their current home?", "Find out at the first meeting. If the buyer qualifies carrying both payments, they can sign without a sale contingency. Otherwise options include using existing equity, timing the sale to the build or a realistic contingency."),
+        ("What if a buyer's situation changes during construction?", "New debt, a job change or large deposits can affect approval. Coach buyers to call their lender before making changes, and ask the lender to update the file before completion."),
+    ], eyebrow="Builder FAQ"),
+    faq("Incentives and Concessions", [
+        ("Is a rate buydown better than a price cut?", "Often for payment-sensitive buyers, because the same dollars usually lower the monthly payment more, and a buydown protects your comparable sales. A price cut can be better when the buyer needs a lower loan amount. See <a href=\"/price-cut-or-rate-buydown-builder-incentives/\">price cut or rate buydown</a>."),
+        ("How much can a builder contribute toward a buyer's costs?", "It depends on the loan program, the buyer's down payment and occupancy. Conventional limits range from 3% to 9% for a primary residence, FHA generally allows up to 6%, and VA limits certain concessions to 4%. See <a href=\"/builder-incentive-limits-seller-concessions/\">seller-concession limits by loan type</a>."),
+        ("Can builder incentives be paid to the buyer as cash?", "Generally no. Contributions are applied to allowable costs such as closing costs, prepaid items and rate buydowns."),
+        ("Can we advertise a rate or monthly payment on our homes?", "You can promote financing incentives, but quoting a specific rate or payment triggers federal disclosure requirements. Have your lender review rate-based advertising before it runs."),
+    ], eyebrow="Builder FAQ"),
+    faq("Construction Timelines and Closing", [
+        ("When should a buyer lock their rate on new construction?", "It depends on the build schedule and the program. Extended locks are available on many programs, usually at extra cost, or the buyer can lock closer to completion. Joseph explains the trade-offs to each buyer."),
+        ("Can a buyer close before the home is complete?", "Generally no. Lenders typically require the home to be complete, with final inspection or occupancy approval, before a standard purchase loan closes."),
+        ("Why do new-construction closings get delayed?", "The usual causes are expired documents, rate locks that run out, late completion paperwork, appraisal questions and buyer changes during the build. See <a href=\"/why-new-construction-closings-slip/\">why closings slip</a>."),
+        ("How do appraisals work on new construction?", "Appraisers compare recent sales of similar homes, often in your community, and consider upgrades and concessions. Appraisals can be done from plans with a completion inspection later."),
+        ("Can builders finance completed homes they keep as rentals?", "Often, with DSCR loans that qualify on the home's rent rather than personal tax returns. See <a href=\"/build-to-rent-holding-completed-homes-dscr/\">build to sell or hold</a>."),
+    ], eyebrow="Builder FAQ"),
+    BUILDER_PARTNER_CTA,
+)
+
+builder_checklist = page(
+    sc('[jb_hero eyebrow="Builder Resources" title="Buyer Pre-Approval" accent="Checklist." '
+       'lede="What your sales team should verify before taking a home off the market, and the red flags that predict a contract that will not close." '
+       'cta="Talk to Joseph About a Buyer" cta_url="/builders-developers/#partner" image="joe-headshot.webp"]'),
+    section(
+        head("Before the Contract", "Verify These Seven Things", center=False),
+        ol([
+            "<strong>Reviewed, not stated.</strong> The lender reviewed income documents, bank statements and a credit report.",
+            "<strong>The right program.</strong> The loan program fits the price, the home and how the buyer will use it.",
+            "<strong>Price and incentives covered.</strong> The approval reflects your contract price, and incentives fit the program's contribution limits.",
+            "<strong>Current home addressed.</strong> You know whether the buyer must sell or rent another home, and how that is planned.",
+            "<strong>Cash to close confirmed.</strong> Down payment and remaining costs are documented, including what incentives will not cover.",
+            "<strong>Timeline fit.</strong> The lender has a rate-lock and document-update plan for your expected completion date.",
+            "<strong>A reachable lender.</strong> A named loan officer with an NMLS number who answers your team's questions.",
+        ], "check-list"),
+        tone="white",
+        narrow=True,
+    ),
+    section(
+        head("Red Flags", "Signs a Contract May Not Close", center=False),
+        ul([
+            "A letter with no lender contact or license number",
+            "Vague answers about whether documents were reviewed",
+            "A buyer who needs to sell, while the approval assumes they do not",
+            "Recent job changes, new debt or large unexplained deposits with no plan",
+            "Incentives promised beyond the program's contribution limits",
+            "A lender who is hard to reach before the contract is signed",
+        ], "check-list"),
+        p("Questions you can ask the buyer's lender: which documents did you review, which program is this, does the approval cover this price and these incentives, and how will you keep our team updated?"),
+        tone="ivory",
+        narrow=True,
+    ),
+    BUILDER_PARTNER_CTA,
+)
+
+builder_timeline = page(
+    sc('[jb_hero eyebrow="Builder Resources" title="Contract-to-Close" accent="Timeline." '
+       'lede="Every financing milestone from signed contract to keys, mapped to the construction schedule, so your team and your buyers know what happens next." '
+       'cta="Become a Preferred Lending Partner" cta_url="/builders-developers/#partner" image="joe-headshot.webp"]'),
+    section(
+        head("Milestones", "From Contract to Keys", center=False),
+        ol([
+            "<strong>Contract.</strong> Fully reviewed approval, program confirmed, incentives checked against limits, current-home plan in place.",
+            "<strong>Application and disclosures.</strong> The buyer completes the application and receives initial loan disclosures.",
+            "<strong>Rate-lock decision.</strong> Lock now with a longer lock, or float and lock closer to completion, based on the build schedule.",
+            "<strong>During construction.</strong> Monthly completion-date updates shared with the lender; buyer coached to avoid new credit, job changes and large money moves.",
+            "<strong>Appraisal.</strong> Ordered by the lender, from plans or near completion, depending on the program.",
+            "<strong>Before completion.</strong> Updated pay stubs, bank statements and credit as needed; conditions cleared.",
+            "<strong>Completion.</strong> Final inspection or certificate of occupancy, completion inspection if required, final walk-through.",
+            "<strong>Clear to close.</strong> Closing disclosure delivered to the buyer, closing scheduled with title.",
+            "<strong>Closing and keys.</strong> Documents signed, loan funded, keys delivered.",
+        ], "check-list"),
+        tone="white",
+        narrow=True,
+    ),
+    section(
+        head("Keep It on Schedule", "What Builders Can Do", center=False),
+        ul([
+            "Share realistic completion dates and update them as the build moves",
+            "Ask the lender to schedule document updates before completion, not after",
+            "Coordinate the walk-through, inspection and closing date in one shared plan",
+            "Use a lender who sends proactive updates on every buyer in your pipeline",
+        ], "check-list"),
+        p("Read more: <a href=\"/why-new-construction-closings-slip/\">why new-construction closings slip</a> and <a href=\"/financing-on-a-construction-timeline/\">financing on a construction timeline</a>."),
+        tone="ivory",
+        narrow=True,
+    ),
+    BUILDER_PARTNER_CTA,
+)
+
+# ---------------------------------------------------------------------------
 # Manifest data
 # ---------------------------------------------------------------------------
 LANDING = "page-templates/landing.php"
@@ -742,11 +854,27 @@ PAGES = [
     ("accessibility", "Accessibility", None, None, accessibility, "Accessibility Statement | Joseph Bogdan, Senior Loan Officer", "Joseph Bogdan’s commitment to an accessible website that conforms with WCAG 2.1 AA, and how to get help if any part of the site is hard to use.", None, 23, None),
     ("licensing-disclosures", "Licensing & Disclosures", None, None, licensing, "Licensing & Disclosures | Joseph Bogdan, NMLS #2795320", "Licensing and disclosures for Joseph Bogdan (Texas MLO, NMLS #2795320) and CrossCountry Mortgage, LLC (NMLS #3029), Equal Housing Opportunity Lender.", None, 24, None),
     ("texas-consumer-notice", "Texas Consumer Notice", None, None, texas, "Texas Consumer Complaint & Recovery Fund Notice | Joseph Bogdan", "Texas Department of Savings and Mortgage Lending consumer complaint and recovery fund notice for mortgage bankers and residential mortgage loan originators.", None, 25, None),
+    ("builder-financing-faq", "Builder Financing FAQ", "builders-developers", LANDING, builder_faq,
+     "Builder Financing FAQ: Incentives, Buyers & Closings",
+     "Answers for North Texas builders on buyer pre-approvals, incentives, seller-concession limits, rate locks, appraisals and closing new construction on time.",
+     "Builder financing guidance", 1, None),
+    ("buyer-pre-approval-checklist", "Buyer Pre-Approval Checklist for Builders", "builders-developers", LANDING, builder_checklist,
+     "Buyer Pre-Approval Checklist for Home Builders",
+     "Seven things builders should verify before accepting a buyer's pre-approval, plus red flags that predict a new-construction contract that won't close.",
+     None, 2, None),
+    ("contract-to-close-timeline", "Contract-to-Close Timeline for New Construction", "builders-developers", LANDING, builder_timeline,
+     "New Construction Contract-to-Close Timeline for Builders",
+     "Every financing milestone from contract to keys on a new-construction home, mapped to the build schedule, with steps builders can take to avoid delays.",
+     None, 3, None),
 ]
 
 MENUS = {
     "primary": [
-        ("Builders & Developers", "builders-developers", []),
+        ("Builders & Developers", "builders-developers", [
+            ("Builder Financing FAQ", "builder-financing-faq"),
+            ("Buyer Pre-Approval Checklist", "buyer-pre-approval-checklist"),
+            ("Contract-to-Close Timeline", "contract-to-close-timeline"),
+        ]),
         ("Loan Programs", "loan-programs", [
             ("Home Purchase", "home-purchase"),
             ("Refinance & Equity", "refinance"),
@@ -785,6 +913,7 @@ CATEGORIES = [
     ("luxury-jumbo", "Luxury & Jumbo", "How jumbo loans work and how to prepare to finance high-value homes, ranches, acreage and second homes in North Texas with confidence."),
     ("business-owners", "Business Owners & Self-Employed", "How self-employed borrowers and business owners qualify for a mortgage, from tax-return income to bank-statement, 1099 and asset-based programs."),
     ("real-estate-investing", "Real Estate Investing", "Financing rental and investment property in Texas: DSCR loans, conventional investor loans, cash-out strategies and growing a portfolio."),
+    ("builders-new-construction", "Builders & New Construction", "Mortgage strategy for North Texas home builders and their sales teams: incentives, buyer pre-approvals, closing timelines and new-construction financing."),
 ]
 
 # Who each service page is for (Service.audience in structured data).
@@ -796,6 +925,7 @@ AUDIENCE = {
     "self-employed-business-owners": "Self-employed borrowers and business owners",
     "investment-property": "Real estate investors",
     "builders-developers": "Home builders and developers",
+    "builder-financing-faq": "Home builders, developers and their sales teams",
     "realtor-partners": "Real estate agents",
 }
 

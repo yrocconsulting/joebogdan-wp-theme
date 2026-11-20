@@ -267,6 +267,48 @@
       "old_slugs": [],
       "menu_order": 25,
       "excerpt": ""
+    },
+    {
+      "slug": "builder-financing-faq",
+      "title": "Builder Financing FAQ",
+      "parent": "builders-developers",
+      "template": "page-templates/landing.php",
+      "file": "pages/builder-financing-faq.html",
+      "seo_title": "Builder Financing FAQ: Incentives, Buyers & Closings",
+      "seo_description": "Answers for North Texas builders on buyer pre-approvals, incentives, seller-concession limits, rate locks, appraisals and closing new construction on time.",
+      "service": "Builder financing guidance",
+      "audience": "Home builders, developers and their sales teams",
+      "old_slugs": [],
+      "menu_order": 1,
+      "excerpt": ""
+    },
+    {
+      "slug": "buyer-pre-approval-checklist",
+      "title": "Buyer Pre-Approval Checklist for Builders",
+      "parent": "builders-developers",
+      "template": "page-templates/landing.php",
+      "file": "pages/buyer-pre-approval-checklist.html",
+      "seo_title": "Buyer Pre-Approval Checklist for Home Builders",
+      "seo_description": "Seven things builders should verify before accepting a buyer's pre-approval, plus red flags that predict a new-construction contract that won't close.",
+      "service": "",
+      "audience": "",
+      "old_slugs": [],
+      "menu_order": 2,
+      "excerpt": ""
+    },
+    {
+      "slug": "contract-to-close-timeline",
+      "title": "Contract-to-Close Timeline for New Construction",
+      "parent": "builders-developers",
+      "template": "page-templates/landing.php",
+      "file": "pages/contract-to-close-timeline.html",
+      "seo_title": "New Construction Contract-to-Close Timeline for Builders",
+      "seo_description": "Every financing milestone from contract to keys on a new-construction home, mapped to the build schedule, with steps builders can take to avoid delays.",
+      "service": "",
+      "audience": "",
+      "old_slugs": [],
+      "menu_order": 3,
+      "excerpt": ""
     }
   ],
   "menus": {
@@ -274,7 +316,20 @@
       {
         "title": "Builders & Developers",
         "page": "builders-developers",
-        "children": []
+        "children": [
+          {
+            "title": "Builder Financing FAQ",
+            "page": "builder-financing-faq"
+          },
+          {
+            "title": "Buyer Pre-Approval Checklist",
+            "page": "buyer-pre-approval-checklist"
+          },
+          {
+            "title": "Contract-to-Close Timeline",
+            "page": "contract-to-close-timeline"
+          }
+        ]
       },
       {
         "title": "Loan Programs",
@@ -423,6 +478,11 @@
       "slug": "real-estate-investing",
       "name": "Real Estate Investing",
       "description": "Financing rental and investment property in Texas: DSCR loans, conventional investor loans, cash-out strategies and growing a portfolio."
+    },
+    {
+      "slug": "builders-new-construction",
+      "name": "Builders & New Construction",
+      "description": "Mortgage strategy for North Texas home builders and their sales teams: incentives, buyer pre-approvals, closing timelines and new-construction financing."
     }
   ],
   "front_page": "home",
@@ -507,6 +567,106 @@
       "seo_description": "What separates a strong pre-approval from a weak one, what listing agents look for, and how buyers keep their approval solid until closing.",
       "image": "buyers.webp",
       "file": "posts/what-makes-a-strong-pre-approval.html"
+    },
+    {
+      "slug": "price-cut-or-rate-buydown-builder-incentives",
+      "title": "Price Cut or Rate Buydown? How Builders Should Spend Incentive Dollars",
+      "category": "builders-new-construction",
+      "excerpt": "The same incentive budget can lower a home's price or lower the buyer's monthly payment. Here is how each works, which buyers each helps, and how to choose.",
+      "seo_title": "Price Cut or Rate Buydown? Builder Incentives Explained",
+      "seo_description": "The same incentive budget can lower a home's price or lower the buyer's monthly payment. Here is how each works, which buyers each helps, and how to choose.",
+      "image": "luxury.webp",
+      "file": "posts/price-cut-or-rate-buydown-builder-incentives.html"
+    },
+    {
+      "slug": "builder-incentive-limits-seller-concessions",
+      "title": "How Much Can a Builder Contribute? Seller-Concession Limits by Loan Type",
+      "category": "builders-new-construction",
+      "excerpt": "Conventional, FHA and VA loans each cap what a builder can pay toward a buyer's costs. Here is how the limits work and how to keep closings on track.",
+      "seo_title": "Builder Incentive Limits: Seller Concessions by Loan Type",
+      "seo_description": "Conventional, FHA and VA loans each cap what a builder can pay toward a buyer's costs. Here is how the limits work and how to keep closings on track.",
+      "image": "strategy.webp",
+      "file": "posts/builder-incentive-limits-seller-concessions.html"
+    },
+    {
+      "slug": "vetting-a-buyers-pre-approval-builders",
+      "title": "Seven Questions to Ask Before You Accept a Buyer's Pre-Approval",
+      "category": "builders-new-construction",
+      "excerpt": "A pre-approval letter is only as strong as the work behind it. These seven questions help builders' sales teams separate real buyers from risky contracts.",
+      "seo_title": "Vetting a Buyer's Pre-Approval: 7 Questions for Builders",
+      "seo_description": "A pre-approval letter is only as strong as the work behind it. These seven questions help builders' sales teams separate real buyers from risky contracts.",
+      "image": "buyers.webp",
+      "file": "posts/vetting-a-buyers-pre-approval-builders.html"
+    },
+    {
+      "slug": "why-new-construction-closings-slip",
+      "title": "Why New-Construction Closings Slip, and How to Keep Yours on Schedule",
+      "category": "builders-new-construction",
+      "excerpt": "Most delayed new-construction closings trace back to a few predictable causes. Here is what goes wrong between completion and closing, and how builders prevent it.",
+      "seo_title": "Why New-Construction Closings Slip and How to Prevent It",
+      "seo_description": "Most delayed new-construction closings trace back to a few predictable causes. Here is what goes wrong between completion and closing, and how builders prevent it.",
+      "image": "strategy.webp",
+      "file": "posts/why-new-construction-closings-slip.html"
+    },
+    {
+      "slug": "selling-new-construction-to-buyers-who-must-sell-first",
+      "title": "Selling New Construction to Buyers Who Have to Sell First",
+      "category": "builders-new-construction",
+      "excerpt": "Move-up buyers are often your best prospects, but their current home can stall a contract. Here are the financing options that can keep the sale moving.",
+      "seo_title": "Move-Up Buyers Who Must Sell First: Options for Builders",
+      "seo_description": "Move-up buyers are often your best prospects, but their current home can stall a contract. Here are the financing options that can keep the sale moving.",
+      "image": "buyers.webp",
+      "file": "posts/selling-new-construction-to-buyers-who-must-sell-first.html"
+    },
+    {
+      "slug": "spec-homes-qualifying-the-real-buyer",
+      "title": "Spec Homes: How to Tell a Real Buyer From a Risky Contract",
+      "category": "builders-new-construction",
+      "excerpt": "A spec home under contract with a buyer who can't close costs you time and carrying costs. Here is how to qualify spec-home buyers early and protect your inventory.",
+      "seo_title": "Spec Homes: Qualifying Buyers Before You Take a Contract",
+      "seo_description": "A spec home under contract with a buyer who can't close costs you time and carrying costs. Here is how to qualify spec-home buyers early and protect your inventory.",
+      "image": "luxury.webp",
+      "file": "posts/spec-homes-qualifying-the-real-buyer.html"
+    },
+    {
+      "slug": "what-builder-sales-teams-should-expect-from-a-lender",
+      "title": "What Your Sales Team Should Expect From a Lender",
+      "category": "builders-new-construction",
+      "excerpt": "A good lending partner makes your sales team's job easier. Here is what builders should expect, from first buyer meeting to closing day, and what to ask any lender.",
+      "seo_title": "What Builder Sales Teams Should Expect From a Lender",
+      "seo_description": "A good lending partner makes your sales team's job easier. Here is what builders should expect, from first buyer meeting to closing day, and what to ask any lender.",
+      "image": "business-owners.webp",
+      "file": "posts/what-builder-sales-teams-should-expect-from-a-lender.html"
+    },
+    {
+      "slug": "financing-on-a-construction-timeline",
+      "title": "Financing on a Construction Timeline: What Builders Should Plan For",
+      "category": "builders-new-construction",
+      "excerpt": "A new-construction loan has to work across months of building. Here is how rate locks, document updates, appraisals and completion fit the construction schedule.",
+      "seo_title": "Financing on a Construction Timeline: A Builder's Guide",
+      "seo_description": "A new-construction loan has to work across months of building. Here is how rate locks, document updates, appraisals and completion fit the construction schedule.",
+      "image": "strategy.webp",
+      "file": "posts/financing-on-a-construction-timeline.html"
+    },
+    {
+      "slug": "new-construction-appraisals-what-builders-should-know",
+      "title": "New-Construction Appraisals: What Builders and Buyers Should Know",
+      "category": "builders-new-construction",
+      "excerpt": "How appraisers value new construction, why incentives and comparable sales matter, and what builders can do if an appraisal comes in low.",
+      "seo_title": "New-Construction Appraisals: What Builders Should Know",
+      "seo_description": "How appraisers value new construction, why incentives and comparable sales matter, and what builders can do if an appraisal comes in low.",
+      "image": "buyers.webp",
+      "file": "posts/new-construction-appraisals-what-builders-should-know.html"
+    },
+    {
+      "slug": "build-to-rent-holding-completed-homes-dscr",
+      "title": "Build to Sell or Hold? Financing Completed Homes as Rentals With DSCR",
+      "category": "builders-new-construction",
+      "excerpt": "Builders holding completed homes as rentals can often use DSCR loans that qualify on rent, not tax returns. Here is how it works and what lenders review.",
+      "seo_title": "Build to Rent: Financing Completed Homes With DSCR Loans",
+      "seo_description": "Builders holding completed homes as rentals can often use DSCR loans that qualify on rent, not tax returns. Here is how it works and what lenders review.",
+      "image": "business-owners.webp",
+      "file": "posts/build-to-rent-holding-completed-homes-dscr.html"
     }
   ]
 }

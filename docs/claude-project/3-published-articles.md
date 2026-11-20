@@ -12,13 +12,27 @@ Avoid duplicating these topics; link to them where relevant.
 | Texas Housing & Market | Texas Property Taxes, Homestead Exemptions and Your Mortgage Payment | https://josephbogdan.com/texas-property-taxes-homestead-exemption-mortgage/ |
 | Mortgage Strategy | When Does Refinancing Make Sense? How to Find Your Break-Even Point | https://josephbogdan.com/when-does-refinancing-make-sense/ |
 | Mortgage Strategy | What Makes a Pre-Approval Letter Strong? A Guide for Buyers and Agents | https://josephbogdan.com/what-makes-a-strong-pre-approval/ |
+| Builders & New Construction | Price Cut or Rate Buydown? How Builders Should Spend Incentive Dollars | https://josephbogdan.com/price-cut-or-rate-buydown-builder-incentives/ |
+| Builders & New Construction | How Much Can a Builder Contribute? Seller-Concession Limits by Loan Type | https://josephbogdan.com/builder-incentive-limits-seller-concessions/ |
+| Builders & New Construction | Seven Questions to Ask Before You Accept a Buyer's Pre-Approval | https://josephbogdan.com/vetting-a-buyers-pre-approval-builders/ |
+| Builders & New Construction | Why New-Construction Closings Slip, and How to Keep Yours on Schedule | https://josephbogdan.com/why-new-construction-closings-slip/ |
+| Builders & New Construction | Selling New Construction to Buyers Who Have to Sell First | https://josephbogdan.com/selling-new-construction-to-buyers-who-must-sell-first/ |
+| Builders & New Construction | Spec Homes: How to Tell a Real Buyer From a Risky Contract | https://josephbogdan.com/spec-homes-qualifying-the-real-buyer/ |
+| Builders & New Construction | What Your Sales Team Should Expect From a Lender | https://josephbogdan.com/what-builder-sales-teams-should-expect-from-a-lender/ |
+| Builders & New Construction | Financing on a Construction Timeline: What Builders Should Plan For | https://josephbogdan.com/financing-on-a-construction-timeline/ |
+| Builders & New Construction | New-Construction Appraisals: What Builders and Buyers Should Know | https://josephbogdan.com/new-construction-appraisals-what-builders-should-know/ |
+| Builders & New Construction | Build to Sell or Hold? Financing Completed Homes as Rentals With DSCR | https://josephbogdan.com/build-to-rent-holding-completed-homes-dscr/ |
+
+## Builder resource pages
+- Builder Financing FAQ: https://josephbogdan.com/builders-developers/builder-financing-faq/
+- Buyer Pre-Approval Checklist: https://josephbogdan.com/builders-developers/buyer-pre-approval-checklist/
+- Contract-to-Close Timeline: https://josephbogdan.com/builders-developers/contract-to-close-timeline/
 
 ## Topic ideas not yet covered
 - First-time homebuyer guide for North Texas
 - Down payment assistance in Texas: how it works
 - FHA vs. conventional: which fits your situation
 - VA loans for North Texas veterans
-- New construction financing: what buyers should know before signing a builder contract
 - Buying a ranch or acreage property in North Texas
 - Home equity options: HELOC vs. cash-out refinance in Texas
 - How Realtors can help clients with complex income get approved
