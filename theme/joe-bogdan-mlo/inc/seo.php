@@ -272,7 +272,7 @@ function jb_schema_graph() {
 		),
 	);
 
-	$knows = array( 'Mortgage pre-approval', 'Home purchase financing', 'Mortgage refinancing', 'Home equity', 'Jumbo loans', 'Luxury home financing', 'Self-employed mortgages', 'Bank statement loans', 'Investment property loans', 'DSCR loans', 'New construction financing', 'Construction-to-permanent loans', 'One-time close construction loans', 'Lot and land loans', 'Builder forward commitments', 'Build-to-rent financing', 'FHA loans', 'VA loans', 'Conventional loans', 'Non-QM loans', 'Adjustable-rate mortgages', 'Down payment assistance', 'First-time homebuyers', 'Texas property taxes' );
+	$knows = array( 'Mortgage pre-approval', 'Home purchase financing', 'Mortgage refinancing', 'Home equity', 'Jumbo loans', 'Luxury home financing', 'Self-employed mortgages', 'Bank statement loans', 'Investment property loans', 'DSCR loans', 'New construction financing', 'Construction-to-permanent loans', 'One-time close construction loans', 'FHA construction loans', 'VA construction loans', 'Lot and land loans', 'Builder forward commitments', 'Build-to-rent financing', 'FHA loans', 'VA loans', 'Conventional loans', 'Non-QM loans', 'Adjustable-rate mortgages', 'Down payment assistance', 'First-time homebuyers', 'Texas property taxes' );
 
 	$catalog = array();
 	foreach ( jb_service_pages() as $svc ) {
@@ -574,7 +574,7 @@ add_action( 'template_redirect', function () {
 	$out   = array();
 	$out[] = '# ' . jb_opt( 'name' ) . ', ' . jb_opt( 'title' );
 	$out[] = '';
-	$out[] = sprintf( '> %s is a %s with %s (individual NMLS #%s; company NMLS #%s), based in %s, %s and serving North Texas. %s; %s. He helps home buyers, self-employed borrowers and business owners, real estate investors and luxury/jumbo buyers structure mortgage financing, finances custom homes with one-time-close construction loans and lot and land loans, and partners with Realtors, home builders and developers (including builder forward commitments and build-to-rent financing). He is a mortgage loan originator only and does not provide real estate brokerage services.', jb_opt( 'name' ), jb_opt( 'title' ), jb_opt( 'company' ), jb_opt( 'nmls' ), jb_opt( 'company_nmls' ), jb_opt( 'city' ), jb_opt( 'region' ), jb_opt( 'licensing' ), jb_opt( 'company_license' ) );
+	$out[] = sprintf( '> %s is a %s with %s (individual NMLS #%s; company NMLS #%s), based in %s, %s and serving North Texas. %s; %s. He helps home buyers, self-employed borrowers and business owners, real estate investors and luxury/jumbo buyers structure mortgage financing, finances custom homes with conventional, FHA and VA one-time-close construction loans and lot and land loans, and partners with Realtors, home builders and developers (including builder forward commitments and build-to-rent financing). He is a mortgage loan originator only and does not provide real estate brokerage services.', jb_opt( 'name' ), jb_opt( 'title' ), jb_opt( 'company' ), jb_opt( 'nmls' ), jb_opt( 'company_nmls' ), jb_opt( 'city' ), jb_opt( 'region' ), jb_opt( 'licensing' ), jb_opt( 'company_license' ) );
 	$out[] = '';
 	$out[] = sprintf( 'Contact: call %s · text %s · %s · %s, %s, %s %s', jb_opt( 'phone' ), jb_opt( 'sms' ), jb_opt( 'email' ), jb_opt( 'street' ), jb_opt( 'city' ), jb_opt( 'region' ), jb_opt( 'postal' ) );
 	$out[] = sprintf( 'Official website: %s (the official website of %s, NMLS #%s, sometimes known as Joe Bogdan).', home_url( '/' ), jb_opt( 'name' ), jb_opt( 'nmls' ) );

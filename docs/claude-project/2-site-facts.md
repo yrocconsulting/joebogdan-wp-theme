@@ -21,7 +21,7 @@
 - Luxury and jumbo (high-value homes, ranches, acreage, second homes)
 - Self-employed and business owners (bank-statement, 1099, asset-based)
 - Real estate investors (DSCR, conventional investor, multi-unit)
-- Construction and land (one-time-close construction-to-permanent loans, lot and land loans)
+- Construction and land (conventional, FHA and VA one-time-close construction-to-permanent loans, lot and land loans). CCM offers interest-only payments during construction; construction typically up to about a year; FHA/VA are primary residence only; VA requires a builder with a VA builder ID
 - Builders and developers (preferred lending partnership, forward commitments, developer and build-to-rent financing) - a priority audience
 - Realtors (scenario reviews, strong pre-approvals, never competes for the client)
 

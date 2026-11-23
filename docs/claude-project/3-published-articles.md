@@ -23,6 +23,7 @@ Avoid duplicating these topics; link to them where relevant.
 | Builders & New Construction | New-Construction Appraisals: What Builders and Buyers Should Know | https://josephbogdan.com/new-construction-appraisals-what-builders-should-know/ |
 | Builders & New Construction | Build to Sell or Hold? Financing Completed Homes as Rentals With DSCR | https://josephbogdan.com/build-to-rent-holding-completed-homes-dscr/ |
 | Construction & Land Loans | One-Time-Close Construction Loans Explained | https://josephbogdan.com/one-time-close-construction-loans-explained/ |
+| Construction & Land Loans | FHA vs. VA One-Time-Close Construction Loans | https://josephbogdan.com/fha-vs-va-one-time-close-construction-loans/ |
 | Construction & Land Loans | One-Time Close vs. Two-Time Close Construction Loans | https://josephbogdan.com/one-time-close-vs-two-time-close-construction-loans/ |
 | Construction & Land Loans | Building a Home on Land You Already Own | https://josephbogdan.com/building-a-home-on-land-you-already-own/ |
 | Construction & Land Loans | Lot and Land Loans in Texas: What to Know First | https://josephbogdan.com/lot-and-land-loans-texas-what-to-know/ |
@@ -41,10 +42,11 @@ Avoid duplicating these topics; link to them where relevant.
 
 ## Service pages added
 - Construction Loans: https://josephbogdan.com/loan-programs/construction-loans/
+- FHA & VA Construction Loans: https://josephbogdan.com/loan-programs/fha-va-construction-loans/
 - Lot & Land Loans: https://josephbogdan.com/loan-programs/lot-land-loans/
 
 ## Topic ideas not yet covered
-- FHA/VA/USDA one-time-close construction (confirm program availability with Joseph first)
+- USDA construction loans (confirm availability with Joseph first)
 - Barndominiums and alternative construction: what lenders will finance
 - Construction loan timeline for a custom home in North Texas
 - Builder spec-home inventory: when a forward commitment pays off

@@ -325,6 +325,20 @@
       "excerpt": ""
     },
     {
+      "slug": "fha-va-construction-loans",
+      "title": "FHA & VA Construction Loans",
+      "parent": "loan-programs",
+      "template": "page-templates/landing.php",
+      "file": "pages/fha-va-construction-loans.html",
+      "seo_title": "FHA & VA One-Time Close Construction Loans in Texas",
+      "seo_description": "Build a new home with an FHA or VA one-time-close construction loan through CrossCountry Mortgage. Joseph Bogdan explains eligibility, builders and draws.",
+      "service": "FHA and VA one-time-close construction loan",
+      "audience": "FHA borrowers and eligible veterans, service members and surviving spouses building a primary residence",
+      "old_slugs": [],
+      "menu_order": 7,
+      "excerpt": ""
+    },
+    {
       "slug": "lot-land-loans",
       "title": "Lot & Land Loans",
       "parent": "loan-programs",
@@ -335,7 +349,7 @@
       "service": "Lot and land loan",
       "audience": "Buyers purchasing a residential lot or land to build on",
       "old_slugs": [],
-      "menu_order": 7,
+      "menu_order": 8,
       "excerpt": ""
     },
     {
@@ -422,6 +436,10 @@
           {
             "title": "Construction Loans",
             "page": "construction-loans"
+          },
+          {
+            "title": "FHA & VA Construction Loans",
+            "page": "fha-va-construction-loans"
           },
           {
             "title": "Lot & Land Loans",
@@ -834,6 +852,16 @@
       "seo_description": "How end-buyer financing affects a new community's pricing, absorption and appraisals, and what developers should plan with a lender before phase one opens.",
       "image": "feat-joseph-national-mall.webp",
       "file": "posts/financing-a-new-community-what-developers-should-plan.html"
+    },
+    {
+      "slug": "fha-vs-va-one-time-close-construction-loans",
+      "title": "FHA vs. VA One-Time-Close Construction Loans",
+      "category": "construction-land",
+      "excerpt": "Can you build a home with an FHA or VA loan? Yes. Compare FHA and VA one-time-close construction loans on eligibility, costs, builders and what to expect.",
+      "seo_title": "FHA vs. VA One-Time-Close Construction Loans",
+      "seo_description": "Can you build a home with an FHA or VA loan? Yes. Compare FHA and VA one-time-close construction loans on eligibility, costs, builders and what to expect.",
+      "image": "feat-joseph-model-home-b.webp",
+      "file": "posts/fha-vs-va-one-time-close-construction-loans.html"
     }
   ]
 }

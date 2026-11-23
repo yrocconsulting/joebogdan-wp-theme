@@ -888,7 +888,9 @@ post(
             "<strong>Convert.</strong> After the final inspection, the loan becomes your permanent mortgage.",
         ]),
         h("What do you pay during construction?"),
-        p("Payments during the build are typically based on the amount that has been drawn so far, so they start small and grow as more of the home is built. Once the loan converts, regular principal-and-interest payments begin. How payments work during construction varies by program, so ask your loan officer to walk through it before you sign."),
+        p("Payments during the build are typically based on the amount that has been drawn so far, so they start small and grow as more of the home is built. CrossCountry Mortgage offers interest-only payments during the construction phase. Once the loan converts to a 15- or 30-year mortgage, regular principal-and-interest payments begin."),
+        h("Which loan programs offer a one-time close?"),
+        p("Through CrossCountry Mortgage, one-time-close construction loans are available as <strong>conventional</strong>, <strong>FHA</strong> and <strong>VA</strong> loans. FHA and VA versions are for a primary residence and carry each program's benefits and requirements. See <a href=\"/fha-vs-va-one-time-close-construction-loans/\">FHA vs. VA one-time-close construction loans</a>."),
         CONSTRUCTION_CTA,
         h("Who is a good fit for a one-time close?"),
         ul([
@@ -1232,6 +1234,51 @@ post(
             ("When should a developer bring in a lender?", "Before pricing and incentives for the first phase are set, so financing can inform those decisions."),
             ("Can a lender help with buyer events at a new community?", "Yes. Preview events and pre-qualification conversations help interested buyers understand what they can afford before homes are released."),
             ("Does Joseph finance land acquisition and development?", "Larger acquisition, development and construction credit facilities are reviewed project by project. Share the details and Joseph will tell you what fits."),
+        ]),
+    ),
+)
+
+post(
+    "fha-vs-va-one-time-close-construction-loans",
+    "FHA vs. VA One-Time-Close Construction Loans",
+    "construction-land",
+    "Can you build a home with an FHA or VA loan? Yes. Compare FHA and VA one-time-close construction loans on eligibility, costs, builders and what to expect.",
+    "FHA vs. VA One-Time-Close Construction Loans",
+    "feat-joseph-model-home-b.webp",
+    body(
+        lead("Yes, you can build a new home with an FHA or VA loan. A one-time-close construction loan lets eligible buyers finance the lot, the construction and the permanent mortgage in a single FHA or VA loan with one closing. VA construction loans are for eligible veterans, service members and surviving spouses and carry no monthly mortgage insurance. FHA construction loans are open to any qualified buyer and offer more flexible credit guidelines. Both are for a home you will live in."),
+        takeaways([
+            "FHA and VA one-time-close loans finance the lot, construction and permanent mortgage together.",
+            "Both are for primary residences only.",
+            "VA: for eligible veterans, service members and surviving spouses; no monthly mortgage insurance; a funding fee applies unless exempt.",
+            "FHA: flexible credit guidelines; FHA mortgage insurance and county loan limits apply.",
+            "Your builder must meet program requirements; VA requires a builder with a VA builder ID.",
+        ]),
+        h("How do FHA and VA construction loans compare?"),
+        ul([
+            "<strong>Who qualifies:</strong> FHA is open to qualified buyers; VA requires VA eligibility, confirmed by a Certificate of Eligibility.",
+            "<strong>Mortgage insurance:</strong> FHA has upfront and annual mortgage insurance; VA has no monthly mortgage insurance but a one-time funding fee, waived for some veterans.",
+            "<strong>Loan size:</strong> FHA loan limits are set by county; VA limits depend on your entitlement.",
+            "<strong>Occupancy:</strong> both require that you live in the home.",
+            "<strong>Builder:</strong> both require an eligible builder; VA requires a VA builder ID.",
+        ]),
+        h("How does the process work?"),
+        ol([
+            "Confirm eligibility (and, for VA, your Certificate of Eligibility).",
+            "Choose an eligible builder and finalize plans, specifications and budget.",
+            "Appraise the home from plans, as if complete, to program standards.",
+            "Close once, before construction begins, including the lot purchase if needed.",
+            "Build with draws released after inspections; CrossCountry Mortgage offers interest-only payments during construction.",
+            "Convert to a permanent 15- or 30-year FHA or VA mortgage once the home is complete.",
+        ]),
+        CONSTRUCTION_CTA,
+        h("Which one should you choose?"),
+        p("If you are VA-eligible, a VA construction loan is often worth comparing first because of its benefits, but it is not automatically the best fit. Funding fees, entitlement, and your builder's eligibility all matter. If you are not VA-eligible, FHA offers a path to build with flexible guidelines, and a conventional one-time close may fit buyers with stronger credit or a home that will not be their primary residence. Joseph will compare all three for your situation."),
+        p("Related: <a href=\"/loan-programs/fha-va-construction-loans/\">FHA and VA construction loans with Joseph</a> and <a href=\"/one-time-close-construction-loans-explained/\">one-time-close construction loans explained</a>."),
+        faq([
+            ("Can I use a VA loan to build a house in Texas?", "Yes. Eligible veterans, service members and surviving spouses can use a VA one-time-close construction loan to build a primary residence in Texas with an eligible builder."),
+            ("Does my builder need to be approved for an FHA or VA construction loan?", "Yes. The builder must meet lender and program requirements, and VA requires a VA builder ID. Start the builder review early so it does not delay closing."),
+            ("Can I use an FHA or VA construction loan on land I already own?", "Often, yes. If you own the lot, the loan can be structured around it, and any loan on the land can typically be paid off at closing."),
         ]),
     ),
 )
