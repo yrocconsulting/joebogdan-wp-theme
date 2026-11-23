@@ -1282,3 +1282,23 @@ post(
         ]),
     ),
 )
+
+
+# ===========================================================================
+# Daily posts: one file per post in tools/daily/ (YYYY-MM-DD-slug.py), written
+# by the weekday scheduled task. See docs/automation/daily-post.md.
+# ===========================================================================
+def sources(items):
+    """items: [(label, url), ...] -> a short attributed source list."""
+    links = [f'<a href="{u}" target="_blank" rel="noopener">{l}</a>' for l, u in items]
+    return "\n\n".join([h("Sources", 2), ul(links, "source-list")])
+
+
+import pathlib as _pl
+
+DAILY_DIR = _pl.Path(__file__).resolve().parent / "daily"
+DAILY_SLUGS = []
+for _f in sorted(DAILY_DIR.glob("*.py")):
+    _before = len(POSTS)
+    exec(compile(_f.read_text(encoding="utf-8"), str(_f), "exec"), globals())
+    DAILY_SLUGS += [p["slug"] for p in POSTS[_before:]]

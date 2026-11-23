@@ -86,6 +86,9 @@ add_action( 'transition_post_status', function ( $new, $old, $post ) {
 		$urls = array( get_permalink( $post ) );
 		if ( 'post' === $post->post_type ) {
 			$urls[] = get_permalink( get_option( 'page_for_posts' ) );
+			foreach ( get_the_category( $post->ID ) as $cat ) {
+				$urls[] = get_category_link( $cat );
+			}
 		}
 		jb_indexnow_submit( array_filter( $urls ) );
 	}

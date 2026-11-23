@@ -594,7 +594,7 @@ add_action( 'template_redirect', function () {
 		}
 	}
 
-	$posts = get_posts( array( 'numberposts' => 50 ) );
+	$posts = get_posts( array( 'numberposts' => 200 ) );
 	if ( $posts ) {
 		$out[] = '';
 		$out[] = '## Insights';

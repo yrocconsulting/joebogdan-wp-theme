@@ -403,6 +403,15 @@ if ( '1' === (string) get_option( 'blog_public' ) && function_exists( 'jb_indexn
 	$urls = array_map( 'get_permalink', $changed );
 	if ( $urls ) {
 		$urls[] = home_url( '/' );
+		foreach ( $changed as $cid ) {
+			if ( 'post' === get_post_type( $cid ) ) {
+				$urls[] = get_permalink( get_option( 'page_for_posts' ) );
+				foreach ( get_the_category( $cid ) as $cat ) {
+					$urls[] = get_category_link( $cat );
+				}
+			}
+		}
+		$urls = array_values( array_unique( array_filter( $urls ) ) );
 		foreach ( $urls as $u ) {
 			delete_transient( 'jb_inx_' . md5( $u ) ); // let the batch through even if a hook ping was attempted
 		}

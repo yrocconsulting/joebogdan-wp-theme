@@ -4,12 +4,41 @@
 """
 import json
 import pathlib
+import re
 
 import pages
 import posts
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT = ROOT / "content"
+
+
+# Phrases daily posts may not contain (Regulation Z triggering terms, guarantees,
+# the unaffiliated competitor domain, em dashes). Fix the copy; never loosen these.
+BANNED = [
+    (r"\d(\.\d+)?\s?%\s*(apr|interest|fixed|adjustable|rate|down)", "interest rate, APR or down-payment percentage"),
+    (r"\b(rates?|apr|yield)\b[^.<]{0,30}?\b\d+(\.\d+)?\s?%", "a specific rate or APR"),
+    (r"\b(30|15|20|10)-year\b[^.<]{0,40}?\b\d+(\.\d+)?\s?%", "a specific mortgage rate"),
+    (r"\$\s?[\d,.]+\s*(k\b|thousand)?\s*(down|per month|a month|/mo|monthly)", "a payment or down-payment amount"),
+    (r"\b(no|zero|0%?|nothing)[ -]down\b", "a down-payment claim"),
+    (r"\b(down payment|payment)s?\s+(of|as low as|starting at|from)\s+\$?\d", "a down-payment or payment amount"),
+    (r"\bguarantee(d|s)?\b", "a guarantee"),
+    (r"\b(lowest|best) (rates?|price|fees)\b", "a superlative pricing claim"),
+    (r"\bpre-?approved in\b", "a speed promise"),
+    (r"joebogdan\.com", "the unaffiliated competitor site"),
+    (r"\u2014", "an em dash"),
+]
+
+
+def compliance_issues(text):
+    plain = re.sub(r"<[^>]+>", " ", text)
+    plain = re.sub(r"<!--.*?-->", " ", plain)
+    found = []
+    for pattern, why in BANNED:
+        m = re.search(pattern, plain, re.I)
+        if m:
+            found.append(f"{why}: \"{m.group(0)}\"")
+    return found
 
 
 def main():
@@ -44,6 +73,19 @@ def main():
     for cat in manifest["categories"]:
         if not 110 <= len(cat["description"]) <= 165:
             problems.append(f"category description {len(cat['description'])}: {cat['slug']}")
+    slugs = [i["slug"] for i in manifest["pages"] + manifest["posts"]]
+    problems += [f"duplicate slug: {s}" for s in sorted({s for s in slugs if slugs.count(s) > 1})]
+    cats = {c["slug"] for c in manifest["categories"]}
+    images = {f.name for f in (ROOT / "theme/joe-bogdan-mlo/assets/images").iterdir()}
+    for post in posts.POSTS:
+        if post["category"] not in cats:
+            problems.append(f"unknown category {post['category']}: {post['slug']}")
+        if post.get("image") and post["image"] not in images:
+            problems.append(f"missing image {post['image']}: {post['slug']}")
+    for post in posts.POSTS:
+        if post["slug"] in posts.DAILY_SLUGS:
+            text = " ".join([post["title"], post["excerpt"], post["seo_title"], post["content"]])
+            problems += [f"compliance ({post['slug']}): {m}" for m in compliance_issues(text)]
     if problems:
         raise SystemExit("SEO length check failed:\n  " + "\n  ".join(problems))
     (OUT / "manifest.json").write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
