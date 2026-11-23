@@ -541,7 +541,7 @@ about = page(
        'cta="Ask Joseph About Your Scenario" cta_url="/contact/" image="joe-headshot.webp"]'),
     section(
         split(
-            [sc('[jb_photo file="photo-joseph-model-home-2.webp" alt="Joseph Bogdan in a model home at the Innovative Housing Showcase" class="photo-landscape" caption="Joseph touring new home designs at the Innovative Housing Showcase in Washington, D.C."]'),
+            [sc('[jb_photo file="photo-joseph-model-home-2.webp" alt="Joseph Bogdan in a model home at the Innovative Housing Showcase" class="photo-tall" caption="Joseph touring new home designs at the Innovative Housing Showcase in Washington, D.C."]'),
              sc('[jb_video title="Meet Joseph in 90 seconds"]')],
             [p("The Business Background", "eyebrow"),
              h("Three Decades of Decisions That Prepared Him for Yours.", 2, "section-title"),
