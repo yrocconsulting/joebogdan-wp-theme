@@ -122,9 +122,11 @@ Quality bar (Google and AI assistants reward this; thin daily content hurts the 
 3. Add a row to the table in `docs/claude-project/3-published-articles.md`.
 4. Commit (`Daily post: <title>`) and push to the branch. The push deploys to
    staging automatically.
-5. Run the `deploy-production.yml` workflow on the same branch with inputs
-   `search_visibility=on`, `indexnow_all=false`, `force=` (empty). The deploy
-   publishes the post and submits it to IndexNow.
+5. The push also starts the production deploy automatically, because it
+   changes `tools/daily/` (`deploy-production.yml`, defaults: search
+   visibility on, nothing forced). It publishes the post and submits it to
+   IndexNow. Do not dispatch a second deploy unless the automatic one did
+   not start.
 6. Confirm `https://josephbogdan.com/<slug>/` returns 200 (allow a few
    minutes). If the deploy fails, read its log and fix only what this post
    caused; never force-overwrite (`force`) anything.

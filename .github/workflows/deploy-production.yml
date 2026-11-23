@@ -1,7 +1,12 @@
 name: Deploy to production (josephbogdan.com)
 
-# Manual only: Actions → "Deploy to production" → Run workflow.
+# Manual: Actions → "Deploy to production" → Run workflow.
+# Automatic: a push that adds or changes a daily post (tools/daily/) publishes it,
+# with defaults (search visibility on, nothing forced).
 on:
+  push:
+    branches: [claude/wordpress-custom-theme-k0hq9k]
+    paths: ['tools/daily/**']
   workflow_dispatch:
     inputs:
       search_visibility:
