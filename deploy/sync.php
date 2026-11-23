@@ -161,10 +161,12 @@ foreach ( $manifest['pages'] as $spec ) {
 			wp_update_post( wp_slash( $postarr ) );
 			$ids[ $slug ] = $existing->ID;
 			jb_sync_log( "UPD  $path" );
+			$GLOBALS['jb_changed'][] = $existing->ID;
 		}
 	} else {
 		$ids[ $slug ] = wp_insert_post( wp_slash( $postarr ) );
 		jb_sync_log( "NEW  $path" );
+		$GLOBALS['jb_changed'][] = $ids[ $slug ];
 	}
 
 	$id = $ids[ $slug ];
@@ -271,10 +273,12 @@ foreach ( $manifest['posts'] ?? array() as $spec ) {
 			wp_update_post( wp_slash( $postarr ) );
 			$id = $existing->ID;
 			jb_sync_log( "UPD  post $slug" );
+			$GLOBALS['jb_changed'][] = $id;
 		}
 	} else {
 		$id = wp_insert_post( wp_slash( $postarr ) );
 		jb_sync_log( "NEW  post $slug" );
+		$GLOBALS['jb_changed'][] = $id;
 	}
 
 	if ( $joseph && (int) get_post_field( 'post_author', $id ) !== (int) $joseph->ID ) {
@@ -385,6 +389,26 @@ if ( '1' === (string) get_option( 'blog_public' ) && function_exists( 'jb_indexn
 	jb_sync_log( sprintf( 'IndexNow launch submission: %d URLs, response %s', count( $urls ), $code ) );
 	if ( ! is_wp_error( $res ) && in_array( (int) $code, array( 200, 202 ), true ) ) {
 		update_option( 'jb_indexnow_launch', gmdate( 'c' ) );
+	}
+}
+
+/* ------------------------------------- IndexNow: what this run changed */
+// Pings fired by save hooks can be cut off when WP-CLI exits, so send one
+// confirmed batch. JB_INDEXNOW_ALL=1 resubmits every page and post.
+if ( '1' === (string) get_option( 'blog_public' ) && function_exists( 'jb_indexnow_submit' ) ) {
+	$changed = array_unique( array_filter( (array) ( $GLOBALS['jb_changed'] ?? array() ) ) );
+	if ( getenv( 'JB_INDEXNOW_ALL' ) ) {
+		$changed = get_posts( array( 'post_type' => array( 'page', 'post' ), 'post_status' => 'publish', 'numberposts' => 500, 'fields' => 'ids' ) );
+	}
+	$urls = array_map( 'get_permalink', $changed );
+	if ( $urls ) {
+		$urls[] = home_url( '/' );
+		foreach ( $urls as $u ) {
+			delete_transient( 'jb_inx_' . md5( $u ) ); // let the batch through even if a hook ping was attempted
+		}
+		$res  = jb_indexnow_submit( array_values( array_unique( $urls ) ), true );
+		$code = is_wp_error( $res ) ? $res->get_error_message() : wp_remote_retrieve_response_code( $res );
+		jb_sync_log( sprintf( 'IndexNow: %d changed URLs submitted, response %s', count( $urls ), $code ) );
 	}
 }
 
