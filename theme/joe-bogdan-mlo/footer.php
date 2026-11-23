@@ -8,6 +8,10 @@
 				<span class="logo-mark" aria-hidden="true">JB</span>
 				<span class="logo-text"><?php echo esc_html( jb_opt( 'name' ) ); ?><small><?php echo esc_html( jb_opt( 'title' ) ); ?></small></span>
 			</a>
+			<a class="footer-company" href="<?php echo esc_url( jb_opt( 'company_url' ) ); ?>" target="_blank" rel="noopener">
+				<img src="<?php echo jb_img( 'crosscountry-mortgage-logo-white.svg' ); ?>" alt="<?php echo esc_attr( jb_opt( 'company' ) ); ?>" width="220" height="34" loading="lazy">
+				<span><?php echo esc_html( jb_opt( 'title' ) ); ?> · NMLS #<?php echo esc_html( jb_opt( 'nmls' ) ); ?></span>
+			</a>
 			<p>Strategic mortgage financing for home buyers, business owners, investors and luxury buyers - and a responsive lending partner for the Realtors and builders who serve them.</p>
 			<div class="btn-row">
 				<a class="btn btn-gold" href="<?php echo jb_preapproval_url(); ?>">Get Pre-Approved</a>

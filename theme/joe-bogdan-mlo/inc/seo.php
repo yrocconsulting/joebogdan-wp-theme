@@ -341,6 +341,7 @@ function jb_schema_graph() {
 			'@type'       => 'Organization',
 			'@id'         => $ids['lender'],
 			'name'        => jb_opt( 'company' ),
+			'logo'        => jb_img( 'crosscountry-mortgage-logo.svg' ),
 			'url'         => jb_opt( 'company_url' ),
 			'description' => jb_opt( 'company_license' ) . '.',
 			'identifier'  => array( '@type' => 'PropertyValue', 'propertyID' => 'NMLS', 'value' => jb_opt( 'company_nmls' ) ),

@@ -22,6 +22,7 @@ add_shortcode( 'jb_hero', function ( $atts ) {
 		'cta_url'   => '/get-pre-approved/',
 		'secondary' => 'yes',
 		'image'     => '',
+		'image_alt' => '',
 		'variant'   => 'page',
 		'form'         => '',
 		'form_heading' => '',
@@ -67,8 +68,14 @@ add_shortcode( 'jb_hero', function ( $atts ) {
 			<?php if ( $a['form'] ) : ?>
 				<div class="hero-form" id="start"><?php echo do_shortcode( '[jb_form type="' . esc_attr( $a['form'] ) . '" heading="' . esc_attr( $a['form_heading'] ) . '"]' ); ?></div>
 			<?php elseif ( $a['image'] ) : ?>
-				<div class="hero-media">
-					<img src="<?php echo jb_img( $a['image'] ); ?>" alt="<?php echo esc_attr( jb_opt( 'name' ) . ', ' . jb_opt( 'title' ) ); ?>" width="819" height="1024" fetchpriority="high">
+				<?php
+				// "photo-*" images are real photographs (framed card); others are the cut-out headshot.
+				$jb_is_photo = 0 === strpos( basename( $a['image'] ), 'photo-' );
+				$jb_size     = @getimagesize( JB_DIR . '/assets/images/' . basename( $a['image'] ) ); // phpcs:ignore
+				$jb_alt      = $a['image_alt'] ? $a['image_alt'] : jb_opt( 'name' ) . ', ' . jb_opt( 'title' );
+				?>
+				<div class="hero-media<?php echo $jb_is_photo ? ' hero-media-photo' : ''; ?>">
+					<img src="<?php echo jb_img( basename( $a['image'] ) ); ?>" alt="<?php echo esc_attr( $jb_alt ); ?>" width="<?php echo (int) ( $jb_size ? $jb_size[0] : 819 ); ?>" height="<?php echo (int) ( $jb_size ? $jb_size[1] : 1024 ); ?>" fetchpriority="high">
 					<div class="hero-card">
 						<strong><?php echo esc_html( jb_opt( 'name' ) ); ?></strong>
 						<span><?php echo esc_html( jb_opt( 'title' ) ); ?> · NMLS #<?php echo esc_html( jb_opt( 'nmls' ) ); ?></span>
@@ -395,15 +402,16 @@ function jb_editor_note( $text ) {
 
 /** [jb_photo file="strategy.webp" alt="" class=""] - theme image that survives domain changes. */
 add_shortcode( 'jb_photo', function ( $atts ) {
-	$a = shortcode_atts( array( 'file' => 'joe-headshot.webp', 'alt' => '', 'class' => '' ), $atts );
+	$a = shortcode_atts( array( 'file' => 'joe-headshot.webp', 'alt' => '', 'class' => '', 'caption' => '' ), $atts );
 	$path = JB_DIR . '/assets/images/' . basename( $a['file'] );
 	$size = file_exists( $path ) ? @getimagesize( $path ) : false; // phpcs:ignore
 	return sprintf(
-		'<figure class="photo %s"><img src="%s" alt="%s"%s loading="lazy" decoding="async"></figure>',
+		'<figure class="photo %s"><img src="%s" alt="%s"%s loading="lazy" decoding="async">%s</figure>',
 		esc_attr( $a['class'] ),
 		jb_img( basename( $a['file'] ) ),
 		esc_attr( $a['alt'] ),
-		$size ? sprintf( ' width="%d" height="%d"', $size[0], $size[1] ) : ''
+		$size ? sprintf( ' width="%d" height="%d"', $size[0], $size[1] ) : '',
+		$a['caption'] ? '<figcaption>' . esc_html( $a['caption'] ) . '</figcaption>' : ''
 	);
 } );
 

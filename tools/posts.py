@@ -429,7 +429,7 @@ post(
     "builders-new-construction",
     "The same incentive budget can lower a home's price or lower the buyer's monthly payment. Here is how each works, which buyers each helps, and how to choose.",
     "Price Cut or Rate Buydown? Builder Incentives Explained",
-    "luxury.webp",
+    "feat-joseph-model-home-a.webp",
     body(
         lead("A price cut and a rate buydown can cost a builder the same amount, but they do very different things for the buyer. A price cut lowers the sales price, the loan amount and the appraised comparable for the next sale. A rate buydown uses the same dollars to lower the buyer's interest rate, either for the first years of the loan or for its full life, which usually has a bigger effect on the monthly payment. The right choice depends on the buyer, the loan program and what you need your comparable sales to show."),
         takeaways([
@@ -475,7 +475,7 @@ post(
     "builders-new-construction",
     "Conventional, FHA and VA loans each cap what a builder can pay toward a buyer's costs. Here is how the limits work and how to keep closings on track.",
     "Builder Incentive Limits: Seller Concessions by Loan Type",
-    "strategy.webp",
+    "feat-joseph-national-mall.webp",
     body(
         lead("Builder incentives are limited by the buyer's loan program. Conventional loans allow builder and seller contributions that range from 3% to 9% of the price, depending on the buyer's down payment and occupancy. FHA generally allows up to 6%. VA limits certain concessions to 4%, while some normal closing costs do not count toward that cap. Contributions above the limit usually have to be removed or turned into a price reduction, which is why incentives should be planned with the lender before the contract is signed."),
         takeaways([
@@ -519,7 +519,7 @@ post(
     "builders-new-construction",
     "A pre-approval letter is only as strong as the work behind it. These seven questions help builders' sales teams separate real buyers from risky contracts.",
     "Vetting a Buyer's Pre-Approval: 7 Questions for Builders",
-    "buyers.webp",
+    "feat-joseph-model-home-b.webp",
     body(
         lead("A pre-approval letter can mean anything from a fully reviewed file to a quick estimate based on what the buyer said. Before you take a home off the market, your sales team should know whether the buyer's income, assets and credit were actually reviewed, whether the loan program fits your contract and your timeline, and whether the buyer has to sell another home first. Seven questions to the buyer's lender will tell you most of what you need."),
         takeaways([
@@ -563,7 +563,7 @@ post(
     "builders-new-construction",
     "Most delayed new-construction closings trace back to a few predictable causes. Here is what goes wrong between completion and closing, and how builders prevent it.",
     "Why New-Construction Closings Slip and How to Prevent It",
-    "strategy.webp",
+    "feat-joseph-model-home-c.webp",
     body(
         lead("New-construction closings usually slip for predictable reasons: the buyer's documents went stale during the build, the rate lock expired, the final inspection or certificate of occupancy was late, the completion appraisal raised questions, or the title and lender teams were not coordinated with the build schedule. Most of these can be prevented by planning the financing around the construction timeline from the day the contract is signed."),
         takeaways([
@@ -606,7 +606,7 @@ post(
     "builders-new-construction",
     "Move-up buyers are often your best prospects, but their current home can stall a contract. Here are the financing options that can keep the sale moving.",
     "Move-Up Buyers Who Must Sell First: Options for Builders",
-    "buyers.webp",
+    "feat-joseph-model-home-a.webp",
     body(
         lead("Many of a builder's best prospects already own a home. Whether they can sign without selling first depends on three things: whether their income supports both housing payments, how much equity is in their current home, and how much cash they have in reserve. If they qualify with both payments, they can buy without a sale contingency. If not, options like accessing equity, a contingency with a realistic timeline, or matching the build schedule to their sale can still make the deal work."),
         takeaways([
@@ -648,7 +648,7 @@ post(
     "builders-new-construction",
     "A spec home under contract with a buyer who can't close costs you time and carrying costs. Here is how to qualify spec-home buyers early and protect your inventory.",
     "Spec Homes: Qualifying Buyers Before You Take a Contract",
-    "luxury.webp",
+    "feat-joseph-national-mall.webp",
     body(
         lead("A spec home is ready or nearly ready, so every week it sits under contract with a buyer who cannot close costs you carrying costs and lost buyers. The way to protect it is to verify the buyer before the contract is final: a reviewed pre-approval, a loan program that fits the home and your incentives, a clear answer on whether the buyer must sell first, and a lender who can close on your completion date."),
         takeaways([
@@ -686,7 +686,7 @@ post(
     "builders-new-construction",
     "A good lending partner makes your sales team's job easier. Here is what builders should expect, from first buyer meeting to closing day, and what to ask any lender.",
     "What Builder Sales Teams Should Expect From a Lender",
-    "business-owners.webp",
+    "feat-joseph-model-home-b.webp",
     body(
         lead("A builder's sales team should expect a lender to respond quickly to new buyers, give clear answers about whether a buyer can close, explain how incentives fit each loan program, plan financing around the construction schedule, and send proactive updates through closing. Just as important, a good lender protects your relationship with the buyer and never surprises your team at the closing table."),
         takeaways([
@@ -738,7 +738,7 @@ post(
     "builders-new-construction",
     "A new-construction loan has to work across months of building. Here is how rate locks, document updates, appraisals and completion fit the construction schedule.",
     "Financing on a Construction Timeline: A Builder's Guide",
-    "strategy.webp",
+    "feat-joseph-model-home-c.webp",
     body(
         lead("Financing a home that is still being built means planning around a moving date. The buyer is approved at contract, but the loan closes at completion, sometimes months later. Along the way the rate lock, the buyer's documents and the appraisal all have to line up with the build schedule. Planning those milestones at contract is the simplest way to protect the closing."),
         takeaways([
@@ -784,7 +784,7 @@ post(
     "builders-new-construction",
     "How appraisers value new construction, why incentives and comparable sales matter, and what builders can do if an appraisal comes in low.",
     "New-Construction Appraisals: What Builders Should Know",
-    "buyers.webp",
+    "feat-joseph-model-home-a.webp",
     body(
         lead("An appraisal on a new home tells the lender what the home is worth as security for the loan. For new construction, appraisers rely on recent sales of comparable homes, often in the same community, and they look closely at incentives and upgrades. If the appraisal comes in below the contract price, the buyer, builder and lender have to resolve the gap before closing, so it pays to understand how new-construction appraisals work."),
         takeaways([
@@ -820,7 +820,7 @@ post(
     "builders-new-construction",
     "Builders holding completed homes as rentals can often use DSCR loans that qualify on rent, not tax returns. Here is how it works and what lenders review.",
     "Build to Rent: Financing Completed Homes With DSCR Loans",
-    "business-owners.webp",
+    "feat-joseph-national-mall.webp",
     body(
         lead("When a builder decides to keep completed homes as rentals instead of selling them, the financing question changes from the buyer's income to the property's income. A DSCR (debt-service coverage ratio) loan qualifies primarily on whether the home's rent covers its mortgage payment, taxes, insurance and HOA dues, rather than on the builder's personal tax returns. That can make holding completed inventory a realistic option."),
         takeaways([

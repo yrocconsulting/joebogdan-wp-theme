@@ -415,7 +415,7 @@ investment = page(
 builders = page(
     sc('[jb_hero eyebrow="Builder & Developer Partnerships" title="The Lending Partner Your Buyers" accent="Deserve." '
        'lede="Responsive pre-approvals for model-home traffic, proactive communication and a loan officer who understands construction timelines - so your schedule and your reputation are in good hands." '
-       'cta="Become a Preferred Lending Partner" cta_url="#partner" image="joe-headshot.webp"]'),
+       'cta="Become a Preferred Lending Partner" cta_url="#partner" image="photo-joseph-model-home.webp" image_alt="Joseph Bogdan touring a model home at the Innovative Housing Showcase in Washington, D.C."]'),
     section(
         head("Why Builders Work With Joseph", "Built Around Your Sales and Construction Schedule."),
         cards(
@@ -427,6 +427,18 @@ builders = page(
             card("Difficult-buyer strategy", "Self-employed, jumbo and move-up buyers who need to sell first get a real plan instead of a quick “no.”"),
         ),
         tone="ivory",
+    ),
+    section(
+        split(
+            [sc('[jb_photo file="photo-joseph-national-mall.webp" alt="Joseph Bogdan on the National Mall at the Innovative Housing Showcase, with the U.S. Capitol behind him" class="photo-landscape" caption="Joseph at the Innovative Housing Showcase on the National Mall in Washington, D.C."]')],
+            [p("On the Ground", "eyebrow"),
+             h("Staying Ahead of How Homes Get Built.", 2, "section-title"),
+             p("Joseph spends time where the housing industry is heading. At the Innovative Housing Showcase on the National Mall in Washington, D.C., he toured new home designs and building approaches and talked with builders and manufacturers about what is changing in how homes are built, sold and financed."),
+             p("That perspective shapes how he works with builders: financing planned around the way you actually build, from your sales team's first buyer conversation to closing day."),
+             buttons(button("Talk With Joseph About Your Communities", "#partner"))],
+            cls="split-media-left",
+        ),
+        tone="white",
     ),
     section(
         split(
@@ -529,7 +541,7 @@ about = page(
        'cta="Ask Joseph About Your Scenario" cta_url="/contact/" image="joe-headshot.webp"]'),
     section(
         split(
-            [sc('[jb_photo file="strategy.webp" alt="Reviewing financing strategy" class="photo-landscape"]'),
+            [sc('[jb_photo file="photo-joseph-model-home-2.webp" alt="Joseph Bogdan in a model home at the Innovative Housing Showcase" class="photo-landscape" caption="Joseph touring new home designs at the Innovative Housing Showcase in Washington, D.C."]'),
              sc('[jb_video title="Meet Joseph in 90 seconds"]')],
             [p("The Business Background", "eyebrow"),
              h("Three Decades of Decisions That Prepared Him for Yours.", 2, "section-title"),

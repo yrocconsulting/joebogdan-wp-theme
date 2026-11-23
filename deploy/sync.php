@@ -189,7 +189,12 @@ update_option( 'wp_page_for_privacy_policy', $ids['privacy-policy'] ?? 0 );
 function jb_sync_theme_image( $file ) {
 	// Stock photos are shared across articles, so they are marked decorative
 	// (empty alt) until article-specific photography replaces them.
-	$alts = array();
+	$alts = array(
+		'feat-joseph-model-home-a.webp'  => 'Joseph Bogdan touring a model home at the Innovative Housing Showcase in Washington, D.C.',
+		'feat-joseph-model-home-b.webp'  => 'Joseph Bogdan in a model home kitchen at the Innovative Housing Showcase',
+		'feat-joseph-model-home-c.webp'  => 'Joseph Bogdan talking with exhibitors inside a showcase home in Washington, D.C.',
+		'feat-joseph-national-mall.webp' => 'Joseph Bogdan on the National Mall at the Innovative Housing Showcase, with the U.S. Capitol behind him',
+	);
 	$existing = get_posts( array( 'post_type' => 'attachment', 'meta_key' => '_jb_source_file', 'meta_value' => $file, 'numberposts' => 1, 'fields' => 'ids' ) );
 	if ( $existing ) {
 		update_post_meta( $existing[0], '_wp_attachment_image_alt', $alts[ $file ] ?? '' );
@@ -280,9 +285,13 @@ foreach ( $manifest['posts'] ?? array() as $spec ) {
 	update_post_meta( $id, '_jb_seo_title', $spec['seo_title'] );
 	update_post_meta( $id, '_jb_seo_description', $spec['seo_description'] );
 	if ( ! empty( $spec['image'] ) ) {
-		$img = jb_sync_theme_image( $spec['image'] );
-		if ( $img && ! has_post_thumbnail( $id ) ) {
+		$img     = jb_sync_theme_image( $spec['image'] );
+		$current = (int) get_post_thumbnail_id( $id );
+		// Replace only images the deploy set itself; a featured image chosen in WordPress stays.
+		$ours    = ! $current || get_post_meta( $current, '_jb_source_file', true );
+		if ( $img && $ours && $current !== (int) $img ) {
 			set_post_thumbnail( $id, $img );
+			jb_sync_log( "     post $slug featured image -> {$spec['image']}" );
 		}
 	}
 }
