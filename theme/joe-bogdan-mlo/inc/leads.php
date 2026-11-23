@@ -139,6 +139,26 @@ function jb_forms() {
 				jb_contact_step( 'Where should Joseph send your options?' ),
 			),
 		),
+		'construction'      => array(
+			'label'   => 'Construction, Lot & Land Scenario',
+			'heading' => 'Start Your Construction or Land Scenario',
+			'submit'  => 'Send My Scenario',
+			'steps'   => array(
+				array(
+					'title'  => 'Your project',
+					'fields' => array(
+						array( 'project_type', 'What are you planning?', 'chips', array( 'Build on land I own', 'Buy a lot and build', 'Buy a lot or land only', 'Developer / multiple homes', 'Build to rent' ), true ),
+						array( 'land_status', 'Land status', 'select', array( 'I own it', 'Under contract', 'Still looking', 'Not applicable' ), false, 'half' ),
+						array( 'builder_status', 'Builder chosen?', 'select', array( 'Yes', 'Talking with builders', 'Not yet', 'I am the builder' ), false, 'half' ),
+						array( 'land_value', 'Land price or value', 'currency', null, false, 'half' ),
+						array( 'price_target', 'Estimated build cost', 'currency', null, false, 'half' ),
+						array( 'timeline', 'When do you want to start?', 'chips', array( 'Within 3 months', '3-6 months', '6-12 months', 'Just exploring' ), false ),
+						array( 'notes', 'Location and anything else', 'textarea', null, false, null, null, 'e.g. county or community, acreage, utilities, number of homes' ),
+					),
+				),
+				jb_contact_step( 'Where should Joseph send your options?' ),
+			),
+		),
 		'realtor-scenario'  => array(
 			'label'   => 'Realtor Client Scenario',
 			'heading' => 'Run a Financing Scenario for My Client',
@@ -204,7 +224,7 @@ function jb_forms() {
 				array(
 					'title'  => 'Your question',
 					'fields' => array(
-						array( 'topic', 'I’m asking about…', 'select', array( 'Buying a home', 'Refinancing or using equity', 'Jumbo / luxury financing', 'Self-employed or business owner', 'Investment property', 'I’m a Realtor', 'I’m a builder / developer', 'Something else' ), true ),
+						array( 'topic', 'I’m asking about…', 'select', array( 'Buying a home', 'Refinancing or using equity', 'Jumbo / luxury financing', 'Self-employed or business owner', 'Investment property', 'Construction, lot or land loan', 'I’m a Realtor', 'I’m a builder / developer', 'Something else' ), true ),
 						array( 'notes', 'Your scenario or question', 'textarea', null, true ),
 						array( 'first_name', 'First name', 'text', null, true, 'half', 'given-name' ),
 						array( 'last_name', 'Last name', 'text', null, true, 'half', 'family-name' ),

@@ -22,13 +22,32 @@ Avoid duplicating these topics; link to them where relevant.
 | Builders & New Construction | Financing on a Construction Timeline: What Builders Should Plan For | https://josephbogdan.com/financing-on-a-construction-timeline/ |
 | Builders & New Construction | New-Construction Appraisals: What Builders and Buyers Should Know | https://josephbogdan.com/new-construction-appraisals-what-builders-should-know/ |
 | Builders & New Construction | Build to Sell or Hold? Financing Completed Homes as Rentals With DSCR | https://josephbogdan.com/build-to-rent-holding-completed-homes-dscr/ |
+| Construction & Land Loans | One-Time-Close Construction Loans Explained | https://josephbogdan.com/one-time-close-construction-loans-explained/ |
+| Construction & Land Loans | One-Time Close vs. Two-Time Close Construction Loans | https://josephbogdan.com/one-time-close-vs-two-time-close-construction-loans/ |
+| Construction & Land Loans | Building a Home on Land You Already Own | https://josephbogdan.com/building-a-home-on-land-you-already-own/ |
+| Construction & Land Loans | Lot and Land Loans in Texas: What to Know First | https://josephbogdan.com/lot-and-land-loans-texas-what-to-know/ |
+| Construction & Land Loans | How Construction Loan Draws, Budgets and Inspections Work | https://josephbogdan.com/construction-loan-draws-budget-inspections/ |
+| Construction & Land Loans | What Lenders Look for When Approving Your Builder | https://josephbogdan.com/choosing-a-builder-for-a-construction-loan/ |
+| Builders & New Construction | Forward Commitments Explained for Home Builders | https://josephbogdan.com/forward-commitments-explained-for-builders/ |
+| Builders & New Construction | Forward Commitment vs. Buydown vs. Price Cut | https://josephbogdan.com/forward-commitment-vs-buydown-vs-price-cut/ |
+| Builders & New Construction | Financing a New Community: What Developers Should Plan | https://josephbogdan.com/financing-a-new-community-what-developers-should-plan/ |
 
 ## Builder resource pages
 - Builder Financing FAQ: https://josephbogdan.com/builders-developers/builder-financing-faq/
 - Buyer Pre-Approval Checklist: https://josephbogdan.com/builders-developers/buyer-pre-approval-checklist/
 - Contract-to-Close Timeline: https://josephbogdan.com/builders-developers/contract-to-close-timeline/
+- Forward Commitments: https://josephbogdan.com/builders-developers/forward-commitments/
+- Developer & Build-to-Rent Financing: https://josephbogdan.com/builders-developers/developer-financing/
+
+## Service pages added
+- Construction Loans: https://josephbogdan.com/loan-programs/construction-loans/
+- Lot & Land Loans: https://josephbogdan.com/loan-programs/lot-land-loans/
 
 ## Topic ideas not yet covered
+- FHA/VA/USDA one-time-close construction (confirm program availability with Joseph first)
+- Barndominiums and alternative construction: what lenders will finance
+- Construction loan timeline for a custom home in North Texas
+- Builder spec-home inventory: when a forward commitment pays off
 - First-time homebuyer guide for North Texas
 - Down payment assistance in Texas: how it works
 - FHA vs. conventional: which fits your situation

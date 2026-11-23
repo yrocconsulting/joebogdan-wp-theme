@@ -309,6 +309,62 @@
       "old_slugs": [],
       "menu_order": 3,
       "excerpt": ""
+    },
+    {
+      "slug": "construction-loans",
+      "title": "Construction Loans",
+      "parent": "loan-programs",
+      "template": "page-templates/landing.php",
+      "file": "pages/construction-loans.html",
+      "seo_title": "One-Time Close Construction Loans in Texas | Joseph Bogdan",
+      "seo_description": "Finance the lot, the build and your mortgage with one closing. Joseph Bogdan explains construction-to-permanent loans for North Texas custom homes.",
+      "service": "Construction-to-permanent (one-time close) construction loan",
+      "audience": "Buyers building a custom or new home",
+      "old_slugs": [],
+      "menu_order": 6,
+      "excerpt": ""
+    },
+    {
+      "slug": "lot-land-loans",
+      "title": "Lot & Land Loans",
+      "parent": "loan-programs",
+      "template": "page-templates/landing.php",
+      "file": "pages/lot-land-loans.html",
+      "seo_title": "Lot & Land Loans in North Texas | Joseph Bogdan",
+      "seo_description": "Buying a residential lot or acreage to build on? Learn how lot and land loans work in Texas and what lenders check before you sign a land contract.",
+      "service": "Lot and land loan",
+      "audience": "Buyers purchasing a residential lot or land to build on",
+      "old_slugs": [],
+      "menu_order": 7,
+      "excerpt": ""
+    },
+    {
+      "slug": "forward-commitments",
+      "title": "Forward Commitments for Builders",
+      "parent": "builders-developers",
+      "template": "page-templates/landing.php",
+      "file": "pages/forward-commitments.html",
+      "seo_title": "Builder Forward Commitments: Rate Programs for Buyers",
+      "seo_description": "How builder forward commitments reserve a mortgage rate for buyers closing in a set window, what they cost, and when they beat buydowns or price cuts.",
+      "service": "Builder forward commitment rate program",
+      "audience": "Home builders and their sales teams",
+      "old_slugs": [],
+      "menu_order": 4,
+      "excerpt": ""
+    },
+    {
+      "slug": "developer-financing",
+      "title": "Developer & Build-to-Rent Financing",
+      "parent": "builders-developers",
+      "template": "page-templates/landing.php",
+      "file": "pages/developer-financing.html",
+      "seo_title": "Developer & Build-to-Rent Financing in DFW | Joseph Bogdan",
+      "seo_description": "Lot, construction, end-buyer and build-to-rent financing plans for North Texas developers. Request a project review with Joseph Bogdan.",
+      "service": "Developer and build-to-rent financing",
+      "audience": "Residential developers and build-to-rent operators",
+      "old_slugs": [],
+      "menu_order": 5,
+      "excerpt": ""
     }
   ],
   "menus": {
@@ -317,6 +373,14 @@
         "title": "Builders & Developers",
         "page": "builders-developers",
         "children": [
+          {
+            "title": "Forward Commitments",
+            "page": "forward-commitments"
+          },
+          {
+            "title": "Developer & Build-to-Rent",
+            "page": "developer-financing"
+          },
           {
             "title": "Builder Financing FAQ",
             "page": "builder-financing-faq"
@@ -354,6 +418,14 @@
           {
             "title": "Investment Property",
             "page": "investment-property"
+          },
+          {
+            "title": "Construction Loans",
+            "page": "construction-loans"
+          },
+          {
+            "title": "Lot & Land Loans",
+            "page": "lot-land-loans"
           }
         ]
       },
@@ -478,6 +550,11 @@
       "slug": "real-estate-investing",
       "name": "Real Estate Investing",
       "description": "Financing rental and investment property in Texas: DSCR loans, conventional investor loans, cash-out strategies and growing a portfolio."
+    },
+    {
+      "slug": "construction-land",
+      "name": "Construction & Land Loans",
+      "description": "How one-time-close construction loans, lot and land loans and draw schedules work for North Texas buyers building a custom home."
     },
     {
       "slug": "builders-new-construction",
@@ -667,6 +744,96 @@
       "seo_description": "Builders holding completed homes as rentals can often use DSCR loans that qualify on rent, not tax returns. Here is how it works and what lenders review.",
       "image": "feat-joseph-national-mall.webp",
       "file": "posts/build-to-rent-holding-completed-homes-dscr.html"
+    },
+    {
+      "slug": "one-time-close-construction-loans-explained",
+      "title": "One-Time-Close Construction Loans Explained",
+      "category": "construction-land",
+      "excerpt": "A one-time-close construction loan funds your custom home and becomes your mortgage when it is finished, with one approval and one closing. Here is how it works.",
+      "seo_title": "One-Time-Close Construction Loans Explained | Joseph Bogdan",
+      "seo_description": "A one-time-close construction loan funds your custom home and becomes your mortgage when it is finished, with one approval and one closing. Here is how it works.",
+      "image": "feat-joseph-model-home-a.webp",
+      "file": "posts/one-time-close-construction-loans-explained.html"
+    },
+    {
+      "slug": "one-time-close-vs-two-time-close-construction-loans",
+      "title": "One-Time Close vs. Two-Time Close Construction Loans",
+      "category": "construction-land",
+      "excerpt": "Should you finance a custom home with one loan or two? Compare one-time and two-time close construction loans on cost, risk, flexibility and qualifying.",
+      "seo_title": "One-Time Close vs. Two-Time Close Construction Loans",
+      "seo_description": "Should you finance a custom home with one loan or two? Compare one-time and two-time close construction loans on cost, risk, flexibility and qualifying.",
+      "image": "feat-joseph-model-home-b.webp",
+      "file": "posts/one-time-close-vs-two-time-close-construction-loans.html"
+    },
+    {
+      "slug": "building-a-home-on-land-you-already-own",
+      "title": "Building a Home on Land You Already Own",
+      "category": "construction-land",
+      "excerpt": "Already own a lot or acreage? Your land equity can often count toward a construction loan down payment. Here is how lenders value it and what to prepare.",
+      "seo_title": "Building a Home on Land You Already Own | Joseph Bogdan",
+      "seo_description": "Already own a lot or acreage? Your land equity can often count toward a construction loan down payment. Here is how lenders value it and what to prepare.",
+      "image": "feat-joseph-national-mall.webp",
+      "file": "posts/building-a-home-on-land-you-already-own.html"
+    },
+    {
+      "slug": "lot-and-land-loans-texas-what-to-know",
+      "title": "Lot and Land Loans in Texas: What to Know First",
+      "category": "construction-land",
+      "excerpt": "How lot and land loans work in Texas: improved vs. raw land, what lenders check, how land loans differ from home loans and how to plan for building later.",
+      "seo_title": "Lot and Land Loans in Texas: What to Know First",
+      "seo_description": "How lot and land loans work in Texas: improved vs. raw land, what lenders check, how land loans differ from home loans and how to plan for building later.",
+      "image": "strategy.webp",
+      "file": "posts/lot-and-land-loans-texas-what-to-know.html"
+    },
+    {
+      "slug": "construction-loan-draws-budget-inspections",
+      "title": "How Construction Loan Draws, Budgets and Inspections Work",
+      "category": "construction-land",
+      "excerpt": "How builders get paid on a construction loan: draw schedules, inspections, lien waivers, contingencies and how to keep a custom build on budget and on time.",
+      "seo_title": "How Construction Loan Draws and Inspections Work",
+      "seo_description": "How builders get paid on a construction loan: draw schedules, inspections, lien waivers, contingencies and how to keep a custom build on budget and on time.",
+      "image": "feat-joseph-model-home-c.webp",
+      "file": "posts/construction-loan-draws-budget-inspections.html"
+    },
+    {
+      "slug": "choosing-a-builder-for-a-construction-loan",
+      "title": "What Lenders Look for When Approving Your Builder",
+      "category": "construction-land",
+      "excerpt": "Your builder must be approved before a construction loan closes. Here is what lenders review, how long it takes and how to keep builder approval from delaying you.",
+      "seo_title": "What Lenders Look for When Approving Your Builder",
+      "seo_description": "Your builder must be approved before a construction loan closes. Here is what lenders review, how long it takes and how to keep builder approval from delaying you.",
+      "image": "feat-joseph-model-home-a.webp",
+      "file": "posts/choosing-a-builder-for-a-construction-loan.html"
+    },
+    {
+      "slug": "forward-commitments-explained-for-builders",
+      "title": "Forward Commitments Explained for Home Builders",
+      "category": "builders-new-construction",
+      "excerpt": "A forward commitment reserves a mortgage rate for buyers closing in a set window. How builder forward commitments work, what they cost and when they pay off.",
+      "seo_title": "Forward Commitments Explained for Home Builders",
+      "seo_description": "A forward commitment reserves a mortgage rate for buyers closing in a set window. How builder forward commitments work, what they cost and when they pay off.",
+      "image": "feat-joseph-model-home-b.webp",
+      "file": "posts/forward-commitments-explained-for-builders.html"
+    },
+    {
+      "slug": "forward-commitment-vs-buydown-vs-price-cut",
+      "title": "Forward Commitment vs. Buydown vs. Price Cut",
+      "category": "builders-new-construction",
+      "excerpt": "Three ways builders spend incentive dollars: forward commitments, buyer-specific buydowns and price cuts. Compare cost, flexibility, risk and impact on buyers.",
+      "seo_title": "Forward Commitment vs. Buydown vs. Price Cut for Builders",
+      "seo_description": "Three ways builders spend incentive dollars: forward commitments, buyer-specific buydowns and price cuts. Compare cost, flexibility, risk and impact on buyers.",
+      "image": "feat-joseph-model-home-c.webp",
+      "file": "posts/forward-commitment-vs-buydown-vs-price-cut.html"
+    },
+    {
+      "slug": "financing-a-new-community-what-developers-should-plan",
+      "title": "Financing a New Community: What Developers Should Plan",
+      "category": "builders-new-construction",
+      "excerpt": "How end-buyer financing affects a new community's pricing, absorption and appraisals, and what developers should plan with a lender before phase one opens.",
+      "seo_title": "Financing a New Community: What Developers Should Plan",
+      "seo_description": "How end-buyer financing affects a new community's pricing, absorption and appraisals, and what developers should plan with a lender before phase one opens.",
+      "image": "feat-joseph-national-mall.webp",
+      "file": "posts/financing-a-new-community-what-developers-should-plan.html"
     }
   ]
 }

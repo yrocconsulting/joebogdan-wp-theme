@@ -200,6 +200,10 @@ function jb_pillars() {
 			'name' => 'Real Estate Investing',
 			'cta'  => array( 'Running numbers on a property?', 'Send Joseph the scenario and get your financing options.', '/loan-programs/investment-property/#investor-scenario', 'Run an Investor Scenario' ),
 		),
+		'construction-land'      => array(
+			'name' => 'Construction & Land Loans',
+			'cta'  => array( 'Planning to build?', 'Tell Joseph about your land, budget and timeline and get the construction financing paths that fit.', '/loan-programs/construction-loans/#construction-scenario', 'Start My Construction Scenario' ),
+		),
 		'builders-new-construction' => array(
 			'name' => 'Builders & New Construction',
 			'cta'  => array( 'Building in North Texas?', 'Make Joseph your preferred lender and give your buyers a predictable path from contract to keys.', '/builders-developers/#partner', 'Become a Preferred Lending Partner' ),

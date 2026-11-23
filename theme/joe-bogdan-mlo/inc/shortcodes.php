@@ -120,7 +120,7 @@ add_shortcode( 'jb_intent', function ( $atts ) {
 					</a>
 				<?php endforeach; ?>
 			</div>
-			<p class="intent-partners">Real estate professional? <a href="<?php echo esc_url( home_url( '/realtor-partners/' ) ); ?>">Realtor partners</a> · <a href="<?php echo esc_url( home_url( '/builders-developers/' ) ); ?>">Builders &amp; developers</a></p>
+			<p class="intent-partners">Building a home? <a href="<?php echo esc_url( home_url( '/loan-programs/construction-loans/' ) ); ?>">Construction &amp; land loans</a> · Real estate professional? <a href="<?php echo esc_url( home_url( '/realtor-partners/' ) ); ?>">Realtor partners</a> · <a href="<?php echo esc_url( home_url( '/builders-developers/' ) ); ?>">Builders &amp; developers</a></p>
 		</div>
 	</section>
 	<?php

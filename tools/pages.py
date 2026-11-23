@@ -180,6 +180,8 @@ programs = page(
             card("“How do I finance a high-value home well?”", "Jumbo purchases and refinances, ranches, acreage and second homes.", ("Jumbo & Luxury Financing", "/loan-programs/jumbo-luxury-financing/")),
             card("“Can I qualify if I’m self-employed?”", "Bank-statement, 1099 and asset-based options for business owners and entrepreneurs.", ("Self-Employed & Business Owners", "/loan-programs/self-employed-business-owners/")),
             card("“What are my options for a rental property?”", "DSCR, conventional investor and multi-unit financing for growing a portfolio.", ("Investment Property", "/loan-programs/investment-property/")),
+            card("“Can I finance building a custom home?”", "One-time-close construction loans that cover the lot, the build and your permanent mortgage.", ("Construction Loans", "/loan-programs/construction-loans/")),
+            card("“I found a lot. Can I finance it?”", "Lot and land loans for buyers who want to secure land now and build when ready.", ("Lot & Land Loans", "/loan-programs/lot-land-loans/")),
             card("“My situation is complicated.”", "Recent job change, credit event, divorce, trust-held assets - tell Joseph the details and get a straight answer.", ("Ask Joseph About Your Scenario", "/contact/")),
         ),
         tone="ivory",
@@ -199,6 +201,8 @@ programs = page(
             "<strong>Bank-statement &amp; 1099</strong> - qualify using business or personal deposits instead of tax returns",
             "<strong>DSCR</strong> - investor loans that qualify on the property’s rental income",
             "<strong>New construction</strong> - financing coordinated with your builder’s timeline",
+            "<strong>Construction-to-permanent</strong> - one-time-close loans for custom and to-be-built homes",
+            "<strong>Lot &amp; land</strong> - financing for residential lots and land you plan to build on",
         ], "check-list check-list-columns"),
         p("Program availability, rates and terms depend on your full financial picture and are subject to credit approval and change.", "fine-print"),
         tone="white",
@@ -472,6 +476,16 @@ builders = page(
         ),
         tone="ivory",
     ),
+    section(
+        head("Financing Programs for Builders and Developers", "More Ways to Help Your Buyers Close",
+             "Beyond responsive buyer financing, Joseph helps builders and developers use rate programs, construction loans and rental strategies."),
+        cards(
+            card("Forward Commitments", "Reserve a rate for buyers closing in a set window and give payment-sensitive buyers a reason to choose new construction.", ("How forward commitments work", "/builders-developers/forward-commitments/")),
+            card("Construction-to-Permanent Loans", "For buyers building on their own lot or a lot in your community: one approval and one closing, with draws coordinated with your team.", ("Construction loans", "/loan-programs/construction-loans/")),
+            card("Developer &amp; Build-to-Rent", "Lot financing, end-buyer plans by phase and DSCR loans for completed homes you keep as rentals.", ("Developer financing", "/builders-developers/developer-financing/")),
+        ),
+        tone="white",
+    ),
     sc('[jb_latest count="3" category="builders-new-construction" title="Insights for Builders"]'),
     faq("Questions From Builders", [
         ("Do our buyers have to use Joseph as their lender?",
@@ -723,7 +737,8 @@ builder_faq = page(
     ], eyebrow="Builder FAQ"),
     faq("Construction Timelines and Closing", [
         ("When should a buyer lock their rate on new construction?", "It depends on the build schedule and the program. Extended locks are available on many programs, usually at extra cost, or the buyer can lock closer to completion. Joseph explains the trade-offs to each buyer."),
-        ("Can a buyer close before the home is complete?", "Generally no. Lenders typically require the home to be complete, with final inspection or occupancy approval, before a standard purchase loan closes."),
+        ("Can a buyer close before the home is complete?", "With a standard purchase loan, generally no: the home must be complete, with final inspection or occupancy approval. With a <a href=\"/loan-programs/construction-loans/\">construction-to-permanent loan</a>, the buyer closes before construction and the builder is paid in draws."),
+        ("What is a forward commitment?", "A builder pays a fee to reserve a pool of mortgage money at a set rate for buyers who close within a window. See <a href=\"/builders-developers/forward-commitments/\">forward commitments for builders</a>."),
         ("Why do new-construction closings get delayed?", "The usual causes are expired documents, rate locks that run out, late completion paperwork, appraisal questions and buyer changes during the build. See <a href=\"/why-new-construction-closings-slip/\">why closings slip</a>."),
         ("How do appraisals work on new construction?", "Appraisers compare recent sales of similar homes, often in your community, and consider upgrades and concessions. Appraisals can be done from plans with a completion inspection later."),
         ("Can builders finance completed homes they keep as rentals?", "Often, with DSCR loans that qualify on the home's rent rather than personal tax returns. See <a href=\"/build-to-rent-holding-completed-homes-dscr/\">build to sell or hold</a>."),
@@ -799,6 +814,241 @@ builder_timeline = page(
         narrow=True,
     ),
     BUILDER_PARTNER_CTA,
+)
+
+# ---------------------------------------------------------------------------
+# Construction, land, forward commitments and developer financing
+# ---------------------------------------------------------------------------
+CONSTRUCTION_FORM = "/loan-programs/construction-loans/#construction-scenario"
+
+construction = page(
+    sc('[jb_hero eyebrow="Construction Loans" title="Build the Home, Close" accent="Once." '
+       'lede="Planning a custom home in North Texas? A one-time-close construction loan finances the land, the build and your permanent mortgage with one application and one closing - and Joseph keeps the lender, builder and title company moving on the same schedule." '
+       'cta="Start My Construction Scenario" cta_url="#construction-scenario" image="photo-joseph-model-home-2.webp" image_alt="Joseph Bogdan inside a new model home"]'),
+    section(
+        head("Before You Break Ground", "The Questions Every Custom-Home Buyer Asks."),
+        cards(
+            card("“Can I finance the land and the build together?”", "Often, yes. A construction-to-permanent loan can cover buying the lot, building the home and the long-term mortgage in a single loan."),
+            card("“What if I already own my lot?”", "Equity in land you own can often count toward your down payment, which can reduce the cash you need at closing."),
+            card("“Do I have to qualify twice?”", "Not with a one-time close. You qualify and close once, before construction starts, instead of re-qualifying when the home is finished."),
+            card("“How does my builder get paid?”", "Funds are released in stages, called draws, as construction milestones are inspected and approved."),
+            card("“What happens if the build runs over?”", "Budgets include a contingency for a reason. Joseph helps you plan for overruns and delays before they happen, not after."),
+            card("“Can I use any builder?”", "Your builder has to be reviewed and approved by the lender. Joseph starts that review early so it never holds up your closing."),
+        ),
+        tone="ivory",
+    ),
+    section(
+        split(
+            [p("How It Works", "eyebrow"),
+             h("One Loan From Lot to Keys.", 2, "section-title"),
+             p("A one-time-close loan (also called construction-to-permanent) combines short-term construction financing and your long-term mortgage. You sign once. During construction, the loan pays your builder in draws. When the home is complete, the loan becomes your regular mortgage without a second closing."),
+             p("Read the full guide: <a href=\"/one-time-close-construction-loans-explained/\">one-time-close construction loans explained</a>.")],
+            [ol([
+                "<strong>Plan</strong> - budget, land, builder and timeline reviewed with Joseph",
+                "<strong>Approve the builder</strong> - the lender reviews your builder's experience, insurance and references",
+                "<strong>Plans and appraisal</strong> - the home is appraised from plans and specifications, as if complete",
+                "<strong>Close once</strong> - before construction starts, including the lot purchase if needed",
+                "<strong>Build with draws</strong> - funds released after inspections at each stage",
+                "<strong>Complete and convert</strong> - final inspection, then the loan becomes your permanent mortgage",
+            ], "check-list check-list-card")],
+        ),
+        tone="white",
+    ),
+    section(
+        head("Choosing a Path", "One-Time Close or Two-Time Close?", center=False),
+        p("A <strong>one-time close</strong> means one approval, one set of closing costs and no re-qualifying at the end. A <strong>two-time close</strong> uses a separate short-term construction loan and then a new mortgage when the home is finished: two closings and two approvals, but more flexibility to shop the permanent loan. The right choice depends on your timeline, your cash and how stable your income will be through the build."),
+        p("Compare them side by side: <a href=\"/one-time-close-vs-two-time-close-construction-loans/\">one-time close vs. two-time close</a>. Building on land you already own? See <a href=\"/building-a-home-on-land-you-already-own/\">building on your own lot</a>."),
+        tone="ivory",
+        narrow=True,
+    ),
+    form_section(
+        "Construction Scenario",
+        "Tell Joseph About Your Build.",
+        "Land, budget and timeline are enough to start. Joseph will reply with the financing paths that fit and what each one needs from you and your builder. No credit pull to start.",
+        ["One-time vs. two-time close comparison", "How your land equity can be used", "Builder approval and draw planning"],
+        "construction",
+        id="construction-scenario",
+    ),
+    faq("Construction Loan Questions", [
+        ("What is a one-time-close construction loan?",
+         "It is a single loan that funds construction of a new home and then converts to a permanent mortgage when the home is complete. You apply, qualify and close once, before construction begins."),
+        ("Do I make payments during construction?",
+         "Usually, payments during construction are based on the amount drawn so far, so they start small and grow as the build progresses. The exact structure depends on the program, and Joseph will walk you through it before you commit."),
+        ("Can the loan include the cost of the lot?",
+         "Often, yes. If you are buying the lot, it can typically be purchased at the same closing. If you already own it, your equity in the land may count toward the down payment."),
+        ("Does Texas have special rules for building a home?",
+         "Texas has specific requirements for construction contracts and liens, especially when the property is or will be your homestead. The lender and title company handle these requirements, which is one reason to work with a loan officer experienced with Texas construction."),
+        ("How long can construction take?",
+         "Programs set a maximum construction period. Joseph will confirm the window for your program and plan it against your builder's realistic schedule, with room for weather and inspections."),
+        FAQ_CREDIT_PULL,
+    ]),
+    p("Construction financing is subject to credit approval, builder approval, property eligibility and program guidelines. Terms and availability may change.", "fine-print section-fine-print"),
+)
+
+lot_land = page(
+    sc('[jb_hero eyebrow="Lot & Land Loans" title="Buy the Land Now. Build When You’re" accent="Ready." '
+       'lede="Whether it is a lot in a new community or acreage outside town, land financing works differently from a home loan. Joseph helps you understand what lenders look for before you sign a contract on land." '
+       'cta="Ask About a Lot or Land Purchase" cta_url="#construction-scenario" image="photo-joseph-national-mall.webp" image_alt="Joseph Bogdan at the Innovative Housing Showcase in Washington, D.C."]'),
+    section(
+        head("What Lenders Look At", "Not All Land Is Financed the Same Way."),
+        cards(
+            card("Improved vs. raw land", "A lot with road access and utilities in place is generally easier to finance than raw land without them."),
+            card("Utilities and access", "Water or well, sewer or septic, electricity and legal road access all affect whether and how land can be financed."),
+            card("Survey, flood and restrictions", "Surveys, flood zones, zoning, deed restrictions and HOA rules can limit what you can build, so they are checked early."),
+            card("Your build plans", "Buying a lot you plan to build on soon can open different options than land you plan to hold for years."),
+            card("Texas taxes on land", "MUD, PID and county taxes on land, and what they become once a home is built, belong in your budget from day one."),
+            card("Down payment and terms", "Land loans usually require more money down and have different terms than a home mortgage. Joseph will show you what applies to your purchase."),
+        ),
+        tone="ivory",
+    ),
+    section(
+        split(
+            [p("Two Ways to Approach It", "eyebrow"),
+             h("Buy the Lot First, or Finance It With the Build?", 2, "section-title")],
+            [ul([
+                "<strong>Lot loan now, construction loan later</strong> - secure the land you want, then use your equity in it toward the construction loan when you are ready to build",
+                "<strong>Lot and build together</strong> - a construction-to-permanent loan can include the lot purchase at the same closing, so there is only one loan",
+                "<strong>Cash for the lot</strong> - some buyers pay cash for land and use its value toward the construction loan's down payment",
+            ], "check-list check-list-card"),
+             p("Related: <a href=\"/loan-programs/construction-loans/\">construction loans</a> and <a href=\"/lot-and-land-loans-texas-what-to-know/\">lot and land loans in Texas: what to know first</a>.")],
+        ),
+        tone="white",
+    ),
+    form_section(
+        "Lot &amp; Land Scenario",
+        "Found a Lot or Acreage? Send Joseph the Details.",
+        "Share the price, location and what you plan to build. Joseph will tell you what the lender will need to see and which path fits.",
+        ["Whether the land is likely financeable as-is", "Lot loan vs. lot-plus-construction", "What to check before you sign"],
+        "construction",
+        id="construction-scenario",
+    ),
+    faq("Lot and Land Loan Questions", [
+        ("Can I get a loan to buy a residential lot?",
+         "Often, yes. Lot loans are available for many residential lots, especially improved lots with utilities and road access. Eligibility depends on the property, your credit and your plans for building."),
+        ("Is it harder to finance raw land?",
+         "Usually. Raw land without utilities or access carries more risk for a lender, so options are more limited and requirements are stricter. Joseph will tell you plainly what is realistic."),
+        ("Can I use my land as a down payment on a construction loan?",
+         "In many cases, equity in land you own can be applied toward the down payment on a construction-to-permanent loan. How much counts depends on the land's appraised value and what you owe on it."),
+        ("What should I check before buying land in Texas?",
+         "Confirm utilities, road access, the survey, flood zone, deed restrictions, HOA rules and the full tax picture, including any MUD or PID. A title commitment will show easements and other issues."),
+        FAQ_CREDIT_PULL,
+    ]),
+    p("Lot and land financing is subject to credit approval, property eligibility and program guidelines. Terms and availability may change.", "fine-print section-fine-print"),
+)
+
+forward_commitments = page(
+    sc('[jb_hero eyebrow="Builder Rate Programs" title="Forward Commitments That Move" accent="Inventory." '
+       'lede="A forward commitment lets a builder reserve mortgage money at a set rate for buyers who close within a window. Used well, it can do more for payment-sensitive buyers than the same dollars spent on price cuts." '
+       'cta="Plan a Forward Commitment" cta_url="#partner" image="photo-joseph-model-home.webp" image_alt="Joseph Bogdan touring a model home at the Innovative Housing Showcase in Washington, D.C."]'),
+    section(
+        head("How It Works", "Reserve the Rate Once, Use It for Many Buyers."),
+        cards(
+            card("1. Size the pool", "Estimate how many homes will close in the window and the total loan volume you want to cover."),
+            card("2. Pay the commitment fee", "The builder pays a fee to reserve that pool of money at an agreed rate for a set period."),
+            card("3. Buyers qualify and close", "Eligible buyers who qualify and close within the window receive the committed rate."),
+            card("4. Track usage", "Joseph tracks which buyers are using the commitment so your team knows what remains and when it expires."),
+        ),
+        tone="ivory",
+    ),
+    section(
+        split(
+            [p("When It Fits", "eyebrow"),
+             h("Is a Forward Commitment Right for Your Communities?", 2, "section-title"),
+             p("Forward commitments work best when you have homes completing on a predictable schedule and buyers who care most about the monthly payment. They are less useful when completion dates are uncertain or when only one or two homes need help.")],
+            [ul([
+                "<strong>Good fit:</strong> a steady pipeline of homes completing in the same window",
+                "<strong>Good fit:</strong> payment-sensitive buyers comparing new homes with resale",
+                "<strong>Plan carefully:</strong> long or uncertain build schedules that may miss the window",
+                "<strong>Compare first:</strong> for a single home, a buyer-specific buydown may cost less",
+            ], "check-list check-list-card")],
+        ),
+        tone="white",
+    ),
+    section(
+        head("Know the Trade-Offs", "What Builders Should Ask Before Committing", center=False),
+        ul([
+            "What happens to the fee if fewer buyers use the commitment than planned?",
+            "Which loan programs and occupancy types are eligible?",
+            "How is the cost counted against each buyer's seller-concession limit?",
+            "Can the commitment be extended if construction runs late, and at what cost?",
+            "How will rate-based advertising be reviewed for Truth in Lending compliance?",
+        ], "check-list"),
+        p("Compare the options: <a href=\"/forward-commitments-explained-for-builders/\">forward commitments explained</a> and <a href=\"/forward-commitment-vs-buydown-vs-price-cut/\">forward commitment vs. buydown vs. price cut</a>. Concession limits by loan type: <a href=\"/builder-incentive-limits-seller-concessions/\">seller-concession limits</a>."),
+        tone="ivory",
+        narrow=True,
+    ),
+    form_section(
+        "Builder Rate Programs",
+        "Let’s Model a Forward Commitment for Your Communities.",
+        "Share your pipeline and price range. Joseph will review whether a forward commitment, individual buydowns or another incentive gives your buyers the most for your budget.",
+        ["Pool size and timing against your build schedule", "Cost comparison with buydowns and price cuts", "Concession-limit and advertising checks"],
+        "builder",
+        id="partner",
+    ),
+    faq("Forward Commitment Questions", [
+        ("What is a forward commitment in mortgage lending?",
+         "It is an agreement in which a builder pays a fee to reserve a pool of mortgage money at a set interest rate for a period of time. Buyers who qualify and close within that period can use the committed rate."),
+        ("Is a forward commitment the same as a rate buydown?",
+         "No. A buydown is paid for one buyer's loan. A forward commitment reserves a rate for a group of future loans. Both use builder dollars to lower buyers' rates, but they differ in cost, risk and flexibility."),
+        ("Do buyers have to use the builder's lender to get the committed rate?",
+         "The committed rate is available through the lender that issued the commitment. Buyers remain free to choose any lender, and arrangements should be reviewed for RESPA compliance."),
+        ("Can we advertise the committed rate?",
+         "You can, but advertising a rate or payment triggers federal Truth in Lending disclosure requirements. Have rate-based advertising reviewed before it runs."),
+    ], eyebrow="For Builders"),
+    p("Forward commitment availability, terms and costs depend on market conditions and program guidelines and may change. Buyers are subject to credit approval. Builders and lenders must comply with RESPA; buyers are always free to choose their own lender.", "fine-print section-fine-print"),
+)
+
+developer = page(
+    sc('[jb_hero eyebrow="Developer Financing" title="Financing Plans for the Whole" accent="Project." '
+       'lede="From lots to finished homes to rentals you keep, developers need a lender who thinks about the whole project. Joseph helps developers plan lot financing, end-buyer financing and build-to-rent strategies that support the way the project actually sells." '
+       'cta="Review My Project" cta_url="#construction-scenario" image="photo-joseph-national-mall.webp" image_alt="Joseph Bogdan on the National Mall at the Innovative Housing Showcase"]'),
+    section(
+        head("Where Joseph Helps", "Financing Built Around How the Project Sells."),
+        cards(
+            card("Lot sales to buyers", "Lot and construction-to-permanent loans help buyers purchase a lot in your community and build with an approved builder.", ("Lot &amp; land loans", "/loan-programs/lot-land-loans/")),
+            card("End-buyer financing", "Preferred-lender programs, pre-qualification for interested buyers and a predictable path to closing for every phase.", ("Builder partnerships", "/builders-developers/")),
+            card("Forward commitments", "Reserve a rate for buyers closing in a set window to support absorption when rates are working against you.", ("Forward commitments", "/builders-developers/forward-commitments/")),
+            card("Build-to-rent and hold", "DSCR loans can finance completed homes you keep as rentals, qualifying on the home's rent instead of tax returns.", ("Build to sell or hold", "/build-to-rent-holding-completed-homes-dscr/")),
+            card("Custom builds in your community", "Construction-to-permanent loans let buyers close once and build, with draws coordinated with the builder.", ("Construction loans", "/loan-programs/construction-loans/")),
+            card("Larger project financing", "Acquisition, development and multi-home construction credit lines are reviewed project by project. Joseph will tell you plainly what fits."),
+        ),
+        tone="ivory",
+    ),
+    section(
+        split(
+            [p("Plan Early", "eyebrow"),
+             h("Financing Questions to Answer Before Phase One.", 2, "section-title"),
+             p("The way buyers will finance homes in your project affects pricing, absorption and how quickly you get capital back. Working through those questions early avoids surprises later.")],
+            [ul([
+                "Which loan programs fit your expected buyers and price points?",
+                "Will appraisers find comparable sales for the first phase?",
+                "What will MUD, PID and county taxes do to buyers' payments?",
+                "Will you sell lots, finished homes, or hold some as rentals?",
+                "What incentive budget does each phase need, and in what form?",
+            ], "check-list check-list-card"),
+             p("Read more: <a href=\"/financing-a-new-community-what-developers-should-plan/\">financing a new community: what developers should plan</a>.")],
+        ),
+        tone="white",
+    ),
+    form_section(
+        "Developer Project Review",
+        "Tell Joseph About Your Project.",
+        "Location, lot count, price range and timeline are enough to start. Joseph will review where he can help and what each part of the plan needs.",
+        ["End-buyer financing plan by phase", "Lot, construction and build-to-rent options", "Incentive strategy, including forward commitments"],
+        "construction",
+        id="construction-scenario",
+    ),
+    faq("Developer Financing Questions", [
+        ("Can buyers finance a lot in our community and build later?",
+         "Often, yes. Lot loans can finance the purchase now, and equity in the lot can typically be applied toward a construction-to-permanent loan when the buyer is ready to build."),
+        ("Can we keep finished homes as rentals?",
+         "Many developers and builders do. DSCR loans can qualify on the home's rental income, and some programs allow ownership in an LLC. Talk with your CPA and attorney about structure."),
+        ("Do you finance land acquisition and development?",
+         "Larger acquisition, development and construction credit facilities are reviewed project by project. Share the details and Joseph will tell you what fits the programs available through CrossCountry Mortgage."),
+        ("How early should we involve a lender?",
+         "Before pricing and incentives for the first phase are set. Financing affects which buyers can afford the homes and how appraisals will support the prices."),
+    ], eyebrow="For Developers"),
+    p("All financing is subject to credit approval, property and project eligibility and program guidelines. Terms and availability may change. Builders, developers and lenders must comply with RESPA; buyers are always free to choose their own lender.", "fine-print section-fine-print"),
 )
 
 # ---------------------------------------------------------------------------
@@ -878,11 +1128,29 @@ PAGES = [
      "New Construction Contract-to-Close Timeline for Builders",
      "Every financing milestone from contract to keys on a new-construction home, mapped to the build schedule, with steps builders can take to avoid delays.",
      None, 3, None),
+    ("construction-loans", "Construction Loans", "loan-programs", LANDING, construction,
+     "One-Time Close Construction Loans in Texas | Joseph Bogdan",
+     "Finance the lot, the build and your mortgage with one closing. Joseph Bogdan explains construction-to-permanent loans for North Texas custom homes.",
+     "Construction-to-permanent (one-time close) construction loan", 6, None),
+    ("lot-land-loans", "Lot & Land Loans", "loan-programs", LANDING, lot_land,
+     "Lot & Land Loans in North Texas | Joseph Bogdan",
+     "Buying a residential lot or acreage to build on? Learn how lot and land loans work in Texas and what lenders check before you sign a land contract.",
+     "Lot and land loan", 7, None),
+    ("forward-commitments", "Forward Commitments for Builders", "builders-developers", LANDING, forward_commitments,
+     "Builder Forward Commitments: Rate Programs for Buyers",
+     "How builder forward commitments reserve a mortgage rate for buyers closing in a set window, what they cost, and when they beat buydowns or price cuts.",
+     "Builder forward commitment rate program", 4, None),
+    ("developer-financing", "Developer & Build-to-Rent Financing", "builders-developers", LANDING, developer,
+     "Developer & Build-to-Rent Financing in DFW | Joseph Bogdan",
+     "Lot, construction, end-buyer and build-to-rent financing plans for North Texas developers. Request a project review with Joseph Bogdan.",
+     "Developer and build-to-rent financing", 5, None),
 ]
 
 MENUS = {
     "primary": [
         ("Builders & Developers", "builders-developers", [
+            ("Forward Commitments", "forward-commitments"),
+            ("Developer & Build-to-Rent", "developer-financing"),
             ("Builder Financing FAQ", "builder-financing-faq"),
             ("Buyer Pre-Approval Checklist", "buyer-pre-approval-checklist"),
             ("Contract-to-Close Timeline", "contract-to-close-timeline"),
@@ -893,6 +1161,8 @@ MENUS = {
             ("Jumbo & Luxury Financing", "jumbo-luxury-financing"),
             ("Self-Employed & Business Owners", "self-employed-business-owners"),
             ("Investment Property", "investment-property"),
+            ("Construction Loans", "construction-loans"),
+            ("Lot & Land Loans", "lot-land-loans"),
         ]),
         ("Realtor Partners", "realtor-partners", []),
         ("About Joseph", "about-joseph", []),
@@ -925,6 +1195,7 @@ CATEGORIES = [
     ("luxury-jumbo", "Luxury & Jumbo", "How jumbo loans work and how to prepare to finance high-value homes, ranches, acreage and second homes in North Texas with confidence."),
     ("business-owners", "Business Owners & Self-Employed", "How self-employed borrowers and business owners qualify for a mortgage, from tax-return income to bank-statement, 1099 and asset-based programs."),
     ("real-estate-investing", "Real Estate Investing", "Financing rental and investment property in Texas: DSCR loans, conventional investor loans, cash-out strategies and growing a portfolio."),
+    ("construction-land", "Construction & Land Loans", "How one-time-close construction loans, lot and land loans and draw schedules work for North Texas buyers building a custom home."),
     ("builders-new-construction", "Builders & New Construction", "Mortgage strategy for North Texas home builders and their sales teams: incentives, buyer pre-approvals, closing timelines and new-construction financing."),
 ]
 
@@ -939,6 +1210,10 @@ AUDIENCE = {
     "builders-developers": "Home builders and developers",
     "builder-financing-faq": "Home builders, developers and their sales teams",
     "realtor-partners": "Real estate agents",
+    "construction-loans": "Buyers building a custom or new home",
+    "lot-land-loans": "Buyers purchasing a residential lot or land to build on",
+    "forward-commitments": "Home builders and their sales teams",
+    "developer-financing": "Residential developers and build-to-rent operators",
 }
 
 # Pages whose URL changed; the sync renames the existing page instead of creating a duplicate.

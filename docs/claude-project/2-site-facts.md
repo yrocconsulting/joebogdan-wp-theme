@@ -21,7 +21,8 @@
 - Luxury and jumbo (high-value homes, ranches, acreage, second homes)
 - Self-employed and business owners (bank-statement, 1099, asset-based)
 - Real estate investors (DSCR, conventional investor, multi-unit)
-- Builders and developers (preferred lending partnership) - a priority audience
+- Construction and land (one-time-close construction-to-permanent loans, lot and land loans)
+- Builders and developers (preferred lending partnership, forward commitments, developer and build-to-rent financing) - a priority audience
 - Realtors (scenario reviews, strong pre-approvals, never competes for the client)
 
 ## Calls to action (link targets on josephbogdan.com)
@@ -31,7 +32,9 @@
 - Refinance & equity analysis: /loan-programs/refinance/#refinance-analysis
 - Investor scenario: /loan-programs/investment-property/#investor-scenario
 - Realtor client scenario: /realtor-partners/#client-scenario
+- Construction / lot / land / developer scenario: /loan-programs/construction-loans/#construction-scenario
 - Builder partnership: /builders-developers/#partner
+- Forward commitment planning: /builders-developers/forward-commitments/#partner
 - General question: /contact/
 
 ## Press release boilerplate

@@ -68,7 +68,7 @@ Confirm membership marketing rules with CrossCountry compliance.
 
 - [ ] One or two articles a month from the Claude Project, alternating builder and consumer topics.
 - [ ] Share each one on LinkedIn, Facebook and the Google Business Profile.
-- [ ] Topics to confirm with Joseph before writing: one-time-close construction loans, forward commitments, land, lot and developer financing. These are the other site's remaining topics; covering them (if he offers them) closes the gap completely.
+- [x] Construction, lot and land, forward commitment and developer financing pages and articles published (confirmed with Joseph). Keep adding depth on these topics: they are where joebogdan.com competes.
 
 ## 8. Measure monthly
 
