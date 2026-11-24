@@ -446,11 +446,19 @@ function jb_schema_graph() {
 			}, $items, array_keys( $items ) ),
 		);
 	}
+	if ( is_singular( 'post' ) ) {
+		// Point voice assistants and AI answer engines at the summary and answer blocks.
+		$page['speakable'] = array(
+			'@type'       => 'SpeakableSpecification',
+			'cssSelector' => array( '.tldr-text', '.lead-answer', '.answer-block' ),
+		);
+	}
 	$graph[] = $page;
 
 	if ( is_singular( 'post' ) ) {
 		$content = get_post_field( 'post_content', get_the_ID() );
-		$graph[] = array(
+		$tldr    = jb_post_tldr( get_the_ID() );
+		$graph[] = array_filter( array(
 			'@type'            => 'Article',
 			'@id'              => $url . '#article',
 			'headline'         => get_the_title(),
@@ -465,8 +473,9 @@ function jb_schema_graph() {
 			'articleSection'   => wp_list_pluck( get_the_category(), 'name' ),
 			'about'            => array( '@id' => $ids['practice'] ),
 			'wordCount'        => str_word_count( wp_strip_all_tags( strip_shortcodes( $content ) ) ),
+			'abstract'         => $tldr,
 			'inLanguage'       => 'en-US',
-		);
+		) );
 	}
 
 	$service = is_page() ? get_post_meta( get_queried_object_id(), '_jb_service', true ) : '';
@@ -567,7 +576,7 @@ add_action( 'template_redirect', function () {
 	header( 'X-Robots-Tag: noindex' );
 
 	$line = function ( $page ) {
-		$desc = get_post_meta( $page->ID, '_jb_seo_description', true );
+		$desc = jb_post_tldr( $page->ID ) ?: get_post_meta( $page->ID, '_jb_seo_description', true );
 		return sprintf( '- [%s](%s)%s', $page->post_title, get_permalink( $page ), $desc ? ': ' . $desc : '' );
 	};
 
@@ -599,7 +608,7 @@ add_action( 'template_redirect', function () {
 		$out[] = '';
 		$out[] = '## Insights';
 		foreach ( $posts as $post ) {
-			$out[] = sprintf( '- [%s](%s): %s', $post->post_title, get_permalink( $post ), wp_strip_all_tags( get_the_excerpt( $post ) ) );
+			$out[] = sprintf( '- [%s](%s): %s', $post->post_title, get_permalink( $post ), jb_post_tldr( $post->ID ) ?: wp_strip_all_tags( get_the_excerpt( $post ) ) );
 		}
 	}
 
@@ -635,3 +644,11 @@ add_filter( 'robots_txt', function ( $output, $public ) {
 	}
 	return $rules . $output . "\n# Plain-language site summary for AI assistants: " . home_url( '/llms.txt' ) . "\n";
 }, 10, 2 );
+
+/** The TL;DR summary at the top of an article, as plain text ('' if none). */
+function jb_post_tldr( $post_id ) {
+	if ( preg_match( '/class="tldr-text"[^>]*>(.*?)<\/p>/s', (string) get_post_field( 'post_content', $post_id ), $m ) ) {
+		return trim( html_entity_decode( wp_strip_all_tags( $m[1] ), ENT_QUOTES, 'UTF-8' ) );
+	}
+	return '';
+}

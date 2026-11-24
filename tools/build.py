@@ -41,6 +41,34 @@ def compliance_issues(text):
     return found
 
 
+def _words(html):
+    return len(re.sub(r"<[^>]+>", " ", html).split())
+
+
+def readability_issues(html):
+    """Every article: a TL;DR up top, and a short standalone answer under each question H2."""
+    found = []
+    tldrs = re.findall(r'<p class="tldr-text">(.*?)</p>', html, re.S)
+    if len(tldrs) != 1:
+        found.append("needs exactly one tldr() at the top")
+    elif _words(tldrs[0]) > 60:
+        found.append(f"TL;DR is {_words(tldrs[0])} words (max 60)")
+    elif html.find('class="tldr"') > html.find('class="lead-answer"') >= 0:
+        found.append("tldr() must come before lead()")
+    for m in re.finditer(r'<h2 class="wp-block-heading">(.*?)</h2>\s*(?:<!-- /wp:heading -->\s*)(.{0,400})', html, re.S):
+        title, after = m.group(1), m.group(2)
+        if title in ("Key takeaways", "Sources"):
+            continue
+        if not title.rstrip().endswith("?"):
+            found.append(f"H2 should be a question: {title}")
+        am = re.match(r'<!-- wp:paragraph[^>]*-->\s*<p class="answer-block">(.*?)</p>', after, re.S)
+        if not am:
+            found.append(f"H2 needs an answer() right after it: {title}")
+        elif _words(am.group(1)) > 55:
+            found.append(f"answer under '{title}' is {_words(am.group(1))} words (max 55)")
+    return found
+
+
 def main():
     (OUT / "pages").mkdir(parents=True, exist_ok=True)
     manifest = {"pages": [], "menus": {}, "categories": [], "front_page": "home", "posts_page": "insights"}
@@ -82,6 +110,8 @@ def main():
             problems.append(f"unknown category {post['category']}: {post['slug']}")
         if post.get("image") and post["image"] not in images:
             problems.append(f"missing image {post['image']}: {post['slug']}")
+    for post in posts.POSTS:
+        problems += [f"AI readability ({post['slug']}): {m}" for m in readability_issues(post["content"])]
     for post in posts.POSTS:
         if post["slug"] in posts.DAILY_SLUGS:
             text = " ".join([post["title"], post["excerpt"], post["seo_title"], post["content"]])

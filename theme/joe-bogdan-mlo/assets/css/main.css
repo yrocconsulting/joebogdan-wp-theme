@@ -617,6 +617,11 @@ a.hero-builder:hover { background: rgba(217, 188, 132, .16); border-color: var(-
 
 /* ---------- Article components ---------- */
 .prose .lead-answer { font-size: 1.2rem; line-height: 1.6; color: var(--ink); padding: 22px 26px; border-left: 4px solid var(--gold); background: var(--white); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
+.prose .tldr { margin: 0 0 1.4em; padding: 20px 24px; border-radius: var(--radius-sm); background: var(--navy); color: #fff; }
+.prose .tldr > * { margin: 0; }
+.prose .tldr .tldr-label { font-family: var(--sans); font-size: .78rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: .45em; }
+.prose .tldr .tldr-text { font-size: 1.08rem; line-height: 1.6; color: #fff; }
+.prose .answer-block { font-size: 1.08rem; line-height: 1.6; font-weight: 500; color: var(--ink); padding: 12px 18px; margin-top: .4em; border-left: 3px solid var(--gold); background: var(--white); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
 .callout { padding: 26px 28px; border-radius: var(--radius); background: var(--white); border: 1px solid var(--line); }
 .callout > :first-child { margin-top: 0; }
 .callout h2, .callout h3 { font-size: 1.15rem; font-family: var(--sans); font-weight: 700; letter-spacing: .02em; margin: 0 0 .6em; }

@@ -56,11 +56,13 @@ post(
     "<SEO title: 30-65 characters>",
     "<image file from theme/joe-bogdan-mlo/assets/images>",
     body(
+        tldr("<TL;DR: 2-3 sentences, max 60 words, the whole article in brief>"),
         lead("<2-4 sentence direct answer, with the month and year for anything time-sensitive>"),
         takeaways([...4-5 bullets...]),
-        h("<question-style H2>"),
-        p("..."),
-        ...,
+        h("<H2 phrased as the question a reader would type or ask an assistant?>"),
+        answer("<1-2 sentence standalone answer to that H2, max 55 words>"),
+        p("<detail, examples, numbers with attribution>"),
+        ...,  # repeat h() + answer() + detail for each section
         <the category's CTA constant, placed mid-article>,
         ...,
         p("Related: <a href=\"/existing-url/\">...</a> ..."),
@@ -70,7 +72,7 @@ post(
 )
 ```
 
-Helpers available: `lead, takeaways, h, p, ul, ol, faq, cta, body, sources`
+Helpers available: `tldr, lead, answer, takeaways, h, p, ul, ol, faq, cta, body, sources`
 and the CTA constants `BUYING_POWER_CTA`, `BUILDER_CTA`, `BUILDER_SCENARIO_CTA`,
 `CONSTRUCTION_CTA`, `FORWARD_CTA` (or build one with `cta(...)` pointing at a
 URL from the site facts).
@@ -86,8 +88,19 @@ Quality bar (Google and AI assistants reward this; thin daily content hurts the 
 - Every statistic or claim about the news is attributed in the text
   ("according to the Census Bureau's October report") and listed in Sources
   with a working link. Never invent numbers, quotes, studies or sources.
-- Plain language, short paragraphs, question-style H2s, a takeaways box, and
-  an FAQ with 3 questions (emits FAQPage schema).
+- AI readability (build.py enforces the structure):
+  - `tldr()` first: 2-3 sentences, max 60 words. It becomes the Article
+    `abstract` in schema and the article's line in llms.txt.
+  - `lead()` next: the direct answer to the title question.
+  - Every H2 (except Key takeaways and Sources) is a question ending in "?",
+    phrased the way people ask search engines and AI assistants.
+  - Directly under every H2, an `answer()` block: 1-2 sentences, max 55
+    words, that makes sense if quoted alone. Name the subject instead of
+    "it" or "this"; include "in Texas" or "North Texas" where it matters.
+  - Then the supporting detail: short paragraphs, lists, steps.
+  - A takeaways box and an FAQ with 3 questions (emits FAQPage schema).
+  - Plain language, one idea per paragraph, concrete nouns and numbers (with
+    sources), no vague intros.
 - At least two internal links to existing pages or articles that exist in
   `content/manifest.json`.
 - Use "Joseph" (never "Joe" in body copy). Joseph is a loan officer only: no

@@ -14,6 +14,16 @@ def lead(text):
     return p(text, "lead-answer")
 
 
+def tldr(text):
+    """2-3 sentence summary at the very top (AI assistants and skimmers read this first)."""
+    return group(p("TL;DR", "tldr-label"), p(text, "tldr-text"), cls="tldr")
+
+
+def answer(text):
+    """1-2 sentence standalone answer placed directly under a question H2."""
+    return p(text, "answer-block")
+
+
 def takeaways(items):
     return group(h("Key takeaways", 2), ul(items, "check-list"), cls="callout")
 
@@ -54,6 +64,7 @@ post(
     "How Much House Can I Afford in North Texas? | Joseph Bogdan",
     "buyers.webp",
     body(
+        tldr("What you can afford depends on income, debts, savings, credit and the full monthly cost of a North Texas home, including property taxes and insurance. Lenders set a maximum; the smarter target is a payment that keeps your budget comfortable."),
         lead("How much house you can afford comes down to five things: your gross income, your monthly debts, the cash you have for a down payment and closing costs, your credit, and the full monthly cost of the home - including Texas property taxes and homeowners insurance. Lenders turn those into a maximum. The more useful question is what price keeps your monthly budget comfortable."),
         takeaways([
             "Lenders compare your total monthly debts, including the new house payment, with your gross monthly income.",
@@ -62,23 +73,28 @@ post(
             "A personalized analysis based on your real numbers beats an online calculator.",
         ]),
         h("How do lenders decide how much I can borrow?"),
+        answer("Lenders mainly use your debt-to-income ratio: total monthly debts, including the new house payment, divided by your gross monthly income, along with credit, savings and the loan program."),
         p("Most lenders start with your <strong>debt-to-income ratio (DTI)</strong>: your monthly debt payments divided by your gross monthly income. Debts include car loans, student loans, minimum credit card payments and the proposed housing payment. Rent you will stop paying once you buy is not counted."),
         p("A common rule of thumb is to keep housing costs around 28% of gross monthly income and total debts around 36%. Many loan programs allow higher ratios for well-qualified borrowers, but just because a program allows more does not mean you should borrow it."),
         p("Lenders also look at credit history, the stability and type of your income, how much you are putting down and how much you will have in reserve after closing."),
         h("Why do Texas property taxes matter so much?"),
+        answer("Texas has no state income tax, so local property taxes are relatively high and can be a large share of a monthly mortgage payment in North Texas."),
         p("Texas has no state income tax, and local property taxes help make up the difference. Your monthly mortgage payment usually includes an escrow for property taxes and homeowners insurance, and in North Texas those two items can be a substantial part of the total."),
         p("Taxes vary by county, city, school district and special districts. Many newer DFW subdivisions sit inside a <strong>Municipal Utility District (MUD)</strong> or <strong>Public Improvement District (PID)</strong>, which add to the tax bill. Two homes at the same price can have very different monthly costs, so it is worth checking the full tax rate for any home you are serious about."),
         BUYING_POWER_CTA,
         h("What else affects my budget?"),
+        answer("Beyond the loan itself, homeowners insurance, HOA dues, MUD or PID taxes, mortgage insurance and the cash you want left in savings all change what you can comfortably afford."),
         ul([
             "<strong>Mortgage insurance</strong> - conventional loans with a smaller down payment usually include private mortgage insurance; FHA loans have their own mortgage insurance.",
             "<strong>HOA dues</strong> - common in planned communities and counted in your DTI.",
             "<strong>Closing costs and prepaid items</strong> - set aside cash beyond your down payment, including initial escrow deposits.",
             "<strong>Reserves</strong> - having savings left after closing makes your file stronger and your life less stressful.",
         ]),
-        h("Approved amount vs. comfortable amount"),
+        h("Should you borrow the full amount you are approved for?"),
+        answer("Not necessarily. The approved amount is a lender's maximum; the comfortable amount is the payment that still fits your savings goals and everyday life."),
         p("Start with the monthly payment that fits your life - savings goals, childcare, travel, business swings - then work backward to a price. Joseph’s buying-power analysis shows both: what you may qualify for and the range that keeps your monthly budget where you want it."),
         h("How do I get a reliable number?"),
+        answer("The most reliable number comes from a loan officer reviewing your actual income, debts, savings and credit, with taxes and insurance estimated for the neighborhoods you are considering."),
         ol([
             "Gather the basics: income, monthly debts, savings and a rough credit estimate.",
             "Get a personalized analysis instead of relying on a generic calculator.",
@@ -101,6 +117,7 @@ post(
     "Can I Buy a Home Before Selling My Current One? | Joseph Bogdan",
     "strategy.webp",
     body(
+        tldr("Yes, you can often buy a new home before selling your current one. The four main paths are qualifying with both payments, using your current home's equity, a sale contingency, or selling first with a leaseback."),
         lead("Often, yes. Whether you can buy before you sell depends on three things: whether your income can support both housing payments for a period of time, how much equity you have in your current home, and how much cash you have in reserve. If you can qualify with both payments, you can make a non-contingent offer. If not, there are other ways to bridge the gap."),
         takeaways([
             "Buying first avoids a double move and lets you make a stronger offer.",
@@ -108,23 +125,29 @@ post(
             "Your current home’s equity can help fund the next down payment, but Texas has specific rules for borrowing against a homestead.",
             "Plan the strategy before you start touring, not after you find the house.",
         ]),
-        h("Option 1: Qualify with both payments"),
+        h("Can you qualify with both house payments?"),
+        answer("If your income, credit and reserves support your current payment plus the new one, you can buy first and sell later without a contingency."),
         p("If your income, credit and reserves support your current payment plus the new one, you can buy first and sell afterward. This is usually the cleanest path, and it lets your offer compete without a home-sale contingency. Your savings need to cover the down payment and closing costs on the new home while your equity is still tied up in the old one."),
-        h("Option 2: Use the equity in your current home"),
+        h("Can you use your current home's equity for the down payment?"),
+        answer("Often, yes. Depending on the program and Texas rules, equity in your current home may help fund the down payment on the next one before it sells."),
         p("If most of your down payment is tied up in your current home, you may be able to access that equity before you sell. In Texas, home equity loans and lines of credit on a homestead follow specific state rules, including limits on how much you can borrow against the home’s value and required waiting periods, so timing matters. Joseph will walk through which options fit your situation and timeline."),
-        h("Option 3: Make an offer contingent on selling"),
+        h("Should you make an offer contingent on selling?"),
+        answer("A home-sale contingency protects you if your home does not sell, but it makes your offer weaker, especially in competitive situations."),
         p("A home-sale contingency protects you if your current home does not sell, but many sellers see it as a weaker offer. It works best in slower markets, with new construction or when your current home is already under contract."),
-        h("Option 4: Sell first and rent back"),
+        h("Can you sell first and rent back?"),
+        answer("Yes. A short leaseback after closing lets you sell first, know your exact proceeds and stay in the home while you buy the next one."),
         p("Some sellers negotiate a short leaseback after closing so they can stay in the home while they buy. You get your equity in hand first, but you need a buyer willing to agree to it and you may need short-term housing if timelines slip."),
         cta("Planning a move-up purchase?", "Tell Joseph about your current home and your next one. He will outline which buy-before-you-sell options fit.", "/contact/", "Ask Joseph About Your Scenario"),
-        h("Questions to answer before you start"),
+        h("What should you decide before you start?"),
+        answer("Before choosing a path, know your equity, how long you can carry two payments, how quickly your home is likely to sell and how competitive your target market is."),
         ul([
             "Can you comfortably carry two payments for a few months if needed?",
             "How much equity do you realistically have after selling costs?",
             "How competitive is the market for the home you want?",
             "Is the next home new construction, with a longer timeline?",
         ]),
-        h("Bring your Realtor into the plan"),
+        h("Why should your Realtor be part of the financing plan?"),
+        answer("Your agent's offer strategy depends on your financing strategy, so coordinating the two early produces stronger, cleaner offers."),
         p("Your agent’s offer strategy depends on your financing strategy. When Joseph and your Realtor coordinate early, your offer reflects what you can actually do, and there are fewer surprises after you go under contract."),
         faq([
             ("Will my current mortgage count against me when I buy?", "Yes, unless your current home is sold or under contract with conditions satisfied, lenders generally count the existing payment in your debt-to-income ratio."),
@@ -143,6 +166,7 @@ post(
     "Self-Employed Mortgage: How Lenders Calculate Business Income | Joseph Bogdan",
     "business-owners.webp",
     body(
+        tldr("Self-employed borrowers qualify for mortgages regularly. Lenders usually average two years of tax-return income and add back certain deductions; bank-statement and other Non-QM programs can fit when tax returns understate real income."),
         lead("Yes, self-employed borrowers qualify for mortgages every day. For most traditional loans, lenders average your income from the last two years of personal and business tax returns, add back certain non-cash deductions like depreciation, and look at whether income is stable or growing. If deductions make your taxable income much lower than what your business really produces, alternative-documentation programs may be a better fit."),
         takeaways([
             "Traditional loans usually use two years of tax returns, averaged.",
@@ -152,16 +176,21 @@ post(
             "Talk to a loan officer before you file your next return.",
         ]),
         h("What documents do lenders ask for?"),
+        answer("For a full-documentation loan, lenders usually ask for two years of personal and business tax returns, a year-to-date profit-and-loss statement and recent bank statements."),
         p("For a traditional (full-documentation) loan, expect to provide personal tax returns, and business returns if you own a significant share of the business, along with schedules such as Schedule C or K-1s. Lenders may also ask for a year-to-date profit and loss statement and business bank statements."),
         h("How is self-employed income calculated?"),
+        answer("Lenders typically average your net self-employed income over two years, then add back certain non-cash deductions such as depreciation."),
         p("Lenders start with the net income on your returns, then add back certain non-cash or non-recurring items, such as depreciation, depletion and some one-time expenses. The result is usually averaged over two years. If this year’s income is lower than last year’s, the lender may use the lower figure or ask for an explanation."),
         p("This is where many business owners get surprised: deductions that save on taxes also lower qualifying income. That is not a reason to change your tax strategy without your CPA, but it is a reason to plan."),
         h("What if I have been self-employed less than two years?"),
+        answer("Some programs accept a shorter self-employment history if you worked in the same line of business before, so a recent switch does not automatically rule you out."),
         p("Some programs consider a shorter history if you have previous experience in the same line of work, for example a nurse who opened a practice or a salesperson who became an independent agent. The details matter, so get your scenario reviewed early."),
         cta("Self-employed and planning a purchase?", "Request a Self-Employed Mortgage Strategy Review. Joseph will show you which documentation path fits.", "/loan-programs/self-employed-business-owners/#strategy-review", "Request a Strategy Review"),
         h("What are bank-statement loans and other Non-QM options?"),
+        answer("Bank-statement loans and other Non-QM programs qualify you using deposits or other alternative documentation instead of tax returns, often with different pricing and requirements."),
         p("Non-QM (non-qualified mortgage) programs use alternative documentation. A <strong>bank-statement loan</strong> calculates income from business or personal deposits over a set period instead of tax returns. <strong>Asset-based</strong> programs look at significant liquid assets. These programs exist for borrowers whose finances do not fit standard guidelines, and their pricing and requirements typically differ from conventional loans. Joseph will compare them side by side with traditional options."),
-        h("How to prepare"),
+        h("How should self-employed borrowers prepare?"),
+        answer("Talk with a loan officer before filing your next tax return, separate business and personal accounts, and keep clean records of deposits and profit and loss."),
         ol([
             "Talk to a loan officer before you file, especially if you expect large write-offs.",
             "Keep business and personal accounts separate and clean.",
@@ -187,6 +216,7 @@ post(
     "What Is a Jumbo Loan and How Do I Qualify? | Joseph Bogdan",
     "luxury.webp",
     body(
+        tldr("A jumbo loan is any mortgage above the county's conforming loan limit. Jumbo lenders look harder at credit, cash reserves, documentation and the appraisal, so preparing those early makes a high-value purchase smoother."),
         lead("A jumbo loan is a mortgage larger than the conforming loan limit set each year by the Federal Housing Finance Agency. Because these loans cannot be sold to Fannie Mae or Freddie Mac, lenders set their own standards, which usually means closer review of credit, cash reserves, asset documentation and the appraisal. Strong preparation can improve your options and make the process smoother."),
         takeaways([
             "Jumbo means above the conforming limit, which FHFA updates every year.",
@@ -195,8 +225,10 @@ post(
             "High-value, unique and acreage properties can make appraisals more complex.",
         ]),
         h("What counts as a jumbo loan?"),
+        answer("A jumbo loan is any mortgage amount above the conforming loan limit for the county where the home is located."),
         p("Any loan amount above the conforming loan limit for the county is considered jumbo. The limit changes each year and is higher in some high-cost areas. You can find the current limits on the <a href=\"https://www.fhfa.gov/data/conforming-loan-limit\" target=\"_blank\" rel=\"noopener\">FHFA website</a>, or Joseph can confirm whether your loan amount falls into jumbo territory."),
         h("How is qualifying for a jumbo loan different?"),
+        answer("Jumbo qualifying looks harder at credit, cash reserves, documentation of income and assets, and the appraisal than a conforming loan does."),
         ul([
             "<strong>Credit</strong> - lenders typically look for strong credit histories.",
             "<strong>Reserves</strong> - you will usually need several months of payments in savings or investments after closing.",
@@ -205,11 +237,14 @@ post(
             "<strong>Appraisal</strong> - higher-value and unique homes can be harder to value, and some lenders require additional review.",
         ]),
         cta("Considering a high-value purchase?", "Request a private jumbo financing consultation before you go under contract.", "/loan-programs/jumbo-luxury-financing/#consultation", "Request a Consultation"),
-        h("Down payment vs. liquidity: a strategic choice"),
+        h("Should you make a larger down payment or keep more cash?"),
+        answer("With a large loan, a bigger down payment can improve terms, while keeping cash preserves liquidity; the right balance depends on your reserves and goals."),
         p("With large loans, how much you put down is a real decision. A larger down payment can reduce the loan amount, while keeping more cash or investments can protect flexibility for your business, other properties or opportunities. There is no single right answer. Joseph helps you weigh it the way a CFO would."),
-        h("Ranches, acreage and second homes"),
+        h("Can you finance ranches, acreage or second homes?"),
+        answer("Often, yes, but acreage, outbuildings, agricultural use and second-home occupancy each add underwriting and appraisal questions to plan for."),
         p("North Texas buyers often look at properties with acreage, outbuildings or agricultural use. These features can affect which programs fit and how the property is appraised. Second homes have their own occupancy rules. Share the property details early so the financing plan matches the property."),
-        h("How to prepare"),
+        h("How should you prepare for a jumbo loan?"),
+        answer("Gather income and asset documents early, keep reserves easy to verify, avoid new debt, and talk with a loan officer before you make an offer."),
         ol([
             "Organize two years of income documentation and recent statements for every account you plan to use.",
             "Avoid moving large sums between accounts without a paper trail.",
@@ -233,6 +268,7 @@ post(
     "DSCR Loans Explained for Texas Real Estate Investors | Joseph Bogdan",
     "strategy.webp",
     body(
+        tldr("A DSCR loan qualifies an investment property mainly on whether its rent covers the mortgage payment, taxes, insurance and HOA dues. It suits investors whose tax returns do not reflect their real cash flow."),
         lead("A DSCR (debt-service coverage ratio) loan is an investment-property mortgage that qualifies mainly on the property’s rental income instead of your personal income. The lender divides the property’s monthly rent by its monthly housing expense - principal, interest, taxes, insurance and any HOA dues. If the rent covers the expense, the property supports the loan."),
         takeaways([
             "DSCR = monthly rent ÷ monthly principal, interest, taxes, insurance and HOA.",
@@ -241,8 +277,10 @@ post(
             "DSCR loans are Non-QM programs, with different pricing and requirements than conventional investor loans.",
         ]),
         h("How is the DSCR calculated?"),
+        answer("The DSCR is the property's monthly rent divided by its monthly payment, including principal, interest, taxes, insurance and any HOA dues."),
         p("Take the property’s monthly rent, from a current lease or an appraiser’s market-rent estimate, and divide it by the full monthly housing expense. If rent is 25% higher than the expense, the ratio is 1.25. If rent only covers 90% of the expense, the ratio is 0.90. Requirements vary by program, and stronger ratios generally give you more options."),
         h("Who are DSCR loans for?"),
+        answer("DSCR loans suit real estate investors, including self-employed investors and those growing a portfolio, whose tax returns do not show the cash flow their properties produce."),
         ul([
             "Investors whose tax returns show low income because of depreciation and write-offs",
             "Self-employed investors with complex income",
@@ -250,9 +288,11 @@ post(
             "Buyers using an LLC, where the program allows it",
         ]),
         cta("Running numbers on a property?", "Send Joseph the price, expected rent and cash available. He will reply with the financing options that fit.", "/loan-programs/investment-property/#investor-scenario", "Run an Investor Scenario"),
-        h("DSCR vs. conventional investment loans"),
+        h("How do DSCR loans compare with conventional investment loans?"),
+        answer("Conventional investment loans qualify on your personal income and debts; DSCR loans qualify mainly on the property's rent, trading documentation simplicity for different pricing and terms."),
         p("A conventional investment-property loan uses your personal income, debts and tax returns, much like a home loan. It may have different pricing than a DSCR loan, but it counts against your personal DTI, and it can get harder to use as you add properties. A DSCR loan focuses on the property. Many investors use both at different stages."),
         h("What about Texas property taxes?"),
+        answer("Texas property taxes and insurance are part of the DSCR calculation, so high-tax areas lower the ratio and can change which properties qualify."),
         p("Taxes and insurance are part of the DSCR calculation, so high-tax areas reduce the ratio. Check the full tax rate, including any MUD or PID, before you run your numbers on a North Texas rental."),
         faq([
             ("Do DSCR loans require tax returns?", "Usually personal income is not the main qualifying factor, though you will still need credit, assets for the down payment and reserves, and documentation on the property."),
@@ -271,6 +311,7 @@ post(
     "Texas Property Taxes & Homestead Exemption: What Buyers Should Know | Joseph Bogdan",
     "buyers.webp",
     body(
+        tldr("Texas property taxes are often one of the biggest parts of a mortgage payment because Texas has no state income tax. MUD and PID taxes, the homestead exemption and annual protests all change what a home really costs."),
         lead("In Texas, property taxes are usually one of the largest parts of a monthly mortgage payment. Most lenders collect them through an escrow account along with homeowners insurance. Your bill depends on the home’s appraised value and the combined tax rate of every taxing entity, including any MUD or PID. Filing for your homestead exemption and reviewing your appraisal each year can help keep it in check."),
         takeaways([
             "Your payment usually includes escrow for property taxes and homeowners insurance.",
@@ -280,15 +321,20 @@ post(
             "Escrow payments can change each year when taxes or insurance change.",
         ]),
         h("How does escrow work?"),
+        answer("Escrow collects part of each mortgage payment so the lender can pay your property taxes and insurance when they are due."),
         p("Each month, part of your payment goes into an escrow account. When property tax and insurance bills come due, your loan servicer pays them. Once a year the servicer reviews the account. If taxes or insurance went up, your monthly payment may rise to cover the shortage. If they went down, it may decrease."),
         h("What makes up a Texas property tax bill?"),
+        answer("A Texas property tax bill equals the appraised value, minus exemptions, times the combined rates of every taxing unit, such as the county, city, school district and any MUD or PID."),
         p("Your bill is the appraised value, minus any exemptions, multiplied by the combined rate of every taxing entity where the home is located: county, city, school district, community college and special districts. In many newer North Texas subdivisions, a <strong>Municipal Utility District (MUD)</strong> or <strong>Public Improvement District (PID)</strong> adds to the rate to pay for roads, water and other infrastructure."),
         BUYING_POWER_CTA,
         h("What is the homestead exemption?"),
+        answer("The homestead exemption lowers the taxable value of your primary residence and limits how much its taxable value can rise each year."),
         p("A homestead exemption reduces the taxable value of your primary residence for school district and some other taxes, and limits how much the taxable value of a homestead can rise each year. Additional exemptions may apply for homeowners who are 65 or older, disabled, or disabled veterans. You apply through your county appraisal district, such as the Denton, Tarrant, Dallas or Collin Central Appraisal District. Check with your district for current exemption amounts and filing timelines."),
         h("Can I protest my appraisal?"),
+        answer("Yes. Texas homeowners can protest their appraised value with the appraisal district each spring if they believe it is too high."),
         p("Yes. Each spring, appraisal districts send notices of appraised value. If you believe the value is too high, you can file a protest by the deadline on your notice, usually in the spring. Recent sales of comparable homes are the most persuasive evidence."),
-        h("What this means when you are house hunting"),
+        h("What do Texas property taxes mean when you are house hunting?"),
+        answer("Compare the full tax rate, including MUD or PID taxes, for each home you consider, because two homes at the same price can have very different payments."),
         ul([
             "Ask for the full tax rate, not just the price, on every home you are considering.",
             "Budget based on the purchase price, because the appraised value often resets after a sale.",
@@ -311,6 +357,7 @@ post(
     "When Does Refinancing Make Sense? Break-Even & Texas Cash-Out Rules | Joseph Bogdan",
     "strategy.webp",
     body(
+        tldr("Refinancing makes sense when the savings or benefits outweigh the closing costs before you expect to sell or refinance again. Calculate the break-even point first, and know that Texas has its own cash-out refinance rules."),
         lead("Refinancing makes sense when what you gain - a lower payment, a shorter term, removing mortgage insurance or accessing equity - is worth more than what it costs, within the time you expect to keep the loan. The simplest test is your break-even point: total closing costs divided by your monthly savings tells you how many months it takes to come out ahead."),
         takeaways([
             "Break-even months = closing costs ÷ monthly savings.",
@@ -319,8 +366,10 @@ post(
             "Sometimes the best advice is to wait. Joseph will tell you if that is the case.",
         ]),
         h("How do I calculate the break-even point?"),
+        answer("Divide the total closing costs of the new loan by your monthly savings; the result is how many months it takes to break even."),
         p("Add up the closing costs of the new loan. Then compare your new monthly principal and interest payment with your current one. Divide the costs by the monthly savings. If you plan to stay in the home well beyond that number of months, the refinance may make sense. Also consider the total interest over the life of each loan, not just the monthly payment."),
-        h("Common reasons to refinance"),
+        h("What are the common reasons to refinance?"),
+        answer("People refinance to lower their payment, shorten the loan term, remove mortgage insurance, switch from an adjustable rate, or access equity."),
         ul([
             "<strong>Lower the monthly payment</strong> when market conditions or your credit have improved",
             "<strong>Remove mortgage insurance</strong> after your home has gained value",
@@ -330,9 +379,11 @@ post(
         ]),
         cta("Curious what your equity could do?", "Get a free Refinance & Equity Analysis. You will see an estimate of accessible equity right away.", "/loan-programs/refinance/#refinance-analysis", "Get My Analysis"),
         h("What should I know about cash-out refinancing in Texas?"),
+        answer("Texas has strict home-equity rules, including limits on how much equity can be borrowed and a waiting period, so cash-out refinances work differently than in most states."),
         p("Texas has some of the most specific home-equity rules in the country. A cash-out refinance of a homestead is governed by the Texas Constitution, which limits how much of the home’s value can be borrowed against, requires waiting periods before closing, sets rules about where the loan can close and limits how often you can do one. These rules protect homeowners, but they affect timing and options, so plan ahead."),
         p("If you only need a portion of your equity, a home equity loan or line of credit that leaves your first mortgage in place may be worth comparing."),
-        h("When waiting is the better choice"),
+        h("When is it better to wait to refinance?"),
+        answer("Waiting can be smarter if you plan to move soon, the savings are small compared with the costs, or your credit or income is about to improve."),
         p("If you are planning to move soon, if the savings are small relative to costs, or if your credit is about to improve, waiting may serve you better. A good loan officer will say so."),
         faq([
             ("How much does it cost to refinance?", "Costs vary with the loan amount, title and appraisal fees and other factors. Joseph will give you an itemized estimate so you can calculate your break-even point accurately."),
@@ -351,6 +402,7 @@ post(
     "What Makes a Strong Mortgage Pre-Approval? | Joseph Bogdan",
     "buyers.webp",
     body(
+        tldr("A strong pre-approval is based on reviewed documents, not just a credit check and a conversation. Sellers and listing agents trust approvals that confirm income, assets and the loan program, and buyers must keep their finances steady until closing."),
         lead("A strong pre-approval is based on documents that have actually been reviewed - income, assets and credit - not just numbers the buyer typed into a form. It is tailored to the offer, it comes from a loan officer the listing agent can reach, and it has no surprises waiting in underwriting. To sellers and their agents, that combination signals that the buyer can close."),
         takeaways([
             "Pre-qualification is an estimate; pre-approval is based on verified information.",
@@ -358,9 +410,11 @@ post(
             "Listing agents value a loan officer who answers questions quickly and clearly.",
             "Issues found before the offer are much easier to solve than issues found after.",
         ]),
-        h("Pre-qualification vs. pre-approval"),
+        h("What is the difference between pre-qualification and pre-approval?"),
+        answer("A pre-qualification is a quick estimate based on what you tell a lender; a pre-approval is based on reviewed documents and a credit check."),
         p("A <strong>pre-qualification</strong> is a quick estimate based on what you tell the lender. A <strong>pre-approval</strong> means your credit has been reviewed and your income and asset documents have been checked. A pre-approval takes a little more effort up front, and it is what serious sellers expect."),
-        h("What sellers and listing agents look for"),
+        h("What do sellers and listing agents look for in a pre-approval?"),
+        answer("Sellers and listing agents look for an approval based on reviewed documents, a loan program that fits the price and terms, and a lender who answers the phone."),
         ul([
             "A letter from a lender they recognize or can easily verify",
             "A loan amount and program that match the offer",
@@ -368,7 +422,8 @@ post(
             "A loan officer who will pick up the phone and explain the file",
         ]),
         cta("Ready to shop with a strong letter?", "Start with your buying-power analysis. Joseph will turn it into a documented pre-approval.", "/get-pre-approved/", "Discover Your Buying Power"),
-        h("For Realtors: what to ask your buyer’s lender"),
+        h("What should Realtors ask a buyer’s lender?"),
+        answer("Realtors should ask whether income and assets were reviewed, which program the buyer is approved for, and whether anything could change the approval before closing."),
         ol([
             "Has the buyer’s income and asset documentation been reviewed, or only stated?",
             "Is there anything in the file that could cause a delay, such as a recent job change, large deposits or a home to sell?",
@@ -376,7 +431,8 @@ post(
             "How will you keep me updated through closing?",
         ]),
         p("Joseph works exclusively as a mortgage loan originator. He does not sell real estate, so referring your clients to him never puts your relationship at risk. Agents can <a href=\"/realtor-partners/#client-scenario\">send a client scenario</a> before writing an offer."),
-        h("What buyers can do to keep a pre-approval strong"),
+        h("How can buyers keep a pre-approval strong until closing?"),
+        answer("Avoid new credit and large purchases, keep funds in the same accounts, document large deposits and talk to your loan officer before changing jobs."),
         ul([
             "Avoid new credit accounts or large purchases before closing.",
             "Do not change jobs without talking to your loan officer first.",
@@ -431,6 +487,7 @@ post(
     "Price Cut or Rate Buydown? Builder Incentives Explained",
     "feat-joseph-model-home-a.webp",
     body(
+        tldr("A price cut lowers the loan amount; a rate buydown lowers the buyer's rate and monthly payment. For payment-sensitive buyers a buydown often does more per dollar and protects the builder's comparable sales."),
         lead("A price cut and a rate buydown can cost a builder the same amount, but they do very different things for the buyer. A price cut lowers the sales price, the loan amount and the appraised comparable for the next sale. A rate buydown uses the same dollars to lower the buyer's interest rate, either for the first years of the loan or for its full life, which usually has a bigger effect on the monthly payment. The right choice depends on the buyer, the loan program and what you need your comparable sales to show."),
         takeaways([
             "A price cut lowers the price and the loan amount, and resets your comparable sales.",
@@ -440,10 +497,13 @@ post(
             "The best incentive is the one that solves the specific buyer's problem: payment, cash to close or qualifying.",
         ]),
         h("What does a price cut actually do?"),
+        answer("A price cut lowers the contract price and loan amount, which reduces the buyer's payment slightly and the cash needed at closing, but it can lower future comparable sales."),
         p("A price cut reduces the contract price. The buyer borrows less, pays a little less each month and may need slightly less for the down payment. For the builder, the lower price becomes a comparable sale that appraisers and future buyers will see, which can pull down values across the rest of the community."),
         h("What does a rate buydown do?"),
+        answer("A rate buydown uses builder dollars to lower the buyer's interest rate, which usually lowers the monthly payment more than a price cut of the same cost."),
         p("With a buydown, the builder pays the lender to reduce the buyer's interest rate. A <strong>permanent buydown</strong> uses discount points to lower the rate for the life of the loan. A <strong>temporary buydown</strong> lowers the payment for the first year or two, with the difference funded up front, then the payment steps up to the full note rate. Because the dollars go toward the payment instead of the price, buyers often feel the benefit more, and your sales price stays intact."),
         h("Which incentive fits which buyer?"),
+        answer("Rate buydowns usually help payment-sensitive buyers most, while price cuts or closing-cost help suit buyers limited by loan amount or cash to close."),
         ul([
             "<strong>Payment-sensitive buyers</strong> usually benefit most from a buydown.",
             "<strong>Buyers short on cash to close</strong> may be better served by closing-cost help, within program limits.",
@@ -452,8 +512,10 @@ post(
         ]),
         BUILDER_CTA,
         h("How much can a builder contribute?"),
+        answer("Every loan program caps seller and builder contributions, and the cap depends on the program, the buyer's down payment and occupancy."),
         p("Every loan program limits seller and builder contributions, sometimes called interested party contributions. The limit depends on the loan type, the buyer's down payment and how the home will be used. Money spent beyond the limit can force a price reduction late in the process. See <a href=\"/builder-incentive-limits-seller-concessions/\">how seller-concession limits work by loan type</a>."),
-        h("How to decide, community by community"),
+        h("How should builders decide which incentive to offer?"),
+        answer("Decide community by community, based on your buyers' price range, how payment-sensitive they are, appraisal risk and each program's concession limits."),
         ol([
             "Look at who is actually buying in that community and what is stopping them: payment, cash or qualifying.",
             "Compare what the same incentive budget does as a price cut, a temporary buydown and a permanent buydown.",
@@ -477,6 +539,7 @@ post(
     "Builder Incentive Limits: Seller Concessions by Loan Type",
     "feat-joseph-national-mall.webp",
     body(
+        tldr("Seller-concession limits depend on the buyer's loan program, down payment and occupancy. Builder contributions above the limit usually cannot be absorbed, so plan incentives inside each program's cap from the start."),
         lead("Builder incentives are limited by the buyer's loan program. Conventional loans allow builder and seller contributions that range from 3% to 9% of the price, depending on the buyer's down payment and occupancy. FHA generally allows up to 6%. VA limits certain concessions to 4%, while some normal closing costs do not count toward that cap. Contributions above the limit usually have to be removed or turned into a price reduction, which is why incentives should be planned with the lender before the contract is signed."),
         takeaways([
             "Contribution limits depend on the loan type, the down payment and how the home will be used.",
@@ -486,8 +549,10 @@ post(
             "Program rules change, so confirm limits on each file before you promise an incentive.",
         ]),
         h("What counts as a builder contribution?"),
+        answer("Interested party contributions are costs paid by anyone with a financial interest in the sale, such as the builder or seller, toward the buyer's closing costs, prepaid items or rate buydowns."),
         p("Interested party contributions are costs paid by anyone with a financial interest in the sale, including the builder, the seller and the listing agent. They commonly include closing costs, prepaid items such as escrow deposits, and rate buydowns. Design-center credits and upgrades that become part of the home are generally treated differently from money applied to the buyer's financing costs, which is one reason to put incentives in writing clearly."),
-        h("How the limits work by loan type"),
+        h("How do concession limits work by loan type?"),
+        answer("Conventional, FHA and VA loans each set their own limits on seller and builder contributions, and conventional limits vary with the buyer's down payment and occupancy."),
         ul([
             "<strong>Conventional:</strong> limits range from 3% to 9% of the price for a primary residence, depending on the buyer's down payment, with a lower limit for investment properties.",
             "<strong>FHA:</strong> generally up to 6% of the sales price toward eligible costs.",
@@ -497,8 +562,10 @@ post(
         p("These are general guidelines. Joseph confirms the limit that applies to each buyer's actual loan before the incentive is finalized."),
         BUILDER_CTA,
         h("What happens if an incentive exceeds the limit?"),
+        answer("Contributions above the limit usually cannot simply be absorbed; they are typically treated as sales concessions that reduce the value used for the loan."),
         p("The excess usually cannot simply be absorbed. It is typically treated as a sales concession that reduces the price used for the loan, which can change the loan amount, the down payment and sometimes the buyer's approval, often late in the process. Planning the incentive against the buyer's program at contract avoids that."),
-        h("A simple process for your sales team"),
+        h("How can a sales team apply concession limits consistently?"),
+        answer("Check each buyer's loan program and down payment before structuring incentives, and confirm the final numbers with the lender before contracts are signed."),
         ol([
             "Identify the buyer's likely loan program at the first meeting.",
             "Write incentives into the contract with specific uses: closing costs, prepaids or a buydown.",
@@ -521,6 +588,7 @@ post(
     "Vetting a Buyer's Pre-Approval: 7 Questions for Builders",
     "feat-joseph-model-home-b.webp",
     body(
+        tldr("Not every pre-approval letter means the same thing. Before accepting one, builders should confirm that income, assets and credit were actually reviewed and that the approval fits the price, incentives and buyer's situation."),
         lead("A pre-approval letter can mean anything from a fully reviewed file to a quick estimate based on what the buyer said. Before you take a home off the market, your sales team should know whether the buyer's income, assets and credit were actually reviewed, whether the loan program fits your contract and your timeline, and whether the buyer has to sell another home first. Seven questions to the buyer's lender will tell you most of what you need."),
         takeaways([
             "Ask whether the lender reviewed documents or relied on what the buyer reported.",
@@ -529,7 +597,8 @@ post(
             "For longer builds, ask how the lender will handle rate locks and re-verification.",
             "A lender who answers clearly and quickly is a good sign in itself.",
         ]),
-        h("The seven questions"),
+        h("What seven questions should builders ask about a pre-approval?"),
+        answer("Ask whether income, assets and credit were reviewed, which program applies, whether it covers your price and incentives, and whether the buyer must sell another home."),
         ol([
             "<strong>Were income, assets and credit actually reviewed?</strong> Ask whether pay stubs, tax returns, bank statements and a credit report were reviewed, or only stated.",
             "<strong>Which loan program is the buyer approved for?</strong> Conventional, FHA, VA, jumbo and Non-QM loans have different rules for incentives, appraisals and timing.",
@@ -540,14 +609,16 @@ post(
             "<strong>How will you keep our team updated?</strong> You want a lender who calls before problems become delays.",
         ]),
         BUILDER_SCENARIO_CTA,
-        h("Red flags to watch for"),
+        h("What are the red flags in a buyer's pre-approval?"),
+        answer("Watch for letters with no documents reviewed, unclear loan programs, approvals that do not match the price, and lenders who will not answer questions."),
         ul([
             "A letter with no lender contact name or license number",
             "Vague answers about whether documents were reviewed",
             "A buyer who says they need to sell, while the letter assumes they do not",
             "A lender who is hard to reach before the contract is even signed",
         ]),
-        h("Why this matters more for new construction"),
+        h("Why does pre-approval quality matter more for new construction?"),
+        answer("New-construction timelines are longer than resale, so a weak approval has more time to fall apart before closing."),
         p("New-construction timelines are longer than resale. A buyer's situation can change between contract and completion, so a well-documented approval up front, and a lender who keeps the file current, protects the home you are holding for them."),
         faq([
             ("Can we require buyers to use a specific lender?", "No. Buyers are always free to choose their lender. You can ask for a strong, verified pre-approval and offer a preferred lender option, within RESPA rules."),
@@ -565,6 +636,7 @@ post(
     "Why New-Construction Closings Slip and How to Prevent It",
     "feat-joseph-model-home-c.webp",
     body(
+        tldr("New-construction closings slip for predictable reasons: expired documents, lapsed rate locks, late completion paperwork, appraisal issues and buyer changes during the build. Most are preventable with a shared timeline and proactive updates."),
         lead("New-construction closings usually slip for predictable reasons: the buyer's documents went stale during the build, the rate lock expired, the final inspection or certificate of occupancy was late, the completion appraisal raised questions, or the title and lender teams were not coordinated with the build schedule. Most of these can be prevented by planning the financing around the construction timeline from the day the contract is signed."),
         takeaways([
             "Long builds mean buyer documents and credit need updating before closing.",
@@ -573,7 +645,8 @@ post(
             "A completion appraisal or final inspection can raise last-minute questions.",
             "One coordinated schedule between builder, lender and title prevents most delays.",
         ]),
-        h("The five most common causes"),
+        h("What are the five most common causes of delayed closings?"),
+        answer("Expired documents, lapsed rate locks, late completion paperwork, appraisal issues and buyer changes during construction cause most new-construction delays."),
         ol([
             "<strong>Stale documents.</strong> Pay stubs, bank statements and credit reports expire. If the file was approved months ago, it needs updating, and changes can surface late.",
             "<strong>Rate locks that run out.</strong> A lock that expires before completion can mean extension costs or a new rate.",
@@ -582,7 +655,8 @@ post(
             "<strong>Buyer changes during the build.</strong> A new car loan, a job change or a large deposit can change approval.",
         ]),
         BUILDER_CTA,
-        h("How to keep closings on schedule"),
+        h("How can builders keep closings on schedule?"),
+        answer("Share realistic completion dates, schedule document updates before completion and keep the lender, builder and title company on one shared timeline."),
         ul([
             "Share realistic completion estimates with the lender and update them as the build moves.",
             "Ask the lender to schedule document updates ahead of completion, not after.",
@@ -590,7 +664,8 @@ post(
             "Plan the rate lock around the build schedule, and discuss extension options up front.",
             "Coordinate the final walk-through, inspection and closing date with the lender and title company in one shared timeline.",
         ]),
-        h("What Joseph does differently"),
+        h("How does Joseph keep new-construction closings on schedule?"),
+        answer("Joseph manages each new-construction loan like a project with milestones and gives builders and their sales teams proactive updates on every file."),
         p("Joseph treats a new-construction loan like a project with milestones. Builders and their sales teams get proactive status updates at each stage, so issues come up while there is still time to fix them."),
         faq([
             ("Can a buyer close before the home is complete?", "Generally no. Lenders typically require the home to be complete, with final inspection or occupancy approval, before a standard purchase loan closes."),
@@ -608,6 +683,7 @@ post(
     "Move-Up Buyers Who Must Sell First: Options for Builders",
     "feat-joseph-model-home-a.webp",
     body(
+        tldr("Move-up buyers who must sell first are common and workable. Whether they can sign without a contingency depends on their income, equity and reserves, so builders should find out at the first meeting."),
         lead("Many of a builder's best prospects already own a home. Whether they can sign without selling first depends on three things: whether their income supports both housing payments, how much equity is in their current home, and how much cash they have in reserve. If they qualify with both payments, they can buy without a sale contingency. If not, options like accessing equity, a contingency with a realistic timeline, or matching the build schedule to their sale can still make the deal work."),
         takeaways([
             "Find out at the first meeting whether the buyer needs to sell.",
@@ -616,9 +692,11 @@ post(
             "A long build can give a buyer time to sell, if the timeline is planned.",
             "Get the lender involved before the contract, not after.",
         ]),
-        h("Why move-up buyers need a plan"),
+        h("Why do move-up buyers need a financing plan?"),
+        answer("A move-up buyer's current home is both their biggest asset and their biggest risk to your contract, so the financing plan for it matters from day one."),
         p("A move-up buyer's current home is both their biggest asset and their biggest risk to your contract. Without a plan, a slow sale can push back your closing or end the contract. With a plan, a move-up buyer is often one of the strongest buyers in your pipeline."),
-        h("The main options"),
+        h("What options do move-up buyers have?"),
+        answer("Move-up buyers may qualify carrying both homes, use their current home's equity, time the sale to the build, or use a realistic sale contingency."),
         ul([
             "<strong>Qualify with both payments.</strong> If income, credit and reserves support carrying both homes for a period, the buyer can sign without a sale contingency.",
             "<strong>Use existing equity.</strong> Equity in the current home may help fund the down payment. Texas rules for borrowing against a homestead affect timing and amounts, so plan early.",
@@ -627,7 +705,8 @@ post(
             "<strong>A sale contingency.</strong> Works best when the current home is priced to sell and the timeline is realistic.",
         ]),
         BUILDER_SCENARIO_CTA,
-        h("What your sales team should ask"),
+        h("What should your sales team ask move-up buyers?"),
+        answer("Sales teams should ask whether the buyer must sell first, how much equity they have and whether a lender has reviewed both payments."),
         ol([
             "Do you own a home now, and do you plan to sell it or keep it?",
             "Is it listed, under contract or not yet on the market?",
@@ -650,6 +729,7 @@ post(
     "Spec Homes: Qualifying Buyers Before You Take a Contract",
     "feat-joseph-national-mall.webp",
     body(
+        tldr("Spec homes need buyers who can close quickly and reliably. Vet financing before taking a spec home off the market, and market financing incentives carefully because advertising a rate or payment triggers disclosure rules."),
         lead("A spec home is ready or nearly ready, so every week it sits under contract with a buyer who cannot close costs you carrying costs and lost buyers. The way to protect it is to verify the buyer before the contract is final: a reviewed pre-approval, a loan program that fits the home and your incentives, a clear answer on whether the buyer must sell first, and a lender who can close on your completion date."),
         takeaways([
             "Spec homes have short timelines, so the buyer's financing must be ready now.",
@@ -658,9 +738,11 @@ post(
             "Short option periods only help if the financing is already solid.",
             "A responsive lender is part of protecting the inventory.",
         ]),
-        h("Why spec homes are different"),
+        h("Why are spec-home buyers different?"),
+        answer("With a spec home, the home is ready now, so every week under contract with a buyer who cannot close costs the builder time and carrying costs."),
         p("With a to-be-built home, a financing problem can surface months before completion. With a spec home, the timeline is compressed. There is little room to fix documentation problems, change programs or wait for another home to sell, so the buyer's financing needs to be verified up front."),
-        h("A spec-home buyer checklist"),
+        h("What should builders check before accepting a spec-home buyer?"),
+        answer("Confirm a reviewed pre-approval, a realistic closing date, funds to close and whether the buyer must sell another home first."),
         ol([
             "A pre-approval based on reviewed income, assets and credit",
             "A loan program that fits the price, the home and your incentives",
@@ -669,7 +751,8 @@ post(
             "A closing date the lender has confirmed it can meet",
         ]),
         BUILDER_SCENARIO_CTA,
-        h("Marketing spec homes with financing"),
+        h("How should builders market spec homes with financing?"),
+        answer("Financing incentives can help spec homes sell, but advertising a specific rate or payment triggers Truth in Lending disclosure rules, so have it reviewed first."),
         p("Financing incentives can help spec homes sell, but advertising a specific rate or payment triggers federal disclosure requirements. Promote the incentive generally, such as builder-paid closing costs or rate buydown options, and have your lender review any rate-based advertising before it runs."),
         p("For a closer look at incentive options, see <a href=\"/price-cut-or-rate-buydown-builder-incentives/\">price cut or rate buydown</a>."),
         faq([
@@ -688,6 +771,7 @@ post(
     "What Builder Sales Teams Should Expect From a Lender",
     "feat-joseph-model-home-b.webp",
     body(
+        tldr("Builder sales teams should expect fast responses on new buyers, clear answers about who can close, proactive updates on every file and closings coordinated with construction. Ask any lender how they deliver each one."),
         lead("A builder's sales team should expect a lender to respond quickly to new buyers, give clear answers about whether a buyer can close, explain how incentives fit each loan program, plan financing around the construction schedule, and send proactive updates through closing. Just as important, a good lender protects your relationship with the buyer and never surprises your team at the closing table."),
         takeaways([
             "Responsiveness to walk-in and model-home traffic matters most.",
@@ -696,26 +780,30 @@ post(
             "Financing planned around construction milestones.",
             "Regular status updates without your team having to chase them.",
         ]),
-        h("Before the contract"),
+        h("What should a lender do before the contract?"),
+        answer("Before the contract, a lender should review the buyer's documents, confirm the right program and tell the builder plainly whether the buyer can close."),
         ul([
             "Prompt follow-up with buyers your team introduces",
             "A straight answer on whether the buyer can close, and what it will take",
             "Guidance on which incentive works best for that buyer's program",
         ]),
-        h("During the build"),
+        h("What should a lender do during the build?"),
+        answer("During construction, a lender should update documents on schedule, plan the rate lock and send the builder proactive status updates."),
         ul([
             "A rate-lock plan tied to realistic completion dates",
             "Document updates scheduled ahead of completion",
             "Early warning if anything in the buyer's file changes",
         ]),
-        h("At completion"),
+        h("What should a lender do at completion?"),
+        answer("At completion, a lender should clear final conditions quickly and coordinate the closing date with the builder and title company."),
         ul([
             "Coordination of the final inspection, appraisal and closing date",
             "One point of contact for your team, the buyer and the title company",
             "No surprises at the closing table",
         ]),
         BUILDER_CTA,
-        h("Questions to ask any lender you are considering"),
+        h("What should builders ask any lender they are considering?"),
+        answer("Ask how quickly they respond, how they update your team, how they handle long builds and whether they have worked with builders before."),
         ol([
             "How quickly do you follow up with a new buyer?",
             "How will you keep my team updated, and how often?",
@@ -740,6 +828,7 @@ post(
     "Financing on a Construction Timeline: A Builder's Guide",
     "feat-joseph-model-home-c.webp",
     body(
+        tldr("Financing a home that is still being built means planning around a moving completion date. Builders keep closings on track by timing documents, rate locks and inspections to construction milestones."),
         lead("Financing a home that is still being built means planning around a moving date. The buyer is approved at contract, but the loan closes at completion, sometimes months later. Along the way the rate lock, the buyer's documents and the appraisal all have to line up with the build schedule. Planning those milestones at contract is the simplest way to protect the closing."),
         takeaways([
             "Approve the buyer thoroughly at contract.",
@@ -748,20 +837,24 @@ post(
             "Plan for the appraisal and completion inspection.",
             "Share schedule changes with the lender as they happen.",
         ]),
-        h("At contract"),
+        h("What should happen at contract on a to-be-built home?"),
+        answer("At contract, start with a fully reviewed approval, a loan program that fits the price and incentives, and a timeline tied to the build."),
         p("Start with a fully reviewed approval, a loan program that fits the price and incentives, and a clear answer on whether the buyer has to sell another home. This is also when the lender should explain rate-lock options for the expected build time."),
-        h("During construction"),
+        h("What should happen during construction?"),
+        answer("During construction, the buyer's rate lock, document updates and appraisal should be timed to the build schedule."),
         p("Rate locks can be timed in different ways. A buyer may lock early for certainty, often at extra cost for a longer lock, or float and lock closer to completion. Joseph explains the trade-offs to each buyer so the decision is made deliberately, not by default."),
         p("Buyers should also be coached not to change jobs, open new credit or move large sums of money during the build without calling their lender first."),
         BUILDER_CTA,
-        h("Approaching completion"),
+        h("What should happen as completion approaches?"),
+        answer("As completion approaches, update documents, schedule inspections and the walk-through, and confirm the closing date with title."),
         ul([
             "The lender updates the buyer's income, assets and credit",
             "The appraisal is completed, or updated if the home was appraised from plans",
             "The final inspection or certificate of occupancy is obtained",
             "The closing is scheduled with the title company",
         ]),
-        h("The construction-timeline checklist"),
+        h("What belongs on a construction-timeline checklist?"),
+        answer("A construction-timeline checklist maps each financing milestone, from application to rate lock to closing, against the build schedule."),
         ol([
             "Share the expected completion date at contract, and update it monthly.",
             "Decide on a rate-lock approach with the buyer and lender.",
@@ -786,6 +879,7 @@ post(
     "New-Construction Appraisals: What Builders Should Know",
     "feat-joseph-model-home-a.webp",
     body(
+        tldr("New-home appraisals compare recent sales of similar homes, often in the builder's own community. Upgrades, lot premiums and concessions all affect value, and pricing decisions shape appraisals for every home that follows."),
         lead("An appraisal on a new home tells the lender what the home is worth as security for the loan. For new construction, appraisers rely on recent sales of comparable homes, often in the same community, and they look closely at incentives and upgrades. If the appraisal comes in below the contract price, the buyer, builder and lender have to resolve the gap before closing, so it pays to understand how new-construction appraisals work."),
         takeaways([
             "Appraisers rely heavily on recent comparable sales in and around the community.",
@@ -794,12 +888,15 @@ post(
             "Some appraisals are done from plans, with a completion inspection later.",
             "A low appraisal can be addressed, but it is better to plan for it.",
         ]),
-        h("How appraisers value new homes"),
+        h("How do appraisers value new homes?"),
+        answer("Appraisers compare a new home with recent sales of similar homes, often in the same community, and adjust for size, lot, features and timing."),
         p("Appraisers compare the home with recent sales of similar homes, adjusting for size, lot, features and timing. In a new community, the builder's own recent closings are often the most relevant comparables. That is one reason pricing decisions, including price cuts, affect the value of every home that follows."),
-        h("Upgrades and lot premiums"),
+        h("Do upgrades and lot premiums raise the appraisal?"),
+        answer("Upgrades and lot premiums can support a higher value, but appraisers value them by what buyers have paid, not what they cost to build."),
         p("Design-center upgrades and lot premiums can support a higher price, but appraisers value them by what buyers in the market have paid, not by what they cost to build. Documenting upgrades clearly helps the appraiser understand what is in the home."),
         BUILDER_CTA,
         h("What if the appraisal comes in low?"),
+        answer("If an appraisal comes in low, the builder can submit more comparables, renegotiate the price or incentives, or the buyer can cover the difference."),
         ul([
             "Provide the appraiser with additional comparable sales or upgrade documentation through the lender's process",
             "Renegotiate the price or restructure incentives",
@@ -822,6 +919,7 @@ post(
     "Build to Rent: Financing Completed Homes With DSCR Loans",
     "feat-joseph-national-mall.webp",
     body(
+        tldr("Builders who keep completed homes as rentals can often finance them with DSCR loans, which qualify mainly on rent instead of personal tax returns. Planning the hold before completion makes the numbers easier."),
         lead("When a builder decides to keep completed homes as rentals instead of selling them, the financing question changes from the buyer's income to the property's income. A DSCR (debt-service coverage ratio) loan qualifies primarily on whether the home's rent covers its mortgage payment, taxes, insurance and HOA dues, rather than on the builder's personal tax returns. That can make holding completed inventory a realistic option."),
         takeaways([
             "DSCR loans focus on the rental property's income compared with its payment.",
@@ -830,9 +928,11 @@ post(
             "Texas property taxes and insurance affect the ratio, so plan for them.",
             "Some programs allow closing in an LLC.",
         ]),
-        h("Sell or hold: the decision"),
+        h("Should a builder sell completed homes or hold them?"),
+        answer("Selling returns capital for the next project; holding builds rental income and equity but ties up capital, so many builders do both."),
         p("Selling returns capital for the next project. Holding builds long-term income and equity, but ties up capital. Many builders do both, selling most homes and holding a few. The financing has to fit whichever path each home takes."),
-        h("How a DSCR loan looks at a completed home"),
+        h("How does a DSCR loan evaluate a completed home?"),
+        answer("A DSCR loan looks at the home's rent compared with its full payment, plus equity, reserves and whether it is held personally or in an entity."),
         ul([
             "<strong>Rent:</strong> from a signed lease or an appraiser's market-rent estimate",
             "<strong>Payment:</strong> principal, interest, taxes, insurance and any HOA dues",
@@ -841,7 +941,8 @@ post(
             "<strong>Ownership:</strong> whether the home will be held personally or in an entity",
         ]),
         BUILDER_CTA,
-        h("Planning ahead"),
+        h("When should builders plan to hold a home as a rental?"),
+        answer("Plan the hold before the home is finished by estimating realistic rents, checking the full tax rate and confirming loan options."),
         p("The best time to plan a hold is before the home is finished: estimate realistic rents, check the tax rate, including any MUD or PID, and confirm how the loan will treat the property once it is complete. Joseph will compare DSCR options with conventional investment financing so you can decide which homes to sell and which to keep."),
         p("Related: <a href=\"/dscr-loans-explained/\">DSCR loans explained</a>."),
         faq([
@@ -870,6 +971,7 @@ post(
     "One-Time-Close Construction Loans Explained | Joseph Bogdan",
     "feat-joseph-model-home-a.webp",
     body(
+        tldr("A one-time-close construction loan funds building your home and then becomes your permanent mortgage, with one application and one closing. Through CrossCountry Mortgage it is available as a conventional, FHA or VA loan."),
         lead("A one-time-close construction loan, also called a construction-to-permanent loan, is a single loan that pays for building a new home and then converts into a regular mortgage when the home is complete. You apply, qualify and close once, before construction starts. During the build, the lender releases money to your builder in stages. When the home is finished, the loan becomes your permanent mortgage without a second closing."),
         takeaways([
             "One application, one approval and one closing, before construction begins.",
@@ -879,6 +981,7 @@ post(
             "The home is appraised from plans and specifications, as if it were complete.",
         ]),
         h("How does a one-time-close construction loan work?"),
+        answer("You qualify and close once before construction, the builder is paid in draws as work is inspected, and the loan converts to your permanent mortgage when the home is complete."),
         ol([
             "<strong>Plan the project.</strong> You, your builder and your loan officer agree on the budget, plans, lot and timeline.",
             "<strong>Approve the builder.</strong> The lender reviews the builder's experience, insurance, references and contract.",
@@ -888,11 +991,14 @@ post(
             "<strong>Convert.</strong> After the final inspection, the loan becomes your permanent mortgage.",
         ]),
         h("What do you pay during construction?"),
+        answer("During construction, payments are typically interest-only on the amount drawn so far; regular principal-and-interest payments begin when the loan converts."),
         p("Payments during the build are typically based on the amount that has been drawn so far, so they start small and grow as more of the home is built. CrossCountry Mortgage offers interest-only payments during the construction phase. Once the loan converts to a 15- or 30-year mortgage, regular principal-and-interest payments begin."),
         h("Which loan programs offer a one-time close?"),
+        answer("CrossCountry Mortgage offers one-time-close construction loans as conventional, FHA and VA loans, with FHA and VA limited to primary residences."),
         p("Through CrossCountry Mortgage, one-time-close construction loans are available as <strong>conventional</strong>, <strong>FHA</strong> and <strong>VA</strong> loans. FHA and VA versions are for a primary residence and carry each program's benefits and requirements. See <a href=\"/fha-vs-va-one-time-close-construction-loans/\">FHA vs. VA one-time-close construction loans</a>."),
         CONSTRUCTION_CTA,
         h("Who is a good fit for a one-time close?"),
+        answer("A one-time close fits buyers building a custom home who want permanent financing settled before construction and do not want to qualify or close twice."),
         ul([
             "Buyers building a custom home on their own lot or a lot they are buying",
             "Buyers who want certainty about their permanent financing before construction starts",
@@ -900,6 +1006,7 @@ post(
             "Buyers whose income might change during a long build, since they will not need to re-qualify at the end",
         ]),
         h("What can complicate a construction loan?"),
+        answer("Unrealistic budgets, builders unprepared for lender review, plan changes after closing and builds that run past the program's time limit are the most common complications."),
         p("The most common problems are an unrealistic budget, a builder who is not ready for lender review, plans that change after closing, and construction that runs past the program's time limit. A contingency in the budget, an experienced builder and early planning prevent most of them. Texas also has specific requirements for construction contracts and liens, especially on a homestead, which your lender and title company will handle."),
         p("Related: <a href=\"/one-time-close-vs-two-time-close-construction-loans/\">one-time close vs. two-time close</a>, <a href=\"/construction-loan-draws-budget-inspections/\">how construction draws work</a> and <a href=\"/loan-programs/construction-loans/\">construction loans with Joseph</a>."),
         faq([
@@ -918,6 +1025,7 @@ post(
     "One-Time Close vs. Two-Time Close Construction Loans",
     "feat-joseph-model-home-b.webp",
     body(
+        tldr("A one-time close means one approval and one closing for construction and your mortgage. A two-time close uses two loans and two closings, adding flexibility but also the risk of re-qualifying when the home is finished."),
         lead("A one-time close finances construction and your permanent mortgage in a single loan with one closing. A two-time close uses a short-term construction loan first, then a separate mortgage that pays it off when the home is finished. One-time closes offer more certainty and fewer closing costs; two-time closes offer more flexibility on the final mortgage, at the price of qualifying and closing twice."),
         takeaways([
             "One-time close: one approval, one closing, no re-qualifying at the end.",
@@ -927,6 +1035,7 @@ post(
             "The right choice depends on your timeline, your cash and how stable your income will be during the build.",
         ]),
         h("How do the two options compare?"),
+        answer("A one-time close has one approval and one closing; a two-time close has two of each, with more flexibility but the risk of re-qualifying at the end."),
         ul([
             "<strong>Closings:</strong> one-time close has one; two-time close has two.",
             "<strong>Qualifying:</strong> one-time close qualifies you once; two-time close requires qualifying again at completion.",
@@ -935,11 +1044,14 @@ post(
             "<strong>Risk:</strong> with two-time close, a job change, credit change or market shift during construction can affect your final loan.",
         ]),
         h("When does a one-time close make more sense?"),
+        answer("A one-time close makes more sense when you value certainty, expect a long build or have income that could change during construction."),
         p("If you value certainty, expect a build of several months or longer, or have income that could change, a one-time close removes the risk of re-qualifying at the end. It also means one set of closing costs and less paperwork."),
         CONSTRUCTION_CTA,
         h("When can a two-time close make sense?"),
+        answer("A two-time close can fit when you will sell another home during construction, your project does not fit a one-time program, or you want to shop permanent financing later."),
         p("A two-time close can fit when you expect to sell your current home during construction and put that money toward the final mortgage, when your project does not fit a one-time-close program, or when you want the freedom to choose different permanent financing later. Go in with a realistic plan for qualifying again."),
-        h("Questions to ask before you choose"),
+        h("What should you ask before choosing a construction loan structure?"),
+        answer("Ask how long the build will really take, whether your income will stay steady, when you will sell another home and how much cash you want in reserve."),
         ul([
             "How long will construction realistically take, including weather and inspections?",
             "Is my income likely to stay the same through the build?",
@@ -963,6 +1075,7 @@ post(
     "Building a Home on Land You Already Own | Joseph Bogdan",
     "feat-joseph-national-mall.webp",
     body(
+        tldr("If you already own your lot, its equity can often count toward the down payment on a construction-to-permanent loan. Lenders use the land's appraised value minus what you owe, and utilities, access and restrictions still matter."),
         lead("If you already own your lot, the equity in that land can often be applied toward the down payment on a construction-to-permanent loan. The lender uses the land's value, based on the appraisal, and subtracts anything you still owe on it. If you have a lot loan, the construction loan typically pays it off at closing. The rest of the process works like any construction loan: an approved builder, plans and a budget, an appraisal from plans and draws during the build."),
         takeaways([
             "Land equity can often count toward your down payment.",
@@ -972,8 +1085,10 @@ post(
             "Owning the land outright can reduce the cash you need at closing.",
         ]),
         h("How do lenders value land you already own?"),
+        answer("Lenders typically use the land's appraised value, minus anything you owe on it, and may consider how long you have owned it and what you paid."),
         p("The appraisal values the finished home on the lot, and the lot itself is part of that value. How the land's value is credited toward your down payment can depend on how long you have owned it and what you paid, so bring your purchase documents and any loan statements to your first conversation."),
         h("What should you check before you start?"),
+        answer("Check utilities, road access, the survey and flood zone, deed restrictions and HOA rules, and the property taxes that will apply once the home is built."),
         ul([
             "<strong>Utilities:</strong> water or well, sewer or septic, and electricity",
             "<strong>Access:</strong> legal road access to the lot",
@@ -983,6 +1098,7 @@ post(
         ]),
         CONSTRUCTION_CTA,
         h("What if the land is part of a larger tract?"),
+        answer("With acreage or multiple parcels, the lender may count only the land tied to the home site, and rural comparables shape the appraisal."),
         p("Acreage, multiple parcels or land with agricultural use adds steps. The lender may only count the portion of land tied to the home site, and the appraisal will consider comparable rural properties. Talk through these early so the plans and budget match what can be financed."),
         p("Related: <a href=\"/lot-and-land-loans-texas-what-to-know/\">lot and land loans in Texas</a> and <a href=\"/loan-programs/construction-loans/\">construction loans with Joseph</a>."),
         faq([
@@ -1001,6 +1117,7 @@ post(
     "Lot and Land Loans in Texas: What to Know First",
     "strategy.webp",
     body(
+        tldr("Lot and land loans finance land without a finished home, and lenders treat them as riskier than home loans. Improved lots with utilities and road access are easiest to finance; raw land is harder."),
         lead("A lot or land loan finances the purchase of land without a finished home on it. Lenders treat land as riskier than a home, so these loans usually require more money down and come with different terms than a standard mortgage. Improved residential lots with road access and utilities are generally the easiest to finance. Raw land without utilities or access is harder. Your plans for building, and how soon, also shape your options."),
         takeaways([
             "Improved lots are generally easier to finance than raw land.",
@@ -1010,8 +1127,10 @@ post(
             "Texas MUD and PID taxes can apply to land and change once a home is built.",
         ]),
         h("What is the difference between improved and raw land?"),
+        answer("Improved land has utilities and legal road access, often in a platted subdivision; raw land has neither, which makes it harder to finance."),
         p("An improved lot has utilities available and legal road access, often in a platted subdivision. Raw land may have none of those. Lenders can more easily value improved lots and see a clear path to a home being built, so they generally offer more options for them."),
         h("What do lenders check on a lot or land purchase?"),
+        answer("Lenders check the survey and access, utilities, flood zone, zoning and deed restrictions, property taxes and title issues such as easements or mineral reservations."),
         ul([
             "Survey, legal description and access",
             "Utilities: water or well, sewer or septic, electricity",
@@ -1022,6 +1141,7 @@ post(
         ]),
         CONSTRUCTION_CTA,
         h("Should you buy the lot first or finance it with the build?"),
+        answer("Buy the lot first if you are not ready to build; finance the lot and construction together if you will build soon and want one loan and one closing."),
         p("If you have found the land but are not ready to build, a lot loan secures it now and your equity can later go toward the construction loan. If you are ready to build within a short period, a construction-to-permanent loan that includes the lot purchase can mean one loan and one closing. Some buyers pay cash for the land and use its value toward the construction loan's down payment."),
         p("Related: <a href=\"/building-a-home-on-land-you-already-own/\">building on land you already own</a> and <a href=\"/loan-programs/lot-land-loans/\">lot and land loans with Joseph</a>."),
         faq([
@@ -1040,6 +1160,7 @@ post(
     "How Construction Loan Draws and Inspections Work",
     "feat-joseph-model-home-c.webp",
     body(
+        tldr("Construction loans pay the builder in stages, called draws, after an inspection confirms each stage of work. Lien waivers, a realistic budget and a contingency protect the buyer and keep the build moving."),
         lead("On a construction loan, the lender does not hand the builder the full loan amount up front. Funds are released in stages, called draws, as work is completed. Before each draw, an inspector confirms the work was done, and lien waivers or title updates confirm that subcontractors and suppliers are being paid. A clear budget, a realistic draw schedule and a contingency for surprises keep the build moving and protect you."),
         takeaways([
             "Construction funds are released in draws tied to completed work.",
@@ -1049,8 +1170,10 @@ post(
             "Changes after closing can affect the budget, the appraisal and the draw schedule.",
         ]),
         h("What is a draw schedule?"),
+        answer("A draw schedule lists the stages of construction and how much of the loan is released to the builder when each stage is complete."),
         p("The draw schedule is part of your loan and construction contract. It lists the stages of construction, such as foundation, framing, dry-in, mechanicals, drywall and completion, and how much will be released at each. The builder requests a draw when a stage is finished."),
         h("What happens at each draw?"),
+        answer("At each draw, the builder requests funds, an inspector confirms the work, lien waivers or title updates are checked, and the lender releases the money."),
         ol([
             "The builder requests a draw for completed work.",
             "An inspector visits the site and confirms the work is done.",
@@ -1059,6 +1182,7 @@ post(
         ]),
         CONSTRUCTION_CTA,
         h("How do you keep the build on budget?"),
+        answer("Finalize plans before closing, include a contingency, understand change-order pricing and keep extra cash in reserve for upgrades."),
         ul([
             "Finalize plans and selections before closing, not during construction",
             "Include a contingency in the budget for overruns and price changes",
@@ -1066,7 +1190,8 @@ post(
             "Keep extra cash in reserve for upgrades you may want later",
             "Respond quickly when the lender or title company asks you to sign off on a draw",
         ]),
-        h("Why Texas construction needs extra care"),
+        h("Why does Texas construction need extra care?"),
+        answer("Texas gives contractors and suppliers lien rights and has specific rules for homestead construction contracts, so documentation at each draw protects you from paying twice."),
         p("Texas law gives contractors and suppliers lien rights, and has specific requirements for construction contracts on homesteads. That is why lenders and title companies are careful about lien waivers and documentation at each draw. It protects you from paying twice for the same work."),
         p("Related: <a href=\"/one-time-close-construction-loans-explained/\">one-time-close construction loans explained</a>."),
         faq([
@@ -1085,6 +1210,7 @@ post(
     "What Lenders Look for When Approving Your Builder",
     "feat-joseph-model-home-a.webp",
     body(
+        tldr("Lenders must approve your builder before a construction loan closes. They review experience, insurance, references and the contract, plans and budget, so start the builder review as soon as you choose a builder."),
         lead("Before a construction loan closes, the lender reviews and approves your builder. The review typically covers the builder's experience building similar homes, insurance, references, financial stability and the construction contract, plans and budget. A builder who has worked with construction lenders before usually moves through quickly. Starting the review early keeps it from becoming the reason your closing is delayed."),
         takeaways([
             "The lender approves the builder, not just you.",
@@ -1094,6 +1220,7 @@ post(
             "Owner-builder projects are much harder to finance.",
         ]),
         h("What does builder approval include?"),
+        answer("Builder approval reviews experience with similar homes, insurance, references, business information and the contract, plans, specifications and budget."),
         ul([
             "Years in business and experience with homes like yours",
             "General liability and, where applicable, builder's risk insurance",
@@ -1101,7 +1228,8 @@ post(
             "Business information and, for some programs, financial documentation",
             "A signed construction contract, plans, specifications and a detailed budget",
         ]),
-        h("Questions to ask a builder before you sign"),
+        h("What should you ask a builder before you sign?"),
+        answer("Ask whether they have built with construction-to-permanent loans, how they price change orders, how realistic their timeline is and how they manage draws."),
         ul([
             "Have you built homes with construction-to-permanent financing before?",
             "How do you handle change orders and price increases?",
@@ -1110,7 +1238,8 @@ post(
             "Can I talk with a recent client who built a similar home?",
         ]),
         CONSTRUCTION_CTA,
-        h("How builders can make approval easy"),
+        h("How can builders make lender approval easy?"),
+        answer("Builders who keep an approval package ready, with insurance certificates, references, a sample contract and a detailed budget, help every client close faster."),
         p("Builders who keep an up-to-date package ready, with insurance certificates, references, a sample contract and a detailed budget format, help their clients close faster. Joseph works with builders to set that up once so every client after that moves smoothly."),
         p("Related: <a href=\"/one-time-close-construction-loans-explained/\">one-time-close construction loans</a> and <a href=\"/construction-loan-draws-budget-inspections/\">how draws work</a>."),
         faq([
@@ -1129,6 +1258,7 @@ post(
     "Forward Commitments Explained for Home Builders",
     "feat-joseph-model-home-b.webp",
     body(
+        tldr("A forward commitment lets a builder pay a fee to reserve mortgage money at a set rate for buyers who close within a window. It can lower payments for many buyers at once but risks paying for unused capacity."),
         lead("A forward commitment is an agreement in which a builder pays a fee to reserve a pool of mortgage money at a set interest rate for a period of time. Buyers who qualify and close within that window can use the committed rate. For builders with homes completing on a predictable schedule, it can lower payments for many buyers at once, often for less than buying down each loan individually."),
         takeaways([
             "The builder pays a fee to reserve a pool of loans at a set rate for a set period.",
@@ -1138,6 +1268,7 @@ post(
             "Costs may count toward each buyer's seller-concession limit, and rate advertising triggers disclosure rules.",
         ]),
         h("How does a forward commitment work?"),
+        answer("The builder estimates volume, agrees on the rate and window with the lender, pays a fee to reserve the pool, and qualifying buyers who close in time use the committed rate."),
         ol([
             "<strong>Estimate volume.</strong> How many homes will close in the window, and at what loan amounts?",
             "<strong>Set the terms.</strong> The rate, the window and the eligible loan programs are agreed with the lender.",
@@ -1145,12 +1276,15 @@ post(
             "<strong>Sell and close.</strong> Buyers who qualify and close in the window use the committed rate.",
             "<strong>Track usage.</strong> The lender and builder track how much of the pool has been used.",
         ]),
-        h("What are the risks?"),
+        h("What are the risks of a forward commitment?"),
+        answer("The main risk is paying for capacity you do not use if construction runs late or sales slow."),
         p("The main risk is paying for capacity you do not use. If construction runs late or sales slow, homes may miss the window. Ask what happens to unused amounts, whether the commitment can be extended and at what cost, and which buyers and programs are eligible."),
         FORWARD_CTA,
-        h("How does it compare with a buydown?"),
+        h("How does a forward commitment compare with a buydown?"),
+        answer("A buydown is bought for one buyer's loan; a forward commitment reserves a rate for many future loans, often stretching dollars further but requiring a volume forecast."),
         p("A buydown is purchased for one buyer's loan. A forward commitment reserves a rate for many future loans. Buydowns are flexible and paid only when a home sells; forward commitments can deliver a lower rate per dollar spent, but they require predicting volume. See <a href=\"/forward-commitment-vs-buydown-vs-price-cut/\">forward commitment vs. buydown vs. price cut</a>."),
-        h("Compliance to plan for"),
+        h("What compliance rules apply to forward commitments?"),
+        answer("Builder contributions may count toward concession limits, rate advertising triggers Truth in Lending disclosures, and buyers must remain free to choose their lender under RESPA."),
         ul([
             "Builder contributions may count toward seller-concession limits by loan type",
             "Advertising a rate or payment triggers Truth in Lending disclosure requirements",
@@ -1173,6 +1307,7 @@ post(
     "Forward Commitment vs. Buydown vs. Price Cut for Builders",
     "feat-joseph-model-home-c.webp",
     body(
+        tldr("Builders can spend incentive dollars on a forward commitment, a buyer-specific buydown or a price cut. Forward commitments stretch dollars with predictable closings, buydowns are most flexible, and price cuts can lower future appraisals."),
         lead("Builders have three main ways to spend incentive dollars on financing: a forward commitment that lowers the rate for many buyers at once, a buydown purchased for one buyer's loan, or a price cut. Forward commitments can stretch dollars furthest when you have predictable closings. Buydowns are the most flexible. Price cuts help buyers who need a lower loan amount, but they can lower your future comparable sales."),
         takeaways([
             "Forward commitment: lower rate for many buyers, but you must predict volume.",
@@ -1181,6 +1316,7 @@ post(
             "All three can be limited by seller-concession rules and must be advertised carefully.",
         ]),
         h("How do the three options compare?"),
+        answer("Forward commitments help many buyers at once but are paid up front; buydowns and price cuts are paid per sale, and price cuts can lower future appraisals."),
         ul([
             "<strong>Who benefits:</strong> forward commitment helps every eligible buyer in the window; buydowns and price cuts help one buyer at a time.",
             "<strong>When you pay:</strong> forward commitments are paid up front; buydowns and price cuts are paid at closing.",
@@ -1190,6 +1326,7 @@ post(
         ]),
         FORWARD_CTA,
         h("How should a builder choose?"),
+        answer("Choose based on your pipeline: forward commitments for predictable volume, buydowns for scattered closings, and price cuts for buyers limited by loan amount or cash."),
         p("Start with your pipeline. If many homes will complete in the same window and buyers are payment-sensitive, a forward commitment may deliver the most. If closings are scattered or uncertain, buyer-specific buydowns keep you flexible. If buyers are struggling to qualify on loan amount or cash, a price cut or closing-cost help may fit better. Many builders use a mix."),
         p("Related: <a href=\"/price-cut-or-rate-buydown-builder-incentives/\">price cut or rate buydown</a> and <a href=\"/forward-commitments-explained-for-builders/\">forward commitments explained</a>."),
         faq([
@@ -1208,6 +1345,7 @@ post(
     "Financing a New Community: What Developers Should Plan",
     "feat-joseph-national-mall.webp",
     body(
+        tldr("End-buyer financing shapes a new community's pricing, absorption and appraisals. Developers should plan loan programs, MUD and PID tax impact, incentives and their lot, home or rental strategy before phase one opens."),
         lead("How buyers will finance homes in a new community affects nearly every part of a development: who can afford the homes, how appraisals support pricing, how fast homes sell and how quickly capital comes back. Developers who plan end-buyer financing before phase one, including loan programs, tax impact, incentives and whether to sell lots, finished homes or hold rentals, avoid the most expensive surprises."),
         takeaways([
             "Match price points and product to the loan programs your expected buyers will use.",
@@ -1217,13 +1355,17 @@ post(
             "Budget incentives by phase, including options such as forward commitments.",
         ]),
         h("Which buyers will finance your homes?"),
+        answer("First-time, move-up, retiree and investor buyers use different loan programs, so knowing who your buyers are tells you which programs and price points matter."),
         p("First-time buyers, move-up buyers, retirees and investors use different loan programs with different limits and requirements. Knowing who your buyers are tells you which programs matter, what loan amounts fit and how sensitive buyers will be to rates and taxes."),
         h("Why do first-phase appraisals matter?"),
+        answer("Early homes have few nearby comparable sales, so first-phase pricing and concessions set the benchmark appraisers use for later phases."),
         p("Early homes in a community often have few comparable sales nearby. Appraisers may rely on sales from other communities, so pricing and concessions in the first phase set the benchmark for every phase that follows."),
         BUILDER_CTA,
         h("How do MUD and PID taxes affect buyers?"),
+        answer("MUD and PID taxes are part of the monthly payment, so they reduce what buyers qualify for and must be built into pricing and disclosure."),
         p("Special district taxes are part of the monthly payment and of what buyers qualify for. A community with significant MUD or PID taxes needs pricing and incentives that account for them, and buyers need clear disclosure early."),
-        h("Sell lots, sell homes or hold rentals?"),
+        h("Should developers sell lots, sell homes or hold rentals?"),
+        answer("Lot sales use lot or construction loans, finished homes use purchase financing, and rentals can use DSCR loans, so many developers plan a mix by phase."),
         ul([
             "<strong>Lot sales:</strong> buyers can use lot loans or construction-to-permanent loans with approved builders",
             "<strong>Finished homes:</strong> standard purchase financing, with incentives planned by phase",
@@ -1246,6 +1388,7 @@ post(
     "FHA vs. VA One-Time-Close Construction Loans",
     "feat-joseph-model-home-b.webp",
     body(
+        tldr("Yes, you can build a new home with an FHA or VA one-time-close construction loan. VA is for eligible veterans and service members with no monthly mortgage insurance; FHA offers flexible credit guidelines; both are for primary residences."),
         lead("Yes, you can build a new home with an FHA or VA loan. A one-time-close construction loan lets eligible buyers finance the lot, the construction and the permanent mortgage in a single FHA or VA loan with one closing. VA construction loans are for eligible veterans, service members and surviving spouses and carry no monthly mortgage insurance. FHA construction loans are open to any qualified buyer and offer more flexible credit guidelines. Both are for a home you will live in."),
         takeaways([
             "FHA and VA one-time-close loans finance the lot, construction and permanent mortgage together.",
@@ -1255,6 +1398,7 @@ post(
             "Your builder must meet program requirements; VA requires a builder with a VA builder ID.",
         ]),
         h("How do FHA and VA construction loans compare?"),
+        answer("VA has no monthly mortgage insurance but a funding fee and requires VA eligibility; FHA has mortgage insurance and county loan limits; both require you to live in the home."),
         ul([
             "<strong>Who qualifies:</strong> FHA is open to qualified buyers; VA requires VA eligibility, confirmed by a Certificate of Eligibility.",
             "<strong>Mortgage insurance:</strong> FHA has upfront and annual mortgage insurance; VA has no monthly mortgage insurance but a one-time funding fee, waived for some veterans.",
@@ -1262,7 +1406,8 @@ post(
             "<strong>Occupancy:</strong> both require that you live in the home.",
             "<strong>Builder:</strong> both require an eligible builder; VA requires a VA builder ID.",
         ]),
-        h("How does the process work?"),
+        h("How does the FHA or VA construction loan process work?"),
+        answer("Confirm eligibility, choose an eligible builder, appraise from plans, close once, build with draws and convert to a permanent FHA or VA mortgage."),
         ol([
             "Confirm eligibility (and, for VA, your Certificate of Eligibility).",
             "Choose an eligible builder and finalize plans, specifications and budget.",
@@ -1272,7 +1417,8 @@ post(
             "Convert to a permanent 15- or 30-year FHA or VA mortgage once the home is complete.",
         ]),
         CONSTRUCTION_CTA,
-        h("Which one should you choose?"),
+        h("Should you choose an FHA or VA construction loan?"),
+        answer("If you are VA-eligible, compare VA first for its benefits; otherwise FHA offers flexible guidelines, and conventional may fit stronger credit or non-primary homes."),
         p("If you are VA-eligible, a VA construction loan is often worth comparing first because of its benefits, but it is not automatically the best fit. Funding fees, entitlement, and your builder's eligibility all matter. If you are not VA-eligible, FHA offers a path to build with flexible guidelines, and a conventional one-time close may fit buyers with stronger credit or a home that will not be their primary residence. Joseph will compare all three for your situation."),
         p("Related: <a href=\"/loan-programs/fha-va-construction-loans/\">FHA and VA construction loans with Joseph</a> and <a href=\"/one-time-close-construction-loans-explained/\">one-time-close construction loans explained</a>."),
         faq([
